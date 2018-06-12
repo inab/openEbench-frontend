@@ -1,0 +1,24 @@
+<!-- <nav class="navbar navbar-light">
+	<a	class="nav-link" style="background-color: #e3f2fd;"
+		*ngFor="let link of navLinks"
+		[routerLink]="link.path"
+		routerLinkActive #rla="routerLinkActive">
+		{{link.label}}
+	</a>
+</nav> -->
+
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
+	<a [routerLink]="dashboardLink.path" class="navbar-brand" > <img src="../assets/img/" alt="OpEB"> </a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav ml-auto" >
+			<li *ngFor="let link of navLinks" class="nav-item">
+				<a [routerLink]="link.path" class="nav-link">{{link.label}}</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+

@@ -1,0 +1,197 @@
+<span *ngIf="tools;else loading">
+    <span *ngFor="let instance of tools">
+      <h4 class="text-center">{{instance.id | uppercase}}</h4>
+      
+      
+      <mat-tab-group>
+        <span *ngFor="let entity of instance.entities">
+          <mat-tab>
+            <ng-template mat-tab-label>
+                {{entity.type | uppercase}}
+               
+              </ng-template>
+              <ng-template matTabContent>
+                  Version:  
+                  <mat-form-field>
+                    <mat-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}">
+                        <mat-option  *ngFor = "let tool of entity.tools" [value]="tool">{{tool['@version']? tool['@version'] : 'N/A'}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="card-group">
+                      <div class="card border-light">
+                        <p>{{selectedValue['@id']}}</p>
+                        <p>{{selectedValue.description}}</p>
+                        <span *ngIf="selectedValue.contacts.length>0 ;else notavailable">
+                            <span *ngFor="let contact of selectedValue.contacts">
+                              <span *ngFor="let x of contact | keyValue">
+                                <p>{{x.key}} : {{x.value}}</p>
+                              </span>
+                            </span>
+                        </span>
+                        <span *ngIf = "selectedValue.os;else notavailable">
+                            <p> OS : <span *ngFor = "let os of selectedValue.os">{{os}} </span></p>
+                        </span>
+                      </div>
+                  </div>
+                    
+                    <!-- <p>You selected: {{tool['@id']}}</p> -->
+                    
+                  <!-- <span  *ngFor = "let tool of entity.tools" >
+                      <p>{{tool.name}}</p>
+                      <p>Version : {{tool['@version']}}</p>
+                      <mat-accordion >
+                          <mat-expansion-panel >
+                            <mat-expansion-panel-header> 
+                              <mat-panel-title>
+                                  <p>{{tool.name}}</p>
+                              </mat-panel-title>
+                              <mat-panel-description>
+                                  <p>Version : {{tool['@version']}}</p>
+                              </mat-panel-description>
+                              <mat-panel-description>
+                                <span *ngIf = "tool.os;else notavailable">
+                                <p> OS : <span *ngFor = "let os of tool.os">{{os}} </span></p>
+                                </span>
+                              </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <p>{{tool.homepage}}</p>
+                            <p>{{tool.cost}}</p>
+                            <p>Contacts :</p>
+                            <span *ngIf="tool.contacts.length>0 ;else notavailable">
+                              <span *ngFor="let contact of tool.contacts">
+                                <span *ngFor="let x of contact | keyValue">
+                                  <p>{{x.key}} : {{x.value}}</p>
+                                </span>
+                              </span>
+                            </span>
+                          </mat-expansion-panel>
+                      </mat-accordion>
+                  </span> -->
+                  
+                  
+              </ng-template>
+              
+          </mat-tab>
+        </span>
+      </mat-tab-group>  
+
+    </span>
+
+</span>
+<br>
+<br>
+
+
+<mat-accordion>
+    <mat-expansion-panel >
+
+        <mat-expansion-panel-header> 
+          <mat-panel-title>
+              <p>Widgets</p>
+          </mat-panel-title>
+          <mat-panel-description>
+              <p>Widgets By OpenEBench</p>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <!-- <mat-grid-list cols="2" rowHeight="2:1">
+            
+            <mat-grid-tile>
+                <mat-grid-tile-header>
+                    Bio conda
+                </mat-grid-tile-header>
+              <div data-id="aa" data-xaxis='false' data-h=200 data-url="bioconda:trimal:1.4.1/cmd/trimal.cgenomics.org" data-limit=5 class="opebuptime"></div>
+            </mat-grid-tile>
+            
+            <mat-grid-tile>
+                <mat-grid-tile-header>
+                    Bio.tools
+                </mat-grid-tile-header>
+              <div data-id="asa" data-xaxis='false' data-h=200 data-url="bio.tools:trimal:1.4/cmd/trimal.cgenomics.org" data-limit=5 class="opebuptime"></div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-grid-tile-header>
+                    OpEB Widget
+                </mat-grid-tile-header>
+              <div data-id="trimal" data-widget-type="widget" data-widget-subtypes="widget" data-widget-size="150" data-widget-tooltip-position="right" class="opeb"></div>
+            </mat-grid-tile>
+            
+
+          </mat-grid-list> -->
+      </mat-expansion-panel>
+</mat-accordion>
+
+
+
+<!-- <mat-accordion *ngFor="let number of [0,1]">
+    <mat-expansion-panel >
+
+        <mat-expansion-panel-header> 
+          <mat-panel-title>
+              <p>number</p>
+          </mat-panel-title>
+          <mat-panel-description>
+              <p>number</p>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile>
+                <mat-grid-tile-header>
+                    Bio conda
+                </mat-grid-tile-header>
+              <div data-id="a{{number}}" data-xaxis='true' data-h=200 data-url="bioconda:trimal:1.4.1/cmd/trimal.cgenomics.org" data-limit=5 class="opebuptime"></div>
+            </mat-grid-tile>
+            
+            <mat-grid-tile>
+                <mat-grid-tile-header>
+                    Bio.tools
+                </mat-grid-tile-header>
+              <div data-id="b{{number}}" data-xaxis='false' data-h=200 data-url="bio.tools:trimal:1.4/cmd/trimal.cgenomics.org" data-limit=5 class="opebuptime"></div>
+            </mat-grid-tile>
+          </mat-grid-list>
+      </mat-expansion-panel>
+</mat-accordion> -->
+
+<!-- <span *ngIf="tools;else loading">
+    <span *ngFor="let instance of tools">
+      <h3>{{instance.id | uppercase}}</h3>
+      <span *ngFor="let entity of instance.entities">
+        <p> {{entity.type | uppercase}}</p>
+        <span  *ngFor = "let tool of entity.tools"  >
+            <p>{{tool.homepage}}</p>
+            <p>{{tool.cost}}</p>
+            <p>Contacts :</p>
+            <span *ngIf="tool.contacts.length>0 ;else notavailable">
+              <span *ngFor="let contact of tool.contacts">
+                <span *ngFor="let x of contact | keyValue">
+                  <p>{{x.key}} : {{x.value}}</p>
+                </span>
+              </span>
+            </span>
+            <p>Uptime</p>
+            <div data-id="a{{tool['@version']}}asd" data-xaxis='true' data-url="bioconda:trimal:1.4.1/cmd/trimal.cgenomics.org" data-limit=10 class="opebuptime" ></div>
+            <br>
+            <br>
+        </span>
+      </span>
+    </span>
+  </span> -->
+
+
+<ng-template #loading>loading...</ng-template>
+<ng-template #notavailable> <p>N/A</p> </ng-template>
+
+
+
+<!-- <mat-form-field>
+  <mat-select  [(ngModel)]="selectedVersion" name="tool" value="{{entity.tools[0]['@version']}}">
+    <mat-option *ngFor = "let tool of entity.tools"  [value] = "tool"> 
+      {{tool['@version']?tool['@version']:'No version'}}  
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+<!-- <span *ngIf="selectedVersion">  
+  <p>{{selectedVersion['@version']}} </p>
+  <p>{{selectedVersion['@license']}} </p>
+</span> -->

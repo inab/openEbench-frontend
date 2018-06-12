@@ -1,0 +1,71 @@
+
+<span *ngIf='tools;else loading'>
+  <form [formGroup]="search" novalidate>
+    <mat-form-field>
+      <input matInput placeholder="Filter" value="{{filterValue!=null? filterValue : ''}}" type="text" formControlName='text'>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Search in " id="select" formControlName='filter'>     
+        <mat-option  *ngFor = "let option of options"
+        [value] = "option"> {{option}} 
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Type" formControlName="type" multiple>
+          <mat-option *ngFor="let type of typeList" [value]="type" aria-selected="true" >{{type | uppercase}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <button mat-raised-button type="submit" (click)='submitForm()' [disabled] = "!search.valid" >submit</button>      
+      <p>Form value: {{ search.value | json }}</p>
+      <p> Form status {{ search.status | json}} </p>
+  </form>
+
+
+  
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="tools">
+        <ng-container matColumnDef="id">  
+            <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+            <mat-cell *matCellDef="let tool"> 
+                <a routerLink="{{tool.id}}" name="{{tool.id}}">{{tool.id}}</a>  
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="desc">  
+            <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+            <mat-cell *matCellDef="let tool" class="table-fields"> 
+                <p class="table-desc">{{tool.entities[0].tools[0]['description']}}</p>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+            <mat-cell *matCellDef="let tool" class="table-fields">
+                
+                <p>
+                  <span   *ngFor="let entity of tool.entities">
+                    {{entity.type | uppercase}}
+                  </span>
+                </p>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="website">  
+            <mat-header-cell *matHeaderCellDef> Website </mat-header-cell>
+            <mat-cell *matCellDef="let tool" class="table-fields"> 
+                <a target="_blank" href="{{tool.entities[0].tools[0]['homepage']}}">Website</a>  
+            </mat-cell>
+        </ng-container>
+      <mat-header-row *matHeaderRowDef="['id','desc','type','website']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['id','desc','type','website'];"></mat-row>
+      
+    </mat-table>
+    <mat-paginator 
+      [length]=length
+      [pageIndex]=pageIndex
+      [pageSize]=pageSize
+      [pageSizeOptions]=[10,20]
+      (page)="changePage($event)">
+    </mat-paginator>
+  </div>
+
+</span>
+<ng-template #loading>loading...</ng-template>

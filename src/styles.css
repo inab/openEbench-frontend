@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+/* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
+/* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
+
+*{
+    font-family: 'Raleway', sans-serif;
+}
+.main-logo{
+    width: 50%;
+    align-self: center
+}
+.card-icon{
+    width:30%;
+    height: auto;
+    align-self: center;
+}
+
+.diagram{
+    width:100%;
+    height:auto;
+    align-content: center;
+}
+
+.main-search{
+    border:1px solid #e7e7e7e7;
+    height: 60px;
+    width: 80%;
+    padding-left: 15px;
+
+}
+
+.main-search-div{
+    padding: 1vh 0 1vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-submit{
+    background-color: #FFFFFF;
+    border: solid 1px #EF7500;
+    padding: 15px 32px;
+    text-align: center;
+    width: 20%;
+    height: 60px;
+    cursor: not-allowed;
+}
+
+.main-submit:enabled{
+    cursor: pointer;
+    color: #EF7500;
+}
+
+.border-light{
+    border-color: white !important;
+}
+
+
+.table-desc{
+    padding-left: 0rem !important;
+}
+
+.table-fields{
+    padding:1rem!important;
+    text-align: justify;    
+}
+
+
+
+/*all external links */
+/* a[href^="https://"],a[href^="http://"] {
+    background: url(../../img/external-link.svg) center right no-repeat;
+    height: 1px;
+    width: auto;
+    padding-right: 13px;
+} */

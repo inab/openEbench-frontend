@@ -1,0 +1,60 @@
+<div>
+  <div class="card-group">
+      <div class="card border-light">
+          <img class="main-logo" src="../assets/img/opeb_logo.gif" alt="Card image cap">
+      </div>
+  </div>
+  <form  [formGroup]="search" class="main-search-div" >
+      <input class="main-search"  placeholder="Search ..." value="" type="text" formControlName='text'>
+      <button class="main-submit"type="submit" (click)='submitForm()' [disabled] = "!search.valid" >Go!</button>
+  </form>
+  <!-- <p>Form value: {{ search.value | json }}</p>
+  <p> Form status {{ search.status | json}} </p> -->
+  <div class="card-group">
+      <div class="card border-light">
+        <div class="card-body">
+          <h5 class="card-title text-center">Technical Monitoring</h5>
+          
+        </div>
+        <a routerLink='/tool' class="card-icon">
+          <img class="card-img-top" src="../assets/img/technical_monitoring.svg" alt="Card image cap">
+        </a>
+      </div>
+      <div class="card border-light">
+        <div class="card-body">
+          <h5 class="card-title text-center">Scientific Benchmark</h5>
+          
+        </div>
+        <a routerLink='/sci' class="card-icon">
+          <img class="card-img-top" src="../assets/img/scientific_benchmarking.svg" alt="Card image cap">
+        </a>
+      </div>
+  </div>
+
+  <hr>
+
+  <h3 class="text-center">What is OpenEBench ?</h3>
+  <p>
+      OpenEBench is an infra-structure designed to establish a continuous automated benchmarking system for bioinformatics methods, tools and web services. It is being developed so as to cater for the needs of the bioinformatics community, especially software developers who need an objective and quantitative way to inform their decisions as well as the larger community of end-users, in their search for unbiased and up-to-date evaluation of bioinformatics methods.
+  </p>
+
+  <div>
+      <img class="diagram" src="../assets/img/dashboard_diagram.svg" alt="Diagram">
+  </div>
+
+
+  <hr>
+
+    <p class="text-center"><b>The goals of OpenEBench are to:</b></p>
+    <p>Provide guidance and software infrastructure for Benchmarking and Techincal monitoring of bioinformatics tools.</p>
+    <p>Engage with existing benchmark initiatives making different communities aware of the platform.</p>
+    <p>Maintain a data warehouse infrastructure to keep record of Benchmarking initiatives.</p>
+    <p>Expose benchmarking and technical monitoring results to Elixir Tools registry.</p>
+    <p>Establish and refine communication protocols with communities and/or infrastructure projects willing to have a unified benchmark infrastructure Coordinate with Elixir.</p>
+    <p>Interoperability Platform to keep FAIR data principles on Benchmarking data warehouse.</p>
+
+  <hr>
+
+    <p class="text-center"><b>The white paper for this project is available </b><a target="_blank"  href="https://www.biorxiv.org/content/early/2017/08/31/181677">here</a></p>
+
+</div>
