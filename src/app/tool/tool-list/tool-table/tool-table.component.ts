@@ -78,7 +78,7 @@ export class ToolTableComponent implements OnInit {
   private initializeForm() {
     this.options = ['Name & Description', 'Name', 'Description'];
     this.search = new FormGroup (this.filter = {
-      text: new FormControl(),
+      text: new FormControl(this.filterValue),
       filter: new FormControl(this.options[0]),
       type: new FormControl(),
     });
@@ -100,7 +100,6 @@ export class ToolTableComponent implements OnInit {
     // console.log('limit', ( event.pageIndex * event.pageSize) + event.pageSize);
     this.skip = event.pageIndex * event.pageSize;
     this.limit = (event.pageIndex * event.pageSize) + event.pageSize;
-    console.log(this.skip,this.limit)
     this.getTools();
   }
 

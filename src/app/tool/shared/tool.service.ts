@@ -35,7 +35,7 @@ export class ToolService {
 
   getToolWithFilters(filter: Filter, skip: number, limit: number) {
     const headers = new HttpHeaders().set('Range' , 'items=' + skip + '-' + limit);
-    let params = new HttpParams().set('projection', 'name').append('projection', 'description').append('projection' , 'homepage');
+    let params = new HttpParams().set('projection', 'description').append('projection' , 'homepage');
     if ( filter.type != null) {
       for ( const x of filter.type) {
         params = params.append('type', x);
