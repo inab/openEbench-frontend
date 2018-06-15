@@ -68,11 +68,11 @@ export class ToolTableComponent implements OnInit {
       .subscribe(res => {
           this.length = res.headers.get('Content-Range').split('/')[1];
           this.tools = res.body;
-          console.log(this.tools);
         }
     );
     this.pageIndex = 0;
     this.pageSize = 10;
+
   }
 
   private initializeForm() {
@@ -91,6 +91,9 @@ export class ToolTableComponent implements OnInit {
       type: this.search.value.type,
     };
     this.router.navigate([], {queryParams: {search: this.filter.text}, queryParamsHandling: 'merge'});
+    if (this.paginator) {
+      this.paginator.firstPage();
+    }
     this.getTools();
   }
 

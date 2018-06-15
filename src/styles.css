@@ -61,14 +61,34 @@
 
 
 .table-desc{
-    padding-left: 0rem !important;
+    text-align: justify; 
 }
 
 .table-fields{
-    padding:1rem!important;
-    text-align: justify;    
+    padding:1rem!important;      
 }
 
+nav{
+    /* margin-left: 0% !important; */
+    padding-left: 0%  !important;
+    padding-right: 0% !important;
+}
+.metrics-true{
+    color:green;
+    font-size: 14px;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 1px 3px 1px 3px;
+    margin-left: 5px;
+}
+.metrics-false{
+    color:red;
+    font-size: 14px;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 1px 3px 1px 3px;
+    margin-left: 5px;
+}
 
 
 /*all external links */

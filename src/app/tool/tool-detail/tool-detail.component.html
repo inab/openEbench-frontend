@@ -3,7 +3,7 @@
       <h4 class="text-center">{{instance.id | uppercase}}</h4>
       
       
-      <mat-tab-group>
+      <mat-tab-group (selectedTabChange)="onTabChange($event)" >
         <span *ngFor="let entity of instance.entities">
           <mat-tab>
             <ng-template mat-tab-label>
@@ -11,17 +11,18 @@
                
               </ng-template>
               <ng-template matTabContent>
-                  Version:  
+                  
+                  <b> Version: </b>
                   <mat-form-field>
-                    <mat-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}">
+                    <mat-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}" (selectionChange)="onVersionChange($event)">
                         <mat-option  *ngFor = "let tool of entity.tools" [value]="tool">{{tool['@version']? tool['@version'] : 'N/A'}}</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <div class="card-group">
                       <div class="card border-light">
-                        <p>{{selectedValue['@id']}}</p>
-                        <p>{{selectedValue.description}}</p>
-                        <span *ngIf="selectedValue.contacts.length>0 ;else notavailable">
+                        
+                        <p><b> description: </b>{{selectedValue.description}}</p>
+                        <!-- <span *ngIf="selectedValue.contacts.length>0 ;else notavailable">
                             <span *ngFor="let contact of selectedValue.contacts">
                               <span *ngFor="let x of contact | keyValue">
                                 <p>{{x.key}} : {{x.value}}</p>
@@ -30,47 +31,24 @@
                         </span>
                         <span *ngIf = "selectedValue.os;else notavailable">
                             <p> OS : <span *ngFor = "let os of selectedValue.os">{{os}} </span></p>
-                        </span>
+                        </span> -->
                       </div>
                   </div>
+                  <div  class="card-group" *ngIf="metrics">
+                    <div  class="card border-light">
+                      <p><b>Accessibility : </b>
+                        <span ngClass="{{metrics.project.website?.bioschemas? 'metrics-true' : 'metrics-false'}}">Bioschema</span>
+                        <span ngClass="{{metrics.project.website?.ssl? 'metrics-true' : 'metrics-false'}}">SSL</span>
                     
-                    <!-- <p>You selected: {{tool['@id']}}</p> -->
-                    
-                  <!-- <span  *ngFor = "let tool of entity.tools" >
-                      <p>{{tool.name}}</p>
-                      <p>Version : {{tool['@version']}}</p>
-                      <mat-accordion >
-                          <mat-expansion-panel >
-                            <mat-expansion-panel-header> 
-                              <mat-panel-title>
-                                  <p>{{tool.name}}</p>
-                              </mat-panel-title>
-                              <mat-panel-description>
-                                  <p>Version : {{tool['@version']}}</p>
-                              </mat-panel-description>
-                              <mat-panel-description>
-                                <span *ngIf = "tool.os;else notavailable">
-                                <p> OS : <span *ngFor = "let os of tool.os">{{os}} </span></p>
-                                </span>
-                              </mat-panel-description>
-                            </mat-expansion-panel-header>
-                            <p>{{tool.homepage}}</p>
-                            <p>{{tool.cost}}</p>
-                            <p>Contacts :</p>
-                            <span *ngIf="tool.contacts.length>0 ;else notavailable">
-                              <span *ngFor="let contact of tool.contacts">
-                                <span *ngFor="let x of contact | keyValue">
-                                  <p>{{x.key}} : {{x.value}}</p>
-                                </span>
-                              </span>
-                            </span>
-                          </mat-expansion-panel>
-                      </mat-accordion>
-                  </span> -->
-                  
-                  
-              </ng-template>
-              
+                        <p><b>License : </b>
+                          <span ngClass="{{metrics.project.license?.open_source? 'metrics-true' : 'metrics-false'}}">Open Source</span>
+                          <span ngClass="{{metrics.project.license?.osi? 'metrics-true' : 'metrics-false'}}">OSI</span>
+                    </div>
+                  </div>
+                  <a href="{{selectedValue['@id']}}">{{selectedValue['@id']}}</a>
+                  <br>
+                  <a href="{{selectedValue['metrics']}}">{{selectedValue['metrics']}}</a>                                    
+              </ng-template>              
           </mat-tab>
         </span>
       </mat-tab-group>  

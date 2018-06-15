@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
 
 @Component({
     selector: 'app-top-menu',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   private dashboardLink = {
     label: 'Dashboard',
@@ -30,6 +32,10 @@ export class TopMenuComponent implements OnInit {
   ];
 
   ngOnInit() {
+  }
+
+  getPath() {
+    return this.location.isCurrentPathEqualTo(this.dashboardLink.path);
   }
 
 }

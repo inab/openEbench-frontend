@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { Filter } from '../shared/filter';
 import { Tool } from '../shared/tool';
+import { Metrics } from '../shared/metrics';
 import { ToolService } from '../shared/tool.service';
 import uptime from '../../../../../../Widget-Template/build/build.js';
 import OpEB from '../../../../../../openEBench-widgets/dev/OpEB-widgets.js';
@@ -23,7 +24,8 @@ export class ToolDetailComponent  {
   id: string;
   instance: string;
   version: string;
-  selectedValue: Tool;
+  selectedValue: any;
+  metrics: Metrics[];
 
 
   constructor(
@@ -47,12 +49,33 @@ export class ToolDetailComponent  {
 
   private getToolById(): void {
     this.id = this.getParam('id');
-
     this.toolService.getToolById(this.id).subscribe(tools => {
         this.tools = tools;
-        console.log(tools);
-        this.selectedValue = tools[0].entities[0].tools[0];
+        this.selectInitialValue(0);
+        this.getMetrics();
       });
+  }
+
+  private getMetrics() {
+    this.selectedValue['metrics'] = this.selectedValue['@id'].replace('/tool/', '/metrics/');
+    this.toolService.getToolMetricsById(this.selectedValue.metrics).subscribe(res => {
+      this.metrics = res;
+    });
+
+  }
+
+  private selectInitialValue(i) {
+    this.selectedValue = this.tools[0].entities[i].tools[0];
+    this.getMetrics();
+  }
+
+  private onTabChange(e) {
+    this.selectInitialValue(e.index);
+  }
+
+  private onVersionChange(e) {
+    this.metrics = null;
+    this.getMetrics();
   }
 
 

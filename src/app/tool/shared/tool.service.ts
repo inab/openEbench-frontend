@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
 import { Tool } from './tool';
+import { Metrics } from './metrics';
 
 import { Filter } from './filter';
 
@@ -12,6 +13,7 @@ import { Filter } from './filter';
 export class ToolService {
 
   public tool: Observable<Tool[]>;
+  public metrics: Observable<any[]>;
   public res;
 
 
@@ -28,8 +30,17 @@ export class ToolService {
         .set('id', id)
     });
     return this.tool
+
     .pipe(
       catchError(this.handleError('getToolById', []))
+    );
+  }
+
+  getToolMetricsById(url: string): Observable<Metrics[]> {
+  this.metrics = this.http.get<Metrics[]>(url);
+  return this.metrics
+    .pipe(
+      catchError(this.handleError('getToolMetricsById', []))
     );
   }
 
