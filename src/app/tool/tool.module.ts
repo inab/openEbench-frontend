@@ -13,6 +13,7 @@ import { KeyValuePipe } from './shared/pipes/key-value.pipe';
 
 
 import { ToolTableComponent } from './tool-list/tool-table/tool-table.component';
+import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
 
 
 
@@ -25,6 +26,7 @@ import { ToolTableComponent } from './tool-list/tool-table/tool-table.component'
     ToolTableComponent,
     routingComponents,
     KeyValuePipe,
+    ChartIdPipe,
   ],
   imports: [
     HttpClientModule,

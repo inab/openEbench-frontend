@@ -7,8 +7,13 @@ import { Filter } from '../shared/filter';
 import { Tool } from '../shared/tool';
 import { Metrics } from '../shared/metrics';
 import { ToolService } from '../shared/tool.service';
-import uptime from '../../../../../../Widget-Template/build/build.js';
-import OpEB from '../../../../../../openEBench-widgets/dev/OpEB-widgets.js';
+import uptime from '../shared/uptime.js';
+import citation from '../shared/citation.js';
+// import uptime from '../../../../../../Widget-Template/build/build.js';
+// import OpEB from '../../../../../../openEBench-widgets/dev/OpEB-widgets.js';
+// <script src="https://rawgit.com/vsundesha/Widget-Template/master/build/build.js"></script>
+//     <script src="https://rawgit.com/vsundesha/citations-widget/master/build/build.js"></script>
+
 
 
 
@@ -17,7 +22,7 @@ import OpEB from '../../../../../../openEBench-widgets/dev/OpEB-widgets.js';
   templateUrl: './tool-detail.component.html',
   styleUrls: ['./tool-detail.component.css']
 })
-export class ToolDetailComponent  {
+export class ToolDetailComponent implements OnInit {
   panelOpenState = true;
   tools: Tool[];
   filter: Filter;
@@ -34,10 +39,9 @@ export class ToolDetailComponent  {
     private router: Router,
   ) { }
 
-  // tslint:disable-next-line:use-life-cycle-interface
-  public ngAfterViewInit(): void  {
-    OpEB.OpEB_widgets.OpEB.apply();
-    uptime.loadChart();
+  ngOnInit() {
+    // setTimeout(() => {
+    // }, 200);
     this.getToolById();
     // this.instance = this.getParam('instance');
     // this.version = this.getParam('version');
@@ -52,7 +56,7 @@ export class ToolDetailComponent  {
     this.toolService.getToolById(this.id).subscribe(tools => {
         this.tools = tools;
         this.selectInitialValue(0);
-        this.getMetrics();
+        // this.getMetrics();
       });
   }
 
@@ -60,10 +64,16 @@ export class ToolDetailComponent  {
     this.selectedValue['metrics'] = this.selectedValue['@id'].replace('/tool/', '/metrics/');
     this.toolService.getToolMetricsById(this.selectedValue.metrics).subscribe(res => {
       this.metrics = res;
+      setTimeout(() => {
+        this.loadCharts();
+      }, 500);
     });
-
   }
 
+  private loadCharts() {
+    citation.loadCitationChart();
+    uptime.loadChart();
+  }
   private selectInitialValue(i) {
     this.selectedValue = this.tools[0].entities[i].tools[0];
     this.getMetrics();
