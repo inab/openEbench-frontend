@@ -98,3 +98,7 @@ nav{
     width: auto;
     padding-right: 13px;
 } */
+.citationChartErrorMessage{
+    color:red;
+    font-size: 20px;
+}

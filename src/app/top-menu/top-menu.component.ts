@@ -11,12 +11,12 @@ export class TopMenuComponent implements OnInit {
 
   constructor(private location: Location) { }
 
-  private dashboardLink = {
+  public dashboardLink = {
     label: 'Dashboard',
     path: '/dashboard'
   };
 
-  private navLinks = [
+  public navLinks = [
     {
       label: 'Scientific Benchmarking',
       path: '/sci'
@@ -24,6 +24,10 @@ export class TopMenuComponent implements OnInit {
     {
       label: 'Technical Monitoring',
       path: '/tool'
+    },
+    {
+      label: 'Statistics',
+      path: '/stats'
     },
     {
       label: 'About',

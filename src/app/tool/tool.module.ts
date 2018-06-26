@@ -14,6 +14,9 @@ import { KeyValuePipe } from './shared/pipes/key-value.pipe';
 
 import { ToolTableComponent } from './tool-list/tool-table/tool-table.component';
 import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
+import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
+import { OnIterationDirective } from './on-iteration.directive';
+
 
 
 
@@ -27,6 +30,8 @@ import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
     routingComponents,
     KeyValuePipe,
     ChartIdPipe,
+    SafeHtmlPipe,
+    OnIterationDirective
   ],
   imports: [
     HttpClientModule,

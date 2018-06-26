@@ -1,10 +1,10 @@
 <span *ngIf="tools;else loading">
     <span *ngFor="let instance of tools">
-      <h4 class="text-center">{{instance.id | uppercase}}</h4>
-      <p class="text-center"><small><a href="{{selectedValue['homepage']}}">{{selectedValue['homepage']}}</a></small></p>            
+      <h4 class="text-center">{{instance?.id | uppercase}}</h4>
+      <p class="text-center"><small><a href="{{selectedValue['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>            
       <mat-tab-group (selectedTabChange)="onTabChange($event)" >
         <span *ngFor="let entity of instance.entities">
-          <mat-tab>
+          <mat-tab  *ngIf="entity.type!=null">
             <ng-template mat-tab-label>
                 {{entity.type | uppercase}}
                
@@ -45,23 +45,25 @@
                     </div>
                   </div>
 
-
-                  <div  class="card-group" *ngIf="metrics">
+                  <div class="card-group">
                     <div  class="card border-light">
                       <h5 class="text-center card-title">Uptime / Accesstime</h5>
                       <small class="text-center card-subtitle mb-2 text-muted">Displays if the service is currently available</small>
-                      <div data-id="uptime" data-xaxis='true' attr.data-url="{{selectedValue['@id'] | chartId}}" data-limit=15 class="opebuptime"></div>                      
+                      <div data-id="uptime" data-xaxis='true' attr.data-url="{{selectedValue['@id'] | chartId}}" data-limit=15 class="opebuptime">
+                      </div>
                     </div>
                   </div>
                   <br>
                   <br>
-                  <div  class="card-group" *ngIf="metrics">
+                  <div  class="card-group">
                     <div  class="card border-light">
                       <h5 class="text-center card-title">Publications</h5>
                       <small class="text-center card-subtitle mb-2 text-muted">Amout of citations each of the publications</small>
-                      <div data-id="citation" data-h="400" data-legend="true" attr.data-url="{{selectedValue['@id'] | chartId}}" class="opebcitations" ></div>                                            
+                      <div data-id="citation" data-h="400" data-legend="true" attr.data-url="{{selectedValue['@id'] | chartId}}" class="opebcitations">
+                      </div>
                     </div>
                   </div>
+                  
 
 
 

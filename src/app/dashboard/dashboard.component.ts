@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   private singleTextField: SingleTextField;
-  private search: FormGroup;
+  public search: FormGroup;
 
   constructor(private router: Router) { }
 
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/tool'], { queryParams: {search: term}, queryParamsHandling: '' });
   }
 
-  private submitForm() {
+  public submitForm() {
     this.singleTextField = {
       text: this.search.value.text,
     };

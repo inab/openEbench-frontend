@@ -8,7 +8,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Filter } from '../../shared/filter';
 import { Stats } from '../../shared/stats';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { Metrics } from '../../shared/metrics';
+import { Directive, Output, EventEmitter, SimpleChange } from '@angular/core';
 
 
 
@@ -24,7 +25,8 @@ export class ToolTableComponent implements OnInit {
   private filter: Filter;
   private filterValue: string;
   private search: FormGroup;
-  private tools: Tool[];
+  public tools: Tool[];
+  public metrics: Metrics[];
   private skip: number;
   private limit: number;
   private stats: any;
@@ -52,8 +54,8 @@ export class ToolTableComponent implements OnInit {
     this.skip = 0;
     this.limit = 10;
 
-    this.getTools();
     this.initializeForm();
+    // this.submitForm();
   }
   private getStats() {
    this.toolService.getStats().subscribe(tmpStats => this.stats = tmpStats);
@@ -68,6 +70,7 @@ export class ToolTableComponent implements OnInit {
       .subscribe(res => {
           this.length = res.headers.get('Content-Range').split('/')[1];
           this.tools = res.body;
+          console.log(this.tools);
         }
     );
     this.pageIndex = 0;
@@ -82,6 +85,7 @@ export class ToolTableComponent implements OnInit {
       filter: new FormControl(this.options[0]),
       type: new FormControl(),
     });
+    this.submitForm();
   }
 
   private submitForm() {
@@ -104,6 +108,14 @@ export class ToolTableComponent implements OnInit {
     this.skip = event.pageIndex * event.pageSize;
     this.limit = (event.pageIndex * event.pageSize) + event.pageSize;
     this.getTools();
+  }
+
+  public getMetricsForTool(id) {
+    const url = id.replace('/tool/', '/metrics/');
+    console.log(url);
+    // this.toolService.getToolMetricsById(id).subscribe(res => {
+    //   this.metrics = res;
+    // });
   }
 
 }

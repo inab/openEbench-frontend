@@ -1,0 +1,11 @@
+<!-- <p>
+  statistics works!
+  
+</p> -->
+<div class='row' *ngIf='statistics; else loading'>
+  <div id="toolspublications"></div>
+  <div id="toolsbioschemas"></div>
+  <div id="toolsopensource"></div>
+</div>
+
+<ng-template #loading>loading...</ng-template>

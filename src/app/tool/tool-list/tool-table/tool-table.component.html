@@ -35,7 +35,8 @@
                 <p class="table-desc"><span>{{tool.entities[0].tools[0]['description']}}</span></p>
 
                 <p><span   *ngFor="let entity of tool.entities"> {{entity.type | uppercase}}</span></p>
-                <p><a target="_blank" href="{{tool.entities[0].tools[0]['homepage']}}">Website</a></p>
+                <p><a target="_blank" href="{{tool.entities[0].tools[0]['web']['homepage']}}">Website</a></p>
+                <p appOnIteration="getMetricsForTool(tool.id)"></p>
               </div>
             </mat-cell>
         </ng-container>

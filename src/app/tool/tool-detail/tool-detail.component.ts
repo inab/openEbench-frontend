@@ -31,6 +31,7 @@ export class ToolDetailComponent implements OnInit {
   version: string;
   selectedValue: any;
   metrics: Metrics[];
+  charts: string;
 
 
   constructor(
@@ -55,7 +56,8 @@ export class ToolDetailComponent implements OnInit {
     this.id = this.getParam('id');
     this.toolService.getToolById(this.id).subscribe(tools => {
         this.tools = tools;
-        this.selectInitialValue(0);
+        console.log(this.tools);
+        this.selectInitialValue(1);
         // this.getMetrics();
       });
   }
@@ -80,7 +82,7 @@ export class ToolDetailComponent implements OnInit {
   }
 
   private onTabChange(e) {
-    this.selectInitialValue(e.index);
+    this.selectInitialValue(e.index + 1);
   }
 
   private onVersionChange(e) {

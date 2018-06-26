@@ -7,13 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+import { StatisticsService } from './shared/statistics.service';
 
 import { AppComponent } from './app.component';
 import { ToolModule } from './tool/tool.module';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 
@@ -28,6 +29,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     routingComponents,
     FooterComponent,
     PageNotFoundComponent,
+    StatisticsComponent,
 
   ],
   imports: [
@@ -41,7 +43,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [StatisticsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
