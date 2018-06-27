@@ -56,9 +56,8 @@ export class ToolDetailComponent implements OnInit {
     this.id = this.getParam('id');
     this.toolService.getToolById(this.id).subscribe(tools => {
         this.tools = tools;
-        console.log(this.tools);
         this.selectInitialValue(1);
-        // this.getMetrics();
+
       });
   }
 

@@ -12,27 +12,22 @@ import { Statistics } from '../shared/statistics';
 export class StatisticsComponent implements OnInit {
 
   private data: any;
+
   public statistics = new Statistics;
+
+
   constructor(
     private statsService: StatisticsService,
   ) { }
 
   ngOnInit() {
-  //   const chart = c3.generate({
-  //     bindto: '#toolspublications',
-  //         data: {
-  //             columns: [
-  //                 ['data1', 30, 200, 100, 400, 150, 250],
-  //                 ['data2', 50, 20, 10, 40, 15, 25]
-  //             ]
-  //         }
-  //     });
   this.fetchdata();
   }
+
   private fetchdata() {
     this.statsService.getStats().subscribe(data => {
       this.data = data;
-      console.log(this.data);
+    //   console.log(this.data);
       this.statistics.tools = this.data['/@timestamp/'];
       this.statistics.publications  = this.data['/project/publications/'];
       this.statistics.bioschemas = this.data['/project/website/bioschemas/'];
@@ -43,6 +38,7 @@ export class StatisticsComponent implements OnInit {
 
   private generateChart(data) {
     c3.generate({
+        /* tslint:disable */
         // title: {
         //     text : '% of tools with Publications'
         // },
@@ -69,6 +65,7 @@ export class StatisticsComponent implements OnInit {
         bindto: '#toolsopensource',
     });
   c3.generate({
+       
         // title: {
         //     text : '% of tools with open sorce license'
         // },

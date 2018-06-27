@@ -1,7 +1,7 @@
 <span *ngIf="tools;else loading">
     <span *ngFor="let instance of tools">
       <h4 class="text-center">{{instance?.id | uppercase}}</h4>
-      <p class="text-center"><small><a href="{{selectedValue['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>            
+      <p class="text-center"><small><a href="{{selectedValue['web']['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>            
       <mat-tab-group (selectedTabChange)="onTabChange($event)" >
         <span *ngFor="let entity of instance.entities">
           <mat-tab  *ngIf="entity.type!=null">
@@ -42,10 +42,17 @@
                       <p><b>License : </b>
                         <span ngClass="{{metrics.project.license?.open_source? 'metrics-true' : 'metrics-false'}}">Open Source</span>
                         <span ngClass="{{metrics.project.license?.osi? 'metrics-true' : 'metrics-false'}}">OSI</span>
+                      <!-- <p><b>Accessibility : </b>
+                        <span ngClass="{{metrics.project.website?.bioschemas? 'metrics-true1' : 'metrics-false1'}}">Bioschema</span>
+                        <span ngClass="{{metrics.project.website?.ssl? 'metrics-true1' : 'metrics-false1'}}">SSL</span>
+                      <p><b>Accessibility : </b>
+                        <span ngClass="{{metrics.project.website?.bioschemas? 'metrics-true2' : 'metrics-false2'}}">Bioschema</span>
+                        <span ngClass="{{metrics.project.website?.ssl? 'metrics-true2' : 'metrics-false2'}}">SSL</span> -->
                     </div>
                   </div>
+                  
 
-                  <div class="card-group">
+                  <div class="card-group" *ngIf="metrics">
                     <div  class="card border-light">
                       <h5 class="text-center card-title">Uptime / Accesstime</h5>
                       <small class="text-center card-subtitle mb-2 text-muted">Displays if the service is currently available</small>
@@ -55,10 +62,18 @@
                   </div>
                   <br>
                   <br>
-                  <div  class="card-group">
+                  <div  class="card-group" *ngIf="metrics">
                     <div  class="card border-light">
                       <h5 class="text-center card-title">Publications</h5>
-                      <small class="text-center card-subtitle mb-2 text-muted">Amout of citations each of the publications</small>
+                      <small class="text-center card-subtitle mb-2 text-muted">Amout of citations for each of the publications</small>
+                      
+                      
+                      <span *ngIf="metrics.project.publications">
+                        <div *ngIf="metrics.project.publications.length<=0">
+                          <p class="text-center">No publications found for this version</p>
+                        </div>
+                      </span>
+
                       <div data-id="citation" data-h="400" data-legend="true" attr.data-url="{{selectedValue['@id'] | chartId}}" class="opebcitations">
                       </div>
                     </div>
