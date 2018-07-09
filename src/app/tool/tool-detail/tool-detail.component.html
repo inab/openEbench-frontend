@@ -1,7 +1,9 @@
 <span *ngIf="tools;else loading">
+  <span *ngIf="tools.length!=0; else toolNotFound">
     <span *ngFor="let instance of tools">
       <h4 class="text-center">{{instance?.id | uppercase}}</h4>
-      <p class="text-center"><small><a href="{{selectedValue['web']['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>            
+      <p class="text-center"><small><a href="{{selectedValue['web']['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>
+      <p class="text-center"> <span ngClass="{{source}}-badge badge" *ngFor="let source of sources">{{source}}</span></p>
       <mat-tab-group (selectedTabChange)="onTabChange($event)" >
         <span *ngFor="let entity of instance.entities">
           <mat-tab  *ngIf="entity.type!=null">
@@ -51,7 +53,7 @@
                     </div>
                   </div>
                   
-
+                  
                   <div class="card-group" *ngIf="metrics">
                     <div  class="card border-light">
                       <h5 class="text-center card-title">Uptime / Accesstime</h5>
@@ -91,10 +93,11 @@
       </mat-tab-group>  
 
     </span>
-
+  </span>
 </span>
 <br>
 <br>
 
 <ng-template #loading>loading...</ng-template>
+<ng-template #toolNotFound>Tool Not Found</ng-template>
 <ng-template #notavailable> N/A </ng-template>

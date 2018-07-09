@@ -6,9 +6,11 @@ import { ToolDetailComponent } from './tool-detail/tool-detail.component';
 
 
 
+
 const routes: Routes = [
   { path: 'tool' ,  component: ToolListComponent },
-  { path: 'tool/:id', component: ToolDetailComponent }
+  { path: 'tool/:id', component: ToolDetailComponent },
+
 ];
 
 @NgModule({

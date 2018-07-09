@@ -10,11 +10,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StatisticsService } from './shared/statistics.service';
 
 import { AppComponent } from './app.component';
+
 import { ToolModule } from './tool/tool.module';
+import { ScientificModule } from './scientific/scientific.module';
+
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+
 
 
 
@@ -37,6 +41,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
     // toolModule is a complete seperate module on its on it is injected here
     // because it is a child module of appModule
     ToolModule,
+    ScientificModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     // FormsModule,

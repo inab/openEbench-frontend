@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, bindCallback } from 'rxjs';
 
 
 import { Filter } from '../shared/filter';
@@ -23,6 +23,7 @@ import citation from '../shared/citation.js';
   styleUrls: ['./tool-detail.component.css']
 })
 export class ToolDetailComponent implements OnInit {
+
   panelOpenState = true;
   tools: Tool[];
   filter: Filter;
@@ -32,6 +33,7 @@ export class ToolDetailComponent implements OnInit {
   selectedValue: any;
   metrics: Metrics[];
   charts: string;
+  sources: any = [];
 
 
   constructor(
@@ -39,6 +41,7 @@ export class ToolDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
   ) { }
+
 
   ngOnInit() {
     // setTimeout(() => {
@@ -56,9 +59,30 @@ export class ToolDetailComponent implements OnInit {
     this.id = this.getParam('id');
     this.toolService.getToolById(this.id).subscribe(tools => {
         this.tools = tools;
-        this.selectInitialValue(1);
-
+        if ( this.tools.length !== 0 ) {
+          this.getSources(this.tools);
+          this.selectInitialValue(1);
+        }
       });
+  }
+
+  private getSources(tools) {
+
+    let i = 0;
+    tools.forEach(tool => {
+      tool.entities.forEach(entity => {
+        entity.tools.forEach(element => {
+          const str = element['@id'];
+          const s = str.split('/tool/')[1].split(':')[0];
+          if (i > 0) {
+            if ( !this.sources.includes(s)) {
+              this.sources.push(s);
+            }
+          }
+          i++;
+        });
+      });
+    });
   }
 
   private getMetrics() {
@@ -69,12 +93,14 @@ export class ToolDetailComponent implements OnInit {
         this.loadCharts();
       }, 500);
     });
+
   }
 
   private loadCharts() {
-    citation.loadCitationChart();
-    uptime.loadChart();
+      citation.loadCitationChart();
+      uptime.loadChart();
   }
+
   private selectInitialValue(i) {
     this.selectedValue = this.tools[0].entities[i].tools[0];
     this.getMetrics();

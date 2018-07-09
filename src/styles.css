@@ -75,41 +75,6 @@ nav{
     padding-right: 0% !important;
     
 }
-/* .metrics-true{
-    color:green;
-    font-size: 14px;
-    border: 1px solid green;
-    border-radius: 5px;
-    padding: 1px 3px 1px 3px;
-    margin-left: 5px;
-}
-.metrics-false{
-    color:red;
-    font-size: 14px;
-    border: 1px solid red;
-    border-radius: 5px;
-    padding: 1px 3px 1px 3px;
-    margin-left: 5px;
-}
-
-.metrics-true1{
-    color:white;
-    background-color: green;
-    font-size: 14px;
-    border: 1px solid green;
-    border-radius: 5px;
-    padding: 1px 3px 1px 3px;
-    margin-left: 5px;
-}
-.metrics-false1{
-    color: white;
-    background-color: red;
-    font-size: 14px;
-    border: 1px solid red;
-    border-radius: 5px;
-    padding: 1px 3px 1px 3px;
-    margin-left: 5px;
-} */
 
 .metrics-true{
     color:white;
@@ -125,7 +90,6 @@ nav{
     color: white;
     background-color: #3c3c3c;
     font-size: 14px;
-    
     /* border: 1px solid #5c5c5c; */
     border-right: 20px solid #cd5741;
     border-radius: 5px;
@@ -133,6 +97,34 @@ nav{
     margin-left: 5px;
 }
 
+.biotools-badge{
+
+    border-right: 20px solid #ef7500 !important;
+
+}
+
+.bioconda-badge{
+
+    border-right: 20px solid #3eb049 !important;
+
+}
+
+.galaxy-badge{
+
+    border-right: 20px solid blue !important;
+
+}
+.badge{
+    color: white;
+    background-color: #3c3c3c;
+    font-size: 14px;
+    /* border: 1px solid #5c5c5c; */
+    font-weight: 400;
+    border-right: 20px solid gray;
+    border-radius: 5px;
+    padding: 2px 3px 2px 3px;
+    margin-left: 5px;
+}
 
 /*all external links */
 a[href^="https://"],a[href^="http://"] {

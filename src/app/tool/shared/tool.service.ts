@@ -13,7 +13,7 @@ import { Filter } from './filter';
 export class ToolService {
 
   public tool: Observable<Tool[]>;
-  public metrics: Observable<any[]>;
+  public metrics: Observable<Metrics[]>;
   public res;
 
 

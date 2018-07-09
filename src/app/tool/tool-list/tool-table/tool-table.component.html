@@ -6,18 +6,18 @@
         <input matInput placeholder="Filter" value="{{filterValue!=null? filterValue : ''}}" type="text" formControlName='text'>
       </mat-form-field>
       <mat-form-field>
-        <mat-select placeholder="Search in " id="select" formControlName='filter'>     
+        <mat-select placeholder="Search in " id="select" formControlName='filter' >     
           <mat-option  *ngFor = "let option of options"
           [value] = "option"> {{option}} 
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-          <mat-select placeholder="Type" formControlName="type" multiple>
-            <mat-option *ngFor="let type of typeList" [value]="type" aria-selected="true" >{{type | uppercase}}</mat-option>
+          <mat-select placeholder="Type" formControlName="type" multiple matTooltip="Filter by type of tool" >
+            <mat-option *ngFor="let type of typeList" [value]="type" aria-selected="true">{{type | uppercase}}</mat-option>
           </mat-select>
         </mat-form-field>
-      <button mat-raised-button type="submit" (click)='submitForm()' [disabled] = "!search.valid" >submit</button>      
+      <button mat-raised-button type="submit" (click)='submitForm()' [disabled] = "!search.valid" matTooltip="Go"  matTooltipPosition="right">submit</button>      
         <!-- <p>Form value: {{ search.value | json }}</p>
         <p> Form status {{ search.status | json}} </p> -->
     </form>
@@ -30,12 +30,12 @@
             <mat-cell class="row" *matCellDef="let tool"> 
               <div class="table-fields">
                 
-                <p><a routerLink="{{tool.id}}" name="{{tool.id}}">{{tool.id}}</a></p>
+                <p><a routerLink="{{tool.id}}" name="{{tool.id}}" matTooltip="{{tool.id}} details"  matTooltipPosition="right">{{tool.id}}</a></p>
  
                 <p class="table-desc"><span>{{tool.entities[0].tools[0]['description']}}</span></p>
 
                 <p><span   *ngFor="let entity of tool.entities"> {{entity.type | uppercase}}</span></p>
-                <p><a target="_blank" href="{{tool.entities[0].tools[0]['web']['homepage']}}">Website</a></p>
+                <p><a target="_blank" href="{{tool.entities[0].tools[0]['web']['homepage']}}"  matTooltip="Visit tool homepage"  matTooltipPosition="right">Website</a></p>
                 <p appOnIteration="getMetricsForTool(tool.id)"></p>
               </div>
             </mat-cell>
