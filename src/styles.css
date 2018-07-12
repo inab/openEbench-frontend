@@ -6,7 +6,7 @@
 /* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
 
 *{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif !important;
 }
 
 .main-logo{
