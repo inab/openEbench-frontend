@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class BenchmarkingListComponent implements OnInit {
 
   private id: string;
-  private bm: any[];
+  public bm: any[];
 
   constructor(
     private scientificService: ScientificService,
@@ -21,7 +21,7 @@ export class BenchmarkingListComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.getParam('id');
-    this.scientificService.getBenchmarkingEvents(this.id).subscribe(event => {this.bm = event;});
+    this.scientificService.getBenchmarkingEvents(this.id).subscribe(event => {this.bm = event; });
   }
 
   private getParam(param: string): string {

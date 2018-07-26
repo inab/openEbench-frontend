@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./benchmarking-detail.component.css']
 })
 export class BenchmarkingDetailComponent implements OnInit {
-  private id: string;
+  public id: string;
   constructor(
     private scientificService: ScientificService,
     private route: ActivatedRoute,

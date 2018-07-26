@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class ScientificListComponent implements OnInit {
 
-  private communities: any[];
+  public communities: any[];
 
   constructor(
     private scientificService: ScientificService,
