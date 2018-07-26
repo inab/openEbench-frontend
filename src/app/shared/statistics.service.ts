@@ -3,7 +3,7 @@ import { Observable ,  of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
-import { Statistics } from './statistics';
+// import { Statistics } from './statistics';
 
 
 @Injectable()

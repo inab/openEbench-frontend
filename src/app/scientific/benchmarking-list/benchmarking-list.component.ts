@@ -21,9 +21,7 @@ export class BenchmarkingListComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.getParam('id');
-    this.scientificService.getBenchmarkingEvents(this.id).subscribe(event => {this.bm = event;
-      console.log(this.bm);
-    });
+    this.scientificService.getBenchmarkingEvents(this.id).subscribe(event => {this.bm = event;});
   }
 
   private getParam(param: string): string {

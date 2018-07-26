@@ -19,9 +19,7 @@ export class ScientificListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.scientificService.getCommunities().subscribe(event => {this.communities = event;
-      console.log(this.communities);
-    });
+    this.scientificService.getCommunities().subscribe(event => {this.communities = event; });
   }
 
 

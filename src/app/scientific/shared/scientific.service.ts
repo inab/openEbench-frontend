@@ -12,12 +12,11 @@ export class ScientificService {
   private  communities: Observable<any[]>;
   private production = 'openebench';
   private dev = 'dev-openebench';
-  private communityUrl = 'https://' + this.dev + '.bsc.es/api/scientific';
+  private communityUrl = 'https://' + this.production + '.bsc.es/api/scientific';
 
   constructor(private http: HttpClient) { }
 
   getCommunities(): Observable<any[]> {
-    console.log(this.communityUrl);
     this.communities = this.http.get<any[]>(this.communityUrl + '/Community.json');
     return this.communities
     .pipe(
@@ -26,9 +25,9 @@ export class ScientificService {
   }
 
   getBenchmarkingEvents(id: string): Observable<any[]> {
-    console.log(this.communityUrl);
     this.communities = this.http.get<any[]>(this.communityUrl + '/BenchmarkingEvent?query=' + id + '&fmt=json');
     return this.communities
+
     .pipe(
       catchError(this.handleError('getBenchmarkingEvents', []))
     );

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as c3 from 'c3';
 import * as d3 from 'd3';
 import { StatisticsService } from '../shared/statistics.service';
-import { Statistics } from '../shared/statistics';
+// import { Statistics } from '../shared/statistics';
 
 @Component({
   selector: 'app-statistics',
@@ -11,9 +11,9 @@ import { Statistics } from '../shared/statistics';
 })
 export class StatisticsComponent implements OnInit {
 
-  private data: any;
-
-  public statistics = new Statistics;
+private data: any;
+public statistics: any;
+public event = false;
 
 
   constructor(
@@ -27,21 +27,21 @@ export class StatisticsComponent implements OnInit {
   private fetchdata() {
     this.statsService.getStats().subscribe(data => {
       this.data = data;
-    //   console.log(this.data);
-      this.statistics.tools = this.data['/@timestamp/'];
-      this.statistics.publications  = this.data['/project/publications/'];
-      this.statistics.bioschemas = this.data['/project/website/bioschemas/'];
-      this.statistics.opensource = this.data['/project/license/open_source/'];
-      this.generateChart(this.statistics);
+
+      this.statistics = {
+          'tools' : this.data['/@timestamp/'],
+          'publications' : this.data['/project/publications/'],
+          'bioschemas' : this.data['/project/website/bioschemas/'],
+          'opensource' : this.data['/project/license/open_source/'],
+      };
+    this.generateChart(this.statistics);
     });
   }
 
   private generateChart(data) {
+      this.event = true;
     c3.generate({
-        /* tslint:disable */
-        // title: {
-        //     text : '% of tools with Publications'
-        // },
+
         data: {
             columns: [
                 ['Tools with publications', data.publications],
@@ -52,9 +52,7 @@ export class StatisticsComponent implements OnInit {
         bindto: '#toolspublications',
     });
     c3.generate({
-        // title: {
-        //     text : '% of tools with bioschemas'
-        // },
+
         data: {
             columns: [
                 ['Tools with bioschemas', data.bioschemas],
@@ -65,10 +63,7 @@ export class StatisticsComponent implements OnInit {
         bindto: '#toolsopensource',
     });
   c3.generate({
-       
-        // title: {
-        //     text : '% of tools with open sorce license'
-        // },
+
         data: {
             columns: [
                 ['Tools with opensource license', data.opensource],
