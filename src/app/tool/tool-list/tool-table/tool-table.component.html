@@ -6,14 +6,14 @@
         <input matInput placeholder="Filter" value="{{filterValue!=null? filterValue : ''}}" type="text" formControlName='text'>
       </mat-form-field>
       <mat-form-field>
-        <mat-select placeholder="Search in " id="select" formControlName='filter' >     
+        <mat-select placeholder="Search in " id="select" formControlName='filter' disableOptionCentering>     
           <mat-option  *ngFor = "let option of options"
           [value] = "option"> {{option}} 
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-          <mat-select placeholder="Type" formControlName="type" multiple matTooltip="Filter by type of tool" >
+          <mat-select placeholder="Type" formControlName="type" multiple matTooltip="Filter by type of tool" disableOptionCentering>
             <mat-option *ngFor="let type of typeList" [value]="type" aria-selected="true">{{type | uppercase}}</mat-option>
           </mat-select>
         </mat-form-field>
