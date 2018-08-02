@@ -137,3 +137,16 @@ a[href^="https://"],a[href^="http://"] {
     color:red;
     font-size: 20px;
 }
+
+
+/* @media (min-width: 768px){
+    .container{
+      max-width:100% !important;
+    }  
+  }
+  
+  @media (min-width: 992px){
+    .container{
+      max-width:100% !important;
+    }
+  } */
