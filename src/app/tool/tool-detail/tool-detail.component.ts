@@ -73,6 +73,8 @@ export class ToolDetailComponent implements OnInit {
       tool.entities.forEach(entity => {
         entity.tools.forEach(element => {
           const str = element['@id'];
+          console.log(element['xid']);
+          console.log(element);
           const s = str.split('/tool/')[1].split(':')[0];
           if (i > 0) {
             if ( !this.sources.includes(s)) {
@@ -83,6 +85,21 @@ export class ToolDetailComponent implements OnInit {
         });
       });
     });
+  }
+
+  private sourceHref(source, tool) {
+    switch (source) {
+      case 'biotools' :
+        window.open('https://bio.tools/' + tool, '_blank');
+        break;
+      case 'bioconda' :
+        window.open('https://anaconda.org/bioconda/' + tool, '_blank');
+        break;
+      case 'galaxy' :
+
+      default:
+        break;
+    }
   }
 
   private getMetrics() {

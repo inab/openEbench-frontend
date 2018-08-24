@@ -70,20 +70,6 @@ public event = false;
                 ['Tools without opensource license ', data.tools - data.opensource]
             ],
             type : 'pie',
-            // pie : {
-            //     tooltip: {
-            //         format: {
-            //             name: function (name, ratio, id, index) {
-            //                 console.log("aa")
-            //                 // if (id === "data1") {
-            //                 //    * return "afsdf"*;
-            //                 // } else {
-            //                 //     *return "rwrer";*
-            //                 // }
-            //             }
-            //         }
-            //     }
-            // }
         },
         bindto: '#toolsbioschemas',
     });

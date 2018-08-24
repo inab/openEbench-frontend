@@ -79,7 +79,7 @@ export class ToolTableComponent implements OnInit {
   }
 
   private initializeForm() {
-    this.options = ['Name & Description', 'Name', 'Description'];
+    this.options = ['Name', 'Name & Description',  'Description'];
     this.search = new FormGroup (this.filter = {
       text: new FormControl(this.filterValue),
       filter: new FormControl(this.options[0]),

@@ -19,6 +19,10 @@ import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+
 
 
 
@@ -44,7 +48,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     ScientificModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // FormsModule,
+    FormsModule,
+    NgbModule.forRoot(),
     ReactiveFormsModule,
     MaterialModule
   ],

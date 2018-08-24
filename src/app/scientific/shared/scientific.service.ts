@@ -10,9 +10,11 @@ import { Communities } from './communities';
 export class ScientificService {
 
   private  communities: Observable<any[]>;
+  private  datasets: Observable<any[]>;
   private production = 'openebench';
   private dev = 'dev-openebench';
   private communityUrl = 'https://' + this.production + '.bsc.es/api/scientific';
+  private datasetUrl = 'https://' + this.dev + '.bsc.es/api/scientific';
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +26,14 @@ export class ScientificService {
     );
   }
 
+  getDatasets(): Observable<any[]> {
+    this.datasets = this.http.get<any[]>(this.datasetUrl + '/Dataset.json');
+    return this.datasets
+    .pipe(
+      catchError(this.handleError('getDatasets', []))
+    );
+  }
+
   getBenchmarkingEvents(id: string): Observable<any[]> {
     this.communities = this.http.get<any[]>(this.communityUrl + '/BenchmarkingEvent?query=' + id + '&fmt=json');
     return this.communities
@@ -32,6 +42,9 @@ export class ScientificService {
       catchError(this.handleError('getBenchmarkingEvents', []))
     );
   }
+
+
+
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

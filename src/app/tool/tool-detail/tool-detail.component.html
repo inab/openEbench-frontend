@@ -3,7 +3,7 @@
     <span *ngFor="let instance of tools">
       <h4 class="text-center">{{instance?.id | uppercase}}</h4>
       <p class="text-center"><small><a href="{{selectedValue['web']['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>
-      <p class="text-center"> <span ngClass="{{source}}-badge badge" *ngFor="let source of sources">{{source}}</span></p>
+      <p class="text-center"><span  *ngFor="let source of sources" (click)="sourceHref(source,instance?.id)" ngClass="{{source}}-badge badge false-link" >{{source}}</span></p>
       <mat-tab-group (selectedTabChange)="onTabChange($event)" >
         <span *ngFor="let entity of instance.entities">
           <mat-tab  *ngIf="entity.type!=null">
@@ -84,9 +84,9 @@
 
 
 
-                  <!-- <a href="{{selectedValue['@id']}}">{{selectedValue['@id']}}</a>
+                  <a href="{{selectedValue['@id']}}">{{selectedValue['@id']}}</a>
                   <br>
-                  <a href="{{selectedValue['metrics']}}">{{selectedValue['metrics']}}</a>                                     -->
+                  <a href="{{selectedValue['metrics']}}">{{selectedValue['metrics']}}</a>                                    
               </ng-template>              
           </mat-tab>
         </span>

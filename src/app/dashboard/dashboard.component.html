@@ -4,9 +4,18 @@
           <img class="main-logo" src="assets/img/opeb_logo.gif" alt="Card image cap">
       </div>
   </div>
-  <form  [formGroup]="search" class="main-search-div" >
-      <input class="main-search"  placeholder="Search ..." value="" type="text" formControlName='text'>
-      <button class="main-submit"type="submit" (click)='submitForm()' [disabled] = "!search.valid" >Go!</button>
+
+
+  <!-- <label for="typeahead-basic">Search for a state:</label>
+  <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
+  <hr>
+  <pre>Model: {{ model | json }}</pre> -->
+
+  <form class="main-search-div" >
+      <!-- <input class="main-search"  placeholder="Search ..." value="" type="text" formControlName='text'> -->
+      
+      <input type="text" class="main-search" name='text' [(ngModel)]="model" [ngbTypeahead]="search"/>
+      <button class="main-submit"type="submit" (click)='submitForm()' >Go!</button>
   </form>
   <!-- <p>Form value: {{ search.value | json }}</p>
   <p> Form status {{ search.status | json}} </p> -->
