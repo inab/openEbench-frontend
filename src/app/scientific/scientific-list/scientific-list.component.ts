@@ -61,6 +61,7 @@ export class ScientificListComponent implements OnInit {
             this.data.push(a);
           }
         }
+        // console.log(this.data);
     });
 
   // check(id) {

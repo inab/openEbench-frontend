@@ -73,8 +73,8 @@ export class ToolDetailComponent implements OnInit {
       tool.entities.forEach(entity => {
         entity.tools.forEach(element => {
           const str = element['@id'];
-          console.log(element['xid']);
-          console.log(element);
+          // console.log(element['xid']);
+          // console.log(element);
           const s = str.split('/tool/')[1].split(':')[0];
           if (i > 0) {
             if ( !this.sources.includes(s)) {
@@ -106,6 +106,7 @@ export class ToolDetailComponent implements OnInit {
     this.selectedValue['metrics'] = this.selectedValue['@id'].replace('/tool/', '/metrics/');
     this.toolService.getToolMetricsById(this.selectedValue.metrics).subscribe(res => {
       this.metrics = res;
+      console.log(this.metrics);
       setTimeout(() => {
         this.loadCharts();
       }, 500);

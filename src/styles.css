@@ -97,23 +97,7 @@ nav{
     margin-left: 5px;
 }
 
-.biotools-badge{
 
-    border-right: 20px solid #ef7500 !important;
-
-}
-
-.bioconda-badge{
-
-    border-right: 20px solid #3eb049 !important;
-
-}
-
-.galaxy-badge{
-
-    border-right: 20px solid blue !important;
-
-}
 
 
 .output-badge{
@@ -158,6 +142,22 @@ nav{
     /* border: 1px solid #5c5c5c; */
     font-weight: 400;
     border-right: 20px solid gray;
+    border-radius: 5px;
+    padding: 2px 3px 2px 3px;
+    margin-left: 5px;
+}
+
+.hide-metric{
+    display: none !important;
+}
+
+.badge-no-color{
+    color: white;
+    background-color: #3c3c3c;
+    font-size: 14px;
+    /* border: 1px solid #5c5c5c; */
+    font-weight: 400;
+    
     border-radius: 5px;
     padding: 2px 3px 2px 3px;
     margin-left: 5px;
