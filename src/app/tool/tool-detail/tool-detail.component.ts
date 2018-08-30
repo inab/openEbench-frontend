@@ -109,7 +109,7 @@ export class ToolDetailComponent implements OnInit {
       console.log(this.metrics);
       setTimeout(() => {
         this.loadCharts();
-      }, 500);
+      }, 1500);
     });
 
   }
