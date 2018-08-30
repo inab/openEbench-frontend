@@ -13,7 +13,7 @@ export class ScientificService {
   private  datasets: Observable<any[]>;
   private production = 'openebench';
   private dev = 'dev-openebench';
-  private communityUrl = 'https://' + this.production + '.bsc.es/api/scientific';
+  private communityUrl = 'https://' + this.dev + '.bsc.es/api/scientific';
   private datasetUrl = 'https://' + this.dev + '.bsc.es/api/scientific';
 
   constructor(private http: HttpClient) { }

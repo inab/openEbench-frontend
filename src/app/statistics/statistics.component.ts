@@ -27,12 +27,11 @@ public event = false;
   private fetchdata() {
     this.statsService.getStats().subscribe(data => {
       this.data = data;
-
       this.statistics = {
-          'tools' : this.data['/@timestamp/'],
-          'publications' : this.data['/project/publications/'],
-          'bioschemas' : this.data['/project/website/bioschemas/'],
-          'opensource' : this.data['/project/license/open_source/'],
+          'tools' : this.data['/@timestamp'],
+          'publications' : this.data['/project/publications'],
+          'bioschemas' : this.data['/project/website/bioschemas:true'],
+          'opensource' : this.data['/project/license/open_source:true'],
       };
     this.generateChart(this.statistics);
     });
