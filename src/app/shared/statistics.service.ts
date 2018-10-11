@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable ,  of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { AppModule } from '../app.module';
 
 // import { Statistics } from './statistics';
 
 
 @Injectable()
+
 export class StatisticsService {
 
 

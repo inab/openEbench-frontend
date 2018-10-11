@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import { StatisticsService } from '../shared/statistics.service';
 // import { Statistics } from '../shared/statistics';
 
+
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -16,12 +17,15 @@ public statistics: any;
 public event = false;
 
 
-  constructor(
-    private statsService: StatisticsService,
-  ) { }
+  constructor( private statsService: StatisticsService) { }
 
   ngOnInit() {
-  this.fetchdata();
+    // this.keycloakService.keycloakEvents$.subscribe(keycloakEvent => {
+        // Add event handler
+        // this.keycloakService.login();
+
+    //   });
+      this.fetchdata();
   }
 
   private fetchdata() {

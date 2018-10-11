@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
+import { initializer } from './utils/app-init';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 // Material designe
@@ -18,6 +20,7 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { PrivateComponent } from './private/private.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -38,6 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     PageNotFoundComponent,
     StatisticsComponent,
+    PrivateComponent,
 
   ],
   imports: [
@@ -51,9 +55,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     NgbModule.forRoot(),
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    KeycloakAngularModule
   ],
-  providers: [StatisticsService],
+  providers: [StatisticsService , {
+    provide: APP_INITIALIZER,
+    useFactory: initializer,
+    multi: true,
+    deps: [KeycloakService]
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
