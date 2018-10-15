@@ -3,6 +3,8 @@ import { KeycloakProfile } from 'keycloak-js';
 import { KeycloakService } from 'keycloak-angular';
 import { Router } from '@angular/router';
 
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-private',
   templateUrl: './private.component.html',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
 export class PrivateComponent implements OnInit {
   userDetails: KeycloakProfile;
 
-  constructor(private keycloakService: KeycloakService, private router: Router) { }
+  constructor(private keycloakService: KeycloakService, private router: Router, private location: Location) { }
   async ngOnInit() {
     if (await this.keycloakService.isLoggedIn()) {
       this.userDetails = await this.keycloakService.loadUserProfile();
@@ -19,7 +21,8 @@ export class PrivateComponent implements OnInit {
   }
 
   async logout() {
-    const redirectUri = 'http://127.0.0.1:4200/dashboard';
+    console.log();
+    const redirectUri = window.location.origin + '/dashboard';
     await this.keycloakService.logout(redirectUri);
   }
 
