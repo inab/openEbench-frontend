@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BenchmarkingChallengeListComponent implements OnInit {
 
   private beventsid: string;
-  private bm: any[];
+  public bm: any[];
 
   constructor(
     private scientificService: ScientificService,
