@@ -1,0 +1,23 @@
+<span *ngIf='bm; else loading'>
+    <br>
+    <br>
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="bm.Challenge">
+            <ng-container matColumnDef="sci-card">  
+                <mat-cell class="row" *matCellDef="let b"> 
+                  <div class="table-fields">
+                      <p><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"  matTooltipPosition="right">{{b.name}}</a></p>
+                  </div>
+                </mat-cell>
+            </ng-container>
+          <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row> 
+        </mat-table>
+      </div>
+   
+  
+    
+  </span>
+  
+  
+  
+  <ng-template #loading>loading...</ng-template>

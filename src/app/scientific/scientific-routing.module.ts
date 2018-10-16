@@ -6,13 +6,15 @@ import { BenchmarkingDetailComponent } from './benchmarking-detail/benchmarking-
 
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-list/benchmarking-challenge-list.component';
 
 
 
 const routes: Routes = [
   { path: 'scientific' ,  component: ScientificListComponent },
   { path: 'scientific/:id', component: BenchmarkingListComponent },
-  { path: 'scientific/:id/:bmid', component: BenchmarkingDetailComponent },
+  { path: 'scientific/:id/:beventsid', component: BenchmarkingChallengeListComponent },
+  { path: 'scientific/:id/:beventsid/:bchallengeid', component: BenchmarkingDetailComponent },
 
 ];
 

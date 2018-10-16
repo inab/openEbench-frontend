@@ -20,7 +20,7 @@ export class BenchmarkingDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.id = this.getParam('bmid');
+    this.id = this.getParam('bchallengeid');
    setTimeout(() => {
     loadurl();
    }, 50);

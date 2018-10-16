@@ -11,13 +11,15 @@ import { ScientificComponent } from './scientific.component';
 import { MaterialModule } from '../material.module';
 import { BenchmarkingListComponent } from './benchmarking-list/benchmarking-list.component';
 import { BenchmarkingDetailComponent } from './benchmarking-detail/benchmarking-detail.component';
+import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-list/benchmarking-challenge-list.component';
 
 @NgModule({
   declarations: [
     ScientificComponent,
     ScientificListComponent,
     BenchmarkingListComponent,
-    BenchmarkingDetailComponent
+    BenchmarkingDetailComponent,
+    BenchmarkingChallengeListComponent
   ],
   imports: [
     CommonModule,
