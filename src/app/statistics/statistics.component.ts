@@ -44,7 +44,20 @@ public event = false;
   private generateChart(data) {
       this.event = true;
     c3.generate({
-
+        size: {
+            height: 500
+        },
+        title: {
+            show: false,
+            text: 'Tools with publications',
+            position: 'top-center',   // top-left, top-center and top-right
+            padding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            }
+        },
         data: {
             columns: [
                 ['Tools with publications', data.publications],
@@ -52,10 +65,30 @@ public event = false;
             ],
             type : 'pie',
         },
+        pie: {
+            label: {
+              format: function(value, ratio, id) {
+                return value + '';
+              }
+            }
+          },
         bindto: '#toolspublications',
     });
     c3.generate({
-
+        size: {
+            height: 500
+        },
+        title: {
+            show: false,
+            text: 'Tools with bioschemas',
+            position: 'top-center',   // top-left, top-center and top-right
+            padding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            }
+        },
         data: {
             columns: [
                 ['Tools with bioschemas', data.bioschemas],
@@ -63,10 +96,30 @@ public event = false;
             ],
             type : 'pie',
         },
+        pie: {
+            label: {
+              format: function(value, ratio, id) {
+                return value + '';
+              }
+            }
+          },
         bindto: '#toolsopensource',
     });
   c3.generate({
-
+        size: {
+            height: 500
+        },
+        title: {
+            show: false,
+            text: 'Tools with opensource license',
+            position: 'top-center',   // top-left, top-center and top-right
+            padding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            }
+        },
         data: {
             columns: [
                 ['Tools with opensource license', data.opensource],
@@ -74,6 +127,14 @@ public event = false;
             ],
             type : 'pie',
         },
+        pie: {
+            label: {
+              format: function(value, ratio, id) {
+                return value + '';
+              }
+            }
+          },
+
         bindto: '#toolsbioschemas',
     });
   }

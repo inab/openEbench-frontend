@@ -35,6 +35,7 @@ export class ScientificService {
   }
 
   getBenchmarkingEvents(id: string): Observable<any[]> {
+    console.log(this.communityUrl + '/BenchmarkingEvent?query=' + id + '&fmt=json');
     this.communities = this.http.get<any[]>(this.communityUrl + '/BenchmarkingEvent?query=' + id + '&fmt=json');
     return this.communities
 
@@ -44,6 +45,7 @@ export class ScientificService {
   }
 
   getChallenge(id: string): Observable<any[]> {
+    console.log(this.communityUrl + '/Challenge?query=' + id + '&fmt=json');
     this.communities = this.http.get<any[]>(this.communityUrl + '/Challenge?query=' + id + '&fmt=json');
     return this.communities
 
