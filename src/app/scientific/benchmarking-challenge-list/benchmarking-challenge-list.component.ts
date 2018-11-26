@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
-import load_table from '/home/jgarrayo/public_html/flask_table/frontend/build/build.js';
+import { load_table } from '../shared/benchmarkingTable.js';
 
 @Component({
   selector: 'app-benchmarking-challenge-list',
@@ -22,7 +22,7 @@ export class BenchmarkingChallengeListComponent implements OnInit {
     this.beventsid = this.getParam('beventsid');
     this.scientificService.getChallenge(this.beventsid).subscribe(event => {this.bm = event; });
     setTimeout(() => {
-      load_table.load_table();  
+      load_table();  
     }, 1500)
     
   }
