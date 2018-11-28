@@ -11,7 +11,7 @@ import { load_table } from '../shared/benchmarkingTable.js';
 })
 export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit {
 
-  private beventsid: string;
+  public beventsid: string;
   public bm: any[];
 
   constructor(
