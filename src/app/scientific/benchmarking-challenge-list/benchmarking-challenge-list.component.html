@@ -15,20 +15,17 @@
           <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row> 
         </mat-table>
       </div>
-      <br>
-      <br>
-      <h3>Summary Table across all Benchmarks in the Event</h3>
-      <hr>
-      <select id="bench_dropdown_list" class="classificators_list">
-      </select>
-      <br>
-      <br>
-      <div class="example-container mat-elevation-z8">
-        <table id="bench_summary_table" class="summaryTable" data-input="TCGA:2018-04-05"></table>
-      </div>
- 
+
   </span>
+<br>
+<span>
+    <h3>Summary Table across all Benchmarks in the Event</h3>
+    <div class="example-container mat-elevation-z8">
+        <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}"></table>
+    </div>
+</span>
+ 
   
   
   
-  <ng-template #loading>loading...</ng-template>
+<ng-template #loading>loading...</ng-template>

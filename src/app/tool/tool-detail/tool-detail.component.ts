@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, bindCallback } from 'rxjs';
 
@@ -22,7 +22,8 @@ import citation from '../shared/citation.js';
   templateUrl: './tool-detail.component.html',
   styleUrls: ['./tool-detail.component.css']
 })
-export class ToolDetailComponent implements OnInit {
+export class ToolDetailComponent implements OnInit, AfterViewInit, AfterViewChecked {
+
 
   panelOpenState = true;
   tools: Tool[];
@@ -44,11 +45,7 @@ export class ToolDetailComponent implements OnInit {
 
 
   ngOnInit() {
-    // setTimeout(() => {
-    // }, 200);
     this.getToolById();
-    // this.instance = this.getParam('instance');
-    // this.version = this.getParam('version');
   }
 
   private getParam(param: string): string {
@@ -105,20 +102,23 @@ export class ToolDetailComponent implements OnInit {
   private getMetrics() {
     this.selectedValue['metrics'] = this.selectedValue['@id'].replace('/tool/', '/metrics/');
     this.toolService.getToolMetricsById(this.selectedValue.metrics).subscribe(
-      (res) => { this.metrics = res; },
-      (err) => console.error(err),
-      () =>
-      // console.log(this.metrics);
+      (res) => { this.metrics = res; } );
       setTimeout(() => {
         this.loadCharts();
-      }, 1500)
-    );
+      }, 1500);
+  }
+
+  ngAfterViewInit() {
 
   }
 
+  ngAfterViewChecked() {
+    // this.loadCharts();
+  }
+
   private loadCharts() {
-      citation.loadCitationChart();
-      uptime.loadChart();
+    citation.loadCitationChart();
+    uptime.loadChart();
   }
 
   private selectInitialValue(i) {

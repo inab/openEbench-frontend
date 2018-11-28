@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, EventEmitter, DoCheck } from '@angular/core';
 import { loadurl } from '../shared/benchmarkingChart.js';
 import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 
 
@@ -11,8 +12,14 @@ import { Router } from '@angular/router';
   templateUrl: './benchmarking-detail.component.html',
   styleUrls: ['./benchmarking-detail.component.css']
 })
-export class BenchmarkingDetailComponent implements OnInit {
+export class BenchmarkingDetailComponent implements OnInit, DoCheck {
+
+  public htmlToAdd;
   public id: string;
+  public bm: any[];
+  // stateChanged: EventEmitter <any[]> = new EventEmitter();
+
+
   constructor(
     private scientificService: ScientificService,
     private route: ActivatedRoute,
@@ -21,12 +28,30 @@ export class BenchmarkingDetailComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.getParam('bchallengeid');
-   setTimeout(() => {
-    loadurl();
-   }, 50);
-
+    this.scientificService.getChallenge(this.id).subscribe(res => this.bm = res);
+    setTimeout(() => {
+      loadurl();
+    }, 500);
   }
 
+  // set state(val) {
+  //   this.bm = val;
+  //   this.stateChanged.emit(this.bm);
+  // }
+
+  // get state() {
+  //   return this.bm;
+  // }
+
+  // stateChangedEmitter() {
+  //   console.log(this.stateChanged);
+  //   return this.stateChanged;
+  // }
+
+  ngDoCheck() {
+    // loadurl();
+    // console.log("Docheck")
+  }
   private getParam(param: string): string {
     return this.route.snapshot.paramMap.get(param);
   }

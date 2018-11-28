@@ -1,3 +1,18 @@
-<div class="break">
-   <div  attr.data-id={{id}} metric_x="TPR" metric_y="PPV" toTable="true" class="benchmarkingChart"></div>
+<span *ngIf="bm; else loading">
+<div>
+    <h3>{{bm.Challenge[0].name}}</h3>
 </div>
+<hr>
+<div class="break">
+    <div  attr.data-id="{{id}}" attr.metric_x="{{bm.Challenge[0].metrics[0].metrics_id.split(':')[1]}}" attr.metric_y="{{bm.Challenge[0].metrics[1].metrics_id.split(':')[1]}}" toTable="true" class="benchmarkingChart"></div>
+    <!-- <script>
+        import { loadurl } from '../shared/benchmarkingChart.js';
+        loadurl();
+    </script> -->
+</div>
+
+</span>
+<ng-template #loading>loading...</ng-template>
+    
+
+

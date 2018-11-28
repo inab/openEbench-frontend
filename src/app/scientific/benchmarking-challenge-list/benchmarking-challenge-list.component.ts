@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
 import { load_table } from '../shared/benchmarkingTable.js';
+
 
 @Component({
   selector: 'app-benchmarking-challenge-list',
   templateUrl: './benchmarking-challenge-list.component.html',
   styleUrls: ['./benchmarking-challenge-list.component.css']
 })
-export class BenchmarkingChallengeListComponent implements OnInit {
+export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit {
 
   private beventsid: string;
   public bm: any[];
@@ -21,10 +22,10 @@ export class BenchmarkingChallengeListComponent implements OnInit {
   ngOnInit() {
     this.beventsid = this.getParam('beventsid');
     this.scientificService.getChallenge(this.beventsid).subscribe(event => {this.bm = event; });
-    setTimeout(() => {
-      load_table();  
-    }, 1500)
-    
+  }
+
+  ngAfterViewInit(): void {
+    load_table();
   }
 
   private getParam(param: string): string {
