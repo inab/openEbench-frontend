@@ -12,7 +12,7 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
       try {
         await keycloak.init({
           config: {
-            url: 'https://inb.bsc.es/auth2',
+            url: 'https://inb.bsc.es/auth',
             realm: 'OEB',
             clientId: 'opeb-frontend'
           },

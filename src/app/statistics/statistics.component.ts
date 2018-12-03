@@ -20,11 +20,6 @@ public event = false;
   constructor( private statsService: StatisticsService) { }
 
   ngOnInit() {
-    // this.keycloakService.keycloakEvents$.subscribe(keycloakEvent => {
-        // Add event handler
-        // this.keycloakService.login();
-
-    //   });
       this.fetchdata();
   }
 
@@ -44,7 +39,9 @@ public event = false;
   private generateChart(data) {
       this.event = true;
     c3.generate({
-
+        title: {
+            text: 'Publications'
+        },
         data: {
             columns: [
                 ['Tools with publications', data.publications],
@@ -52,10 +49,19 @@ public event = false;
             ],
             type : 'pie',
         },
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
+            }
+        },
         bindto: '#toolspublications',
     });
     c3.generate({
-
+        title: {
+            text: 'Bioschemas'
+        },
         data: {
             columns: [
                 ['Tools with bioschemas', data.bioschemas],
@@ -63,7 +69,14 @@ public event = false;
             ],
             type : 'pie',
         },
-        bindto: '#toolsopensource',
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
+            }
+        },
+        bindto: '#toolsbioschemas',
     });
   c3.generate({
 
@@ -74,7 +87,17 @@ public event = false;
             ],
             type : 'pie',
         },
-        bindto: '#toolsbioschemas',
+        title: {
+            text: 'Open Source'
+        },
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
+            }
+        },
+        bindto: '#toolsopensource',
     });
   }
 

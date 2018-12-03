@@ -17,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
 //     origin: '*'
 //   }
 // });
-const ES_URL = 'http://localhost:8080/filter';
+const ES_URL = 'https://dev-openebench.bsc.es/esapi/filter';
 const PARAMS = new HttpParams({});
 
 @Injectable()
