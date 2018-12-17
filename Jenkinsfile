@@ -33,7 +33,7 @@ pipeline {
 
         stage('Move Build to Production') {
             steps {
-                sh 'HOME=/home/jenkins cp -R ./dist/* ${HOME}/prod/'
+                sh 'HOME=/home/jenkins cp -R ./dist/* /home/jenkis/prod'
             }
         }
     }
