@@ -31,10 +31,10 @@ pipeline {
             }
         }
 
-        // stage('Move Build to Production') {
-        //     steps {
-        //         sh 'cp -R ./dist/* /home/jenkis/prod/*'
-        //     }
-        // }
+        stage('Move Build to Production') {
+            steps {
+                sh 'cp -R ./dist/* /home/jenkis/prod/*'
+            }
+        }
     }
 }
