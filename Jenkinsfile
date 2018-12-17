@@ -2,6 +2,9 @@ pipeline {
     agent any
 
     stages {
+        when {
+            branch 'development'
+        }
         
         stage('Install modules') {
             steps {
