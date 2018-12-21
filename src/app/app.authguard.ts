@@ -4,16 +4,21 @@ import { KeycloakService, KeycloakAuthGuard, Keycloak } from 'keycloak-angular';
 
 
 /**
- * Authentication implementation for keycloakauthguart with angular-keyclaok
- */
-
+ * Class Appauthguard extends keycloakauthguard
+*/
 @Injectable()
 export class AppAuthGuard extends KeycloakAuthGuard {
   // tslint:disable-next-line:max-line-length
+
+  /**
+   * Construtor method
+  */
   constructor(protected router: Router, protected keycloakAngular: KeycloakService) {
     super(router, keycloakAngular);
   }
-
+  /**
+   * Checks for user access
+  */
   isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     return new Promise((resolve, reject) => {
         const keycloakLoginOptions = {
