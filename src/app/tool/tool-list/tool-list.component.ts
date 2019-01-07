@@ -7,6 +7,9 @@ import { FormGroup } from '@angular/forms';
 import { Filter } from '../shared/filter';
 
 
+/**
+* Component to list the tools
+*/
 @Component({
   selector: 'app-tool-list',
   templateUrl: './tool-list.component.html',
@@ -14,14 +17,26 @@ import { Filter } from '../shared/filter';
 })
 export class ToolListComponent implements OnInit {
 
+  /**
+   * variable for testing (hidden clock :) )
+   */
   private time: Observable<string>;
 
+  /**
+   * constructor
+   */
   constructor(private toolService: ToolService) { }
 
+  /**
+   * When class is initialized
+   */
   ngOnInit() {
     // this.getTime();
   }
 
+  /**
+   * function for the hidden cloak
+   */
   private getTime(): void {
     this.time = new Observable<string>((observer: Subscriber<string>) => {
       setInterval(() => observer.next(new Date().toString()), 1000);

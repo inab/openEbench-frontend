@@ -17,13 +17,30 @@ import { HttpClient } from '@angular/common/http';
 //     origin: '*'
 //   }
 // });
+
+/**
+ * Elastic search url to server
+ */
 const ES_URL = 'https://dev-openebench.bsc.es/esapi/filter';
+
+/**
+ * http params for the search
+ */
 const PARAMS = new HttpParams({});
 
+/**
+ * Injectable
+ */
 @Injectable()
 export class OpebService {
+  /**
+   * Constructor for the injectable class
+   */
   constructor(private http: HttpClient) {}
 
+  /**
+   * Serch function
+   */
   search(term: string) {
     if (term === '') {
       return of([]);
@@ -42,6 +59,9 @@ export class OpebService {
   }
 }
 
+/**
+ * Dashboard component
+ */
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -50,12 +70,26 @@ export class OpebService {
   })
 
 export class DashboardComponent {
+  /**
+   * model
+   */
   model: any;
+  /**
+   * searching
+   */
   searching = false;
+  /**
+   * searchFailed
+   */
   searchFailed = false;
 
+  /**
+   * Constructor
+   */
   constructor(private _service: OpebService, private router: Router) { }
-
+/**
+ * search for elastic search
+ */
   search = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(300),
@@ -72,11 +106,15 @@ export class DashboardComponent {
       tap(() => this.searching = false)
     )
 
-
+/**
+ * Naviage to searched tool via URL
+ */
   private goToToolsPage(term: string) {
     this.router.navigate(['/tool'], { queryParams: {search: term}, queryParamsHandling: '' });
   }
-
+/**
+ * Submit the search
+ */
   public submitForm() {
     this.goToToolsPage(this.model);
   }

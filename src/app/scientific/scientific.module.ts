@@ -13,6 +13,9 @@ import { BenchmarkingListComponent } from './benchmarking-list/benchmarking-list
 import { BenchmarkingDetailComponent } from './benchmarking-detail/benchmarking-detail.component';
 import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-list/benchmarking-challenge-list.component';
 
+/**
+ * imports and declaration for the scientific component
+ */
 @NgModule({
   declarations: [
     ScientificComponent,

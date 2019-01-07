@@ -6,7 +6,7 @@ import { ToolService } from '../../shared/tool.service';
 import { tap } from 'rxjs/operators';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Filter } from '../../shared/filter';
-import { Stats } from '../../shared/stats';
+// import { Stats } from '../../shared/stats';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Metrics } from '../../shared/metrics';
 import { Directive, Output, EventEmitter, SimpleChange } from '@angular/core';
@@ -31,17 +31,53 @@ export class ToolTableComponent implements OnInit {
    * options
    */
   private options: string[];
+  /**
+   * filter
+   */
   private filter: Filter;
+  /**
+   * filterValue
+   */
   private filterValue: string;
+  /**
+   * search
+   */
   private search: FormGroup;
+  /**
+   * tools
+   */
   public tools: Tool[];
+  /**
+   * metrics
+   */
   public metrics: Metrics[];
+  /**
+   * skip
+   */
   private skip: number;
+  /**
+   * limit
+   */
   private limit: number;
+  /**
+   * stats
+   */
   private stats: any;
+  /**
+   * length
+   */
   private length: number;
+  /**
+   * pageIndex
+   */
   private pageIndex: number;
+  /**
+   * pageSize
+   */
   private pageSize: number;
+  /**
+   * typeList
+   */
   private typeList = ['cmd', 'web', 'db', 'app', 'lib', 'ontology', 'workflow', 'plugin', 'sparql',
    'soap', 'script', 'rest', 'workbench', 'suite'];
 

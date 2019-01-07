@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
@@ -11,7 +10,6 @@ import { AppAuthGuard } from './app.authguard';
 /**
  * Routes to componentes, ToolComponent and Scientific component have there own specific routeing.modules
  */
-
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'dashboard',  component: DashboardComponent },
@@ -21,13 +19,23 @@ export const routes: Routes = [
   { path: '**', component: PageNotFoundComponent }
 ];
 
+/**
+ * root module for routing
+ */
 @NgModule({
   // This is a root module so we use forRoot, ,  { enableTracing: true }  is for debuging
   imports: [ RouterModule.forRoot(routes)],
   exports: [ RouterModule ],
   providers: [AppAuthGuard],
 })
+
+/**
+ * export routing module
+ */
 export class AppRoutingModule { }
 
-// so we dont have to import everything in the module.ts again
+/**
+ *  routing component
+ *  so we dont have to import everything in the module.ts again
+ */
 export const routingComponents = [DashboardComponent, StatisticsComponent, AboutComponent, PrivateComponent, PageNotFoundComponent];

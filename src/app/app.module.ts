@@ -30,7 +30,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
-
+/**
+ * Main app module
+ */
 @NgModule({
   declarations: [
     AppComponent,

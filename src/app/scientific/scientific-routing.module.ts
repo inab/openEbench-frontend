@@ -9,7 +9,9 @@ import { CommonModule } from '@angular/common';
 import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-list/benchmarking-challenge-list.component';
 
 
-
+/**
+ * routes
+ */
 const routes: Routes = [
   { path: 'scientific' ,  component: ScientificListComponent },
   { path: 'scientific/:id', component: BenchmarkingListComponent },
@@ -18,11 +20,20 @@ const routes: Routes = [
 
 ];
 
+/**
+ * child module for routing
+ */
 @NgModule({
   // This is a child module so we use forChild
   imports: [ RouterModule.forChild(routes) ],
   exports: [ RouterModule ]
 })
-export class ScientificRoutingModule { }
 
+/**
+ * export routing module
+ */
+export class ScientificRoutingModule { }
+/**
+ * routing components export
+ */
 export const routingComponents = [ScientificListComponent, BenchmarkingListComponent, BenchmarkingDetailComponent];

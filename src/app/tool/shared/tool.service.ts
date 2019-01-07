@@ -8,22 +8,48 @@ import { Metrics } from './metrics';
 
 import { Filter } from './filter';
 
-
+/**
+ * injectable tool service
+ */
 @Injectable()
 export class ToolService {
-
+  /**
+   * tool
+   */
   public tool: Observable<Tool[]>;
+  /**
+   * metrics
+   */
   public metrics: Observable<Metrics[]>;
+  /**
+   * res
+   */
   public res;
-
-
+  /**
+   * count
+   */
   public count: string;
+  /**
+   * production
+   */
   private production = 'openebench';
+  /**
+   * development
+   */
   private dev = 'dev-openebench';
+  /**
+   * url
+   */
   private toolUrl = 'https://' + this.dev + '.bsc.es/monitor/rest/aggregate';
 
+  /**
+   * constructor
+   */
   constructor(private http: HttpClient) { }
 
+  /**
+   * Get tool by id from server
+   */
   getToolById(id: string): Observable<Tool[]> {
     this.tool = this.http.get<Tool[]>(this.toolUrl, {
       params: new HttpParams()
@@ -36,6 +62,9 @@ export class ToolService {
     );
   }
 
+  /**
+   * Get tool metrics by id
+   */
   getToolMetricsById(url: string): Observable<Metrics[]> {
   this.metrics = this.http.get<Metrics[]>(url);
   return this.metrics
@@ -44,6 +73,9 @@ export class ToolService {
     );
   }
 
+  /**
+   * Filter search for tools
+   */
   getToolWithFilters(filter: Filter, skip: number, limit: number) {
     const headers = new HttpHeaders().set('Range' , 'items=' + skip + '-' + limit);
     let params = new HttpParams().set('projection', 'description').append('projection' , 'web');
@@ -81,11 +113,16 @@ export class ToolService {
     );
   }
 
+  /**
+   * Get global statistics
+   */
   getStats(): Observable <any> {
     return this.http.get('https://' + this.dev + '.bsc.es/monitor/rest/statistics');
   }
 
-
+/**
+ * Error handling
+ */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

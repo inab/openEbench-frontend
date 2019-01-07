@@ -4,16 +4,26 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpParams, HttpClient } from '@angular/common/http';
 
 
-
+/**
+ * scientific list
+ */
 @Component({
   selector: 'app-scientific-list',
   templateUrl: './scientific-list.component.html',
   styleUrls: ['./scientific-list.component.css']
 })
 export class ScientificListComponent implements OnInit {
-
+/**
+ * communities
+ */
   public communities: any[];
+  /**
+   * datasets
+   */
   public datasets: any[];
+  /**
+   * data
+   */
   public data = [];
   // public datasets = {
   //   'datasets' : [{
@@ -47,12 +57,16 @@ export class ScientificListComponent implements OnInit {
   // };
 
 
-
+/**
+ * constructor
+ */
   constructor(
     private scientificService: ScientificService,
 
   ) { }
-
+/**
+ * initializer
+ */
   ngOnInit() {
     this.scientificService.getCommunities().subscribe(event => {this.communities = event; });
     this.scientificService.getDatasets().subscribe(event => { this.datasets = event ;
