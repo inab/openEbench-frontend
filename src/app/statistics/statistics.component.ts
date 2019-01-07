@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import * as c3 from 'c3';
 import * as d3 from 'd3';
 import { StatisticsService } from '../shared/statistics.service';
-// import { Statistics } from '../shared/statistics';
 
 
+/**
+ * Componet for Statistics
+ */
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -12,22 +14,32 @@ import { StatisticsService } from '../shared/statistics.service';
 })
 export class StatisticsComponent implements OnInit {
 
+/**
+ * data
+ */
 private data: any;
+/**
+ * statistics
+ */
 public statistics: any;
+/**
+ * event
+ */
 public event = false;
 
-
+/**
+ * constructor function
+ */
   constructor( private statsService: StatisticsService) { }
-
+/**
+ * initializer
+ */
   ngOnInit() {
-    // this.keycloakService.keycloakEvents$.subscribe(keycloakEvent => {
-        // Add event handler
-        // this.keycloakService.login();
-
-    //   });
       this.fetchdata();
   }
-
+/**
+ * fetches the data and generates the statistics charts
+ */
   private fetchdata() {
     this.statsService.getStats().subscribe(data => {
       this.data = data;
@@ -40,23 +52,14 @@ public event = false;
     this.generateChart(this.statistics);
     });
   }
-
+/**
+ * helper method for the fechdata
+ */
   private generateChart(data) {
       this.event = true;
     c3.generate({
-        size: {
-            height: 500
-        },
         title: {
-            show: false,
-            text: 'Tools with publications',
-            position: 'top-center',   // top-left, top-center and top-right
-            padding: {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0
-            }
+            text: 'Publications'
         },
         data: {
             columns: [
@@ -65,29 +68,18 @@ public event = false;
             ],
             type : 'pie',
         },
-        pie: {
-            label: {
-              format: function(value, ratio, id) {
-                return value + '';
-              }
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
             }
-          },
+        },
         bindto: '#toolspublications',
     });
     c3.generate({
-        size: {
-            height: 500
-        },
         title: {
-            show: false,
-            text: 'Tools with bioschemas',
-            position: 'top-center',   // top-left, top-center and top-right
-            padding: {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0
-            }
+            text: 'Bioschemas'
         },
         data: {
             columns: [
@@ -96,30 +88,17 @@ public event = false;
             ],
             type : 'pie',
         },
-        pie: {
-            label: {
-              format: function(value, ratio, id) {
-                return value + '';
-              }
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
             }
-          },
-        bindto: '#toolsopensource',
+        },
+        bindto: '#toolsbioschemas',
     });
   c3.generate({
-        size: {
-            height: 500
-        },
-        title: {
-            show: false,
-            text: 'Tools with opensource license',
-            position: 'top-center',   // top-left, top-center and top-right
-            padding: {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0
-            }
-        },
+
         data: {
             columns: [
                 ['Tools with opensource license', data.opensource],
@@ -127,15 +106,17 @@ public event = false;
             ],
             type : 'pie',
         },
-        pie: {
-            label: {
-              format: function(value, ratio, id) {
-                return value + '';
-              }
+        title: {
+            text: 'Open Source'
+        },
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
             }
-          },
-
-        bindto: '#toolsbioschemas',
+        },
+        bindto: '#toolsopensource',
     });
   }
 
