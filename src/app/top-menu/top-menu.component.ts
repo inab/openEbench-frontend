@@ -46,7 +46,7 @@ export class TopMenuComponent implements OnInit {
    * call the getProfileName function on start
    */
   ngOnInit() {
-    this.getProfileName();
+   // this.getProfileName();
   }
 
   /**
@@ -71,7 +71,7 @@ export class TopMenuComponent implements OnInit {
   }
 
   getPath() {
-    return this.location.isCurrentPathEqualTo(this.dashboardLink.path);
+    // return this.location.isCurrentPathEqualTo(this.dashboardLink.path);
   }
 
 }
