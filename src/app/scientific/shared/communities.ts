@@ -1,6 +1,11 @@
 import {Community} from './community';
 
-
-export class Communities {
+/**
+ * communities array object
+ */
+export class Communites {
+    /**
+     * community
+     */
     community: any;
 }

@@ -1,0 +1,31 @@
+<span *ngIf='bm; else loading'>
+    <br>
+    <br>
+    <h3>Benchmarking Challenges List</h3>
+    <hr>
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="bm.Challenge">
+            <ng-container matColumnDef="sci-card">  
+                <mat-cell class="row" *matCellDef="let b"> 
+                  <div class="table-fields">
+                      <p><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"  matTooltipPosition="right">{{b.name}} [{{b._id.split("_")[1]}}]</a></p>
+                  </div>
+                </mat-cell>
+            </ng-container>
+          <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row> 
+        </mat-table>
+      </div>
+
+  </span>
+<br>
+<span>
+    <h3>Summary Table across all Benchmarks in the Event</h3>
+    <div class="example-container mat-elevation-z8">
+        <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}"></table>
+    </div>
+</span>
+ 
+  
+  
+  
+<ng-template #loading>loading...</ng-template>

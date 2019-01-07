@@ -6,44 +6,98 @@ import { ToolService } from '../../shared/tool.service';
 import { tap } from 'rxjs/operators';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Filter } from '../../shared/filter';
-import { Stats } from '../../shared/stats';
+// import { Stats } from '../../shared/stats';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Metrics } from '../../shared/metrics';
 import { Directive, Output, EventEmitter, SimpleChange } from '@angular/core';
 
 
-
+/**
+* Component to list the tools
+*/
 @Component({
   selector: 'app-tool-table',
   templateUrl: './tool-table.component.html',
   styleUrls: ['./tool-table.component.css']
 })
 
+/**
+* Class ToolTable Component
+*/
 export class ToolTableComponent implements OnInit {
 
+
+  /**
+   * options
+   */
   private options: string[];
+  /**
+   * filter
+   */
   private filter: Filter;
+  /**
+   * filterValue
+   */
   private filterValue: string;
+  /**
+   * search
+   */
   private search: FormGroup;
+  /**
+   * tools
+   */
   public tools: Tool[];
+  /**
+   * metrics
+   */
   public metrics: Metrics[];
+  /**
+   * skip
+   */
   private skip: number;
+  /**
+   * limit
+   */
   private limit: number;
+  /**
+   * stats
+   */
   private stats: any;
+  /**
+   * length
+   */
   private length: number;
+  /**
+   * pageIndex
+   */
   private pageIndex: number;
+  /**
+   * pageSize
+   */
   private pageSize: number;
+  /**
+   * typeList
+   */
   private typeList = ['cmd', 'web', 'db', 'app', 'lib', 'ontology', 'workflow', 'plugin', 'sparql',
    'soap', 'script', 'rest', 'workbench', 'suite'];
 
+   /**
+    * ViewChild for paginator
+    */
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  /**
+  * Construtor for the tool table;
+  */
   constructor(
     private toolService: ToolService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
 
+  /**
+  * On init method checks for search param in the url or filters applied
+  */
   ngOnInit() {
     this.filterValue = this.getQueryParam('search');
     this.filter = {
@@ -57,20 +111,29 @@ export class ToolTableComponent implements OnInit {
     this.initializeForm();
     // this.submitForm();
   }
+
+  /**
+  * Calls tool service to retrive stats from tool
+  */
   private getStats() {
    this.toolService.getStats().subscribe(tmpStats => this.stats = tmpStats);
   }
 
+  /**
+   * Helper method to get the query param
+   */
   private getQueryParam(param: string): string {
     return this.route.snapshot.queryParamMap.get(param);
   }
 
+  /**
+   * Gets the tools
+  */
   private getTools(): void {
     this.toolService.getToolWithFilters(this.filter , this.skip , this.limit)
       .subscribe(res => {
           this.length = res.headers.get('Content-Range').split('/')[1];
           this.tools = res.body;
-          // console.log(this.tools);
         }
     );
     this.pageIndex = 0;
@@ -78,6 +141,9 @@ export class ToolTableComponent implements OnInit {
 
   }
 
+  /**
+   * Initialize search from
+  */
   private initializeForm() {
     this.options = ['Name', 'Name & Description',  'Description'];
     this.search = new FormGroup (this.filter = {
@@ -88,6 +154,9 @@ export class ToolTableComponent implements OnInit {
     this.submitForm();
   }
 
+  /**
+   * Submit search form
+  */
   private submitForm() {
     this.filter = {
       text: this.search.value.text == null ? '' : this.search.value.text,
@@ -101,21 +170,20 @@ export class ToolTableComponent implements OnInit {
     this.getTools();
   }
 
+  /**
+   * Change page (Paginator)
+  */
   private changePage( event ) {
-    // console.log('pageSize', event.pageSize);
-    // console.log('skip', event.pageIndex * event.pageSize);
-    // console.log('limit', ( event.pageIndex * event.pageSize) + event.pageSize);
     this.skip = event.pageIndex * event.pageSize;
     this.limit = (event.pageIndex * event.pageSize) + event.pageSize;
     this.getTools();
   }
 
+  /**
+   * Url Metrics for tools
+  */
   public getMetricsForTool(id) {
     const url = id.replace('/tool/', '/metrics/');
-    // console.log(url);
-    // this.toolService.getToolMetricsById(id).subscribe(res => {
-    //   this.metrics = res;
-    // });
   }
 
 }

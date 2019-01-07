@@ -1,3 +1,3 @@
-export class Stats {
-    length: number;
-}
+// export class Stats {
+//     length: number;
+// }

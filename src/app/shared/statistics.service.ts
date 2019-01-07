@@ -2,29 +2,47 @@ import { Injectable } from '@angular/core';
 import { Observable ,  of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { AppModule } from '../app.module';
 
-// import { Statistics } from './statistics';
 
-
+/**
+ * injectable statistics
+ */
 @Injectable()
 export class StatisticsService {
 
-
-
-
+  /**
+   * count
+   */
   public count: string;
+  /**
+   * production
+   */
   private production = 'openebench';
+  /**
+   * development
+   */
   private dev = 'dev-openebench';
-  private URL = 'https://' + this.dev + '.bsc.es/monitor/rest/metrics/statistics';
 
+  /**
+   * url
+   */
+  private URL = 'https://' + this.dev + '.bsc.es/monitor/rest/metrics/statistics';
+/**
+ * constructor
+ */
   constructor(private http: HttpClient) { }
 
-
+/**
+ * get stats from server
+ */
   getStats(): Observable <any> {
     return this.http.get(this.URL);
   }
 
-
+/**
+ * error handle
+ */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

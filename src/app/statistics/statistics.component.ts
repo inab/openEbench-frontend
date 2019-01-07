@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import * as c3 from 'c3';
 import * as d3 from 'd3';
 import { StatisticsService } from '../shared/statistics.service';
-// import { Statistics } from '../shared/statistics';
 
+
+/**
+ * Componet for Statistics
+ */
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -11,19 +14,32 @@ import { StatisticsService } from '../shared/statistics.service';
 })
 export class StatisticsComponent implements OnInit {
 
+/**
+ * data
+ */
 private data: any;
+/**
+ * statistics
+ */
 public statistics: any;
+/**
+ * event
+ */
 public event = false;
 
-
-  constructor(
-    private statsService: StatisticsService,
-  ) { }
-
+/**
+ * constructor function
+ */
+  constructor( private statsService: StatisticsService) { }
+/**
+ * initializer
+ */
   ngOnInit() {
-  this.fetchdata();
+      this.fetchdata();
   }
-
+/**
+ * fetches the data and generates the statistics charts
+ */
   private fetchdata() {
     this.statsService.getStats().subscribe(data => {
       this.data = data;
@@ -36,11 +52,15 @@ public event = false;
     this.generateChart(this.statistics);
     });
   }
-
+/**
+ * helper method for the fechdata
+ */
   private generateChart(data) {
       this.event = true;
     c3.generate({
-
+        title: {
+            text: 'Publications'
+        },
         data: {
             columns: [
                 ['Tools with publications', data.publications],
@@ -48,10 +68,19 @@ public event = false;
             ],
             type : 'pie',
         },
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
+            }
+        },
         bindto: '#toolspublications',
     });
     c3.generate({
-
+        title: {
+            text: 'Bioschemas'
+        },
         data: {
             columns: [
                 ['Tools with bioschemas', data.bioschemas],
@@ -59,7 +88,14 @@ public event = false;
             ],
             type : 'pie',
         },
-        bindto: '#toolsopensource',
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
+            }
+        },
+        bindto: '#toolsbioschemas',
     });
   c3.generate({
 
@@ -70,7 +106,17 @@ public event = false;
             ],
             type : 'pie',
         },
-        bindto: '#toolsbioschemas',
+        title: {
+            text: 'Open Source'
+        },
+        tooltip: {
+            format: {
+                value: function(value) {
+                    return (value + ' / ' + data.tools);
+                }
+            }
+        },
+        bindto: '#toolsopensource',
     });
   }
 
