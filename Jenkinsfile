@@ -31,6 +31,12 @@ pipeline {
             }
         }
 
+        stage('Clean production files') {
+            steps {
+                sh 'HOME=/home/jenkins rm -R /home/jenkins/prod/*'
+            }
+        }
+
         stage('Move Build to Production') {
             steps {
                 sh 'HOME=/home/jenkins cp -R ./dist/* /home/jenkins/prod'
