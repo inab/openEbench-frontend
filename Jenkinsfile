@@ -23,6 +23,7 @@ pipeline {
                     def folder = fileExists '/home/jenkins/prod'
 
                     if (folder) { 
+                        sh 'rm -R /home/jenkins/prod_old/*'
                         sh 'cp -R /home/jenkins/prod /home/jenkins/prod_old' 
                     } else {
                         sh 'mkdir /home/jenkins/prod' 
