@@ -18,9 +18,10 @@ pipeline {
             }
 
             stage('Backup previous deployment') {
-                if(env.BRANCH_NAME == 'development'){    
-                    steps{
-                        script{ // Check if prod folder exits if exits make a copy ro prod_old else create a prod folder
+              
+                steps{
+                    script{ // Check if prod folder exits if exits make a copy ro prod_old else create a prod folder
+                        if(env.BRANCH_NAME == 'development'){    
                             def folder = fileExists '/home/jenkins/prod'
 
                             if (folder) { 
@@ -35,16 +36,18 @@ pipeline {
             }
 
             stage('Clean production files') {
-                if(env.BRANCH_NAME == 'development'){    
-                    steps {
+                   
+                steps {
+                    if(env.BRANCH_NAME == 'development'){ 
                         sh 'HOME=/home/jenkins rm -R /home/jenkins/prod/*'
                     }
                 }
             }
 
             stage('Move Build to Production') {
-                if(env.BRANCH_NAME == 'development'){
-                    steps {
+                
+                steps {
+                    if(env.BRANCH_NAME == 'development'){
                         sh 'HOME=/home/jenkins cp -R ./dist/* /home/jenkins/prod'
                     }
                 }
