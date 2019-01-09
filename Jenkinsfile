@@ -38,8 +38,10 @@ pipeline {
             stage('Clean production files') {
                    
                 steps {
-                    if(env.BRANCH_NAME == 'development'){ 
-                        sh 'HOME=/home/jenkins rm -R /home/jenkins/prod/*'
+                    script{
+                        if(env.BRANCH_NAME == 'development'){ 
+                            sh 'HOME=/home/jenkins rm -R /home/jenkins/prod/*'
+                        }
                     }
                 }
             }
@@ -47,8 +49,10 @@ pipeline {
             stage('Move Build to Production') {
                 
                 steps {
-                    if(env.BRANCH_NAME == 'development'){
-                        sh 'HOME=/home/jenkins cp -R ./dist/* /home/jenkins/prod'
+                    script{
+                        if(env.BRANCH_NAME == 'development'){
+                            sh 'HOME=/home/jenkins cp -R ./dist/* /home/jenkins/prod'
+                        }
                     }
                 }
             }
