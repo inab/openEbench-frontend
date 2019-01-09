@@ -31,6 +31,16 @@ pipeline {
                                 sh 'mkdir /home/jenkins/prod' 
                             }
                         }
+                        if(env.BRANCH_NAME == 'release1.0'){    
+                            def folder = fileExists '/gpfs_prod/html/prod'
+
+                            if (folder) { 
+                                sh 'rm -R /gpfs_prod/html/prod_old/*'
+                                sh 'cp -R /gpfs_prod/html/prod /gpfs_prod/html/prod_old' 
+                            } else {
+                                sh 'mkdir /gpfs_prod/html/prod' 
+                            }
+                        }
                     }
                 }
             }
@@ -42,6 +52,9 @@ pipeline {
                         if(env.BRANCH_NAME == 'development'){ 
                             sh 'HOME=/home/jenkins rm -R /home/jenkins/prod/*'
                         }
+                        if(env.BRANCH_NAME == 'release1.0'){ 
+                            sh 'HOME=/home/jenkins rm -R /gpfs_prod/html/prod/*'
+                        }
                     }
                 }
             }
@@ -52,6 +65,9 @@ pipeline {
                     script{
                         if(env.BRANCH_NAME == 'development'){
                             sh 'HOME=/home/jenkins cp -R ./dist/* /home/jenkins/prod'
+                        }
+                        if(env.BRANCH_NAME == 'release1.0'){
+                            sh 'HOME=/home/jenkins cp -R ./dist/* /gpfs_prod/html/prod'
                         }
                     }
                 }
