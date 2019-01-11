@@ -11,13 +11,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
-//   fromObject: {
-//     action: 'opensearch',
-//     format: 'json',
-//     origin: '*'
-//   }
-// });
-
 /**
  * Elastic search url to server
  */

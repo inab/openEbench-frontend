@@ -15,9 +15,9 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./benchmarking-detail.component.css']
 })
 export class BenchmarkingDetailComponent implements OnInit {
-/**
- * htmlToAdd
- */
+  /**
+   * htmlToAdd
+   */
   public htmlToAdd;
   /**
    * id
@@ -27,7 +27,6 @@ export class BenchmarkingDetailComponent implements OnInit {
    * bm
    */
   public bm: any[];
-  // stateChanged: EventEmitter <any[]> = new EventEmitter();
 
   /**
    * constructor
@@ -49,24 +48,6 @@ export class BenchmarkingDetailComponent implements OnInit {
     }, 500);
   }
 
-  // set state(val) {
-  //   this.bm = val;
-  //   this.stateChanged.emit(this.bm);
-  // }
-
-  // get state() {
-  //   return this.bm;
-  // }
-
-  // stateChangedEmitter() {
-  //   console.log(this.stateChanged);
-  //   return this.stateChanged;
-  // }
-
-  // ngDoCheck() {
-    // loadurl();
-    // console.log("Docheck")
-  // }
   /**
    * helper method get param
    */
