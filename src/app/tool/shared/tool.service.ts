@@ -40,7 +40,7 @@ export class ToolService {
   /**
    * url
    */
-  private toolUrl = 'https://' + this.dev + '.bsc.es/monitor/rest/aggregate';
+  private toolUrl = 'https://' + this.production + '.bsc.es/monitor/rest/aggregate';
 
   /**
    * constructor
@@ -117,7 +117,7 @@ export class ToolService {
    * Get global statistics
    */
   getStats(): Observable <any> {
-    return this.http.get('https://' + this.dev + '.bsc.es/monitor/rest/statistics');
+    return this.http.get('https://' + this.production + '.bsc.es/monitor/rest/statistics');
   }
 
 /**

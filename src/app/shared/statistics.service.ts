@@ -27,7 +27,7 @@ export class StatisticsService {
   /**
    * url
    */
-  private URL = 'https://' + this.dev + '.bsc.es/monitor/rest/metrics/statistics';
+  private URL = 'https://' + this.production + '.bsc.es/monitor/rest/metrics/statistics';
 /**
  * constructor
  */
