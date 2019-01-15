@@ -71,7 +71,7 @@ public event = false;
         tooltip: {
             format: {
                 value: function(value) {
-                    return (value + ' / ' + data.tools);
+                    return (d3.format(',')(value) + ' / ' + d3.format(',')(data.tools));
                 }
             }
         },
@@ -91,7 +91,7 @@ public event = false;
         tooltip: {
             format: {
                 value: function(value) {
-                    return (value + ' / ' + data.tools);
+                    return (d3.format(',')(value) + ' / ' + d3.format(',')(data.tools));
                 }
             }
         },
@@ -112,7 +112,7 @@ public event = false;
         tooltip: {
             format: {
                 value: function(value) {
-                    return (value + ' / ' + data.tools);
+                    return (d3.format(',')(value) + ' / ' + d3.format(',')(data.tools));
                 }
             }
         },
