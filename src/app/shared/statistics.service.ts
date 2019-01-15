@@ -37,6 +37,7 @@ export class StatisticsService {
    * get stats from server
    */
   getStats(): Observable<any> {
+
     return this.http.get(this.URL);
   }
 

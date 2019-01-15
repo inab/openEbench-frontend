@@ -3,7 +3,6 @@ import * as c3 from 'c3';
 import * as d3 from 'd3';
 import { StatisticsService } from '../shared/statistics.service';
 
-
 /**
  * Componet for Statistics
  */
@@ -41,7 +40,8 @@ public event = false;
  * fetches the data and generates the statistics charts
  */
   private fetchdata() {
-    this.statsService.getStats().subscribe(data => {
+    this.statsService.getStats()
+    .subscribe(data => {
       this.data = data;
       this.statistics = {
           'tools' : this.data['/@timestamp'],
