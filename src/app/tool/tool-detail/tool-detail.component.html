@@ -34,12 +34,13 @@
                         </span>
                       </div>
                   </div>
+                  <hr>
                   <div  class="card-group" *ngIf="metrics">
                     <div  class="card border-light">
-                      <h5 class="text-center card-title">Metrics</h5>
-                      <small class="text-center card-subtitle mb-2 text-muted">Brief desc of metrics</small>
-
-
+                      <h3 class="card-title">Metrics</h3>
+                      <small class="card-subtitle mb-2 text-muted">Brief description of metrics collected</small>
+                      <br>
+                      <br>
                       <p ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}}"><b>Accessibility : </b>
                         <span ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}} {{metrics?.project?.website?.bioschemas? 'metrics-true' : 'metrics-false'}}">Bioschema</span>
                         <span ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}} {{metrics?.project?.website?.ssl? 'metrics-true' : 'metrics-false'}}">SSL</span>
@@ -62,21 +63,21 @@
                     </div>
                   </div>
                   
-                  
+                  <hr>
                   <div class="card-group" *ngIf="metrics">
                     <div  class="card border-light">
-                      <h5 class="text-center card-title">Uptime / Accesstime</h5>
-                      <small class="text-center card-subtitle mb-2 text-muted">Displays if the service is currently available</small>
+                      <h3 class="card-title">Uptime / Accesstime</h3>
+                      <small class="card-subtitle mb-2 text-muted">Displays if the service is currently available</small>
                       <div data-id="uptime" data-xaxis='true' attr.data-url="{{selectedValue['@id'] | chartId}}" data-limit=15 class="opebuptime" #opebuptime>
                       </div>
                     </div>
                   </div>
-                  <br>
-                  <br>
+
+                  <hr>
                   <div  class="card-group" *ngIf="metrics">
                     <div  class="card border-light">
-                      <h5 class="text-center card-title">Publications</h5>
-                      <small class="text-center card-subtitle mb-2 text-muted">Amout of citations for each of the publications</small>
+                      <h3 class="card-title">Publications</h3>
+                      <small class="card-subtitle mb-2 text-muted">Amout of citations for each of the publications</small>
                       
                       
                       <span *ngIf="metrics.project.publications">
@@ -90,9 +91,11 @@
                     </div>
                   </div>
                   
+                  <small>
+                    * If no publications are available for this version of the  please select a diffrent version 
+                  </small>
 
-
-
+                  <br>
                   <a href="{{selectedValue['@id']}}">{{selectedValue['@id']}}</a>
                   <br>
                   <a href="{{selectedValue['metrics']}}">{{selectedValue['metrics']}}</a>                                    
