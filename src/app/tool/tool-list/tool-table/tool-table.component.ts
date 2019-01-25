@@ -134,7 +134,6 @@ export class ToolTableComponent implements OnInit {
       .subscribe(res => {
           this.length = res.headers.get('Content-Range').split('/')[1];
           this.tools = res.body;
-          console.log(this.tools);
         }
     );
     this.pageIndex = 0;

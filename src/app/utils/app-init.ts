@@ -1,6 +1,6 @@
 import { KeycloakService } from 'keycloak-angular';
 import { resolve } from 'q';
-
+import { environment } from '../../environments/environment';
 /**
  * Keycloak config file.
  */
@@ -12,7 +12,7 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
       try {
         await keycloak.init({
           config: {
-            url: 'https://inb.bsc.es/auth',
+            url: environment.AUTH_SERVER,
             realm: 'OEB',
             clientId: 'opeb-frontend'
           },

@@ -24,7 +24,7 @@
   </div>
 
     
-  <div class="example-container mat-elevation-z8">
+  <div class="example-container mat-elevation-z8" *ngIf="tools.length > 0;else noentriesfound">
     <mat-table #table [dataSource]="tools">
         <ng-container matColumnDef="tool-card">  
             <mat-cell class="row" *matCellDef="let tool"> 
@@ -54,3 +54,4 @@
 
 </span>
 <ng-template #loading>loading...</ng-template>
+<ng-template #noentriesfound>No entries found</ng-template>

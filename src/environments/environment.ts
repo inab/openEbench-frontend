@@ -4,5 +4,11 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ES_URL : 'https://dev-openebench.bsc.es/esapi/filter',
+  AUTH_SERVER : 'https://inb.bsc.es/auth',
+
+  TOOL_SERVICE_URL : 'https://dev-openebench.bsc.es/monitor/rest/aggregate',
+  TOOL_STATISTICS_URL : 'https://dev-openebench.bsc.es/monitor/rest/statistics',
+  METRICS_STATISTICS_URL : 'https://dev-openebench.bsc.es/monitor/rest/metrics/statistics'
 };

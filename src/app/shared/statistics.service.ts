@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { AppModule } from '../app.module';
+import { environment } from '../../environments/environment';
 
 
 /**
@@ -16,18 +17,9 @@ export class StatisticsService {
    */
   public count: string;
   /**
-   * production
-   */
-  private production = 'openebench';
-  /**
-   * development
-   */
-  private dev = 'dev-openebench';
-
-  /**
    * url
    */
-  private URL = 'https://' + this.dev + '.bsc.es/monitor/rest/metrics/statistics';
+  private URL = environment.METRICS_STATISTICS_URL;
   /**
    * constructor
    */

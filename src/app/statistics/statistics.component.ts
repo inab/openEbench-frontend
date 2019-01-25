@@ -63,8 +63,8 @@ public event = false;
         },
         data: {
             columns: [
-                ['Tools with publications', data.publications],
-                ['Tools with no publications ', data.tools - data.publications]
+                ['Tools with no publications ', data.tools - data.publications],
+                ['Tools with publications', data.publications]
             ],
             type : 'pie',
         },

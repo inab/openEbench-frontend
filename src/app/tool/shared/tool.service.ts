@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { Tool } from './tool';
 import { Metrics } from './metrics';
+import { environment } from '../../../environments/environment';
 
 import { Filter } from './filter';
 
@@ -30,17 +31,13 @@ export class ToolService {
    */
   public count: string;
   /**
-   * production
+   * url
    */
-  private production = 'openebench';
-  /**
-   * development
-   */
-  private dev = 'dev-openebench';
+  private toolUrl = environment.TOOL_SERVICE_URL;
   /**
    * url
    */
-  private toolUrl = 'https://' + this.dev + '.bsc.es/monitor/rest/aggregate';
+  private toolStats = environment.TOOL_STATISTICS_URL;
 
   /**
    * constructor
@@ -117,7 +114,7 @@ export class ToolService {
    * Get global statistics
    */
   getStats(): Observable <any> {
-    return this.http.get('https://' + this.dev + '.bsc.es/monitor/rest/statistics');
+    return this.http.get(this.toolStats);
   }
 
 /**
