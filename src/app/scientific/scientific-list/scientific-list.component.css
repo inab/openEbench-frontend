@@ -1,0 +1,28 @@
+.flex-container{
+    display: flex;
+    justify-content: start
+}
+.communities-card {
+    width: 20%;
+    
+    margin: 4px;
+ 
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    text-align: justify;
+    justify-content: flex-start
+
+}
+
+.communities-card > p {    
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+}
+  
+.communities-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+  

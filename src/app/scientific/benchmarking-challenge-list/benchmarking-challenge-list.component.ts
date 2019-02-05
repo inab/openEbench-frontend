@@ -2,10 +2,12 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
 import { load_table } from '../shared/benchmarkingTable.js';
+
 import { MatPaginator } from '@angular/material';
 import { ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+
 
 /**
  * benchmarking challenge list component
@@ -90,7 +92,8 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
         this.selectedChallenges.splice(index, 1);
       }
     }
-    load_table(this.selectedChallenges);
+    const classifier = document.getElementById('bench_dropdown_list')['value'];
+    load_table(this.selectedChallenges, classifier);
   }
   /**
    * after view init life cycle

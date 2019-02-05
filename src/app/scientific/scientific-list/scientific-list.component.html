@@ -1,7 +1,7 @@
 <div class="menu-margin">
-<mat-accordion>
-  <mat-expansion-panel [expanded]="true">
-    <mat-expansion-panel-header>
+  <!-- <mat-accordion> -->
+  <!-- <mat-expansion-panel [expanded]="true"> -->
+  <!-- <mat-expansion-panel-header>
      <h5>Communities</h5>
     </mat-expansion-panel-header>
     <span *ngIf='communities; else loading'>
@@ -21,11 +21,35 @@
             <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row> 
           </mat-table>
         </div>
-    </span>
+    </span> -->
+  <span class="flex-container" *ngIf='communities; else loading'>
+    
+      <mat-card *ngFor="let c of communities.Community" class="communities-card">
+        <mat-card-header>
+          <div mat-card-avatar class="communities-header-image">
+            <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          </div>
+          <mat-card-title><a routerLink="{{c._id}}" name="{{c._id}}" matTooltip="{{c._id}} details"  matTooltipPosition="right">{{c._id}}</a></mat-card-title>
+          <mat-card-subtitle>{{c.name}}</mat-card-subtitle>
+        </mat-card-header>
 
-  </mat-expansion-panel>
+        <mat-card-content>
+          <p>
+              {{c.description}}
+              
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <p><a  target='_blank' href="{{c.links[0].uri}}">Website</a></p>
+          <!-- <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+    
+  </span>
 
-  <mat-expansion-panel >
+  <!-- </mat-expansion-panel> -->
+
+  <!-- <mat-expansion-panel >
     <mat-expansion-panel-header>
       <h5>Datasets</h5>
     </mat-expansion-panel-header>
@@ -49,8 +73,8 @@
         </div>
     </span>
 
-  </mat-expansion-panel>
-</mat-accordion>
+  </mat-expansion-panel> -->
+  <!-- </mat-accordion> -->
 </div>
 
 

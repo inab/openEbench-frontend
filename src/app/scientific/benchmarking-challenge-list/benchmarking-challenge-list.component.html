@@ -2,7 +2,7 @@
 <span>
     <h3>Summary Table across all Benchmarks in the Event</h3>
     <div class="example-container mat-elevation-z8">
-        <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}"></table>
+        <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}" ></table>
     </div>
 </span>
 <br>
@@ -16,19 +16,18 @@
             <ng-container matColumnDef="sci-card">
                 <mat-cell class="row" *matCellDef="let b">
                     <div class="table-fields">
-                        <a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details" matTooltipPosition="right">{{b.name}}
-                            [{{b._id.split("_")[1]}}]</a>
+                        <p> {{b.name}} <a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b._id.split("_")[1]}}]</a></p>
                     </div>
                     <div class="table-fields">
-                        <mat-checkbox id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)" ></mat-checkbox>
+                        <mat-checkbox color="primary" id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)" ></mat-checkbox>
                     </div>
                 </mat-cell>
             </ng-container>
             <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row>
         </mat-table>
         
-        <mat-paginator [length]=length [pageIndex]=pageIndex [pageSize]=pageSize [pageSizeOptions]=[10,20] (page)="changePage($event)">
-        </mat-paginator>
+        <!-- <mat-paginator [length]=length [pageIndex]=pageIndex [pageSize]=pageSize [pageSizeOptions]=[10,20] (page)="changePage($event)">
+        </mat-paginator> -->
     </div>
 
 </span>
