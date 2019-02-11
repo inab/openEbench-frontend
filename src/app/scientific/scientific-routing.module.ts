@@ -13,11 +13,14 @@ import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-lis
  * routes
  */
 const routes: Routes = [
-  { path: 'scientific' ,  component: ScientificListComponent },
-  { path: 'scientific/:id', component: BenchmarkingListComponent },
-  { path: 'scientific/:id/:beventsid', component: BenchmarkingChallengeListComponent },
-  { path: 'scientific/:id/:beventsid/:bchallengeid', component: BenchmarkingDetailComponent },
-
+  {
+    path: 'scientific', children:[
+      { path: '', component: ScientificListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
+      { path: ':id', component: BenchmarkingListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
+      { path: ':id/:beventsid', component: BenchmarkingChallengeListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
+      { path: ':id/:beventsid/:bchallengeid', component: BenchmarkingDetailComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
+    ]
+  }
 ];
 
 /**
@@ -25,8 +28,8 @@ const routes: Routes = [
  */
 @NgModule({
   // This is a child module so we use forChild
-  imports: [ RouterModule.forChild(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 
 /**
@@ -36,4 +39,6 @@ export class ScientificRoutingModule { }
 /**
  * routing components export
  */
-export const routingComponents = [ScientificListComponent, BenchmarkingListComponent, BenchmarkingDetailComponent];
+
+export const routingComponents = [ScientificListComponent, BenchmarkingListComponent,
+  BenchmarkingChallengeListComponent, BenchmarkingDetailComponent];

@@ -31,7 +31,7 @@ export class TopMenuComponent implements OnInit {
   */
   public dashboardLink = {
     label: 'Dashboard',
-    path: '/dashboard'
+    path: 'dashboard'
   };
 
   /**
@@ -44,15 +44,15 @@ export class TopMenuComponent implements OnInit {
     },
     {
       label: 'Technical Monitoring',
-      path: '/tool'
+      path:  '/tool'
     },
     {
       label: 'Statistics',
-      path: '/stats'
+      path:  '/stats'
     },
     {
       label: 'About',
-      path: '/about'
+      path:  '/about'
     },
   ];
 

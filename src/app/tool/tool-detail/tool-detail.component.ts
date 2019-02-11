@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, bindCallback } from 'rxjs';
-
+import { ToolTableComponent } from '../tool-table/tool-table.component';
 
 import { Filter } from '../shared/filter';
 import { Tool } from '../shared/tool';
@@ -9,8 +9,8 @@ import { Metrics } from '../shared/metrics';
 import { ToolService } from '../shared/tool.service';
 import uptime from '../shared/uptime.js';
 import citation from '../shared/citation.js';
-// import uptime from '../../../../../../Widget-Template/build/build.js';
-// import OpEB from '../../../../../../openEBench-widgets/dev/OpEB-widgets.js';
+import { Input } from '@angular/core';
+
 // <script src="https://rawgit.com/vsundesha/Widget-Template/master/build/build.js"></script>
 //     <script src="https://rawgit.com/vsundesha/citations-widget/master/build/build.js"></script>
 
@@ -67,7 +67,6 @@ export class ToolDetailComponent implements OnInit {
   */
   sources: any = [];
 
-
   /**
   * Constructor
   */
@@ -75,28 +74,29 @@ export class ToolDetailComponent implements OnInit {
     private toolService: ToolService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+  ) {}
 
 
   /**
   * Initializer
   */
   ngOnInit() {
+    this.id = this.getParam('id');
     this.getToolById();
   }
 
   /**
   * Get param from url
   */
-  private getParam(param: string): string {
+  public getParam(param: string): string {
     return this.route.snapshot.paramMap.get(param);
   }
+
 
   /**
   * Find tool by id
   */
   private getToolById(): void {
-    this.id = this.getParam('id');
     this.toolService.getToolById(this.id).subscribe(tools => {
       this.tools = tools;
       if (this.tools.length !== 0) {
@@ -158,15 +158,6 @@ export class ToolDetailComponent implements OnInit {
       this.loadCharts();
     }, 1500);
   }
-
-  // ngAfterViewInit() {
-
-  // }
-
-  // ngAfterViewChecked() {
-  //  this.loadCharts();
-  // }
-
 
   /**
   * helper function for loading the charts

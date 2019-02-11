@@ -9,25 +9,14 @@ import { MaterialModule } from '../material.module';
 
 import { ToolComponent } from './tool.component';
 import { ToolService } from './shared/tool.service';
+
 import { KeyValuePipe } from './shared/pipes/key-value.pipe';
-
-
-import { ToolTableComponent } from './tool-list/tool-table/tool-table.component';
 import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
-
-
 import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
-
-
-
-
-
-
 
 @NgModule({
   declarations: [
     ToolComponent,
-    ToolTableComponent,
     routingComponents,
     KeyValuePipe,
     ChartIdPipe,

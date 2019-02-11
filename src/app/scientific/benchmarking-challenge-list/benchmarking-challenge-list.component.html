@@ -15,12 +15,13 @@
         <mat-table #table [dataSource]="bm.Challenge">
             <ng-container matColumnDef="sci-card">
                 <mat-cell class="row" *matCellDef="let b">
+                        <div class="table-fields">
+                                <mat-checkbox color="primary" id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)" ></mat-checkbox>
+                            </div>
                     <div class="table-fields">
                         <p> {{b.name}} <a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b._id.split("_")[1]}}]</a></p>
                     </div>
-                    <div class="table-fields">
-                        <mat-checkbox color="primary" id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)" ></mat-checkbox>
-                    </div>
+                    
                 </mat-cell>
             </ng-container>
             <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row>

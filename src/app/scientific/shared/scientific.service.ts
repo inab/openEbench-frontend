@@ -29,7 +29,7 @@ export class ScientificService {
   /**
    * community url
   */
-  private url = 'https://' + this.dev + '.bsc.es/api/scientific';
+  private url = 'https://' + this.production + '.bsc.es/api/scientific';
 
   /**
    * constructor

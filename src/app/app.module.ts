@@ -19,10 +19,11 @@ import { ScientificModule } from './scientific/scientific.module';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { StatisticsComponent } from './statistics/statistics.component';
+
 import { PrivateComponent } from './private/private.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 
 
@@ -42,8 +43,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     routingComponents,
     FooterComponent,
     PageNotFoundComponent,
-    StatisticsComponent,
-    PrivateComponent,
+    // BreadcrumbsComponent,
 
   ],
   imports: [

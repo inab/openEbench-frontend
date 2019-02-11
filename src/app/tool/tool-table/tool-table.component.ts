@@ -1,15 +1,18 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
-import { Tool } from '../../shared/tool';
+import { Tool } from '../shared/tool';
 import {  MatPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs';
-import { ToolService } from '../../shared/tool.service';
+import { ToolService } from '../shared/tool.service';
+
 import { tap } from 'rxjs/operators';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Filter } from '../../shared/filter';
+import { Filter } from '../shared/filter';
 // import { Stats } from '../../shared/stats';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Metrics } from '../../shared/metrics';
+import { Metrics } from '../shared/metrics';
 import { Directive, Output, EventEmitter, SimpleChange } from '@angular/core';
+import { ToolDetailComponent } from '../tool-detail/tool-detail.component';
+
 
 
 /**
@@ -18,7 +21,7 @@ import { Directive, Output, EventEmitter, SimpleChange } from '@angular/core';
 @Component({
   selector: 'app-tool-table',
   templateUrl: './tool-table.component.html',
-  styleUrls: ['./tool-table.component.css']
+  styleUrls: ['./tool-table.component.css'],
 })
 
 /**
@@ -81,9 +84,12 @@ export class ToolTableComponent implements OnInit {
   private typeList = ['cmd', 'web', 'db', 'app', 'lib', 'ontology', 'workflow', 'plugin', 'sparql',
    'soap', 'script', 'rest', 'workbench', 'suite'];
 
+   private toolId: string;
    /**
     * ViewChild for paginator
     */
+
+  private toogle = false;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   /**
@@ -99,6 +105,7 @@ export class ToolTableComponent implements OnInit {
   * On init method checks for search param in the url or filters applied
   */
   ngOnInit() {
+    console.log('tool table');
     this.filterValue = this.getQueryParam('search');
     this.filter = {
       text: this.getQueryParam('search') != null ? this.getQueryParam('search') : '',
@@ -184,6 +191,13 @@ export class ToolTableComponent implements OnInit {
   */
   public getMetricsForTool(id) {
     const url = id.replace('/tool/', '/metrics/');
+  }
+
+  public onActivate($event) {
+    console.log($event);
+  }
+  public onDeactivate($event) {
+    console.log($event);
   }
 
 }

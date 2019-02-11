@@ -30,8 +30,8 @@
             <mat-cell class="row" *matCellDef="let tool"> 
               <div class="table-fields">
                 
-                <p><a routerLink="{{tool.id}}" name="{{tool.id}}" matTooltip="{{tool.id}} details"  matTooltipPosition="right">{{tool.id}}</a></p>
- 
+                <p><a routerLink={{tool.id}}     name="{{tool.id}}" matTooltip="{{tool.id}} details"  matTooltipPosition="right">{{tool.id}}</a></p>
+                <!-- [routerLink]="[{ outlets: { t: [tool.id] } }]"  -->
                 <p class="table-desc"><span>{{tool.entities[0].tools[0]['description']}}</span></p>
 
                 <p><span   *ngFor="let entity of tool.entities"> {{entity.type | uppercase}}</span></p>
@@ -50,8 +50,12 @@
       (page)="changePage($event)">
     </mat-paginator>
   </div>
-
-
 </span>
+
+
 <ng-template #loading>loading...</ng-template>
 <ng-template #noentriesfound>No entries found</ng-template>
+
+
+
+

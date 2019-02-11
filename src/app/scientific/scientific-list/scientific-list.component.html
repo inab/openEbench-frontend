@@ -1,27 +1,5 @@
 <div class="menu-margin">
-  <!-- <mat-accordion> -->
-  <!-- <mat-expansion-panel [expanded]="true"> -->
-  <!-- <mat-expansion-panel-header>
-     <h5>Communities</h5>
-    </mat-expansion-panel-header>
-    <span *ngIf='communities; else loading'>
-        <div class="example-container mat-elevation-z8">
-          <mat-table #table [dataSource]="communities.Community">
-              <ng-container matColumnDef="sci-card">  
-                  <mat-cell class="row" *matCellDef="let c"> 
-                    <div class="table-fields">
-                     <p><a routerLink="{{c._id}}" name="{{c._id}}" matTooltip="{{c._id}} details"  matTooltipPosition="right">{{c._id}}</a></p>
-                     
-                     <p>{{c.name}}</p>
-                     <p>{{c.description}}</p>
-                     <p><a target='_blank' href="{{c.links[0].uri}}">Website</a></p>
-                    </div>
-                  </mat-cell>
-              </ng-container>
-            <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row> 
-          </mat-table>
-        </div>
-    </span> -->
+
   <span class="flex-container" *ngIf='communities; else loading'>
     
       <mat-card *ngFor="let c of communities.Community" class="communities-card">
@@ -46,35 +24,6 @@
       </mat-card>
     
   </span>
-
-  <!-- </mat-expansion-panel> -->
-
-  <!-- <mat-expansion-panel >
-    <mat-expansion-panel-header>
-      <h5>Datasets</h5>
-    </mat-expansion-panel-header>
-
-    <span *ngIf='data.length!=0; else loading'>
-        <div class="example-container mat-elevation-z8">
-          <mat-table #table [dataSource]="data">
-              <ng-container matColumnDef="sci-card">  
-                  <mat-cell class="row" *matCellDef="let d" > 
-                    <div class="table-fields">
-                     <p>
-                       <a target="_blank" href="https://dev-openebench.bsc.es/api/scientific/Dataset/{{d._id}}.html" name="{{d._id}}" matTooltip="{{d._id}} details"  matTooltipPosition="right">{{d._id}}</a>                    
-                      </p>
-                     <p>{{d.description}}</p>
-                     <p><span ngClass="{{d.type | lowercase }}-badge badge"> {{d.type}} </span></p>
-                    </div>
-                  </mat-cell>
-              </ng-container>
-            <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row> 
-          </mat-table>
-        </div>
-    </span>
-
-  </mat-expansion-panel> -->
-  <!-- </mat-accordion> -->
 </div>
 
 

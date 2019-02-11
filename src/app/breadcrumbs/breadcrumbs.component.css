@@ -1,0 +1,12 @@
+.breadcrumb li {
+    display: inline;
+  }
+  .breadcrumb li+li:before {
+    content: ">";
+    color: black;
+  }
+  .breadcrumb{
+    
+    color: black;
+    
+  }
