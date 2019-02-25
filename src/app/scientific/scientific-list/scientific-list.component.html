@@ -3,23 +3,22 @@
   <span class="flex-container" *ngIf='communities; else loading'>
     
       <mat-card *ngFor="let c of communities.Community" class="communities-card">
-        <mat-card-header>
-          <div mat-card-avatar class="communities-header-image">
-            <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-          </div>
+        <!-- <mat-card-header>
           <mat-card-title><a routerLink="{{c._id}}" name="{{c._id}}" matTooltip="{{c._id}} details"  matTooltipPosition="right">{{c._id}}</a></mat-card-title>
-          <mat-card-subtitle>{{c.name}}</mat-card-subtitle>
-        </mat-card-header>
+          <mat-card-subtitle>{{c._id}}</mat-card-subtitle>
+        </mat-card-header> -->
 
-        <mat-card-content>
+        <!-- <mat-card-content>
           <p>
               {{c.description}}
               
           </p>
-        </mat-card-content>
+        </mat-card-content> -->
         <mat-card-actions>
+          <p><a routerLink="{{c._id}}" name="{{c._id}}" matTooltip="{{c._id}} details"  matTooltipPosition="right">{{c._id}}</a></p>
           <p><a  target='_blank' href="{{c.links[0].uri}}">Website</a></p>
           <!-- <button mat-button>SHARE</button> -->
+          <mat-card-subtitle>{{c.name}}</mat-card-subtitle>
         </mat-card-actions>
       </mat-card>
     

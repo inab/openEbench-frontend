@@ -109,8 +109,8 @@ export class ToolTableComponent implements OnInit {
     this.filterValue = this.getQueryParam('search');
     this.filter = {
       text: this.getQueryParam('search') != null ? this.getQueryParam('search') : '',
-      filter: '',
-      type: ''
+      filter: this.getQueryParam('filter') != null ? this.getQueryParam('filter') : '',
+      type: this.getQueryParam('type') != null ? this.getQueryParam('type') : ''
     };
     this.skip = 0;
     this.limit = 10;

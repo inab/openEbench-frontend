@@ -1,12 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Karla');
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 /* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
 /* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
 /* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
 
 *{
-    font-family: 'Raleway', sans-serif !important;
+    /* font-family: 'Raleway', sans-serif !important; */
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Libre Baskerville', serif; */
+    /* font-family: 'Karla', sans-serif; */
 }
 
 .main-logo{
