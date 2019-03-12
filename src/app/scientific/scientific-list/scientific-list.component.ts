@@ -1,8 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { ScientificService } from '../shared/scientific.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { HttpParams, HttpClient } from '@angular/common/http';
-
+import {Apollo} from 'apollo-angular';
+import gql from 'graphql-tag';
 
 /**
  * scientific list
@@ -25,50 +24,59 @@ export class ScientificListComponent implements OnInit {
    * data
    */
   public data = [];
-  // public datasets = {
-  //   'datasets' : [{
-  //     '_id': 'QfO:QfO4_ECtest_OMA-GETHOGs_output',
-  //     'title' : 'ECtest OMA GETHOGs output',
-  //     // tslint:disable-next-line:max-line-length
-  //     'description' : 'Output dataset for the OMA-GETHOGs tool in the "Enzyme Classification Conservation Test
-  // " benchmark event with the correspondent metrics generated from it',
-  //     'types' : [
-  //       'Output', 'Participant'
-  //     ]
-  //   },
-  //   {
-  //     '_id': 'QfO:QfO4_GOtest_EggNOG_input',
-  //     'title' : 'GOtest EggNOG input',
-  //     // tslint:disable-next-line:max-line-length
-  //     'description' : 'Input dataset for the EggNOG tool in the "Gene Ontology Conservation Test" benchmark event',
-  //     'types' : [
-  //       'Input', 'Participant'
-  //     ]
-  //   },
-  //   {
-  //     '_id': 'QfO:QfO4_ECtest_RBH-BBH_ref',
-  //     'title' : 'ECtest RBH BBH ref',
-  //     // tslint:disable-next-line:max-line-length
-  //     'description' : 'Reference dataset for the RBH-BBH tool in the "Enzyme Classification Conservation Test" benchmark event',
-  //     'types' : [
-  //       'Reference'
-  //     ]
-  //   }]
-  // };
 
+  /**
+   * Communities using Graphql
+   */
+  public communitiesGraphql: any;
+  /**
+   * loading property for graphql
+   */
+  public loading = true;
+  /**
+   * error property for graphql
+   */
+  public error: any;
+
+
+  public getAllCommunities = gql`
+  {
+    getAllCommunities {
+      _id
+      name
+      acronym
+      links{
+        label
+        uri
+      }
+    }
+  }
+` ;
 
 /**
  * constructor
  */
   constructor(
     private scientificService: ScientificService,
+    private apollo: Apollo,
 
   ) { }
 /**
  * initializer
  */
   ngOnInit() {
-    this.scientificService.getCommunities().subscribe(event => {this.communities = event; });
+    this.apollo
+      .watchQuery({
+        query: this.getAllCommunities
+      })
+      .valueChanges.subscribe(result => {
+        this.communitiesGraphql = result.data;
+        this.loading = result.loading;
+        this.error = result.errors;
+      });
+
+
+    // this.scientificService.getCommunities().subscribe(event => {this.communities = event;  console.log(event); });
     this.scientificService.getDatasets().subscribe(event => { this.datasets = event ;
         for (const a of this.datasets['Dataset']) {
           if (a.type === 'metrics_reference') {

@@ -1,8 +1,10 @@
 
-.container {
-    display: inline-flex;
+.containerflex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .item{
-    order: 1;
+    margin: 5px;   
 }

@@ -23,6 +23,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PrivateComponent } from './private/private.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 // import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 
@@ -58,13 +62,27 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule.forRoot(),
     ReactiveFormsModule,
     MaterialModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    HttpClientModule,
+    ApolloModule,
+    HttpLinkModule
   ],
   providers: [StatisticsService , {
     provide: APP_INITIALIZER,
     useFactory: initializer,
     multi: true,
     deps: [KeycloakService]
+  }, {
+    provide: APOLLO_OPTIONS,
+    useFactory(httpLink: HttpLink) {
+      return {
+        cache: new InMemoryCache(),
+        link: httpLink.create({
+          uri: 'https://dev-openebench.bsc.es/sciapi/graphql'
+        })
+      };
+    },
+    deps: [HttpLink]
   }],
   bootstrap: [AppComponent]
 })

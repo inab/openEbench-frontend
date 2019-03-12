@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ToolRoutingModule, routingComponents } from './tool-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material.module';
 
 import { ToolComponent } from './tool.component';
@@ -28,7 +28,7 @@ import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
     ToolRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     MaterialModule
   ],
   providers: [ToolService],

@@ -6,7 +6,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { StatisticsComponent } from './statistics/statistics.component';
 import { PrivateComponent } from './private/private.component';
 import { AppAuthGuard } from './app.authguard';
-
+import { ToolModule } from './tool/tool.module';
+import { ScientificModule } from './scientific/scientific.module';
 
 /**
  * Routes to componentes, ToolComponent and Scientific component have there own specific routeing.modules
@@ -14,8 +15,8 @@ import { AppAuthGuard } from './app.authguard';
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent,  data: {breadcrumbs: ''} },
-  { path: 'tool', loadChildren: './tool/tool.module' },
-  { path: 'scientific', loadChildren: './scientific/scientific.module' },
+  { path: 'tool', loadChildren: './tool/tool.module#ToolModule' },
+  { path: 'scientific', loadChildren: './scientific/scientific.module#ScientificModule' },
   { path: 'stats', component: StatisticsComponent, data: {breadcrumbs: 'Statistics'} },
   { path: 'about', component: AboutComponent , data: {breadcrumbs: 'About'} } ,
   { path: 'private', component: PrivateComponent, canActivate: [AppAuthGuard]},

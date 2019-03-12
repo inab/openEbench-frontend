@@ -64,6 +64,10 @@ export class StatisticsComponent implements OnInit {
     private generateChart(data) {
         this.event = true;
         c3.generate({
+            size: {
+                height: 340,
+                width: 680
+            },
             title: {
                 text: 'Publications'
             },
@@ -84,6 +88,10 @@ export class StatisticsComponent implements OnInit {
             bindto: '#toolspublications',
         });
         c3.generate({
+            size: {
+                height: 340,
+                width: 680
+            },
             title: {
                 text: 'Bioschemas'
             },
@@ -104,7 +112,10 @@ export class StatisticsComponent implements OnInit {
             bindto: '#toolsbioschemas',
         });
         c3.generate({
-
+            size: {
+                height: 340,
+                width: 680
+            },
             data: {
                 columns: [
                     ['Tools with opensource license', data.opensource],

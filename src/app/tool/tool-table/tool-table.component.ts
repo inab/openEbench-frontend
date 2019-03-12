@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { ToolService } from '../shared/tool.service';
 
 import { tap } from 'rxjs/operators';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Filter } from '../shared/filter';
 // import { Stats } from '../../shared/stats';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -84,13 +84,20 @@ export class ToolTableComponent implements OnInit {
   private typeList = ['cmd', 'web', 'db', 'app', 'lib', 'ontology', 'workflow', 'plugin', 'sparql',
    'soap', 'script', 'rest', 'workbench', 'suite'];
 
+   private edamSubOntologyList = ['topic', 'operation', 'format', 'data' ];
+
    private toolId: string;
    /**
     * ViewChild for paginator
     */
 
   private toogle = false;
+
+
+  public optionss: FormGroup;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
+
 
   /**
   * Construtor for the tool table;
@@ -99,7 +106,14 @@ export class ToolTableComponent implements OnInit {
     private toolService: ToolService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+    private fb: FormBuilder,
+  ) {
+    this.optionss = fb.group({
+      bottom: 0,
+      fixed: false,
+      top: 100
+    });
+   }
 
   /**
   * On init method checks for search param in the url or filters applied
@@ -119,12 +133,14 @@ export class ToolTableComponent implements OnInit {
     // this.submitForm();
   }
 
+
   /**
   * Calls tool service to retrive stats from tool
   */
   private getStats() {
    this.toolService.getStats().subscribe(tmpStats => this.stats = tmpStats);
   }
+
 
   /**
    * Helper method to get the query param

@@ -1,4 +1,6 @@
-/* .mat-paginator-navigation-next{
-    color:red;
-    border:1px solid black
-} */
+.sidenav{
+    padding: 0 2em 2em 2em;
+}
+.table-content{
+    min-height: 55vh
+}
