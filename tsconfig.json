@@ -22,5 +22,8 @@
         "dist/ng-fancy-lib"
       ],
     },
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true
   }
 }

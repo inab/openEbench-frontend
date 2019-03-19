@@ -42,6 +42,7 @@ export class ToolTableComponent implements OnInit {
    * filterValue
    */
   private filterValue: string;
+  private edamFilterValue: string;
   /**
    * search
    */
@@ -86,11 +87,12 @@ export class ToolTableComponent implements OnInit {
 
    private edamSubOntologyList = ['topic', 'operation', 'format', 'data' ];
 
+
    private toolId: string;
    /**
     * ViewChild for paginator
     */
-
+  private opened: Boolean;
   private toogle = false;
 
 
@@ -119,18 +121,19 @@ export class ToolTableComponent implements OnInit {
   * On init method checks for search param in the url or filters applied
   */
   ngOnInit() {
-    console.log('tool table');
     this.filterValue = this.getQueryParam('search');
     this.filter = {
       text: this.getQueryParam('search') != null ? this.getQueryParam('search') : '',
       filter: this.getQueryParam('filter') != null ? this.getQueryParam('filter') : '',
-      type: this.getQueryParam('type') != null ? this.getQueryParam('type') : ''
+      type: this.getQueryParam('type') != null ? this.getQueryParam('type') : '',
+      label: this.getQueryParam('label') != null ? this.getQueryParam('label') : '',
     };
     this.skip = 0;
     this.limit = 10;
 
     this.initializeForm();
     // this.submitForm();
+    this.opened = true;
   }
 
 
@@ -173,7 +176,9 @@ export class ToolTableComponent implements OnInit {
       text: new FormControl(this.filterValue),
       filter: new FormControl(this.options[0]),
       type: new FormControl(),
+      label: new FormControl(this.edamFilterValue),
     });
+    console.log(this.search);
     this.submitForm();
   }
 
@@ -185,11 +190,13 @@ export class ToolTableComponent implements OnInit {
       text: this.search.value.text == null ? '' : this.search.value.text,
       filter: this.search.value.filter,
       type: this.search.value.type,
+      label: this.search.value.label
     };
     this.router.navigate([], {queryParams: {search: this.filter.text}, queryParamsHandling: 'merge'});
     if (this.paginator) {
       this.paginator.firstPage();
     }
+    console.log(this.search);
     this.getTools();
   }
 

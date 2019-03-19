@@ -2,7 +2,7 @@
 
   <span class="flex-container" *ngIf='communitiesGraphql; else loading'>
 
-    <mat-card *ngFor="let c of communitiesGraphql.getAllCommunities" class="communities-card">
+    <mat-card *ngFor="let c of communitiesGraphql.getCommunities" class="communities-card">
       <!-- <mat-card-header>
           <mat-card-title><a routerLink="{{c._id}}" name="{{c._id}}" matTooltip="{{c._id}} details"  matTooltipPosition="right">{{c._id}}</a></mat-card-title>
           <mat-card-subtitle>{{c._id}}</mat-card-subtitle>

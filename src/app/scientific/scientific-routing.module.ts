@@ -5,7 +5,7 @@ import { BenchmarkingListComponent } from './benchmarking-list/benchmarking-list
 import { BenchmarkingDetailComponent } from './benchmarking-detail/benchmarking-detail.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-list/benchmarking-challenge-list.component';
 
 
@@ -14,7 +14,7 @@ import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-lis
  */
 const routes: Routes = [
   {
-    path: 'scientific', children:[
+    path: '', children: [
       { path: '', component: ScientificListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
       { path: ':id', component: BenchmarkingListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
       { path: ':id/:beventsid', component: BenchmarkingChallengeListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
@@ -40,5 +40,5 @@ export class ScientificRoutingModule { }
  * routing components export
  */
 
-export const routingComponents = [ScientificListComponent, BenchmarkingListComponent,
+export const AllScientificRoutingComponents = [ScientificListComponent, BenchmarkingListComponent,
   BenchmarkingChallengeListComponent, BenchmarkingDetailComponent];

@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ToolTableComponent } from './tool-table/tool-table.component';
 import { ToolDetailComponent } from './tool-detail/tool-detail.component';
+import { ToolComponent } from './tool.component';
 
 
 
 
 const routes: Routes = [
   {
-    path: 'tool',
+    path: '',
     children: [
-      { path: '', component: ToolTableComponent },
-      { path: ':id', component: ToolDetailComponent, data: { breadcrumbs: ':id' } }
-    ], data: { breadcrumbs: 'Tools' },
+      { path: '', component: ToolTableComponent,  },
+      { path: ':id', component: ToolDetailComponent, }
+    ],
   },
 
 ];
@@ -40,4 +41,4 @@ export class ToolRoutingModule { }
 /**
  * Export routing components
 */
-export const routingComponents = [ToolTableComponent, ToolDetailComponent];
+export const AllToolRoutingComponents = [ToolTableComponent, ToolDetailComponent];

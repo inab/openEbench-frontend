@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ToolRoutingModule, routingComponents } from './tool-routing.module';
+import { ToolRoutingModule, AllToolRoutingComponents } from './tool-routing.module';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material.module';
 
@@ -14,10 +14,11 @@ import { KeyValuePipe } from './shared/pipes/key-value.pipe';
 import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
 import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
 
+
 @NgModule({
   declarations: [
     ToolComponent,
-    routingComponents,
+    AllToolRoutingComponents,
     KeyValuePipe,
     ChartIdPipe,
     SourceBadgeClassPipe
@@ -35,3 +36,4 @@ import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
   bootstrap: [ToolComponent]
 })
 export class ToolModule { }
+

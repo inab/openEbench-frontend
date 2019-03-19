@@ -14,4 +14,6 @@ export class Filter {
      * type
      */
     type: any;
+
+    label: any;
 }

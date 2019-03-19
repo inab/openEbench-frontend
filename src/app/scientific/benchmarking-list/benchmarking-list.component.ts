@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { Subject } from 'rxjs';
+
 
 /**
  * component
@@ -14,6 +16,10 @@ import gql from 'graphql-tag';
   styleUrls: ['./benchmarking-list.component.css']
 })
 export class BenchmarkingListComponent implements OnInit {
+
+  // public dtTrigger = new  Subject();
+
+  // public dtOptions: DataTables.Settings = {};
   /**
    * id
    */
@@ -29,6 +35,8 @@ export class BenchmarkingListComponent implements OnInit {
    * BenchmarkingEvents by community id using Graphql
    */
   public bEventsGraphql: any;
+
+  public datasetsGraphql: any;
   /**
    * loading property for graphql
    */
@@ -38,19 +46,34 @@ export class BenchmarkingListComponent implements OnInit {
    */
   public error: any;
 
-  public getBEventsByCommunityId = gql`
-    query getBEventsByCommunityId($community_id: String!){
-      getBEventsByCommunityId (community_id: $community_id) {
+  public getBenchmarkingEvents = gql`
+    query getBenchmarkingEvents($community_id: String!){
+      getBenchmarkingEvents(benchmarkingEventFilters: {community_id: $community_id}) {
         _id
         name
         url
         challenges {
           _id
+          name
           url
         }
       }
     }
   `;
+  public getDatasets = gql`
+    query getDatasets($community_id: String!){
+      getDatasets (datasetFilters: {community_id: $community_id , visibility: "public"}) {
+        _id
+        visibility
+        name
+        version
+        description
+        type
+      }
+    }
+  `;
+
+
   constructor(
     private scientificService: ScientificService,
     private route: ActivatedRoute,
@@ -62,19 +85,31 @@ export class BenchmarkingListComponent implements OnInit {
    */
   ngOnInit() {
     this.id = this.getParam('id');
-    this.apollo
-      .watchQuery({
-        query: this.getBEventsByCommunityId,
-        variables: { community_id: this.id}
+    // this.dtOptions = {
+    //   pagingType: 'full_numbers',
+    //   pageLength: 2
+    // };
+    this.apollo.watchQuery({
+        query: this.getBenchmarkingEvents,
+        variables: { community_id: this.id }
       })
       .valueChanges.subscribe(result => {
         this.bEventsGraphql = result.data;
         this.loading = result.loading;
         this.error = result.errors;
       });
+    this.apollo.watchQuery({
+        query: this.getDatasets,
+        variables: { community_id: this.id }
+      })
+      .valueChanges.subscribe(result => {
+        this.datasetsGraphql = result.data;
+        this.loading = result.loading;
+        this.error = result.errors;
+        // this.dtTrigger.next();
+      });
 
-
-    this.scientificService.getBenchmarkingEvents(this.id).subscribe(event => { this.bm = event; });
+    // this.scientificService.getBenchmarkingEvents(this.id).subscribe(event => { this.bm = event; });
   }
   /**
    * helper method to get params

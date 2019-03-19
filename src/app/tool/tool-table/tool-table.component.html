@@ -1,5 +1,5 @@
 <mat-sidenav-container class="example-container" *ngIf='tools;else loading'>
-  <mat-sidenav #sidenav mode="side" opened  [fixedInViewport]="optionss.value.fixed" [fixedTopGap]="optionss.value.top"
+  <mat-sidenav #sidenav mode="side"  [(opened)]="opened"   [fixedInViewport]="optionss.value.fixed" [fixedTopGap]="optionss.value.top"
   [fixedBottomGap]="optionss.value.bottom">
 
 
@@ -32,22 +32,15 @@
         <hr>
 
         <br>
-        <small>EDAM Ontology</small>
+        <small>Search by EDAM Ontology</small>
         <br>
         <mat-form-field>
-          <input matInput placeholder="Filter" value="{{edamFilterValue!=null? edamFilterValue : ''}}" type="text"
-            formControlName='text'>
+          <input matInput placeholder="Edam" value="{{edamFilterValue!=null? edamFilterValue : ''}}" type="text"
+            formControlName='label'>
         </mat-form-field>
+       
         <br>
-        <mat-form-field>
-          <mat-select placeholder="sub-ontology" formControlName="type" multiple matTooltip="Filter by EDAM sub-ontologies"
-            disableOptionCentering>
-            <mat-option *ngFor="let subOntology of edamSubOntologyList" [value]="subOntology" aria-selected="true">{{subOntology | uppercase}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <br>
-        <button mat-raised-button type="submit" (click)='submitForm()' [disabled]="!search.valid" matTooltip="Go"
+        <button mat-raised-button type="submit" (click)='submitForm()'   [disabled]="!search.valid" matTooltip="Go"
           matTooltipPosition="right">submit</button>
       </form>
     </div>
@@ -55,13 +48,16 @@
   <mat-sidenav-content class="table-content">
 
     <span>
-      <div class="mat-elevation-z8 example-container " *ngIf="tools.length > 0;else noentriesfound">
+      <div class=" " *ngIf="tools.length > 0;else noentriesfound">
 
-        <!-- <button mat-raised-button (click)="sidenav.toggle()"  matTooltipPosition="right">Filters</button>       -->
-
+        
+        <button mat-raised-button (click)="sidenav.toggle()"><i class="material-icons">tune</i></button>      
         <mat-table #table [dataSource]="tools" class="table-content">
-
+          
+          
+            
           <ng-container matColumnDef="tool-card">
+            
             <mat-cell class="" *matCellDef="let tool">
               <div class="table-fields">
 

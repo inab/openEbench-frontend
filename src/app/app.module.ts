@@ -22,12 +22,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { PrivateComponent } from './private/private.component';
 
+import { DataTablesModule } from 'angular-datatables';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-// import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+
 
 
 
@@ -47,15 +49,15 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
     routingComponents,
     FooterComponent,
     PageNotFoundComponent,
-    // BreadcrumbsComponent,
 
   ],
   imports: [
     BrowserModule,
     // toolModule is a complete seperate module on its on it is injected here
     // because it is a child module of appModule
-    ToolModule,
-    ScientificModule,
+    // ToolModule,
+    // ScientificModule,
+    DataTablesModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -78,7 +80,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
       return {
         cache: new InMemoryCache(),
         link: httpLink.create({
-          uri: 'https://dev-openebench.bsc.es/sciapi/graphql'
+          // uri: 'https://dev-openebench.bsc.es/sciapi/graphql'
+          uri: 'http://localhost:8080/graphql'
         })
       };
     },

@@ -39,9 +39,9 @@ export class ScientificListComponent implements OnInit {
   public error: any;
 
 
-  public getAllCommunities = gql`
+  public getCommunities = gql`
   {
-    getAllCommunities {
+    getCommunities {
       _id
       name
       acronym
@@ -67,7 +67,7 @@ export class ScientificListComponent implements OnInit {
   ngOnInit() {
     this.apollo
       .watchQuery({
-        query: this.getAllCommunities
+        query: this.getCommunities
       })
       .valueChanges.subscribe(result => {
         this.communitiesGraphql = result.data;

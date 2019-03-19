@@ -14,11 +14,11 @@ import { ScientificModule } from './scientific/scientific.module';
  */
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  { path: 'dashboard', component: DashboardComponent,  data: {breadcrumbs: ''} },
-  { path: 'tool', loadChildren: './tool/tool.module#ToolModule' },
+  { path: 'dashboard', component: DashboardComponent, },
+  { path: 'tool', loadChildren: './tool/tool.module#ToolModule', },
   { path: 'scientific', loadChildren: './scientific/scientific.module#ScientificModule' },
-  { path: 'stats', component: StatisticsComponent, data: {breadcrumbs: 'Statistics'} },
-  { path: 'about', component: AboutComponent , data: {breadcrumbs: 'About'} } ,
+  { path: 'stats', component: StatisticsComponent, },
+  { path: 'about', component: AboutComponent , } ,
   { path: 'private', component: PrivateComponent, canActivate: [AppAuthGuard]},
   { path: '**', component: PageNotFoundComponent }
 ];

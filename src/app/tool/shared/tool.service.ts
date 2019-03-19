@@ -37,6 +37,10 @@ export class ToolService {
   /**
    * url
    */
+  private toolSearchUrl = environment.TOOL_SEARCH_URL;
+  /**
+   * url
+   */
   private toolStats = environment.TOOL_STATISTICS_URL;
 
   /**
@@ -83,23 +87,25 @@ export class ToolService {
     }
     switch (filter.filter) {
       case 'Name':
-        this.res = this.http.get(this.toolUrl, {
+        this.res = this.http.get(this.toolSearchUrl, {
           headers: headers,
-          params: params = params.set('name', filter.text),
+          params: params = params.set('name', filter.text).set('label', filter.label),
           observe: 'response',
         });
+        console.log(this.toolSearchUrl);
         break;
       case 'Description':
-        this.res = this.http.get(this.toolUrl, {
+        this.res = this.http.get(this.toolSearchUrl, {
           headers: headers,
-          params: params = params.set('description', filter.text),
+          params: params = params.set('description', filter.text).set('label', filter.label),
           observe: 'response',
         });
+        console.log(params);
         break;
       default:
-        this.res = this.http.get(this.toolUrl, {
+        this.res = this.http.get(this.toolSearchUrl, {
           headers: headers,
-          params: params = params.set('text', filter.text),
+          params: params = params.set('text', filter.text).set('label', filter.label),
           observe: 'response',
         });
         break;
