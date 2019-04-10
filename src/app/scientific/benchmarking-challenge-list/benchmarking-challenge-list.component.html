@@ -1,35 +1,64 @@
 
 <span>
-    <h3>Summary Table across all Benchmarks in the Event</h3>
-    <div class="example-container mat-elevation-z8">
+    <h4>Summary Table across all Benchmarks in the Event</h4>
+    
+    <div>
         <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}" ></table>
+        <br>
+        
+        <button mat-raised-button type="submit" (click)='filterChallenges()' matTooltip="Reload chart after selecting Challenges"
+        matTooltipPosition="right">Reload chart</button>
     </div>
+    
 </span>
 <br>
-<span *ngIf='bm; else loading'>
+<span *ngIf='challengeGraphql; else loading'>
     <br>
     <br>
-    <h3>Benchmarking Challenges List</h3>
+    <h4>Benchmarking Challenges List</h4>
     <hr>
     <div class="example-container mat-elevation-z8">
-        <mat-table #table [dataSource]="bm.Challenge">
+        <mat-table #table [dataSource]="challengeGraphql.getChallenges">
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null"
+                                [checked]="selection.isSelected(row)"
+                                [aria-label]="checkboxLabel(row)">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
             <ng-container matColumnDef="sci-card">
                 <mat-cell class="row" *matCellDef="let b">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
                         <div class="table-fields">
-                                <mat-checkbox color="primary" id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)" ></mat-checkbox>
-                            </div>
-                    <div class="table-fields">
-                        <p> {{b.name}} <a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b._id.split("_")[1]}}]</a></p>
-                    </div>
-                    
+                            <mat-checkbox color="primary" id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)" ></mat-checkbox>
+                        </div>
+                    <td class="table-fields">
+                        <p> {{b.name}} <a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b.orig_id}}]</a></p>
+                    </td>
                 </mat-cell>
+                
             </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            
             <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row>
         </mat-table>
         
         <!-- <mat-paginator [length]=length [pageIndex]=pageIndex [pageSize]=pageSize [pageSizeOptions]=[10,20] (page)="changePage($event)">
         </mat-paginator> -->
+        
     </div>
+
+    
+
 
 </span>
 

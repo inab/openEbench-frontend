@@ -80,8 +80,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
       return {
         cache: new InMemoryCache(),
         link: httpLink.create({
-          // uri: 'https://dev-openebench.bsc.es/sciapi/graphql'
-          uri: 'http://localhost:8080/graphql'
+          uri: 'https://dev-openebench.bsc.es/sciapi/graphql'
+          // uri: 'http://localhost:8080/graphql'
         })
       };
     },

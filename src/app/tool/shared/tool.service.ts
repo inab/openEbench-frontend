@@ -92,7 +92,6 @@ export class ToolService {
           params: params = params.set('name', filter.text).set('label', filter.label),
           observe: 'response',
         });
-        console.log(this.toolSearchUrl);
         break;
       case 'Description':
         this.res = this.http.get(this.toolSearchUrl, {

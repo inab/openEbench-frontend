@@ -7,6 +7,10 @@ import { MatPaginator } from '@angular/material';
 import { ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
+import { SourceListMap } from 'source-list-map';
+import { timeout } from 'q';
 
 
 /**
@@ -51,8 +55,30 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
   /**
    * selected challanges array
    */
-
   private selectedChallenges: any;
+
+  public getChallenges = gql`
+  query getChallenges($benchmarking_event_id: String!){
+    getChallenges(challengeFilters:{benchmarking_event_id: $benchmarking_event_id}) {
+     _id
+     name
+     orig_id
+    }
+  }
+`;
+
+  public challengeGraphql: any;
+
+  /**
+   * loading property for graphql
+   */
+  public loading = true;
+  /**
+   * error property for graphql
+   */
+  public error: any;
+
+  public classifier: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -62,7 +88,8 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
   constructor(
     private scientificService: ScientificService,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private apollo: Apollo,
   ) { }
 
   /**
@@ -76,12 +103,24 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
     this.skip = 0;
     this.limit = 10;
     this.beventsid = this.getParam('beventsid');
-    this.scientificService.getChallenge(this.beventsid).subscribe(event => { this.bm = event; });
+
+    this.apollo.watchQuery({
+      query: this.getChallenges,
+      variables: { benchmarking_event_id:  this.beventsid }
+    })
+    .valueChanges.subscribe(result => {
+      this.challengeGraphql = result.data;
+      this.loading = result.loading;
+      this.error = result.errors;
+    });
+
+
+    // this.scientificService.getChallenge(this.beventsid).subscribe(event => { this.bm = event; });
   }
 
-/**
- * toogle sellec<
- */
+  /**
+   * toogle sellec<
+   */
   toogle(event, value) {
     if (event.checked) {
       this.selectedChallenges.push(value);
@@ -92,8 +131,11 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
         this.selectedChallenges.splice(index, 1);
       }
     }
-    const classifier = document.getElementById('bench_dropdown_list')['value'];
-    load_table(this.selectedChallenges, classifier);
+    this.classifier = document.getElementById('bench_dropdown_list')['value'];
+  }
+
+  filterChallenges() {
+    load_table(this.selectedChallenges, this.classifier);
   }
   /**
    * after view init life cycle

@@ -178,7 +178,6 @@ export class ToolTableComponent implements OnInit {
       type: new FormControl(),
       label: new FormControl(this.edamFilterValue),
     });
-    console.log(this.search);
     this.submitForm();
   }
 
@@ -196,7 +195,6 @@ export class ToolTableComponent implements OnInit {
     if (this.paginator) {
       this.paginator.firstPage();
     }
-    console.log(this.search);
     this.getTools();
   }
 

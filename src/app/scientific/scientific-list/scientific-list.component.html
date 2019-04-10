@@ -1,5 +1,19 @@
 <div class="menu-margin">
 
+  <h4>Communities</h4>
+  <br>
+  <p>Unbiased and objective evaluations of those bioinformatics resources are
+      challenging to set up and can only be effective when built and implemented around
+      community driven efforts. Thus, there are several community initiatives to establish
+      standards and automated services to facilitate benchmarking.</p>
+  <p>These efforts provide a way for software developers to implement more efficient
+      methods, tools and web services by comparing
+      their performance on previously agreed data sets and metrics with other similar
+      resources and, more importantly, help end-users that tend to have difficulties in
+      choosing the right tool for the problem at hand, and are not necessarily aware of
+      the latest developments in each of the fields of the bioinformatics methods they
+      need to use.</p>
+
   <span class="flex-container" *ngIf='communitiesGraphql; else loading'>
 
     <mat-card *ngFor="let c of communitiesGraphql.getCommunities" class="communities-card">
