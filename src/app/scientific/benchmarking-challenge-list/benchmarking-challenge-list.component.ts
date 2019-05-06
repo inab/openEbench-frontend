@@ -69,6 +69,7 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
      _id
      name
      orig_id
+     acronym
     }
   }
 `;

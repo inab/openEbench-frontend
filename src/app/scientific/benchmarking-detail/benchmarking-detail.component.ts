@@ -45,6 +45,7 @@ export class BenchmarkingDetailComponent implements OnInit {
     getChallenges(challengeFilters:{id:$id}){
       _id
       name
+      acronym
     }
   }
 `;

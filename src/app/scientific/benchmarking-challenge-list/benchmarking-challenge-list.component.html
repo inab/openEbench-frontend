@@ -1,6 +1,8 @@
 
 <span>
-    <h4>Summary Table across all Benchmarks in the Event</h4>
+    <h5><b>Challenges</b></h5>
+    <p>challenges are the different tests that the community uses to benchmark their participants within a benchmarking event</p>
+    <p><b>Summary Table across all challenges in the Event</b></p>
     
     <div>
         <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}" ></table>
@@ -15,7 +17,7 @@
 <span *ngIf='challengeGraphql; else loading'>
     <br>
     <br>
-    <h4>Benchmarking Challenges List</h4>
+    <p><b>Benchmarking Challenges List</b></p>
     <hr>
 
     <br>
@@ -33,7 +35,7 @@
             <tr *ngFor="let b of challengeGraphql.getChallenges">
                 <td><mat-checkbox color="primary" id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)" ></mat-checkbox></td>
                 <td>{{ b.name}}</td>
-                <td><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b.orig_id}}]</a></td>
+                <td><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b.acronym}}]</a></td>
             <!-- <td>{{ d.type }}</td> -->
             </tr>
         </tbody>

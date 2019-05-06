@@ -1,9 +1,10 @@
 <span *ngIf="challengesGraphql; else loading">
     <span *ngFor="let c of challengesGraphql.getChallenges">
         <div>
-            <h3>{{c.name}}</h3>
+            <h5><b>{{c.name}} ( {{c.acronym}} )</b></h5>
         </div>
         <hr>
+        <!-- <p>{{c.description}}</p> -->
         <div class="break">
             <div attr.data-id="{{c._id}}" metric_x="OEBM0020000002"
                 metric_y="OEBM0020000001" toTable="true" class="benchmarkingChart" ></div>
