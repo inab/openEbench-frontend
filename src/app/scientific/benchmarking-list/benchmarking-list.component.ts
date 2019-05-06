@@ -52,6 +52,8 @@ export class BenchmarkingListComponent implements OnInit {
    */
   public error: any;
 
+  public currentUrl;
+
   public getCommunities = gql`
     query getCommunities($community_id: String!){
       getCommunities (communityFilters:{id:$community_id}){
@@ -78,10 +80,24 @@ export class BenchmarkingListComponent implements OnInit {
     }
   `;
 
+  // public getBenchmarkingEvents = gql`
+  //   query getBenchmarkingEvents {
+  //     getBenchmarkingEvents {
+  //       _id
+  //       name
+  //       url
+  //       challenges {
+  //         _id
+  //         name
+  //         url
+  //       }
+  //     }
+  //   }
+  // `;
+
   public getDatasets = gql`
     query getDatasets($community_id: String!){
       getDatasets (datasetFilters: {community_id: $community_id , visibility: "public"}) {
-        _id
         name
         type
       }
@@ -165,12 +181,21 @@ export class BenchmarkingListComponent implements OnInit {
         });
       });
     // this.scientificService.getBenchmarkingEvents(this.id).subscribe(event => { this.bm = event; });
+    this.currentUrl = this.router.url;
   }
   /**
    * helper method to get params
    */
   private getParam(param: string): string {
     return this.route.snapshot.paramMap.get(param);
+  }
+
+  openChallenges(id) {
+    this.router.navigate([this.currentUrl, id], { skipLocationChange: true });
+  }
+
+  closeChallenges() {
+    this.router.navigate([this.currentUrl], { skipLocationChange: true });
   }
 
 

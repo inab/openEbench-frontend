@@ -5,12 +5,13 @@ import { load_table } from '../shared/benchmarkingTable.js';
 
 import { MatPaginator } from '@angular/material';
 import { ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { SourceListMap } from 'source-list-map';
 import { timeout } from 'q';
+import { Subject } from 'rxjs';
 
 
 /**
@@ -22,6 +23,11 @@ import { timeout } from 'q';
   styleUrls: ['./benchmarking-challenge-list.component.css']
 })
 export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit {
+
+  public challengeTrigger = new Subject();
+
+
+  public dtOptions: DataTables.Settings = {};
   /**
    * beventsid
    */
@@ -112,6 +118,9 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
       this.challengeGraphql = result.data;
       this.loading = result.loading;
       this.error = result.errors;
+      setTimeout(() => {
+        this.challengeTrigger.next();
+      });
     });
 
 
@@ -143,6 +152,30 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
   ngAfterViewInit(): void {
     load_table();
   }
+
+  deselectAll() {
+    this.selectedChallenges = [];
+  }
+
+
+  // toggleSelectAll() {
+  //   this.control.setValue(
+  //     this.value.length !== this.challengeGraphql.length
+  //       ? this.challengeGraphql
+  //       : []
+  //   );
+  // }
+
+  // get value() { return this.control.value; }
+  // get state() {
+  //   if (this.value.length > 0) {
+  //     return this.value.length !== this.challengeGraphql.length
+  //       ? 'indeterminate'
+  //       : 'checked';
+  //   }
+
+  //   return '';
+  // }
 
   /**
    * helper method to get params

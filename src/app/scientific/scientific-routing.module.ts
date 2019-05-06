@@ -15,10 +15,14 @@ import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-lis
 const routes: Routes = [
   {
     path: '', children: [
-      { path: '', component: ScientificListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
-      { path: ':id', component: BenchmarkingListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
-      { path: ':id/:beventsid', component: BenchmarkingChallengeListComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
-      { path: ':id/:beventsid/:bchallengeid', component: BenchmarkingDetailComponent, data: { breadcrumbs: 'Scientific Benchmarking' } },
+      { path: '', component: ScientificListComponent },
+      { path: ':id', component: BenchmarkingListComponent, children: [
+        {
+          path: ':beventsid', component: BenchmarkingChallengeListComponent,
+        }
+      ]},
+      // { path: ':id/:beventsid', component: BenchmarkingChallengeListComponent},
+      { path: ':id/:beventsid/:bchallengeid', component: BenchmarkingDetailComponent },
     ]
   }
 ];
