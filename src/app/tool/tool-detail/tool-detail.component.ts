@@ -154,9 +154,9 @@ export class ToolDetailComponent implements OnInit {
     this.selectedValue['metrics'] = this.selectedValue['@id'].replace('/tool/', '/metrics/');
     this.toolService.getToolMetricsById(this.selectedValue.metrics).subscribe(
       (res) => { this.metrics = res; });
-    setTimeout(() => {
-      this.loadCharts();
-    }, 1500);
+      setTimeout(() => {
+        this.loadCharts();
+      }, 1000);
   }
 
   /**

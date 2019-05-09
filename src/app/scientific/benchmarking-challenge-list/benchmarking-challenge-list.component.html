@@ -28,18 +28,19 @@
             <th> <ng-container [ngTemplateOutlet]="selectAll"></ng-container></th>
             <th>Name</th>
             <th>chart</th>
-            <!-- <th>Type</th> -->
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let b of challengeGraphql.getChallenges">
-                <td><mat-checkbox color="primary" id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)" ></mat-checkbox></td>
+                <td><mat-checkbox color="primary"  id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)"></mat-checkbox></td>
                 <td>{{ b.name}}</td>
                 <td><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b.acronym}}]</a></td>
             <!-- <td>{{ d.type }}</td> -->
             </tr>
         </tbody>
         </table>
+        
+        <!-- <p> here : {{selectedChallenges}}</p> -->
     </span>
         
         

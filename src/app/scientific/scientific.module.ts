@@ -5,6 +5,8 @@ import { ScientificService } from './shared/scientific.service';
 import { ScientificComponent } from './scientific.component';
 import { MaterialModule } from '../material.module';
 import { DataTablesModule } from 'angular-datatables';
+import {FormsModule} from '@angular/forms';
+
 
 
 
@@ -22,6 +24,7 @@ import { DataTablesModule } from 'angular-datatables';
     ScientificRoutingModule,
     MaterialModule,
     DataTablesModule,
+    FormsModule
   ],
   providers: [ScientificService],
   bootstrap: [ScientificComponent]

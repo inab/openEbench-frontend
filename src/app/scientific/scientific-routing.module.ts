@@ -16,13 +16,14 @@ const routes: Routes = [
   {
     path: '', children: [
       { path: '', component: ScientificListComponent },
-      { path: ':id', component: BenchmarkingListComponent, children: [
-        {
-          path: ':beventsid', component: BenchmarkingChallengeListComponent,
-        }
-      ]},
+      // { path: ':id', component: BenchmarkingListComponent, children: [
+      //   {
+      //     path: ':beventsid', component: BenchmarkingChallengeListComponent,
+      //   }
+      // ]},
       // { path: ':id/:beventsid', component: BenchmarkingChallengeListComponent},
-      { path: ':id/:beventsid/:bchallengeid', component: BenchmarkingDetailComponent },
+      { path: ':id', component: BenchmarkingListComponent },
+      { path: ':id/:bchallengeid', component: BenchmarkingDetailComponent },
     ]
   }
 ];

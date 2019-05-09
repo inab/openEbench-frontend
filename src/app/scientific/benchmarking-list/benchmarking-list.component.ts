@@ -190,13 +190,13 @@ export class BenchmarkingListComponent implements OnInit {
     return this.route.snapshot.paramMap.get(param);
   }
 
-  openChallenges(id) {
-    this.router.navigate([this.currentUrl, id], { skipLocationChange: true });
-  }
+  // openChallenges(id) {
+  //   this.router.navigate([this.currentUrl, id], { skipLocationChange: true });
+  // }
 
-  closeChallenges() {
-    this.router.navigate([this.currentUrl], { skipLocationChange: true });
-  }
+  // closeChallenges() {
+  //   this.router.navigate([this.currentUrl], { skipLocationChange: true });
+  // }
 
 
 }

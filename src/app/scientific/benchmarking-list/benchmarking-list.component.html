@@ -23,7 +23,8 @@
     <span *ngIf='bEventsGraphql; else loading'>
       <!-- <span *ngIf="tools.length!=0; else toolNotFound"> -->
       <mat-accordion>
-        <mat-expansion-panel *ngFor="let b of bEventsGraphql.getBenchmarkingEvents" (opened)="openChallenges(b._id)">
+        <mat-expansion-panel *ngFor="let b of bEventsGraphql.getBenchmarkingEvents" >
+            <!-- (opened)="openChallenges(b._id)" -->
           <mat-expansion-panel-header>
             <mat-panel-title>
               <!-- <a class="left" routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"
@@ -34,7 +35,8 @@
               <span class="right" *ngIf="b.challenges">challenges : {{b.challenges.length}}</span>
             </mat-panel-description>
           </mat-expansion-panel-header>
-            <router-outlet></router-outlet>
+            <!-- <router-outlet [testid]="b._id"></router-outlet> -->
+            <app-benchmarking-challenge-list [beventsid]="b._id"></app-benchmarking-challenge-list>
         </mat-expansion-panel>
       </mat-accordion>
     </span>
