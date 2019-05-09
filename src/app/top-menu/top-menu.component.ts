@@ -60,29 +60,29 @@ export class TopMenuComponent implements OnInit {
    * Call the getProfileName function on start
    */
   ngOnInit() {
-    this.getProfileName();
+    // this.getProfileName();
   }
 
   /**
    * Gets the name of the user to add toggle between login and username
   */
-  getProfileName() {
-    this.keycloakService.isLoggedIn().then(res => {
-      if (res) {
-        this.keycloakService.loadUserProfile().then(resp => {
-          this.navLinks.push({
-            label: resp.username,
-            path: '/private'
-          });
-        });
-      } else {
-        this.navLinks.push({
-          label: 'Login',
-          path: '/private'
-        });
-      }
-    });
-  }
+  // getProfileName() {
+  //   this.keycloakService.isLoggedIn().then(res => {
+  //     if (res) {
+  //       this.keycloakService.loadUserProfile().then(resp => {
+  //         this.navLinks.push({
+  //           label: resp.username,
+  //           path: '/private'
+  //         });
+  //       });
+  //     } else {
+  //       this.navLinks.push({
+  //         label: 'Login',
+  //         path: '/private'
+  //       });
+  //     }
+  //   });
+  // }
 
   /**
    * Get URL path
