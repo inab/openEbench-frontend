@@ -37,52 +37,53 @@ export class TopMenuComponent implements OnInit {
   /**
    * Navigation links and labels for the menu on the left
   */
-  public navLinks = [
-    {
-      label: 'Scientific Benchmarking',
-      path: '/scientific'
-    },
-    {
-      label: 'Technical Monitoring',
-      path:  '/tool'
-    },
-    {
-      label: 'Statistics',
-      path:  '/stats'
-    },
-    {
-      label: 'About',
-      path:  '/about'
-    },
-  ];
+  private navLinks: any[];
 
   /**
    * Call the getProfileName function on start
    */
   ngOnInit() {
-    // this.getProfileName();
+    this.navLinks = [
+      {
+        label: 'Scientific Benchmarking',
+        path: '/scientific'
+      },
+      {
+        label: 'Technical Monitoring',
+        path:  '/tool'
+      },
+      {
+        label: 'Statistics',
+        path:  '/stats'
+      },
+      {
+        label: 'About',
+        path:  '/about'
+      },
+    ];
+    this.getProfileName();
   }
 
   /**
    * Gets the name of the user to add toggle between login and username
   */
-  // getProfileName() {
-  //   this.keycloakService.isLoggedIn().then(res => {
-  //     if (res) {
-  //       this.keycloakService.loadUserProfile().then(resp => {
-  //         this.navLinks.push({
-  //           label: resp.username,
-  //           path: '/private'
-  //         });
-  //       });
-  //     } else {
-  //       this.navLinks.push({
-  //         label: 'Login',
-  //         path: '/private'
-  //       });
-  //     }
-  //   });
-  // }
+  getProfileName() {
+    this.keycloakService.isLoggedIn().then(res => {
+      if (res) {
+        this.keycloakService.loadUserProfile().then(resp => {
+          this.navLinks.push({
+            label: resp.username,
+            path: '/private'
+          });
+        });
+      } else {
+        this.navLinks.push({
+          label: 'Login',
+          path: '/private'
+        });
+      }
+    });
+  }
 
   /**
    * Get URL path
