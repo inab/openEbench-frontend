@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { environment } from '../environments/environment';
 
 
 
@@ -80,7 +81,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
       return {
         cache: new InMemoryCache(),
         link: httpLink.create({
-          uri: 'https://dev-openebench.bsc.es/sciapi/graphql'
+          uri: environment.SCIENTIFIC_SERVICE_URL
           // uri: 'http://localhost:8080/graphql'
         })
       };
