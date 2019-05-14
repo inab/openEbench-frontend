@@ -13,7 +13,7 @@ pipeline {
             stage('Build') {
                 steps {
                     // Create dist folder
-                    sh 'HOME=/home/jenkins PATH="${PWD}/node_modules/.bin:${PATH}" ng build --base-href /html/'
+                    sh 'HOME=/home/jenkins PATH="${PWD}/node_modules/.bin:${PATH}" ng build --prod --base-href /html/'
                 }
             }
 
