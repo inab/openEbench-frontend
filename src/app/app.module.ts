@@ -29,11 +29,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { environment } from '../environments/environment';
 
+//env variable to a local variable
+const envurl = environment.SCIENTIFIC_SERVICE_URL;
 
-
-
-
+//function to create apollo client
+export function createApollo(httpLink: HttpLink) {
+  return {
+    link: httpLink.create({uri: envurl}),
+    cache: new InMemoryCache(),
+  };
+}
 
 
 
@@ -76,15 +83,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
     deps: [KeycloakService]
   }, {
     provide: APOLLO_OPTIONS,
-    useFactory(httpLink: HttpLink) {
-      return {
-        cache: new InMemoryCache(),
-        link: httpLink.create({
-          uri: 'https://dev-openebench.bsc.es/sciapi/graphql'
-          // uri: 'http://localhost:8080/graphql'
-        })
-      };
-    },
+    useFactory: createApollo,
     deps: [HttpLink]
   }],
   bootstrap: [AppComponent]

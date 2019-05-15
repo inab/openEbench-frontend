@@ -12,8 +12,16 @@ pipeline {
 
             stage('Build') {
                 steps {
+                    script{ // Check if prod folder exits if exits make a copy ro prod_old else create a prod folder
+                        if(env.BRANCH_NAME == 'development'){    
+                            sh 'HOME=/home/jenkins PATH="${PWD}/node_modules/.bin:${PATH}" ng build --base-href /html/'
+                        }
+                        if(env.BRANCH_NAME == 'release1.0'){    
+                            sh 'HOME=/home/jenkins PATH="${PWD}/node_modules/.bin:${PATH}" ng build --prod --base-href /html/'
+                        }
+                    }
                     // Create dist folder
-                    sh 'HOME=/home/jenkins PATH="${PWD}/node_modules/.bin:${PATH}" ng build --base-href /html/'
+                    
                 }
             }
 
