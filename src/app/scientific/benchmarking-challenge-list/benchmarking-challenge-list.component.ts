@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
-import { load_table } from '../shared/benchmarkingTable.js';
+// import { load_table } from '../shared/benchmarkingTable.js';
+declare let load_table: any;
 
 import { MatPaginator } from '@angular/material';
 import { ViewChild } from '@angular/core';

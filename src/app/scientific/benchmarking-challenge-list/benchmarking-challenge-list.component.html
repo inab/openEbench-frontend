@@ -5,7 +5,9 @@
     <p><b>Summary Table across all challenges in the Event</b></p>
     
     <div>
-        <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}" ></table>
+        <div class="table-scrollable" id="table-scrollable">
+            <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}"  data-count-fixed-columns="1" cellpadding="4"></table>
+        </div>
         <br>
         
         <button mat-raised-button type="submit" (click)='filterChallenges()' matTooltip="Reload chart after selecting Challenges"
@@ -26,15 +28,17 @@
         <thead>
             <tr>
             <th> <ng-container [ngTemplateOutlet]="selectAll"></ng-container></th>
+            <th>Acronym( Chart )</th>
             <th>Name</th>
-            <th>chart</th>
+            
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let b of challengeGraphql.getChallenges">
                 <td><mat-checkbox color="primary"  id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)"></mat-checkbox></td>
-                <td>{{ b.name}}</td>
                 <td><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b.acronym}}]</a></td>
+                <td>{{ b.name}}</td>
+                
             <!-- <td>{{ d.type }}</td> -->
             </tr>
         </tbody>

@@ -13,8 +13,8 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
         await keycloak.init({
           config: {
             url: environment.AUTH_SERVER,
-            realm: 'OEB',
-            clientId: 'opeb-frontend'
+            realm: 'openebench',
+            clientId: 'oeb-frontend'
           },
           enableBearerInterceptor: false,
           bearerExcludedUrls: [

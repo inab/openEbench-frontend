@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, EventEmitter, DoCheck } from '@angular/core';
-import { loadurl } from '../shared/benchmarkingChart.js';
+// import { loadurl } from '../shared/benchmarkingChart.js';
+declare let loadurl: any;
 import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -17,6 +18,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./benchmarking-detail.component.css']
 })
 export class BenchmarkingDetailComponent implements OnInit {
+
+
   /**
    * htmlToAdd
    */
