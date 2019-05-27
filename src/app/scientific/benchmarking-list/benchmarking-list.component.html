@@ -48,8 +48,8 @@
       There are four types of datasets considered in OpenEBench:
     </p>
     <ul>
-        <li> <b>Input datasets</b> are provided by the community for the participants to test their methods/tools.</li>
-        <li><b>Reference datasets</b> are the Gold Standard datasets that are also provided by the community but are not
+      <li> <b>Input datasets</b> are provided by the community for the participants to test their methods/tools.</li>
+      <li><b>Reference datasets</b> are the Gold Standard datasets that are also provided by the community but are not
       visible.</li>
       <li><b>Participant datasets</b> are uploaded by the participants to be benchmarked against the reference datasets.</li>
       <li><b>Assessment datasets</b> contain information about the results of metrics applied to a certain prediction.</li>
@@ -69,7 +69,6 @@
           <tr *ngFor="let d of datasetsGraphql.getDatasets">
             <td>{{ d.name }}</td>
             <td>{{ d.type }}</td>
-            
           </tr>
         </tbody>
       </table>
@@ -95,7 +94,6 @@
           <tr *ngFor="let t of toolsGraphql.getTools">
             <td>{{ t._id }}</td>
             <td>{{ t.name }}</td>
-            
             <td>{{ t.description }}</td>
           </tr>
         </tbody>

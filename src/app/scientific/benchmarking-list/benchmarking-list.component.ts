@@ -80,20 +80,6 @@ export class BenchmarkingListComponent implements OnInit {
     }
   `;
 
-  // public getBenchmarkingEvents = gql`
-  //   query getBenchmarkingEvents {
-  //     getBenchmarkingEvents {
-  //       _id
-  //       name
-  //       url
-  //       challenges {
-  //         _id
-  //         name
-  //         url
-  //       }
-  //     }
-  //   }
-  // `;
 
   public getDatasets = gql`
     query getDatasets($community_id: String!){

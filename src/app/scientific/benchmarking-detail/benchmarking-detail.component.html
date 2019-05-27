@@ -4,10 +4,10 @@
             <h5><b>{{c.name}} ( {{c.acronym}} )</b></h5>
         </div>
         <hr>
-        <!-- <p>{{c.description}}</p> -->
+        <p>{{c.metrics_categories[1][metrics_id]}}</p>
         <div class="break">
-            <div attr.data-id="{{c._id}}" metric_x="OEBM0010000002"
-                metric_y="OEBM0010000001" toTable="true" class="benchmarkingChart" ></div>
+            <div attr.data-id="{{c._id}}" attr.metric_x="{{c.metrics_categories[0].metrics[0].metrics_id}}"
+                attr.metric_y="{{c.metrics_categories[0].metrics[1].metrics_id}}" toTable="true" class="benchmarkingChart" ></div>
         </div>
     </span>
 

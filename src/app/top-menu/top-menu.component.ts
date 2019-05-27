@@ -61,7 +61,7 @@ export class TopMenuComponent implements OnInit {
         path:  '/about'
       },
     ];
-    this.getProfileName();
+    // this.getProfileName();
   }
 
   /**

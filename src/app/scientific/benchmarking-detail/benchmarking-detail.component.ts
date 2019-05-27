@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, EventEmitter, DoCheck } from '@angular/core';
-// import { loadurl } from '../shared/benchmarkingChart.js';
-declare let loadurl: any;
+import { loadurl } from '../shared/benchmarkingChart.js';
+// declare let loadurl: any;
 import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -49,6 +49,12 @@ export class BenchmarkingDetailComponent implements OnInit {
       _id
       name
       acronym
+      metrics_categories {
+        metrics {
+          metrics_id
+          tool_id
+        }
+      }
     }
   }
 `;
