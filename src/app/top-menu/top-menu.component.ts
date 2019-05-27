@@ -37,7 +37,7 @@ export class TopMenuComponent implements OnInit {
   /**
    * Navigation links and labels for the menu on the left
   */
-  private navLinks: any[];
+  public navLinks: any[];
 
   /**
    * Call the getProfileName function on start
