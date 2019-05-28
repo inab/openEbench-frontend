@@ -4,10 +4,9 @@
     <p>challenges are the different tests that the community uses to benchmark their participants within a benchmarking event</p>
     <p><b>Summary Table across all challenges in the Event</b></p>
     
-    <div>
-        <div class="table-scrollable" id="table-scrollable">
-            <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}"  cellpadding="4"></table>
-        </div>
+    <div>      
+
+        <div id="oeb-table-scroll" class="oeb-table-scroll" attr.data-benchmarkingevent="{{beventsid}}"></div>
         <br>
         
         <button mat-raised-button type="submit" (click)='filterChallenges()' matTooltip="Reload chart after selecting Challenges"

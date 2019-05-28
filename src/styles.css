@@ -179,7 +179,7 @@ nav{
 /*all external links */
 a[href^="https://"],a[href^="http://"] {
     background: url(assets/img/external-link.svg) center right no-repeat;
-    height: 1px;
+    height: auto;
     width: auto;
     padding-right: 13px;
 }
