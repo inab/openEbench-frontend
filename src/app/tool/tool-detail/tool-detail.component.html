@@ -80,7 +80,7 @@
                   <h3 class="card-title">Uptime / Accesstime</h3>
                   <small class="card-subtitle mb-2 text-muted">Displays if the service is currently available</small>
                   <div data-id="uptime" data-xaxis='true' attr.data-url="{{selectedValue['@id'] | chartId}}"
-                    data-limit=15 class="opebuptime" #opebuptime>
+                    data-limit=15 dev="true" class="opebuptime" #opebuptime>
                   </div>
                 </div>
               </div>
@@ -99,7 +99,7 @@
                   </span>
                   <!-- <p>{{selectedValue['@id'] | chartId}}</p> -->
                   <div data-id="citation" data-h="400" data-legend="true"
-                    attr.data-url="{{selectedValue['@id'] | chartId}}" class="opebcitations" #opebuptime>
+                    attr.data-url="{{selectedValue['@id'] | chartId}}" dev="true" class="opebcitations" #opebuptime>
                   </div>
                 </div>
               </div>

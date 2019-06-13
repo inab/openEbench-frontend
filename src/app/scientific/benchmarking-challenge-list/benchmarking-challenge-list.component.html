@@ -6,9 +6,8 @@
     
     <div>      
 
-        <div id="oeb-table-scroll" class="oeb-table-scroll" attr.data-benchmarkingevent="{{beventsid}}" data-mode="dev"></div>
-        <br>
-        
+        <div class="oeb-table" attr.data-benchmarkingevent="{{beventsid}}" data-mode="dev"></div>
+        <br>             
         <button mat-raised-button type="submit" (click)='filterChallenges()' matTooltip="Reload chart after selecting Challenges"
         matTooltipPosition="right">Reload chart</button>
     </div>
@@ -34,7 +33,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let b of challengeGraphql.getChallenges">
-                <td><mat-checkbox color="primary"  id="{{b._id}}" value={{b._id}} (change)="toogle($event, b._id)"></mat-checkbox></td>
+                <td><mat-checkbox color="primary"  id="{{b._id}}" value="{{b._id}}" (change)="toogle($event, b._id)"></mat-checkbox></td>
                 <td><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b.acronym}}]</a></td>
                 <td>{{ b.name}}</td>
                 

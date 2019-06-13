@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Apollo } from 'apollo-angular';
@@ -105,7 +104,6 @@ export class BenchmarkingListComponent implements OnInit {
 
 
   constructor(
-    private scientificService: ScientificService,
     private route: ActivatedRoute,
     private router: Router,
     private apollo: Apollo,
@@ -166,7 +164,6 @@ export class BenchmarkingListComponent implements OnInit {
           this.toolTrigger.next();
         });
       });
-    // this.scientificService.getBenchmarkingEvents(this.id).subscribe(event => { this.bm = event; });
     this.currentUrl = this.router.url;
   }
   /**
@@ -175,14 +172,6 @@ export class BenchmarkingListComponent implements OnInit {
   private getParam(param: string): string {
     return this.route.snapshot.paramMap.get(param);
   }
-
-  // openChallenges(id) {
-  //   this.router.navigate([this.currentUrl, id], { skipLocationChange: true });
-  // }
-
-  // closeChallenges() {
-  //   this.router.navigate([this.currentUrl], { skipLocationChange: true });
-  // }
 
 
 }

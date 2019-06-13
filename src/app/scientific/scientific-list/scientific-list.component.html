@@ -19,17 +19,7 @@
   <span class="flex-container" *ngIf='communitiesGraphql; else loading'>
 
     <mat-card *ngFor="let c of communitiesGraphql.getCommunities" class="communities-card">
-      <!-- <mat-card-header>
-          <mat-card-title><a routerLink="{{c._id}}" name="{{c._id}}" matTooltip="{{c._id}} details"  matTooltipPosition="right">{{c._id}}</a></mat-card-title>
-          <mat-card-subtitle>{{c._id}}</mat-card-subtitle>
-        </mat-card-header> -->
 
-      <!-- <mat-card-content>
-          <p>
-              {{c.description}}
-              
-          </p>
-        </mat-card-content> -->
       <mat-card-actions>
         <p><a routerLink="{{c._id}}" name="{{c._id}}" matTooltip="{{c._id}} details"
             matTooltipPosition="right">{{c.acronym}}</a></p>
@@ -37,9 +27,11 @@
         <!-- <p><a target='_blank' href="{{c.links[0].uri}}">Website</a></p> -->
         <span *ngIf="c.links">
           <span *ngFor="let link of c.links">
-            <span><a target='_blank' href="{{link.uri}}">{{link.label}} </a></span><br>
+            <span *ngIf="link.label !='other'"><a target='_blank' href="{{link.uri}}">{{link.label}} </a></span><br>
+            <span *ngIf="link.label =='other'"><img src="{{link.uri}}" alt="" width="100"></span>
           </span>
         </span>
+        
         <!-- <button mat-button>SHARE</button> -->
 
       </mat-card-actions>

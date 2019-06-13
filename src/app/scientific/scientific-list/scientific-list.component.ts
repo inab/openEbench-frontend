@@ -1,5 +1,4 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { ScientificService } from '../shared/scientific.service';
 import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
 
@@ -57,7 +56,6 @@ export class ScientificListComponent implements OnInit {
  * constructor
  */
   constructor(
-    private scientificService: ScientificService,
     private apollo: Apollo,
 
   ) { }
@@ -74,21 +72,6 @@ export class ScientificListComponent implements OnInit {
         this.loading = result.loading;
         this.error = result.errors;
       });
-
-
-    // this.scientificService.getCommunities().subscribe(event => {this.communities = event;  console.log(event); });
-    this.scientificService.getDatasets().subscribe(event => { this.datasets = event ;
-        for (const a of this.datasets['Dataset']) {
-          if (a.type === 'metrics_reference') {
-            this.data.push(a);
-          }
-        }
-        // console.log(this.data);
-    });
-
-  // check(id) {
-  //   return id.split(':')[1] === 'CAMEO' ? true : false;
-  // }
 
 
   }

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
-import { load_table } from '../shared/benchmarkingTable.js';
+import { run_summary_table } from '../shared/benchmarkingTable.js';
 // import { load_table } from '/home/vsundesh/public_html/bench_event_table/build/build.js';
 // declare let load_table: any;
 import { MatPaginator } from '@angular/material';
@@ -65,7 +64,6 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
    * constructor
    */
   constructor(
-    private scientificService: ScientificService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private apollo: Apollo,
@@ -106,18 +104,20 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
         this.selectedChallenges.splice(index, 1);
       }
     }
-    // console.log(this.selectedChallenges);
-    this.classifier = document.getElementById('bench_dropdown_list')['value'];
+    const div = $('.oeb-table').attr('data-benchmarkingevent');
+    this.classifier = div + '0' ;
   }
 
   filterChallenges() {
-    load_table(this.selectedChallenges, this.classifier);
+    run_summary_table(this.selectedChallenges, this.classifier);
   }
   /**
    * after view init life cycle
    */
   ngAfterViewInit(): void {
-    load_table();
+    setTimeout(() => {
+      run_summary_table();
+    }, 1000);
   }
 
   deselectAll() {

@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, EventEmitter, DoCheck } from '@angular/core';
 import { loadurl } from '../shared/benchmarkingChart.js';
 // declare let loadurl: any;
-import { ScientificService } from '../shared/scientific.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import {Apollo} from 'apollo-angular';
@@ -63,7 +62,6 @@ export class BenchmarkingDetailComponent implements OnInit {
    * constructor
    */
   constructor(
-    private scientificService: ScientificService,
     private route: ActivatedRoute,
     private router: Router,
     private apollo: Apollo,
