@@ -4,10 +4,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { DocsComponent } from './docs/docs.component';
 import { PrivateComponent } from './private/private.component';
 import { AppAuthGuard } from './app.authguard';
-import { ToolModule } from './tool/tool.module';
-import { ScientificModule } from './scientific/scientific.module';
+// import { ToolModule } from './tool/tool.module';
+// import { ScientificModule } from './scientific/scientific.module';
 
 /**
  * Routes to componentes, ToolComponent and Scientific component have there own specific routeing.modules
@@ -15,10 +16,11 @@ import { ScientificModule } from './scientific/scientific.module';
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent, },
-  { path: 'tool', loadChildren: './tool/tool.module#ToolModule', },
-  { path: 'scientific', loadChildren: './scientific/scientific.module#ScientificModule' },
+  { path: 'tool', loadChildren: () => import('./tool/tool.module').then(m => m.ToolModule), },
+  { path: 'scientific', loadChildren: () => import('./scientific/scientific.module').then(m => m.ScientificModule) },
   { path: 'stats', component: StatisticsComponent, },
   { path: 'about', component: AboutComponent , } ,
+  { path: 'docs', component: DocsComponent , } ,
   { path: 'private', component: PrivateComponent, canActivate: [AppAuthGuard]},
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -28,7 +30,10 @@ export const routes: Routes = [
  */
 @NgModule({
   // This is a root module so we use forRoot, ,  { enableTracing: true }  is for debuging
-  imports: [ RouterModule.forRoot(routes),
+  imports: [ RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload',
+    anchorScrolling: 'enabled',
+  }),
     ],
   exports: [ RouterModule ],
   providers: [AppAuthGuard],

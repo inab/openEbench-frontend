@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { Tool } from '../shared/tool';
-import {  MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
 import { BehaviorSubject } from 'rxjs';
 import { ToolService } from '../shared/tool.service';
 
@@ -97,7 +97,7 @@ export class ToolTableComponent implements OnInit {
 
 
   public optionss: FormGroup;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
 
 

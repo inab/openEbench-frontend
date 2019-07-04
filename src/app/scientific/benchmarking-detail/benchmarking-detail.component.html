@@ -1,7 +1,7 @@
 <span *ngIf="challengesGraphql; else loading">
     <span *ngFor="let c of challengesGraphql.getChallenges">
         <div>
-            <h5><b>{{c.name}} ( {{c.acronym}} )</b></h5>
+            <h3>{{c.name}} ( {{c.acronym}} )</h3>
         </div>
         <hr>
         <p>

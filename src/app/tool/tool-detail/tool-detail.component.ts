@@ -26,6 +26,8 @@ import { Input } from '@angular/core';
 })
 export class ToolDetailComponent implements OnInit {
 
+  tableOfContent= [ 'Metrics', 'Uptime', 'Publication'];
+
   /**
    *  panelOpenState
   */

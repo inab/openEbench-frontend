@@ -1,8 +1,8 @@
 <span *ngIf='communitiesGraphql; else loading'>
   <div *ngFor="let c of communitiesGraphql.getCommunities">
-    <h5>
-      <b>{{c.name}} ( {{c.acronym}} )</b>
-    </h5>
+    <h3>
+      {{c.name}} ( {{c.acronym}} )
+    </h3>
     <p>
       {{c.description}}
     </p>
@@ -11,16 +11,14 @@
 
 </span>
 <mat-tab-group>
-  <mat-tab label="Benchmarking Events" style="background-color: rgb(167, 42, 42)">
-    <br>
-    <h5><b>Benchmarking Event</b></h5>
-    <p>
-      A benchmarking event corresponds to a benchmarking experiment which is held at a certain date. It starts when the
-      organizing community opens one or more challenges by providing participants with some input data and allows to
-      submit their predictions. Once the event is closed, the benchmark is performed and the metrics are computed.
-      This usually occurs, recursively (every week,month and year...)
-    </p>
-    <span *ngIf='bEventsGraphql; else loading'>
+    <mat-tab label="Benchmarking Events" style="background-color: rgb(167, 42, 42)">
+        <br>
+        <h3>Benchmarking Event</h3>
+        <p>
+            A benchmarking event corresponds to a benchmarking experiment which is held at a certain date. It starts when the organizing community opens one or more challenges by providing participants with some input data and allows to submit their predictions.
+            Once the event is closed, the benchmark is performed and the metrics are computed. This usually occurs, recursively (every week,month and year...)
+        </p>
+        <span *ngIf='bEventsGraphql; else loading'>
       <!-- <span *ngIf="tools.length!=0; else toolNotFound"> -->
       <mat-accordion>
         <mat-expansion-panel *ngFor="let b of bEventsGraphql.getBenchmarkingEvents" >
@@ -33,31 +31,31 @@
             </mat-panel-title>
             <mat-panel-description>
               <span class="right" *ngIf="b.challenges">challenges : {{b.challenges.length}}</span>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-            <!-- <router-outlet [testid]="b._id"></router-outlet> -->
-            <app-benchmarking-challenge-list [beventsid]="b._id"></app-benchmarking-challenge-list>
+        </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- <router-outlet [testid]="b._id"></router-outlet> -->
+        <app-benchmarking-challenge-list [beventsid]="b._id"></app-benchmarking-challenge-list>
         </mat-expansion-panel>
-      </mat-accordion>
-    </span>
-  </mat-tab>
-  <mat-tab label="Datasets">
-    <br>
-    <h5><b>Datasets</b></h5>
-    <p>
-      There are four types of datasets considered in OpenEBench:
-    </p>
-    <ul>
-      <li> <b>Input datasets</b> are provided by the community for the participants to test their methods/tools.</li>
-      <li><b>Reference datasets</b> are the Gold Standard datasets that are also provided by the community but are not
-      visible.</li>
-      <li><b>Participant datasets</b> are uploaded by the participants to be benchmarked against the reference datasets.</li>
-      <li><b>Assessment datasets</b> contain information about the results of metrics applied to a certain prediction.</li>
-      <li><b>Aggregation datasets</b> are obtained by summarizing or computing statistics on assessment datasets.</li>
-    </ul>
-    <br>
+        </mat-accordion>
+        </span>
+    </mat-tab>
+    <mat-tab label="Datasets">
+        <br>
+        <h3>Datasets</h3>
+        <p>
+            There are four types of datasets considered in OpenEBench:
+        </p>
+        <ul>
+            <li> <b>Input datasets</b> are provided by the community for the participants to test their methods/tools.</li>
+            <li><b>Reference datasets</b> are the Gold Standard datasets that are also provided by the community but are not visible.
+            </li>
+            <li><b>Participant datasets</b> are uploaded by the participants to be benchmarked against the reference datasets.</li>
+            <li><b>Assessment datasets</b> contain information about the results of metrics applied to a certain prediction.</li>
+            <li><b>Aggregation datasets</b> are obtained by summarizing or computing statistics on assessment datasets.</li>
+        </ul>
+        <br>
 
-    <span *ngIf='datasetsGraphql; else loading'>
+        <span *ngIf='datasetsGraphql; else loading'>
       <table datatable [dtOptions]="dtOptions" [dtTrigger]="datasetTrigger" class="row-border hover">
         <thead>
           <tr>
@@ -73,14 +71,14 @@
         </tbody>
       </table>
     </span>
-  </mat-tab>
-  <mat-tab label="Participants">
-      <br>
-      <h5><b>Participants</b></h5>
-      <p>
-        Participants are the users who upload their predictions to take part in the benchmarking event.
-      </p>
-    <span *ngIf='toolsGraphql; else loading'>
+    </mat-tab>
+    <mat-tab label="Participants">
+        <br>
+        <h3>Participants</h3>
+        <p>
+            Participants are the users who upload their predictions to take part in the benchmarking event.
+        </p>
+        <span *ngIf='toolsGraphql; else loading'>
       <table datatable [dtOptions]="dtOptions" [dtTrigger]="toolTrigger" class="row-border hover">
         <thead>
           <tr>
@@ -96,8 +94,8 @@
         </tbody>
       </table>
     </span>
-    <!-- </span> -->
-  </mat-tab>
+        <!-- </span> -->
+    </mat-tab>
 </mat-tab-group>
 
 <ng-template #loading>loading...</ng-template>

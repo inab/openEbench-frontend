@@ -1,5 +1,6 @@
-
 <span *ngIf='tools;else loading'>
+
+  
   <div>
     <form [formGroup]="search" novalidate>
       
@@ -49,23 +50,24 @@
 
             <a routerLink={{tool.id}} name="{{tool.id}}" matTooltip="{{tool.id}} details"
               matTooltipPosition="right">{{tool.id}}</a>
-            <p class="table-desc"><span>{{tool.entities[0].tools[0]['description']}}</span></p>
+            <p class="table-desc"><span>{{tool.entities[0].tools[0]['description']}}</span>
+</p>
 
-            <span *ngFor="let entity of tool.entities"> {{entity.type | uppercase}}</span>
-            <p><a target="_blank" href="{{tool.entities[0].tools[0]['web']['homepage']}}"
-                matTooltip="Visit tool homepage" matTooltipPosition="right">Website</a></p>
-            <p appOnIteration="getMetricsForTool(tool.id)"></p>
-          </div>
-        </mat-cell>
-      </ng-container>
-      <mat-row *matRowDef="let row; columns: ['tool-card'];"></mat-row>
-    </mat-table>
-    <mat-paginator [length]=length [pageIndex]=pageIndex [pageSize]=pageSize [pageSizeOptions]=[10,20]
-      (page)="changePage($event)">
-    </mat-paginator>
-  </div>
+<span *ngFor="let entity of tool.entities"> {{entity.type | uppercase}}</span>
+<p><a target="_blank" href="{{tool.entities[0].tools[0]['web']['homepage']}}" matTooltip="Visit tool homepage" matTooltipPosition="right">Website</a></p>
+<p appOnIteration="getMetricsForTool(tool.id)"></p>
+</div>
+</mat-cell>
+</ng-container>
+<mat-row *matRowDef="let row; columns: ['tool-card'];"></mat-row>
+</mat-table>
+<mat-paginator [length]=length [pageIndex]=pageIndex [pageSize]=pageSize [pageSizeOptions]=[10,20] (page)="changePage($event)">
+</mat-paginator>
+</div>
 
 
 </span>
-<ng-template #loading>loading...</ng-template>
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template>
 <ng-template #noentriesfound>No entries found</ng-template>

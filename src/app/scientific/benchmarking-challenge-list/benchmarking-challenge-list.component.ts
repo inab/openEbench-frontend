@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { run_summary_table } from '../shared/benchmarkingTable.js';
 // import { load_table } from '/home/vsundesh/public_html/bench_event_table/build/build.js';
 // declare let load_table: any;
-import { MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
 import { ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormsModule } from '@angular/forms';
 import { FormGroup } from '@angular/forms';

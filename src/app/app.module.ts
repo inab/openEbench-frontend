@@ -30,6 +30,8 @@ import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { environment } from '../environments/environment';
+import { DocsComponent } from './docs/docs.component';
+
 
 //env variable to a local variable
 const envurl = environment.SCIENTIFIC_SERVICE_URL;
@@ -56,6 +58,9 @@ export function createApollo(httpLink: HttpLink) {
     routingComponents,
     FooterComponent,
     PageNotFoundComponent,
+    DocsComponent,
+    
+    
 
   ],
   imports: [
@@ -68,7 +73,7 @@ export function createApollo(httpLink: HttpLink) {
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    NgbModule.forRoot(),
+    // NgbModule.forRoot(),
     ReactiveFormsModule,
     MaterialModule,
     KeycloakAngularModule,
