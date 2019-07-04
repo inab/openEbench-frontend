@@ -6,8 +6,8 @@
             href="{{selectedValue['web']['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>
       <p class="text-center"><span *ngFor="let source of sources" (click)="sourceHref(source,instance?.id)"
           ngClass="badge-no-color false-link">{{source}}</span></p>
-      <mat-tab-group (selectedTabChange)="onTabChange($event)">
-        <span *ngFor="let entity of instance.entities">
+<mat-tab-group (selectedTabChange)="onTabChange($event)">
+    <span *ngFor="let entity of instance.entities">
           <mat-tab *ngIf="entity.type!=null">
             <ng-template mat-tab-label>
               {{entity.type | uppercase}}
@@ -28,97 +28,86 @@
                   <p><b> Description : </b>{{selectedValue.description}}</p>
                   <span>
                     <p><b>OS : </b> <span *ngIf="selectedValue.os;else notavailable"> <span
-                          *ngFor="let os of selectedValue.os">{{os}} </span></span></p>
-                  </span>
-                </div>
-              </div>
-              <hr>
-              <div class="card-group" *ngIf="metrics">
-                <div class="card border-light">
-                  <h3 class="card-title">Metrics</h3>
-                  <small class="card-subtitle mb-2 text-muted">Brief description of metrics collected</small>
-                  <br>
-                  <br>
-                  <p ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}}"><b>Accessibility : </b>
-                    <span
-                      ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}} {{metrics?.project?.website?.bioschemas? 'metrics-true' : 'metrics-false'}}">Bioschema</span>
-                    <span
-                      ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}} {{metrics?.project?.website?.ssl? 'metrics-true' : 'metrics-false'}}">SSL</span>
+                          *ngFor="let os of selectedValue.os">{{os}} </span></span>
+    </p>
+    </span>
+    </div>
+    </div>
+    <hr>
+    <div class="card-group" *ngIf="metrics">
+        <div class="card border-light">
+            <h3 class="card-title">Metrics</h3>
+            <small class="card-subtitle mb-2 text-muted">Brief description of metrics collected</small>
+            <br>
+            <br>
+            <p ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}}"><b>Accessibility : </b>
+                <span ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}} {{metrics?.project?.website?.bioschemas? 'metrics-true' : 'metrics-false'}}">Bioschema</span>
+                <span ngClass="{{metrics?.project?.website?  '' : 'hide-metric'}} {{metrics?.project?.website?.ssl? 'metrics-true' : 'metrics-false'}}">SSL</span>
 
-                    <p ngClass="{{metrics?.project?.license?  '' : 'hide-metric'}}"><b>License : </b>
-                      <span
-                        ngClass="{{metrics?.project?.license?  '' : 'hide-metric'}} {{metrics?.project?.license?.open_source? 'metrics-true' : 'metrics-false'}}">Open
+                <p ngClass="{{metrics?.project?.license?  '' : 'hide-metric'}}"><b>License : </b>
+                    <span ngClass="{{metrics?.project?.license?  '' : 'hide-metric'}} {{metrics?.project?.license?.open_source? 'metrics-true' : 'metrics-false'}}">Open
                         Source</span>
-                      <span
-                        ngClass="{{metrics?.project?.license?  '' : 'hide-metric'}} {{metrics?.project?.license?.osi? 'metrics-true' : 'metrics-false'}}">OSI</span>
+                    <span ngClass="{{metrics?.project?.license?  '' : 'hide-metric'}} {{metrics?.project?.license?.osi? 'metrics-true' : 'metrics-false'}}">OSI</span>
 
 
-                      <p ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} "><b>Documentation : </b>
-                        <span
-                          ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} {{metrics?.project?.documentation?.manual? 'metrics-true' : 'metrics-false'}}">Manual</span>
-                        <span
-                          ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} {{ metrics?.project?.documentation?.general? 'metrics-true' : 'metrics-false'}}">General</span>
-                        <span
-                          ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} {{metrics?.project?.documentation?.faq? 'metrics-true' : 'metrics-false'}}">FAQ</span>
-                        <span
-                          ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} {{metrics?.project?.documentation?.terms_of_use? 'metrics-true' : 'metrics-false'}}">Terms
+                    <p ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} "><b>Documentation : </b>
+                        <span ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} {{metrics?.project?.documentation?.manual? 'metrics-true' : 'metrics-false'}}">Manual</span>
+                        <span ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} {{ metrics?.project?.documentation?.general? 'metrics-true' : 'metrics-false'}}">General</span>
+                        <span ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} {{metrics?.project?.documentation?.faq? 'metrics-true' : 'metrics-false'}}">FAQ</span>
+                        <span ngClass="{{metrics?.project?.documentation? '' : 'hide-metric'}} {{metrics?.project?.documentation?.terms_of_use? 'metrics-true' : 'metrics-false'}}">Terms
                           of use</span>
 
                         <p ngClass="{{metrics? '' : 'hide-metric'}}{{metrics?.distribution? '' : 'hide-metric'}}">
-                          <b>Distribution : </b>
-                          <span
-                            ngClass="{{metrics?.distribution? '' : 'hide-metric'}} {{metrics?.distribution?.vre? '' : 'hide-metric'}} {{metrics?.distribution?.vre? 'metrics-true' : 'metrics-false'}}">VRE</span>
-                          <span
-                            ngClass="{{metrics?.distribution? '' : 'hide-metric'}} {{metrics?.distribution?.sourcecode? '' : 'hide-metric'}} {{metrics?.distribution?.sourcecode? 'metrics-true' : 'metrics-false'}}">Sourcecode</span>
+                            <b>Distribution : </b>
+                            <span ngClass="{{metrics?.distribution? '' : 'hide-metric'}} {{metrics?.distribution?.vre? '' : 'hide-metric'}} {{metrics?.distribution?.vre? 'metrics-true' : 'metrics-false'}}">VRE</span>
+                            <span ngClass="{{metrics?.distribution? '' : 'hide-metric'}} {{metrics?.distribution?.sourcecode? '' : 'hide-metric'}} {{metrics?.distribution?.sourcecode? 'metrics-true' : 'metrics-false'}}">Sourcecode</span>
 
-                </div>
-              </div>
+        </div>
+    </div>
 
-              <hr>
-              <div class="card-group" *ngIf="metrics">
-                <div class="card border-light">
-                  <h3 class="card-title">Uptime / Accesstime</h3>
-                  <small class="card-subtitle mb-2 text-muted">Displays if the service is currently available</small>
-                  <div data-id="uptime" data-xaxis='true' attr.data-url="{{selectedValue['@id'] | chartId}}"
-                    data-limit=15  class="opebuptime" #opebuptime>
-                  </div>
-                </div>
-              </div>
+    <hr>
+    <div class="card-group" *ngIf="metrics">
+        <div class="card border-light">
+            <h3 class="card-title">Uptime / Accesstime</h3>
+            <small class="card-subtitle mb-2 text-muted">Displays if the service is currently available</small>
+            <div data-id="uptime" data-xaxis='true' attr.data-url="{{selectedValue['@id'] | chartId}}" data-limit=8 class="opebuptime" #opebuptime>
+            </div>
+        </div>
+    </div>
 
-              <hr>
-              <div class="card-group" *ngIf="metrics">
-                <div class="card border-light">
-                  <h3 class="card-title">Publications</h3>
-                  <small class="card-subtitle mb-2 text-muted">Amout of citations for each of the publications</small>
+    <hr>
+    <div class="card-group" *ngIf="metrics">
+        <div class="card border-light">
+            <h3 class="card-title">Publications</h3>
+            <small class="card-subtitle mb-2 text-muted">Amout of citations for each of the publications</small>
 
 
-                  <span *ngIf="metrics.project.publications">
+            <span *ngIf="metrics.project.publications">
                     <div *ngIf="metrics.project.publications.length<=0">
                       <p class="text-center">No publications found for this version</p>
                     </div>
                   </span>
-                  <!-- <p>{{selectedValue['@id'] | chartId}}</p> -->
-                  <div data-id="citation" data-h="400" data-legend="true"
-                    attr.data-url="{{selectedValue['@id'] | chartId}}"  class="opebcitations" #opebuptime>
-                  </div>
-                </div>
-              </div>
+            <!-- <p>{{selectedValue['@id'] | chartId}}</p> -->
+            <div data-id="citation" data-h="400" data-legend="true" attr.data-url="{{selectedValue['@id'] | chartId}}" class="opebcitations" #opebuptime>
+            </div>
+        </div>
+    </div>
 
-              <small>
+    <small>
                 * If no publications are available for this version of the please select a diffrent version
               </small>
 
-              <!-- <br>
+    <!-- <br>
               <a href="{{selectedValue['@id']}}">{{selectedValue['@id']}}</a>
               <br>
               <a href="{{selectedValue['metrics']}}">{{selectedValue['metrics']}}</a> -->
-            </ng-template>
-          </mat-tab>
-        </span>
-      </mat-tab-group>
-
+    </ng-template>
+    </mat-tab>
     </span>
-  </span>
+</mat-tab-group>
+
+</span>
+</span>
 </span>
 <br>
 <br>
