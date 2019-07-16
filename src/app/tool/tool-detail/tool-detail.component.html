@@ -72,41 +72,52 @@
 
     <hr>
     <div class="card-group" *ngIf="metrics">
-        <div class="card border-light">
-            <h3 id="Uptime" class="card-title">Uptime / Accesstime</h3>
-            <small class="card-subtitle mb-2 text-muted">Displays if the service is currently available</small>
-            <div data-id="uptime" data-xaxis='true' attr.data-url="{{selectedValue['@id'] | chartId}}" data-limit=15 dev="true" class="opebuptime" #opebuptime>
+        <div class=" card border-light ">
+            <h3 id="Uptime " class="card-title ">Uptime / Accesstime</h3>
+            <!-- <h1>{{selectedValue['@id'] | chartId}}</h1> -->
+            <small class="card-subtitle mb-2 text-muted ">Displays if the service is currently available</small>
+            <div data-id="uptime" data-xaxis='true' attr.data-url="{{selectedValue['@id'] | chartId}}" data-limit=15 dev="true " class="opebuptime " #opebuptime>
             </div>
         </div>
     </div>
 
     <hr>
-    <div class="card-group" *ngIf="metrics">
-        <div class="card border-light">
-            <h3 id="Publication" class="card-title">Publications</h3>
-            <small class="card-subtitle mb-2 text-muted">Amout of citations for each of the publications</small>
+    <div class="card-group " *ngIf="metrics ">
+        <div class="card border-light ">
+            <h3 id="Publication " class="card-title ">Publications</h3>
+            <small class="card-subtitle mb-2 text-muted ">Amout of citations for each of the publications</small>
 
 
-            <span *ngIf="metrics.project.publications">
-                    <div *ngIf="metrics.project.publications.length<=0">
-                      <p class="text-center">No publications found for this version</p>
+            <span *ngIf="metrics.project.publications ">
+                    <div *ngIf="metrics.project.publications.length<=0 ">
+                      <p class="text-center ">No publications found for this version</p>
                     </div>
                   </span>
             <!-- <p>{{selectedValue['@id'] | chartId}}</p> -->
-            <div data-id="citation" data-h="400" data-legend="true" attr.data-url="{{selectedValue['@id'] | chartId}}" dev="true" class="opebcitations" #opebuptime>
+            <div data-id="citation " data-h="400 " data-legend="true " attr.data-url="{{selectedValue[ '@id'] | chartId}} " dev="true " class="opebcitations " #opebuptime>
             </div>
         </div>
     </div>
 
     <small>
-                * If no publications are available for this version of the please select a diffrent version
-              </small>
+      * If no publications are available for this version of the please select a diffrent version
+    </small>
 
     <!-- <br>
-              <a href="{{selectedValue['@id']}}">{{selectedValue['@id']}}</a>
+              <a href="{{selectedValue[ '@id']}} ">{{selectedValue['@id']}}</a>
               <br>
-              <a href="{{selectedValue['metrics']}}">{{selectedValue['metrics']}}</a> -->
+              <a href="{{selectedValue[ 'metrics']}} ">{{selectedValue['metrics']}}</a> -->
+    <hr>
+    <div class="card-group">
+        <div class="card border-light ">
+            <h3>Report tool</h3>
+            <button></button>
+        </div>
+    </div>
     </ng-template>
+
+
+
     </mat-tab>
     </span>
 

@@ -1,50 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 @import url('https://fonts.googleapis.com/css?family=Karla');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 /* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+
+
 /* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
+
+
 /* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
 
-*{
-    
+* {
     font-family: 'Montserrat', sans-serif;
     /* font-family: 'Roboto', sans-serif; */
-    
     /* font-family: 'Libre Baskerville', serif; */
     /* font-family: 'Karla', sans-serif; */
-
     text-align: justify;
 }
 
-.main-logo{
+.main-logo {
     width: 40%;
     align-self: center
 }
-.card-icon{
-    width:25%;
+
+.card-icon {
+    width: 25%;
     height: auto;
     align-self: center;
 }
 
-.diagram{
-    width:100%;
-    height:auto;
+.diagram {
+    width: 100%;
+    height: auto;
     align-content: center;
 }
 
-.main-search{
-    border:1px solid lightgray;
+.main-search {
+    border: 1px solid lightgray;
     height: 60px;
     width: 80%;
     padding-left: 15px;
-
 }
 
-.main-search-div{
+.main-search-div {
     padding: 1vh 0 1vh 0;
     display: flex;
     justify-content: center;
@@ -52,7 +54,7 @@
     position: relative;
 }
 
-.main-submit{
+.main-submit {
     background-color: #FFFFFF;
     border: solid 1px #EF7500;
     padding: 15px 32px;
@@ -62,33 +64,31 @@
     cursor: not-allowed;
 }
 
-.main-submit:enabled{
+.main-submit:enabled {
     cursor: pointer;
     color: #EF7500;
 }
 
-.border-light{
+.border-light {
     border-color: white !important;
 }
 
-
-.table-desc{
-    text-align: justify; 
+.table-desc {
+    text-align: justify;
 }
 
-.table-fields{
-    padding:1rem!important;      
+.table-fields {
+    padding: 1rem!important;
 }
 
-nav{
+nav {
     /* margin-left: 0% !important; */
-    padding-left: 0%  !important;
+    padding-left: 0% !important;
     padding-right: 0% !important;
-    
 }
 
-.metrics-true{
-    color:white;
+.metrics-true {
+    color: white;
     background-color: #3c3c3c;
     font-size: 14px;
     /* border: 1px solid #5c5c5c; */
@@ -97,7 +97,8 @@ nav{
     padding: 2px 3px 2px 3px;
     margin-left: 5px;
 }
-.metrics-false{
+
+.metrics-false {
     color: white;
     background-color: #3c3c3c;
     font-size: 14px;
@@ -108,45 +109,31 @@ nav{
     margin-left: 5px;
 }
 
-
-
-
-.output-badge{
-
+.output-badge {
     border-right: 20px solid #ef7500 !important;
-
 }
 
-.input-badge{
-
+.input-badge {
     border-right: 20px solid #3eb049 !important;
-
 }
 
-.assessment-badge{
-
+.assessment-badge {
     border-right: 20px solid skyblue!important;
-
 }
 
-.metrics_reference-badge{
-
+.metrics_reference-badge {
     border-right: 20px solid gold !important;
-
 }
 
-.challenge-badge{
-
+.challenge-badge {
     border-right: 20px solid lightsalmon !important;
-
 }
 
-.participant-badge{
-
+.participant-badge {
     border-right: 20px solid rgb(217, 251, 19) !important;
-
 }
-.badge{
+
+.badge {
     color: white;
     background-color: #3c3c3c;
     font-size: 14px;
@@ -158,69 +145,57 @@ nav{
     margin-left: 5px;
 }
 
-.hide-metric{
+.hide-metric {
     display: none !important;
 }
 
-.badge-no-color{
+.badge-no-color {
     color: white;
     background-color: #3c3c3c;
     font-size: 14px;
     /* border: 1px solid #5c5c5c; */
     font-weight: 400;
-    
     border-radius: 5px;
     padding: 2px 3px 2px 3px;
     margin-left: 5px;
 }
 
 
-
 /*all external links */
-a[href^="https://"],a[href^="http://"] {
+
+a[href^="https://"],
+a[href^="http://"] {
     background: url(assets/img/external-link.svg) center right no-repeat;
     height: auto;
     width: auto;
     padding-right: 13px;
 }
-.citationChartErrorMessage{
-    color:red;
+
+.citationChartErrorMessage {
+    color: red;
     font-size: 20px;
 }
 
-
-@media (min-width: 768px){
-    .container{
-      max-width:90% !important;
-    }  
-  }
-  
-  @media (min-width: 992px){
-    .container{
-      max-width:90% !important;
+@media (min-width: 768px) {
+    .container {
+        max-width: 90% !important;
     }
-  }
+}
 
+@media (min-width: 992px) {
+    .container {
+        max-width: 90% !important;
+    }
+}
 
 .false-link {
     cursor: pointer;
 }
 
-.menu-margin{
+.menu-margin {
     margin-top: 1%;
 }
 
-/* .dropdown-menu {
-    overflow-y: auto;
-    width: 80%;
-    -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-            border-radius: 4px;
-    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-        -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-            box-shadow: 0 5px 10px rgba(0,0,0,.2);
+mat-spinner {
+    margin: 35vh auto;
 }
-
-.dropdown-item:hover, .active{
-    background-color: #cd5741 ! important
-} */
