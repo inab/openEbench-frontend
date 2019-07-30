@@ -5,25 +5,52 @@ import { catchError } from 'rxjs/operators';
 
 import { Tool } from './tool';
 import { Metrics } from './metrics';
+import { environment } from '../../../environments/environment';
 
 import { Filter } from './filter';
 
-
+/**
+ * injectable tool service
+ */
 @Injectable()
 export class ToolService {
-
+  /**
+   * tool
+   */
   public tool: Observable<Tool[]>;
+  /**
+   * metrics
+   */
   public metrics: Observable<Metrics[]>;
+  /**
+   * res
+   */
   public res;
-
-
+  /**
+   * count
+   */
   public count: string;
-  private production = 'openebench';
-  private dev = 'dev-openebench';
-  private toolUrl = 'https://' + this.dev + '.bsc.es/monitor/rest/aggregate';
+  /**
+   * url
+   */
+  private toolUrl = environment.TOOL_SERVICE_URL;
+  /**
+   * url
+   */
+  private toolSearchUrl = environment.TOOL_SEARCH_URL;
+  /**
+   * url
+   */
+  private toolStats = environment.TOOL_STATISTICS_URL;
 
+  /**
+   * constructor
+   */
   constructor(private http: HttpClient) { }
 
+  /**
+   * Get tool by id from server
+   */
   getToolById(id: string): Observable<Tool[]> {
     this.tool = this.http.get<Tool[]>(this.toolUrl, {
       params: new HttpParams()
@@ -36,6 +63,9 @@ export class ToolService {
     );
   }
 
+  /**
+   * Get tool metrics by id
+   */
   getToolMetricsById(url: string): Observable<Metrics[]> {
   this.metrics = this.http.get<Metrics[]>(url);
   return this.metrics
@@ -44,6 +74,9 @@ export class ToolService {
     );
   }
 
+  /**
+   * Filter search for tools
+   */
   getToolWithFilters(filter: Filter, skip: number, limit: number) {
     const headers = new HttpHeaders().set('Range' , 'items=' + skip + '-' + limit);
     let params = new HttpParams().set('projection', 'description').append('projection' , 'web');
@@ -54,23 +87,24 @@ export class ToolService {
     }
     switch (filter.filter) {
       case 'Name':
-        this.res = this.http.get(this.toolUrl, {
+        this.res = this.http.get(this.toolSearchUrl, {
           headers: headers,
-          params: params = params.set('name', filter.text),
+          params: params = params.set('name', filter.text).set('label', filter.label),
           observe: 'response',
         });
         break;
       case 'Description':
-        this.res = this.http.get(this.toolUrl, {
+        this.res = this.http.get(this.toolSearchUrl, {
           headers: headers,
-          params: params = params.set('description', filter.text),
+          params: params = params.set('description', filter.text).set('label', filter.label),
           observe: 'response',
         });
+        console.log(params);
         break;
       default:
-        this.res = this.http.get(this.toolUrl, {
+        this.res = this.http.get(this.toolSearchUrl, {
           headers: headers,
-          params: params = params.set('text', filter.text),
+          params: params = params.set('text', filter.text).set('label', filter.label),
           observe: 'response',
         });
         break;
@@ -81,11 +115,16 @@ export class ToolService {
     );
   }
 
+  /**
+   * Get global statistics
+   */
   getStats(): Observable <any> {
-    return this.http.get('https://' + this.dev + '.bsc.es/monitor/rest/statistics');
+    return this.http.get(this.toolStats);
   }
 
-
+/**
+ * Error handling
+ */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

@@ -1,61 +1,88 @@
 import { Injectable } from '@angular/core';
-import { Observable ,  of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
 
-import { Communities } from './communities';
-
+/**
+ * scinetific service
+ */
 @Injectable()
 export class ScientificService {
 
-  private  communities: Observable<any[]>;
-  private  datasets: Observable<any[]>;
+  /**
+   * communities
+   */
+  private communities: Observable<any[]>;
+  /**
+   * datasets
+   */
+  private datasets: Observable<any[]>;
+  /**
+   * production
+   */
   private production = 'openebench';
+  /**
+   * development
+   */
   private dev = 'dev-openebench';
-  private communityUrl = 'https://' + this.dev + '.bsc.es/api/scientific';
-  private datasetUrl = 'https://' + this.dev + '.bsc.es/api/scientific';
+  /**
+   * community url
+  */
+  private url = 'https://' + this.production + '.bsc.es/api/scientific';
 
+  /**
+   * constructor
+   */
   constructor(private http: HttpClient) { }
 
+  /**
+   * gets the communities
+   */
   getCommunities(): Observable<any[]> {
-    this.communities = this.http.get<any[]>(this.communityUrl + '/Community.json');
+    this.communities = this.http.get<any[]>(this.url + '/Community.json');
     return this.communities
-    .pipe(
-      catchError(this.handleError('getCommunities', []))
-    );
+      .pipe(
+        catchError(this.handleError('getCommunities', []))
+      );
   }
-
+  /**
+   * gets datasets
+   */
   getDatasets(): Observable<any[]> {
-    this.datasets = this.http.get<any[]>(this.datasetUrl + '/Dataset.json');
+    this.datasets = this.http.get<any[]>(this.url + '/Dataset.json');
     return this.datasets
-    .pipe(
-      catchError(this.handleError('getDatasets', []))
-    );
+      .pipe(
+        catchError(this.handleError('getDatasets', []))
+      );
   }
-
+  /**
+   * gets benchmakring events
+   */
   getBenchmarkingEvents(id: string): Observable<any[]> {
-    console.log(this.communityUrl + '/BenchmarkingEvent?query=' + id + '&fmt=json');
-    this.communities = this.http.get<any[]>(this.communityUrl + '/BenchmarkingEvent?query=' + id + '&fmt=json');
+    this.communities = this.http.get<any[]>(this.url + '/BenchmarkingEvent?query=' + id + '&fmt=json');
     return this.communities
 
-    .pipe(
-      catchError(this.handleError('getBenchmarkingEvents', []))
-    );
+      .pipe(
+        catchError(this.handleError('getBenchmarkingEvents', []))
+      );
   }
-
+  /**
+   * gets challenges
+   */
   getChallenge(id: string): Observable<any[]> {
-    console.log(this.communityUrl + '/Challenge?query=' + id + '&fmt=json');
-    this.communities = this.http.get<any[]>(this.communityUrl + '/Challenge?query=' + id + '&fmt=json');
+    this.communities = this.http.get<any[]>(this.url + '/Challenge?query=' + id + '&fmt=json');
     return this.communities
 
-    .pipe(
-      catchError(this.handleError('getChallenge', []))
-    );
+      .pipe(
+        catchError(this.handleError('getChallenge', []))
+      );
   }
 
-
-  private handleError<T> (operation = 'operation', result?: T) {
+  /**
+   * error handleing
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

@@ -5,24 +5,45 @@ import { BenchmarkingListComponent } from './benchmarking-list/benchmarking-list
 import { BenchmarkingDetailComponent } from './benchmarking-detail/benchmarking-detail.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-list/benchmarking-challenge-list.component';
 
 
-
+/**
+ * routes
+ */
 const routes: Routes = [
-  { path: 'scientific' ,  component: ScientificListComponent },
-  { path: 'scientific/:id', component: BenchmarkingListComponent },
-  { path: 'scientific/:id/:beventsid', component: BenchmarkingChallengeListComponent },
-  { path: 'scientific/:id/:beventsid/:bchallengeid', component: BenchmarkingDetailComponent },
-
+  {
+    path: '', children: [
+      { path: '', component: ScientificListComponent },
+      // { path: ':id', component: BenchmarkingListComponent, children: [
+      //   {
+      //     path: ':beventsid', component: BenchmarkingChallengeListComponent,
+      //   }
+      // ]},
+      // { path: ':id/:beventsid', component: BenchmarkingChallengeListComponent},
+      { path: ':id', component: BenchmarkingListComponent },
+      { path: ':id/:bchallengeid', component: BenchmarkingDetailComponent },
+    ]
+  }
 ];
 
+/**
+ * child module for routing
+ */
 @NgModule({
   // This is a child module so we use forChild
-  imports: [ RouterModule.forChild(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class ScientificRoutingModule { }
 
-export const routingComponents = [ScientificListComponent, BenchmarkingListComponent, BenchmarkingDetailComponent];
+/**
+ * export routing module
+ */
+export class ScientificRoutingModule { }
+/**
+ * routing components export
+ */
+
+export const AllScientificRoutingComponents = [ScientificListComponent, BenchmarkingListComponent,
+  BenchmarkingChallengeListComponent, BenchmarkingDetailComponent];

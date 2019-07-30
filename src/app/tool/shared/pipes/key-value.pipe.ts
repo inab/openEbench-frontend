@@ -1,8 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+ * pipe function for Key Value
+ */
 @Pipe({
   name: 'keyValue'
 })
+
+/**
+ * Class KeyValue Pipe
+ */
 export class KeyValuePipe implements PipeTransform {
   transform(dict: Object) {
     const res = [];

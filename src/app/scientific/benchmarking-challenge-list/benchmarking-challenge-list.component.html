@@ -1,23 +1,62 @@
-<span *ngIf='bm; else loading'>
-    <br>
-    <br>
-      <div class="example-container mat-elevation-z8">
-        <mat-table #table [dataSource]="bm.Challenge">
-            <ng-container matColumnDef="sci-card">  
-                <mat-cell class="row" *matCellDef="let b"> 
-                  <div class="table-fields">
-                      <p><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"  matTooltipPosition="right">{{b.name}}</a></p>
-                  </div>
-                </mat-cell>
-            </ng-container>
-          <mat-row *matRowDef="let row; columns: ['sci-card'];"></mat-row> 
-        </mat-table>
-      </div>
-   
-  
+
+<span>
+    <h5><b>Challenges</b></h5>
+    <p>Challenges are the different tests that the community uses to benchmark their participants within a benchmarking event</p>
+    <p><b>Summary Table across all challenges in the Event</b></p>
     
-  </span>
-  
-  
-  
-  <ng-template #loading>loading...</ng-template>
+    <div>      
+
+        <div class="oeb-table" attr.data-benchmarkingevent="{{beventsid}}" ></div>
+        <br>             
+        <button mat-raised-button type="submit" (click)='filterChallenges()' matTooltip="Reload chart after selecting Challenges"
+        matTooltipPosition="right">Reload chart</button>
+    </div>
+    
+</span>
+<br>
+<span *ngIf='challengeGraphql; else loading'>
+    <br>
+    <br>
+    <p><b>Benchmarking Challenges List</b></p>
+    <hr>
+
+    <br>
+    <span *ngIf='challengeGraphql; else loading'>
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="challengeTrigger" class="row-border hover">
+        <thead>
+            <tr>
+            <th> <ng-container [ngTemplateOutlet]="selectAll"></ng-container></th>
+            <th>Acronym( Chart )</th>
+            <th>Name</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of challengeGraphql.getChallenges">
+                <td><mat-checkbox color="primary"  id="{{b._id}}" value="{{b._id}}" (change)="toogle($event, b._id)"></mat-checkbox></td>
+                <td><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b.acronym}}]</a></td>
+                <td>{{ b.name}}</td>
+                
+            <!-- <td>{{ d.type }}</td> -->
+            </tr>
+        </tbody>
+        </table>
+        
+        <!-- <p> here : {{selectedChallenges}}</p> -->
+    </span>
+        
+        
+        <!-- <mat-paginator [length]=length [pageIndex]=pageIndex [pageSize]=pageSize [pageSizeOptions]=[10,20] (page)="changePage($event)">
+        </mat-paginator> -->
+        
+    
+
+    
+
+
+</span>
+
+
+
+
+<ng-template #loading>loading...</ng-template>

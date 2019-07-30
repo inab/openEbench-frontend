@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 /* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
@@ -6,15 +10,22 @@
 /* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
 
 *{
-    font-family: 'Raleway', sans-serif !important;
+    
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    
+    /* font-family: 'Libre Baskerville', serif; */
+    /* font-family: 'Karla', sans-serif; */
+
+    text-align: justify;
 }
 
 .main-logo{
-    width: 50%;
+    width: 40%;
     align-self: center
 }
 .card-icon{
-    width:30%;
+    width:25%;
     height: auto;
     align-self: center;
 }
@@ -168,7 +179,7 @@ nav{
 /*all external links */
 a[href^="https://"],a[href^="http://"] {
     background: url(assets/img/external-link.svg) center right no-repeat;
-    height: 1px;
+    height: auto;
     width: auto;
     padding-right: 13px;
 }
@@ -199,7 +210,7 @@ a[href^="https://"],a[href^="http://"] {
     margin-top: 1%;
 }
 
-.dropdown-menu { /* UPDATE: newer versions use tt-menu instead of tt-dropdown-menu */    
+/* .dropdown-menu {
     overflow-y: auto;
     width: 80%;
     -webkit-border-radius: 4px;
@@ -212,4 +223,4 @@ a[href^="https://"],a[href^="http://"] {
 
 .dropdown-item:hover, .active{
     background-color: #cd5741 ! important
-}
+} */

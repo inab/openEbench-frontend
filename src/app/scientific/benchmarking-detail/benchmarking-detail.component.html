@@ -1,3 +1,26 @@
-<div class="break">
-   <div  attr.data-id={{id}} metric_x="TPR" metric_y="PPV" toTable="true" class="benchmarkingChart"></div>
-</div>
+<span *ngIf="challengesGraphql; else loading">
+    <span *ngFor="let c of challengesGraphql.getChallenges">
+        <div>
+            <h5><b>{{c.name}} ( {{c.acronym}} )</b></h5>
+        </div>
+        <hr>
+        <p>
+            In order to facilitate the interpretation of benchmarking results OpenEbench offers several ways to visualize metrics: <br>
+            In this 2D plot two metrics from challenge ({{c.acronym}}) are represented in the X and Y axis, showing the results from the participants in this challenge.
+            The gray line represents the pareto frontier, which runs over the participants showing the best efficiency and the arrow in the plot represents the optimal corner.
+            <br>
+            The blue selection list can be used to switch between the different classification methods / visualization modes (square quartiles, diagonal quartiles and k-means clustering) 
+            Along with the chart these results are also transformed to a table which separates the participants in different groups.
+
+        </p>
+
+        <p>{{c.metrics_categories[1][metrics_id]}}</p>
+        <div class="break">
+            <div attr.data-id="{{c._id}}" attr.metric_x="{{c.metrics_categories[0].metrics[0].metrics_id}}"
+                attr.metric_y="{{c.metrics_categories[0].metrics[1].metrics_id}}" toTable="true" class="benchmarkingChart" ></div>
+        </div>
+    </span>
+
+
+</span>
+<ng-template #loading>loading...</ng-template>

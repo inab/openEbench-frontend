@@ -1,0 +1,1750 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>opeb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">opeb documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ToolDetailComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/tool/tool-detail/tool-detail.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for tool details</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-tool-detail</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./tool-detail.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./tool-detail.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#charts">charts</a>
+                            </li>
+                            <li>
+                                <a href="#filter">filter</a>
+                            </li>
+                            <li>
+                                <a href="#id">id</a>
+                            </li>
+                            <li>
+                                <a href="#instance">instance</a>
+                            </li>
+                            <li>
+                                <a href="#metrics">metrics</a>
+                            </li>
+                            <li>
+                                <a href="#panelOpenState">panelOpenState</a>
+                            </li>
+                            <li>
+                                <a href="#selectedValue">selectedValue</a>
+                            </li>
+                            <li>
+                                <a href="#sources">sources</a>
+                            </li>
+                            <li>
+                                <a href="#tools">tools</a>
+                            </li>
+                            <li>
+                                <a href="#version">version</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getMetrics">getMetrics</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getParam">getParam</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getSources">getSources</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getToolById">getToolById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadCharts">loadCharts</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onTabChange">onTabChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onVersionChange">onVersionChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#selectInitialValue">selectInitialValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#sourceHref">sourceHref</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(toolService: <a href="../injectables/ToolService.html">ToolService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:68</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>toolService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ToolService.html" target="_self" >ToolService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getMetrics"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getMetrics
+                            </b>
+                            <a href="#getMetrics"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getMetrics()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:153</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>metrics that loads the graphs</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getParam"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getParam
+                            </b>
+                            <a href="#getParam"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getParam(param: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:91</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Get param from url</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>param</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getSources"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getSources
+                            </b>
+                            <a href="#getSources"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getSources(tools)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:113</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Source of info (Bio.tools, Galaxy, Biocontainers etc .... )</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>tools</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getToolById"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getToolById
+                            </b>
+                            <a href="#getToolById"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getToolById()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:98</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Find tool by id</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loadCharts"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            loadCharts
+                            </b>
+                            <a href="#loadCharts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>loadCharts()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:174</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>helper function for loading the charts</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initializer</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onTabChange"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            onTabChange
+                            </b>
+                            <a href="#onTabChange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>onTabChange(e)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="190" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:190</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Managing the tab change</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>e</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onVersionChange"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            onVersionChange
+                            </b>
+                            <a href="#onVersionChange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>onVersionChange(e)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="197" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:197</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Managing the versoions</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>e</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectInitialValue"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            selectInitialValue
+                            </b>
+                            <a href="#selectInitialValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>selectInitialValue(i)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:182</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>setting whcih version of tool to be shown first</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>i</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sourceHref"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            sourceHref
+                            </b>
+                            <a href="#sourceHref"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>sourceHref(source, tool)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:136</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Helper function for getSource</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>source</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>tool</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="charts"></a>
+                        <span class="name">
+                            <b>
+                            charts
+                            </b>
+                            <a href="#charts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>charts:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>charts</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filter"></a>
+                        <span class="name">
+                            <b>
+                            filter
+                            </b>
+                            <a href="#filter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>filter:     <code><a href="../classes/Filter.html" target="_self" >Filter</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Filter.html" target="_self" >Filter</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>filter</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="id"></a>
+                        <span class="name">
+                            <b>
+                            id
+                            </b>
+                            <a href="#id"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>id:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>id</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="instance"></a>
+                        <span class="name">
+                            <b>
+                            instance
+                            </b>
+                            <a href="#instance"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>instance:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>instance</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="metrics"></a>
+                        <span class="name">
+                            <b>
+                            metrics
+                            </b>
+                            <a href="#metrics"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>metrics:     <code><a href="../interfaces/Metrics.html" target="_self" >Metrics[]</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/Metrics.html" target="_self" >Metrics[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>metrics</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="panelOpenState"></a>
+                        <span class="name">
+                            <b>
+                            panelOpenState
+                            </b>
+                            <a href="#panelOpenState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>panelOpenState:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>panelOpenState</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedValue"></a>
+                        <span class="name">
+                            <b>
+                            selectedValue
+                            </b>
+                            <a href="#selectedValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>selectedValue:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>selectedValue</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sources"></a>
+                        <span class="name">
+                            <b>
+                            sources
+                            </b>
+                            <a href="#sources"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>sources:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:68</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>sources</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tools"></a>
+                        <span class="name">
+                            <b>
+                            tools
+                            </b>
+                            <a href="#tools"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>tools:     <code><a href="../interfaces/Tool.html" target="_self" >Tool[]</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/Tool.html" target="_self" >Tool[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>tools</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="version"></a>
+                        <span class="name">
+                            <b>
+                            version
+                            </b>
+                            <a href="#version"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>version:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/tool/tool-detail/tool-detail.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>version</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, AfterViewInit, AfterViewChecked } from &#x27;@angular/core&#x27;;
+import { Router, ActivatedRoute, ParamMap } from &#x27;@angular/router&#x27;;
+import { Observable, bindCallback } from &#x27;rxjs&#x27;;
+
+
+import { Filter } from &#x27;../shared/filter&#x27;;
+import { Tool } from &#x27;../shared/tool&#x27;;
+import { Metrics } from &#x27;../shared/metrics&#x27;;
+import { ToolService } from &#x27;../shared/tool.service&#x27;;
+import uptime from &#x27;../shared/uptime.js&#x27;;
+import citation from &#x27;../shared/citation.js&#x27;;
+// import uptime from &#x27;../../../../../../Widget-Template/build/build.js&#x27;;
+// import OpEB from &#x27;../../../../../../openEBench-widgets/dev/OpEB-widgets.js&#x27;;
+// &lt;script src&#x3D;&quot;https://rawgit.com/vsundesha/Widget-Template/master/build/build.js&quot;&gt;&lt;/script&gt;
+//     &lt;script src&#x3D;&quot;https://rawgit.com/vsundesha/citations-widget/master/build/build.js&quot;&gt;&lt;/script&gt;
+
+
+
+/**
+* Component for tool details
+*/
+@Component({
+  selector: &#x27;app-tool-detail&#x27;,
+  templateUrl: &#x27;./tool-detail.component.html&#x27;,
+  styleUrls: [&#x27;./tool-detail.component.css&#x27;]
+})
+export class ToolDetailComponent implements OnInit {
+
+  /**
+   *  panelOpenState
+  */
+  panelOpenState &#x3D; true;
+  /**
+   *  tools
+  */
+  tools: Tool[];
+  /**
+   *  filter
+  */
+  filter: Filter;
+  /**
+   *  id
+  */
+  id: string;
+  /**
+   *  instance
+  */
+  instance: string;
+  /**
+   *  version
+  */
+  version: string;
+  /**
+   *  selectedValue
+  */
+  selectedValue: any;
+  /**
+   *  metrics
+  */
+  metrics: Metrics[];
+  /**
+   *  charts
+  */
+  charts: string;
+  /**
+   *  sources
+  */
+  sources: any &#x3D; [];
+
+
+  /**
+  * Constructor
+  */
+  constructor(
+    private toolService: ToolService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { }
+
+
+  /**
+  * Initializer
+  */
+  ngOnInit() {
+    this.getToolById();
+  }
+
+  /**
+  * Get param from url
+  */
+  private getParam(param: string): string {
+    return this.route.snapshot.paramMap.get(param);
+  }
+
+  /**
+  * Find tool by id
+  */
+  private getToolById(): void {
+    this.id &#x3D; this.getParam(&#x27;id&#x27;);
+    this.toolService.getToolById(this.id).subscribe(tools &#x3D;&gt; {
+      this.tools &#x3D; tools;
+      if (this.tools.length !&#x3D;&#x3D; 0) {
+        this.getSources(this.tools);
+        this.selectInitialValue(1);
+      }
+    });
+  }
+
+
+  /**
+  * Source of info (Bio.tools, Galaxy, Biocontainers etc .... )
+  */
+  private getSources(tools) {
+
+    let i &#x3D; 0;
+    tools.forEach(tool &#x3D;&gt; {
+      tool.entities.forEach(entity &#x3D;&gt; {
+        entity.tools.forEach(element &#x3D;&gt; {
+          const str &#x3D; element[&#x27;@id&#x27;];
+          // console.log(element[&#x27;xid&#x27;]);
+          // console.log(element);
+          const s &#x3D; str.split(&#x27;/tool/&#x27;)[1].split(&#x27;:&#x27;)[0];
+          if (i &gt; 0) {
+            if (!this.sources.includes(s)) {
+              this.sources.push(s);
+            }
+          }
+          i++;
+        });
+      });
+    });
+  }
+  /**
+  * Helper function for getSource
+  */
+  private sourceHref(source, tool) {
+    switch (source) {
+      case &#x27;biotools&#x27;:
+        window.open(&#x27;https://bio.tools/&#x27; + tool, &#x27;_blank&#x27;);
+        break;
+      case &#x27;bioconda&#x27;:
+        window.open(&#x27;https://anaconda.org/bioconda/&#x27; + tool, &#x27;_blank&#x27;);
+        break;
+      case &#x27;galaxy&#x27;:
+
+      default:
+        break;
+    }
+  }
+  /**
+  * metrics that loads the graphs
+  */
+  private getMetrics() {
+    this.selectedValue[&#x27;metrics&#x27;] &#x3D; this.selectedValue[&#x27;@id&#x27;].replace(&#x27;/tool/&#x27;, &#x27;/metrics/&#x27;);
+    this.toolService.getToolMetricsById(this.selectedValue.metrics).subscribe(
+      (res) &#x3D;&gt; { this.metrics &#x3D; res; });
+    setTimeout(() &#x3D;&gt; {
+      this.loadCharts();
+    }, 1500);
+  }
+
+  // ngAfterViewInit() {
+
+  // }
+
+  // ngAfterViewChecked() {
+  //  this.loadCharts();
+  // }
+
+
+  /**
+  * helper function for loading the charts
+  */
+  private loadCharts() {
+    citation.loadCitationChart();
+    uptime.loadChart();
+  }
+
+  /**
+  * setting whcih version of tool to be shown first
+  */
+  private selectInitialValue(i) {
+    this.selectedValue &#x3D; this.tools[0].entities[i].tools[0];
+    this.getMetrics();
+  }
+
+  /**
+  * Managing the tab change
+  */
+  private onTabChange(e) {
+    this.selectInitialValue(e.index + 1);
+  }
+
+  /**
+  * Managing the versoions
+  */
+  private onVersionChange(e) {
+    this.metrics &#x3D; null;
+    this.getMetrics();
+  }
+
+
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;span *ngIf&#x3D;&quot;tools;else loading&quot;&gt;
+  &lt;span *ngIf&#x3D;&quot;tools.length!&#x3D;0; else toolNotFound&quot;&gt;
+    &lt;span *ngFor&#x3D;&quot;let instance of tools&quot;&gt;
+      &lt;h4 class&#x3D;&quot;text-center&quot;&gt;{{instance?.id | uppercase}}&lt;/h4&gt;
+      &lt;p class&#x3D;&quot;text-center&quot;&gt;&lt;small&gt;&lt;a href&#x3D;&quot;{{selectedValue[&#x27;web&#x27;][&#x27;homepage&#x27;]}}&quot;&gt;{{selectedValue[&#x27;web&#x27;][&#x27;homepage&#x27;]}}&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+      &lt;p class&#x3D;&quot;text-center&quot;&gt;&lt;span  *ngFor&#x3D;&quot;let source of sources&quot; (click)&#x3D;&quot;sourceHref(source,instance?.id)&quot; ngClass&#x3D;&quot;badge-no-color false-link&quot; &gt;{{source}}&lt;/span&gt;&lt;/p&gt;
+      &lt;mat-tab-group (selectedTabChange)&#x3D;&quot;onTabChange($event)&quot; &gt;
+        &lt;span *ngFor&#x3D;&quot;let entity of instance.entities&quot;&gt;
+          &lt;mat-tab  *ngIf&#x3D;&quot;entity.type!&#x3D;null&quot;&gt;
+            &lt;ng-template mat-tab-label&gt;
+                {{entity.type | uppercase}}
+               
+              &lt;/ng-template&gt;
+              &lt;ng-template matTabContent&gt;
+                  
+                  &lt;b&gt; Version : &lt;/b&gt;
+                  &lt;mat-form-field&gt;
+                    &lt;mat-select [(ngModel)]&#x3D;&quot;selectedValue&quot; [ngModelOptions]&#x3D;&quot;{standalone: true}&quot; (selectionChange)&#x3D;&quot;onVersionChange($event)&quot;&gt;
+                        &lt;mat-option  *ngFor &#x3D; &quot;let tool of entity.tools&quot; [value]&#x3D;&quot;tool&quot;&gt;{{tool[&#x27;@version&#x27;]? tool[&#x27;@version&#x27;] : &#x27;N/A&#x27;}}&lt;/mat-option&gt;
+                    &lt;/mat-select&gt;
+                  &lt;/mat-form-field&gt;
+                  &lt;div class&#x3D;&quot;card-group&quot;&gt;
+                      &lt;div class&#x3D;&quot;card border-light&quot;&gt;                        
+                        &lt;p&gt;&lt;b&gt; Description : &lt;/b&gt;{{selectedValue.description}}&lt;/p&gt;
+                        &lt;!-- &lt;span *ngIf&#x3D;&quot;selectedValue.contacts.length&gt;0 ;else notavailable&quot;&gt;
+                            &lt;span *ngFor&#x3D;&quot;let contact of selectedValue.contacts&quot;&gt;
+                              &lt;span *ngFor&#x3D;&quot;let x of contact | keyValue&quot;&gt;
+                                &lt;p&gt;{{x.key}} : {{x.value}}&lt;/p&gt;
+                              &lt;/span&gt;
+                            &lt;/span&gt;
+                        &lt;/span&gt; --&gt;
+                        &lt;span&gt;
+                            &lt;p&gt;&lt;b&gt;OS : &lt;/b&gt; &lt;span *ngIf &#x3D; &quot;selectedValue.os;else notavailable&quot;&gt; &lt;span *ngFor &#x3D; &quot;let os of selectedValue.os&quot;&gt;{{os}} &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+                        &lt;/span&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div  class&#x3D;&quot;card-group&quot; *ngIf&#x3D;&quot;metrics&quot;&gt;
+                    &lt;div  class&#x3D;&quot;card border-light&quot;&gt;
+                      &lt;h5 class&#x3D;&quot;text-center card-title&quot;&gt;Metrics&lt;/h5&gt;
+                      &lt;small class&#x3D;&quot;text-center card-subtitle mb-2 text-muted&quot;&gt;Brief desc of metrics&lt;/small&gt;
+
+
+                      &lt;p ngClass&#x3D;&quot;{{metrics?.project?.website?  &#x27;&#x27; : &#x27;hide-metric&#x27;}}&quot;&gt;&lt;b&gt;Accessibility : &lt;/b&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.project?.website?  &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.project?.website?.bioschemas? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;Bioschema&lt;/span&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.project?.website?  &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.project?.website?.ssl? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;SSL&lt;/span&gt;
+
+                      &lt;p ngClass&#x3D;&quot;{{metrics?.project?.license?  &#x27;&#x27; : &#x27;hide-metric&#x27;}}&quot;&gt;&lt;b&gt;License : &lt;/b&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.project?.license?  &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.project?.license?.open_source? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;Open Source&lt;/span&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.project?.license?  &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.project?.license?.osi? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;OSI&lt;/span&gt;
+
+
+                      &lt;p ngClass&#x3D;&quot;{{metrics?.project?.documentation? &#x27;&#x27; : &#x27;hide-metric&#x27;}} &quot;&gt;&lt;b&gt;Documentation : &lt;/b&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.project?.documentation? &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.project?.documentation?.manual? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;Manual&lt;/span&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.project?.documentation? &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{ metrics?.project?.documentation?.general? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;General&lt;/span&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.project?.documentation? &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.project?.documentation?.faq? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;FAQ&lt;/span&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.project?.documentation? &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.project?.documentation?.terms_of_use? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;Terms of use&lt;/span&gt;   
+                      
+                      &lt;p ngClass&#x3D;&quot;{{metrics? &#x27;&#x27; : &#x27;hide-metric&#x27;}}{{metrics?.distribution? &#x27;&#x27; : &#x27;hide-metric&#x27;}}&quot;&gt;&lt;b&gt;Distribution : &lt;/b&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.distribution? &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.distribution?.vre? &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.distribution?.vre? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;VRE&lt;/span&gt;
+                        &lt;span ngClass&#x3D;&quot;{{metrics?.distribution? &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.distribution?.sourcecode? &#x27;&#x27; : &#x27;hide-metric&#x27;}} {{metrics?.distribution?.sourcecode? &#x27;metrics-true&#x27; : &#x27;metrics-false&#x27;}}&quot;&gt;Sourcecode&lt;/span&gt;
+                        
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  
+                  
+                  &lt;div class&#x3D;&quot;card-group&quot; *ngIf&#x3D;&quot;metrics&quot;&gt;
+                    &lt;div  class&#x3D;&quot;card border-light&quot;&gt;
+                      &lt;h5 class&#x3D;&quot;text-center card-title&quot;&gt;Uptime / Accesstime&lt;/h5&gt;
+                      &lt;small class&#x3D;&quot;text-center card-subtitle mb-2 text-muted&quot;&gt;Displays if the service is currently available&lt;/small&gt;
+                      &lt;div data-id&#x3D;&quot;uptime&quot; data-xaxis&#x3D;&#x27;true&#x27; attr.data-url&#x3D;&quot;{{selectedValue[&#x27;@id&#x27;] | chartId}}&quot; data-limit&#x3D;15 class&#x3D;&quot;opebuptime&quot; #opebuptime&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;br&gt;
+                  &lt;br&gt;
+                  &lt;div  class&#x3D;&quot;card-group&quot; *ngIf&#x3D;&quot;metrics&quot;&gt;
+                    &lt;div  class&#x3D;&quot;card border-light&quot;&gt;
+                      &lt;h5 class&#x3D;&quot;text-center card-title&quot;&gt;Publications&lt;/h5&gt;
+                      &lt;small class&#x3D;&quot;text-center card-subtitle mb-2 text-muted&quot;&gt;Amout of citations for each of the publications&lt;/small&gt;
+                      
+                      
+                      &lt;span *ngIf&#x3D;&quot;metrics.project.publications&quot;&gt;
+                        &lt;div *ngIf&#x3D;&quot;metrics.project.publications.length&lt;&#x3D;0&quot;&gt;
+                          &lt;p class&#x3D;&quot;text-center&quot;&gt;No publications found for this version&lt;/p&gt;
+                        &lt;/div&gt;
+                      &lt;/span&gt;
+
+                      &lt;div data-id&#x3D;&quot;citation&quot; data-h&#x3D;&quot;400&quot; data-legend&#x3D;&quot;true&quot; attr.data-url&#x3D;&quot;{{selectedValue[&#x27;@id&#x27;] | chartId}}&quot; class&#x3D;&quot;opebcitations&quot; #opebuptime&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  
+
+
+
+                  &lt;a href&#x3D;&quot;{{selectedValue[&#x27;@id&#x27;]}}&quot;&gt;{{selectedValue[&#x27;@id&#x27;]}}&lt;/a&gt;
+                  &lt;br&gt;
+                  &lt;a href&#x3D;&quot;{{selectedValue[&#x27;metrics&#x27;]}}&quot;&gt;{{selectedValue[&#x27;metrics&#x27;]}}&lt;/a&gt;                                    
+              &lt;/ng-template&gt;              
+          &lt;/mat-tab&gt;
+        &lt;/span&gt;
+      &lt;/mat-tab-group&gt;  
+
+    &lt;/span&gt;
+  &lt;/span&gt;
+&lt;/span&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;ng-template #loading&gt;loading...&lt;/ng-template&gt;
+&lt;ng-template #toolNotFound&gt;Tool Not Found&lt;/ng-template&gt;
+&lt;ng-template #notavailable&gt; N/A &lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./tool-detail.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><span *ngIf="tools;else loading">  <span *ngIf="tools.length!=0; else toolNotFound">    <span *ngFor="let instance of tools">      <h4 class="text-center">{{instance?.id | uppercase}}</h4>      <p class="text-center"><small><a href="{{selectedValue[\'web\'][\'homepage\']}}">{{selectedValue[\'web\'][\'homepage\']}}</a></small></p>      <p class="text-center"><span  *ngFor="let source of sources" (click)="sourceHref(source,instance?.id)" ngClass="badge-no-color false-link" >{{source}}</span></p>      <mat-tab-group (selectedTabChange)="onTabChange($event)" >        <span *ngFor="let entity of instance.entities">          <mat-tab  *ngIf="entity.type!=null">            <ng-template mat-tab-label>                {{entity.type | uppercase}}                             </ng-template>              <ng-template matTabContent>                                    <b> Version : </b>                  <mat-form-field>                    <mat-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}" (selectionChange)="onVersionChange($event)">                        <mat-option  *ngFor = "let tool of entity.tools" [value]="tool">{{tool[\'@version\']? tool[\'@version\'] : \'N/A\'}}</mat-option>                    </mat-select>                  </mat-form-field>                  <div class="card-group">                      <div class="card border-light">                                                <p><b> Description : </b>{{selectedValue.description}}</p>                        <!-- <span *ngIf="selectedValue.contacts.length>0 ;else notavailable">                            <span *ngFor="let contact of selectedValue.contacts">                              <span *ngFor="let x of contact | keyValue">                                <p>{{x.key}} : {{x.value}}</p>                              </span>                            </span>                        </span> -->                        <span>                            <p><b>OS : </b> <span *ngIf = "selectedValue.os;else notavailable"> <span *ngFor = "let os of selectedValue.os">{{os}} </span></span></p>                        </span>                      </div>                  </div>                  <div  class="card-group" *ngIf="metrics">                    <div  class="card border-light">                      <h5 class="text-center card-title">Metrics</h5>                      <small class="text-center card-subtitle mb-2 text-muted">Brief desc of metrics</small>                      <p ngClass="{{metrics?.project?.website?  \'\' : \'hide-metric\'}}"><b>Accessibility : </b>                        <span ngClass="{{metrics?.project?.website?  \'\' : \'hide-metric\'}} {{metrics?.project?.website?.bioschemas? \'metrics-true\' : \'metrics-false\'}}">Bioschema</span>                        <span ngClass="{{metrics?.project?.website?  \'\' : \'hide-metric\'}} {{metrics?.project?.website?.ssl? \'metrics-true\' : \'metrics-false\'}}">SSL</span>                      <p ngClass="{{metrics?.project?.license?  \'\' : \'hide-metric\'}}"><b>License : </b>                        <span ngClass="{{metrics?.project?.license?  \'\' : \'hide-metric\'}} {{metrics?.project?.license?.open_source? \'metrics-true\' : \'metrics-false\'}}">Open Source</span>                        <span ngClass="{{metrics?.project?.license?  \'\' : \'hide-metric\'}} {{metrics?.project?.license?.osi? \'metrics-true\' : \'metrics-false\'}}">OSI</span>                      <p ngClass="{{metrics?.project?.documentation? \'\' : \'hide-metric\'}} "><b>Documentation : </b>                        <span ngClass="{{metrics?.project?.documentation? \'\' : \'hide-metric\'}} {{metrics?.project?.documentation?.manual? \'metrics-true\' : \'metrics-false\'}}">Manual</span>                        <span ngClass="{{metrics?.project?.documentation? \'\' : \'hide-metric\'}} {{ metrics?.project?.documentation?.general? \'metrics-true\' : \'metrics-false\'}}">General</span>                        <span ngClass="{{metrics?.project?.documentation? \'\' : \'hide-metric\'}} {{metrics?.project?.documentation?.faq? \'metrics-true\' : \'metrics-false\'}}">FAQ</span>                        <span ngClass="{{metrics?.project?.documentation? \'\' : \'hide-metric\'}} {{metrics?.project?.documentation?.terms_of_use? \'metrics-true\' : \'metrics-false\'}}">Terms of use</span>                                               <p ngClass="{{metrics? \'\' : \'hide-metric\'}}{{metrics?.distribution? \'\' : \'hide-metric\'}}"><b>Distribution : </b>                        <span ngClass="{{metrics?.distribution? \'\' : \'hide-metric\'}} {{metrics?.distribution?.vre? \'\' : \'hide-metric\'}} {{metrics?.distribution?.vre? \'metrics-true\' : \'metrics-false\'}}">VRE</span>                        <span ngClass="{{metrics?.distribution? \'\' : \'hide-metric\'}} {{metrics?.distribution?.sourcecode? \'\' : \'hide-metric\'}} {{metrics?.distribution?.sourcecode? \'metrics-true\' : \'metrics-false\'}}">Sourcecode</span>                                            </div>                  </div>                                                      <div class="card-group" *ngIf="metrics">                    <div  class="card border-light">                      <h5 class="text-center card-title">Uptime / Accesstime</h5>                      <small class="text-center card-subtitle mb-2 text-muted">Displays if the service is currently available</small>                      <div data-id="uptime" data-xaxis=\'true\' attr.data-url="{{selectedValue[\'@id\'] | chartId}}" data-limit=15 class="opebuptime" #opebuptime>                      </div>                    </div>                  </div>                  <br>                  <br>                  <div  class="card-group" *ngIf="metrics">                    <div  class="card border-light">                      <h5 class="text-center card-title">Publications</h5>                      <small class="text-center card-subtitle mb-2 text-muted">Amout of citations for each of the publications</small>                                                                  <span *ngIf="metrics.project.publications">                        <div *ngIf="metrics.project.publications.length<=0">                          <p class="text-center">No publications found for this version</p>                        </div>                      </span>                      <div data-id="citation" data-h="400" data-legend="true" attr.data-url="{{selectedValue[\'@id\'] | chartId}}" class="opebcitations" #opebuptime>                      </div>                    </div>                  </div>                                    <a href="{{selectedValue[\'@id\']}}">{{selectedValue[\'@id\']}}</a>                  <br>                  <a href="{{selectedValue[\'metrics\']}}">{{selectedValue[\'metrics\']}}</a>                                                  </ng-template>                        </mat-tab>        </span>      </mat-tab-group>      </span>  </span></span><br><br><ng-template #loading>loading...</ng-template><ng-template #toolNotFound>Tool Not Found</ng-template><ng-template #notavailable> N/A </ng-template></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'NgFancyLibComponent', 'selector': 'lib-ng-fancy-lib'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolListComponent', 'selector': 'app-tool-list'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ToolDetailComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ToolDetailComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
