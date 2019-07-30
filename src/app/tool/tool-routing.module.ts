@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ToolTableComponent } from './tool-table/tool-table.component';
 import { ToolDetailComponent } from './tool-detail/tool-detail.component';
-import { ToolComponent } from './tool.component';
+import { ToolDialogComponent } from './tool-dialog/tool-dialog.component';
+
 
 
 
@@ -41,4 +42,4 @@ export class ToolRoutingModule { }
 /**
  * Export routing components
 */
-export const AllToolRoutingComponents = [ToolTableComponent, ToolDetailComponent];
+export const AllToolRoutingComponents = [ToolTableComponent, ToolDetailComponent, ToolDialogComponent ];

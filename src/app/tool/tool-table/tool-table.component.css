@@ -1,6 +1,15 @@
-.sidenav{
+.sidenav {
     padding: 0 2em 2em 2em;
 }
-.table-content{
+
+.table-content {
     min-height: 55vh
+}
+
+.table-desc {
+    text-align: justify;
+}
+
+.table-fields {
+    padding: 1rem!important;
 }

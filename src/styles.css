@@ -22,17 +22,6 @@
     text-align: justify;
 }
 
-.main-logo {
-    width: 40%;
-    align-self: center
-}
-
-.card-icon {
-    width: 25%;
-    height: auto;
-    align-self: center;
-}
-
 .diagram {
     width: 100%;
     height: auto;
@@ -44,41 +33,6 @@
     height: 60px;
     width: 80%;
     padding-left: 15px;
-}
-
-.main-search-div {
-    padding: 1vh 0 1vh 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.main-submit {
-    background-color: #FFFFFF;
-    border: solid 1px #EF7500;
-    padding: 15px 32px;
-    text-align: center;
-    width: 20%;
-    height: 60px;
-    cursor: not-allowed;
-}
-
-.main-submit:enabled {
-    cursor: pointer;
-    color: #EF7500;
-}
-
-.border-light {
-    border-color: white !important;
-}
-
-.table-desc {
-    text-align: justify;
-}
-
-.table-fields {
-    padding: 1rem!important;
 }
 
 nav {

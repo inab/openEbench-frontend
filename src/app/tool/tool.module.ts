@@ -13,7 +13,10 @@ import { ToolService } from './shared/tool.service';
 import { KeyValuePipe } from './shared/pipes/key-value.pipe';
 import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
 import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
-import { ContentTableModule } from '../content-table/content-table.module'
+import { ContentTableModule } from '../content-table/content-table.module';
+import { ToolDialogComponent } from './tool-dialog/tool-dialog.component';
+import { UptimeComponent } from '../uptime/uptime.component';
+
 
 
 @NgModule({
@@ -23,8 +26,7 @@ import { ContentTableModule } from '../content-table/content-table.module'
     KeyValuePipe,
     ChartIdPipe,
     SourceBadgeClassPipe,
-    
-    
+    UptimeComponent,
   ],
   imports: [
     HttpClientModule,
@@ -35,10 +37,13 @@ import { ContentTableModule } from '../content-table/content-table.module'
     // BrowserAnimationsModule,
     MaterialModule,
     ContentTableModule
-    
   ],
   providers: [ToolService],
-  bootstrap: [ToolComponent]
+  bootstrap: [ToolComponent],
+  exports: [],
+  entryComponents: [
+    ToolDialogComponent
+  ],
 })
 export class ToolModule { }
 

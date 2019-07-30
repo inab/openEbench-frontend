@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, bindCallback } from 'rxjs';
 import { ToolTableComponent } from '../tool-table/tool-table.component';
@@ -10,9 +10,10 @@ import { ToolService } from '../shared/tool.service';
 import uptime from '../shared/uptime.js';
 import citation from '../shared/citation.js';
 import { Input } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ToolDialogComponent } from '../tool-dialog/tool-dialog.component';
+import { SourceListMap } from 'source-list-map';
 
-// <script src="https://rawgit.com/vsundesha/Widget-Template/master/build/build.js"></script>
-//     <script src="https://rawgit.com/vsundesha/citations-widget/master/build/build.js"></script>
 
 
 
@@ -24,9 +25,12 @@ import { Input } from '@angular/core';
   templateUrl: './tool-detail.component.html',
   styleUrls: ['./tool-detail.component.css']
 })
-export class ToolDetailComponent implements OnInit {
+export class ToolDetailComponent implements OnInit{
 
-  tableOfContent= [ 'Metrics', 'Uptime', 'Publication'];
+
+
+
+  tableOfContent = [ 'Metrics', 'Uptime', 'Publication'];
 
   /**
    *  panelOpenState
@@ -72,12 +76,28 @@ export class ToolDetailComponent implements OnInit {
   /**
   * Constructor
   */
+ animal: string;
+ name: string;
+
   constructor(
     private toolService: ToolService,
     private route: ActivatedRoute,
     private router: Router,
+    public dialog: MatDialog
   ) {}
 
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ToolDialogComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 
   /**
   * Initializer
@@ -119,8 +139,6 @@ export class ToolDetailComponent implements OnInit {
       tool.entities.forEach(entity => {
         entity.tools.forEach(element => {
           const str = element['@id'];
-          // console.log(element['xid']);
-          // console.log(element);
           const s = str.split('/tool/')[1].split(':')[0];
           if (i > 0) {
             if (!this.sources.includes(s)) {
@@ -132,6 +150,7 @@ export class ToolDetailComponent implements OnInit {
       });
     });
   }
+
   /**
   * Helper function for getSource
   */
@@ -154,11 +173,14 @@ export class ToolDetailComponent implements OnInit {
   */
   private getMetrics() {
     this.selectedValue['metrics'] = this.selectedValue['@id'].replace('/tool/', '/metrics/');
+    this.selectedValue['chartid'] = this.selectedValue['@id'].split('/tool/')[1];
     this.toolService.getToolMetricsById(this.selectedValue.metrics).subscribe(
-      (res) => { this.metrics = res; });
+      (res) => { this.metrics = res;});
       setTimeout(() => {
         this.loadCharts();
       }, 1000);
+
+
   }
 
   /**

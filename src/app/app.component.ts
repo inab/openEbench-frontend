@@ -26,7 +26,7 @@ export class AppComponent {
       filter(event => event instanceof NavigationEnd),
     );
     navEndEvents.subscribe((event: NavigationEnd) => {
-      gtag('config', 'UA-143782781-1', {
+      gtag('config', 'UA-143782781-2', {
         'page_path': event.urlAfterRedirects
       });
     });

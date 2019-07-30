@@ -19,6 +19,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog'; 
 
 
 /**
@@ -28,11 +29,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   imports: [MatButtonModule, MatSelectModule, MatInputModule, MatProgressSpinnerModule, MatSortModule, MatTabsModule,
     MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatExpansionModule, MatGridListModule, MatTooltipModule,
-    MatPseudoCheckboxModule,
+    MatPseudoCheckboxModule,MatDialogModule,
     MatBadgeModule, MatCheckboxModule, MatCardModule, MatSidenavModule],
   exports: [MatButtonModule, MatSelectModule, MatInputModule, MatProgressSpinnerModule, MatSortModule, MatTabsModule,
     MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatExpansionModule, MatGridListModule, MatTooltipModule,
-    MatPseudoCheckboxModule,
+    MatPseudoCheckboxModule,MatDialogModule,
     MatBadgeModule, MatCheckboxModule, MatCardModule, MatSidenavModule]
 })
 export class MaterialModule { }

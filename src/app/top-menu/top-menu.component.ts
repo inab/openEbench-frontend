@@ -60,10 +60,10 @@ export class TopMenuComponent implements OnInit {
         label: 'About',
         path:  '/about'
       },
-      {
-        label: 'Docs',
-        path:  '/docs'
-      },
+    //   {
+    //     label: 'Docs',
+    //     path:  '/docs'
+    //   },
     ];
     // this.getProfileName();
   }

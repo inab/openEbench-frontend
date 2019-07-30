@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import * as c3 from 'c3';
-import * as d3 from 'd3';
 import { StatisticsService } from '../shared/statistics.service';
 
+
+declare var c3;
+declare var d3;
 /**
  * Componet for Statistics
  */

@@ -13,18 +13,12 @@ import { StatisticsService } from './shared/statistics.service';
 
 import { AppComponent } from './app.component';
 
-import { ToolModule } from './tool/tool.module';
-import { ScientificModule } from './scientific/scientific.module';
-
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { PrivateComponent } from './private/private.component';
-
 import { DataTablesModule } from 'angular-datatables';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
@@ -33,10 +27,10 @@ import { environment } from '../environments/environment';
 import { DocsComponent } from './docs/docs.component';
 
 
-//env variable to a local variable
+// env variable to a local variable
 const envurl = environment.SCIENTIFIC_SERVICE_URL;
 
-//function to create apollo client
+// function to create apollo client
 export function createApollo(httpLink: HttpLink) {
   return {
     link: httpLink.create({uri: envurl}),
@@ -59,21 +53,14 @@ export function createApollo(httpLink: HttpLink) {
     FooterComponent,
     PageNotFoundComponent,
     DocsComponent,
-    
-    
 
   ],
   imports: [
     BrowserModule,
-    // toolModule is a complete seperate module on its on it is injected here
-    // because it is a child module of appModule
-    // ToolModule,
-    // ScientificModule,
     DataTablesModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    // NgbModule.forRoot(),
     ReactiveFormsModule,
     MaterialModule,
     KeycloakAngularModule,
