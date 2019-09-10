@@ -173,12 +173,11 @@ export class ToolDetailComponent implements OnInit{
   */
   private getMetrics() {
     this.selectedValue['metrics'] = this.selectedValue['@id'].replace('/tool/', '/metrics/');
-    this.selectedValue['chartid'] = this.selectedValue['@id'].split('/tool/')[1];
     this.toolService.getToolMetricsById(this.selectedValue.metrics).subscribe(
-      (res) => { this.metrics = res;});
-      setTimeout(() => {
-        this.loadCharts();
-      }, 1000);
+        (res) => { this.metrics = res; });
+        setTimeout(() => {
+          this.loadCharts();
+        }, 1000);
 
 
   }
