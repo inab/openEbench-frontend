@@ -77,8 +77,8 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-                <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
     </p>
 
 
@@ -139,11 +139,35 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#beventsid">beventsid</a>
+                                <a href="#challengeGraphql">challengeGraphql</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#bm">bm</a>
+                                <a href="#challengeTrigger">challengeTrigger</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#classifier">classifier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dtOptions">dtOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#error">error</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getChallenges">getChallenges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loading">loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#selectedChallenges">selectedChallenges</a>
                             </li>
                         </ul>
                     </td>
@@ -158,6 +182,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#deselectAll">deselectAll</a>
+                            </li>
+                            <li>
+                                <a href="#filterChallenges">filterChallenges</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#getParam">getParam</a>
                             </li>
@@ -167,10 +197,27 @@
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
+                            <li>
+                                <a href="#toogle">toogle</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#beventsid">beventsid</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -185,12 +232,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(scientificService: <a href="../injectables/ScientificService.html">ScientificService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, apollo: Apollo)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:62</a></div>
                             </td>
                         </tr>
 
@@ -210,10 +257,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>scientificService</td>
+                                                        <td>route</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/ScientificService.html" target="_self" >ScientificService</a></code>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -222,10 +269,22 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>route</td>
+                                                        <td>formBuilder</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>apollo</td>
+                                                  
+                                                        <td>
+                                                                    <code>Apollo</code>
                                                         </td>
                                                   
                                                     <td>
@@ -242,170 +301,356 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="beventsid"></a>
+                        <b>beventsid</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:34</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>beventsid</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
     <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="getParam"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deselectAll"></a>
+                    <span class="name">
+                        <b>
+                            deselectAll
+                        </b>
+                        <a href="#deselectAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deselectAll()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:123</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterChallenges"></a>
+                    <span class="name">
+                        <b>
+                            filterChallenges
+                        </b>
+                        <a href="#filterChallenges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterChallenges()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getParam"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
                             getParam
-                            </b>
-                            <a href="#getParam"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getParam(param: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                    </td>
-                </tr>
+                        </b>
+                        <a href="#getParam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getParam(param: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:50</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:129</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>helper method to get params</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>helper method to get params</p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>param</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>param</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    <td>
+                                        No
+                                    </td>
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngAfterViewInit"></a>
-                        <span class="name">
-                            <b>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
                             ngAfterViewInit
-                            </b>
-                            <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngAfterViewInit()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:43</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:117</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>after view init life cycle</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>after view init life cycle</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
                             ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnInit()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:35</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:75</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>initializer</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>initializer</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toogle"></a>
+                    <span class="name">
+                        <b>
+                            toogle
+                        </b>
+                        <a href="#toogle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toogle(event, value)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>toogle sellec&lt;</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
     <section>
     
         <h3 id="inputs">
@@ -415,37 +660,146 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="beventsid"></a>
+                        <a name="challengeGraphql"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            beventsid
-                            </b>
-                            <a href="#beventsid"><span class="icon ion-ios-link"></span></a>
+                            challengeGraphql</b>
+                            <a href="#challengeGraphql"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>beventsid:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="challengeTrigger"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            challengeTrigger</b>
+                            <a href="#challengeTrigger"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="classifier"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            classifier</b>
+                            <a href="#classifier"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:62</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtOptions"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dtOptions</b>
+                            <a href="#dtOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>DataTables.Settings</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="error"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            error</b>
+                            <a href="#error"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:60</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>beventsid</p>
+                        <div class="io-description"><p>error property for graphql</p>
 </div>
                     </td>
                 </tr>
@@ -456,37 +810,99 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="bm"></a>
+                        <a name="getChallenges"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            bm
-                            </b>
-                            <a href="#bm"><span class="icon ion-ios-link"></span></a>
+                            getChallenges</b>
+                            <a href="#getChallenges"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>bm:     <code>any[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>any[]</code>
-
+                            <i>Default value : </i><code>gql&#x60;
+  query getChallenges($benchmarking_event_id: String!){
+    getChallenges(challengeFilters:{benchmarking_event_id: $benchmarking_event_id}) {
+     _id
+     name
+     orig_id
+     acronym
+    }
+  }
+&#x60;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loading"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            loading</b>
+                            <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:56</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>bm</p>
+                        <div class="io-description"><p>loading property for graphql</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedChallenges"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            selectedChallenges</b>
+                            <a href="#selectedChallenges"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/scientific/benchmarking-challenge-list/benchmarking-challenge-list.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>selected challanges array</p>
 </div>
                     </td>
                 </tr>
@@ -499,10 +915,21 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, AfterViewInit } from &#x27;@angular/core&#x27;;
-import { ScientificService } from &#x27;../shared/scientific.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit, AfterViewInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
-import { load_table } from &#x27;../shared/benchmarkingTable.js&#x27;;
+import { run_summary_table } from &#x27;../shared/benchmarkingTable.js&#x27;;
+// import { load_table } from &#x27;/home/vsundesh/public_html/bench_event_table/build/build.js&#x27;;
+// declare let load_table: any;
+import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
+import { ViewChild } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormControl, FormsModule } from &#x27;@angular/forms&#x27;;
+import { FormGroup } from &#x27;@angular/forms&#x27;;
+import { Apollo } from &#x27;apollo-angular&#x27;;
+import gql from &#x27;graphql-tag&#x27;;
+import { SourceListMap } from &#x27;source-list-map&#x27;;
+import { timeout } from &#x27;q&#x27;;
+import { Subject } from &#x27;rxjs&#x27;;
+
 
 /**
  * benchmarking challenge list component
@@ -513,38 +940,106 @@ import { load_table } from &#x27;../shared/benchmarkingTable.js&#x27;;
   styleUrls: [&#x27;./benchmarking-challenge-list.component.css&#x27;]
 })
 export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit {
+
+  public challengeTrigger &#x3D; new Subject();
+
+
+  public dtOptions: DataTables.Settings &#x3D; {};
   /**
    * beventsid
    */
-  public beventsid: string;
+  @Input() beventsid: string;
   /**
-   * bm
+   * selected challanges array
    */
-  public bm: any[];
+  private selectedChallenges: any;
 
+  public getChallenges &#x3D; gql&#x60;
+  query getChallenges($benchmarking_event_id: String!){
+    getChallenges(challengeFilters:{benchmarking_event_id: $benchmarking_event_id}) {
+     _id
+     name
+     orig_id
+     acronym
+    }
+  }
+&#x60;;
+
+  public challengeGraphql: any;
+
+  /**
+   * loading property for graphql
+   */
+  public loading &#x3D; true;
+  /**
+   * error property for graphql
+   */
+  public error: any;
+
+  public classifier: any;
   /**
    * constructor
    */
   constructor(
-    private scientificService: ScientificService,
     private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private apollo: Apollo,
   ) { }
 
   /**
    * initializer
    */
   ngOnInit() {
-    this.beventsid &#x3D; this.getParam(&#x27;beventsid&#x27;);
-    this.scientificService.getChallenge(this.beventsid).subscribe(event &#x3D;&gt; { this.bm &#x3D; event; });
+    this.selectedChallenges &#x3D; [];
+    // console.log(this.testid);
+    // this.beventsid &#x3D; this.getParam(&#x27;beventsid&#x27;);
+
+    this.apollo.watchQuery({
+      query: this.getChallenges,
+      variables: { benchmarking_event_id:  this.beventsid }
+    })
+    .valueChanges.subscribe(result &#x3D;&gt; {
+      this.challengeGraphql &#x3D; result.data;
+      this.loading &#x3D; result.loading;
+      this.error &#x3D; result.errors;
+      setTimeout(() &#x3D;&gt; {
+        this.challengeTrigger.next();
+      });
+    });
   }
 
+  /**
+   * toogle sellec&lt;
+   */
+  toogle(event, value) {
+    if (event.checked) {
+      this.selectedChallenges.push(value);
+    }
+    if (!event.checked) {
+      const index &#x3D; this.selectedChallenges.indexOf(value);
+      if (index &gt; -1) {
+        this.selectedChallenges.splice(index, 1);
+      }
+    }
+    const div &#x3D; $(&#x27;.oeb-table&#x27;).attr(&#x27;data-benchmarkingevent&#x27;);
+    this.classifier &#x3D; div + &#x27;0&#x27; ;
+  }
+
+  filterChallenges() {
+    run_summary_table(this.selectedChallenges, this.classifier);
+  }
   /**
    * after view init life cycle
    */
   ngAfterViewInit(): void {
-    load_table();
+    setTimeout(() &#x3D;&gt; {
+      run_summary_table();
+    }, 1000);
   }
 
+  deselectAll() {
+    this.selectedChallenges &#x3D; [];
+  }
   /**
    * helper method to get params
    */
@@ -556,36 +1051,66 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;span *ngIf&#x3D;&#x27;bm; else loading&#x27;&gt;
-    &lt;br&gt;
-    &lt;br&gt;
-    &lt;h3&gt;Benchmarking Challenges List&lt;/h3&gt;
-    &lt;hr&gt;
-      &lt;div class&#x3D;&quot;example-container mat-elevation-z8&quot;&gt;
-        &lt;mat-table #table [dataSource]&#x3D;&quot;bm.Challenge&quot;&gt;
-            &lt;ng-container matColumnDef&#x3D;&quot;sci-card&quot;&gt;  
-                &lt;mat-cell class&#x3D;&quot;row&quot; *matCellDef&#x3D;&quot;let b&quot;&gt; 
-                  &lt;div class&#x3D;&quot;table-fields&quot;&gt;
-                      &lt;p&gt;&lt;a routerLink&#x3D;&quot;{{b._id}}&quot; name&#x3D;&quot;{{b._id}}&quot; matTooltip&#x3D;&quot;{{b._id}} details&quot;  matTooltipPosition&#x3D;&quot;right&quot;&gt;{{b.name}} [{{b._id.split(&quot;_&quot;)[1]}}]&lt;/a&gt;&lt;/p&gt;
-                  &lt;/div&gt;
-                &lt;/mat-cell&gt;
-            &lt;/ng-container&gt;
-          &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: [&#x27;sci-card&#x27;];&quot;&gt;&lt;/mat-row&gt; 
-        &lt;/mat-table&gt;
-      &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;span&gt;
+    &lt;h5&gt;Challenges&lt;/h5&gt;
+    &lt;p&gt;Challenges are the different tests that the community uses to benchmark their participants within a benchmarking event&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Summary Table across all challenges in the Event&lt;/b&gt;&lt;/p&gt;
+    
+    &lt;div&gt;      
 
-  &lt;/span&gt;
-&lt;br&gt;
-&lt;span&gt;
-    &lt;h3&gt;Summary Table across all Benchmarks in the Event&lt;/h3&gt;
-    &lt;div class&#x3D;&quot;example-container mat-elevation-z8&quot;&gt;
-        &lt;table id&#x3D;&quot;bench_summary_table&quot; class&#x3D;&quot;summaryTable&quot; attr.data-input&#x3D;&quot;{{beventsid}}&quot;&gt;&lt;/table&gt;
+        &lt;div class&#x3D;&quot;oeb-table&quot; attr.data-benchmarkingevent&#x3D;&quot;{{beventsid}}&quot; data-mode&#x3D;&quot;dev&quot;&gt;&lt;/div&gt;
+        &lt;br&gt;             
+        &lt;button mat-raised-button type&#x3D;&quot;submit&quot; (click)&#x3D;&#x27;filterChallenges()&#x27; matTooltip&#x3D;&quot;Reload chart after selecting Challenges&quot;
+        matTooltipPosition&#x3D;&quot;right&quot;&gt;Reload chart&lt;/button&gt;
     &lt;/div&gt;
+    
 &lt;/span&gt;
- 
-  
-  
-  
+&lt;br&gt;
+&lt;span *ngIf&#x3D;&#x27;challengeGraphql; else loading&#x27;&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &lt;p&gt;&lt;b&gt;Benchmarking Challenges List&lt;/b&gt;&lt;/p&gt;
+    &lt;hr&gt;
+
+    &lt;br&gt;
+    &lt;span *ngIf&#x3D;&#x27;challengeGraphql; else loading&#x27;&gt;
+        &lt;table datatable [dtOptions]&#x3D;&quot;dtOptions&quot; [dtTrigger]&#x3D;&quot;challengeTrigger&quot; class&#x3D;&quot;row-border hover&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+            &lt;th&gt; &lt;ng-container [ngTemplateOutlet]&#x3D;&quot;selectAll&quot;&gt;&lt;/ng-container&gt;&lt;/th&gt;
+            &lt;th&gt;Acronym( Chart )&lt;/th&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor&#x3D;&quot;let b of challengeGraphql.getChallenges&quot;&gt;
+                &lt;td&gt;&lt;mat-checkbox color&#x3D;&quot;primary&quot;  id&#x3D;&quot;{{b._id}}&quot; value&#x3D;&quot;{{b._id}}&quot; (change)&#x3D;&quot;toogle($event, b._id)&quot;&gt;&lt;/mat-checkbox&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;a routerLink&#x3D;&quot;{{b._id}}&quot; name&#x3D;&quot;{{b._id}}&quot; matTooltip&#x3D;&quot;{{b._id}}&quot; matTooltipPosition&#x3D;&quot;right&quot;&gt;[{{b.acronym}}]&lt;/a&gt;&lt;/td&gt;
+                &lt;td&gt;{{ b.name}}&lt;/td&gt;
+                
+            &lt;!-- &lt;td&gt;{{ d.type }}&lt;/td&gt; --&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+        &lt;/table&gt;
+        
+        &lt;!-- &lt;p&gt; here : {{selectedChallenges}}&lt;/p&gt; --&gt;
+    &lt;/span&gt;
+
+
+&lt;!-- &lt;mat-paginator [length]&#x3D;length [pageIndex]&#x3D;pageIndex [pageSize]&#x3D;pageSize [pageSizeOptions]&#x3D;[10,20] (page)&#x3D;&quot;changePage($event)&quot;&gt;
+        &lt;/mat-paginator&gt; --&gt;
+
+
+
+
+
+
+&lt;/span&gt;
+
+
+
+
 &lt;ng-template #loading&gt;loading...&lt;/ng-template&gt;</code></pre>
     </div>
 
@@ -621,8 +1146,8 @@ export class BenchmarkingChallengeListComponent implements OnInit, AfterViewInit
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><span *ngIf=\'bm; else loading\'>    <br>    <br>    <h3>Benchmarking Challenges List</h3>    <hr>      <div class="example-container mat-elevation-z8">        <mat-table #table [dataSource]="bm.Challenge">            <ng-container matColumnDef="sci-card">                  <mat-cell class="row" *matCellDef="let b">                   <div class="table-fields">                      <p><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"  matTooltipPosition="right">{{b.name}} [{{b._id.split("_")[1]}}]</a></p>                  </div>                </mat-cell>            </ng-container>          <mat-row *matRowDef="let row; columns: [\'sci-card\'];"></mat-row>         </mat-table>      </div>  </span><br><span>    <h3>Summary Table across all Benchmarks in the Event</h3>    <div class="example-container mat-elevation-z8">        <table id="bench_summary_table" class="summaryTable" attr.data-input="{{beventsid}}"></table>    </div></span>       <ng-template #loading>loading...</ng-template></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'NgFancyLibComponent', 'selector': 'lib-ng-fancy-lib'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolListComponent', 'selector': 'app-tool-list'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'}];
+        var COMPONENT_TEMPLATE = '<div><span>    <h5>Challenges</h5>    <p>Challenges are the different tests that the community uses to benchmark their participants within a benchmarking event</p>    <p><b>Summary Table across all challenges in the Event</b></p>        <div>              <div class="oeb-table" attr.data-benchmarkingevent="{{beventsid}}" data-mode="dev"></div>        <br>                     <button mat-raised-button type="submit" (click)=\'filterChallenges()\' matTooltip="Reload chart after selecting Challenges"        matTooltipPosition="right">Reload chart</button>    </div>    </span><br><span *ngIf=\'challengeGraphql; else loading\'>    <br>    <br>    <p><b>Benchmarking Challenges List</b></p>    <hr>    <br>    <span *ngIf=\'challengeGraphql; else loading\'>        <table datatable [dtOptions]="dtOptions" [dtTrigger]="challengeTrigger" class="row-border hover">        <thead>            <tr>            <th> <ng-container [ngTemplateOutlet]="selectAll"></ng-container></th>            <th>Acronym( Chart )</th>            <th>Name</th>                        </tr>        </thead>        <tbody>            <tr *ngFor="let b of challengeGraphql.getChallenges">                <td><mat-checkbox color="primary"  id="{{b._id}}" value="{{b._id}}" (change)="toogle($event, b._id)"></mat-checkbox></td>                <td><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}}" matTooltipPosition="right">[{{b.acronym}}]</a></td>                <td>{{ b.name}}</td>                            <!-- <td>{{ d.type }}</td> -->            </tr>        </tbody>        </table>                <!-- <p> here : {{selectedChallenges}}</p> -->    </span><!-- <mat-paginator [length]=length [pageIndex]=pageIndex [pageSize]=pageSize [pageSizeOptions]=[10,20] (page)="changePage($event)">        </mat-paginator> --></span><ng-template #loading>loading...</ng-template></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'ContentTableComponent', 'selector': 'app-content-table'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DocsComponent', 'selector': 'app-docs'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolDialogComponent', 'selector': 'app-tool-dialog'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'},{'name': 'UptimeComponent', 'selector': 'app-uptime'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BenchmarkingChallengeListComponent'};
 </script>

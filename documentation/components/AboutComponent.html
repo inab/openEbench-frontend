@@ -77,7 +77,7 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
 
@@ -183,57 +183,57 @@
 
     <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
                             ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnInit()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/about/about.component.ts:19</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/about/about.component.ts:19</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Initializer</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initializer</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, AfterViewInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
 /**
  * About component
@@ -259,20 +259,30 @@ export class AboutComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  about works!
+        <pre class="line-numbers"><code class="language-html">&lt;h3 class&#x3D;&quot;text-center&quot;&gt;What is OpenEBench ?&lt;/h3&gt;
+&lt;p&gt;
+    OpenEBench is an infra-structure designed to establish a continuous automated benchmarking system for bioinformatics methods, tools and web services. It is being developed so as to cater for the needs of the bioinformatics community, especially software
+    developers who need an objective and quantitative way to inform their decisions as well as the larger community of end-users, in their search for unbiased and up-to-date evaluation of bioinformatics methods.
 &lt;/p&gt;
 
-  &lt;!-- &lt;div data-name&#x3D;&quot;test3&quot; data-id&#x3D;&quot;http://localhost:8080/json/file&quot; class&#x3D;&quot;opebcitations&quot;&gt;&lt;/div&gt; --&gt;
-  &lt;!-- &lt;div data-id&#x3D;&quot;test2&quot;  data-xaxis&#x3D;&#x27;true&#x27; data-url&#x3D;&quot;http://localhost:8080/json/file&quot; class&#x3D;&quot;opebuptime&quot; data-w&#x3D;&quot;400&quot; data-h&#x3D;&quot;200&quot;&gt;&lt;/div&gt; --&gt;
-  
-  
+&lt;div&gt;
+    &lt;img class&#x3D;&quot;diagram&quot; src&#x3D;&quot;assets/img/dashboard_diagram.svg&quot; alt&#x3D;&quot;Diagram&quot;&gt;
+&lt;/div&gt;
 
 
+&lt;hr&gt;
 
+&lt;p class&#x3D;&quot;text-center&quot;&gt;&lt;b&gt;The goals of OpenEBench are to:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;Provide guidance and software infrastructure for Benchmarking and Techincal monitoring of bioinformatics tools.&lt;/p&gt;
+&lt;p&gt;Engage with existing benchmark initiatives making different communities aware of the platform.&lt;/p&gt;
+&lt;p&gt;Maintain a data warehouse infrastructure to keep record of Benchmarking initiatives.&lt;/p&gt;
+&lt;p&gt;Expose benchmarking and technical monitoring results to Elixir Tools registry.&lt;/p&gt;
+&lt;p&gt;Establish and refine communication protocols with communities and/or infrastructure projects willing to have a unified benchmark infrastructure Coordinate with Elixir.&lt;/p&gt;
+&lt;p&gt;Interoperability Platform to keep FAIR data principles on Benchmarking data warehouse.&lt;/p&gt;
 
+&lt;hr&gt;
 
-</code></pre>
+&lt;p class&#x3D;&quot;text-center&quot;&gt;&lt;b&gt;The white paper for this project is available &lt;/b&gt;&lt;a target&#x3D;&quot;_blank&quot; href&#x3D;&quot;https://www.biorxiv.org/content/early/2017/08/31/181677&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -307,8 +317,8 @@ export class AboutComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  about works!</p>  <!-- <div data-name="test3" data-id="http://localhost:8080/json/file" class="opebcitations"></div> -->  <!-- <div data-id="test2"  data-xaxis=\'true\' data-url="http://localhost:8080/json/file" class="opebuptime" data-w="400" data-h="200"></div> -->    </div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'NgFancyLibComponent', 'selector': 'lib-ng-fancy-lib'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolListComponent', 'selector': 'app-tool-list'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'}];
+        var COMPONENT_TEMPLATE = '<div><h3 class="text-center">What is OpenEBench ?</h3><p>    OpenEBench is an infra-structure designed to establish a continuous automated benchmarking system for bioinformatics methods, tools and web services. It is being developed so as to cater for the needs of the bioinformatics community, especially software    developers who need an objective and quantitative way to inform their decisions as well as the larger community of end-users, in their search for unbiased and up-to-date evaluation of bioinformatics methods.</p><div>    <img class="diagram" src="assets/img/dashboard_diagram.svg" alt="Diagram"></div><hr><p class="text-center"><b>The goals of OpenEBench are to:</b></p><p>Provide guidance and software infrastructure for Benchmarking and Techincal monitoring of bioinformatics tools.</p><p>Engage with existing benchmark initiatives making different communities aware of the platform.</p><p>Maintain a data warehouse infrastructure to keep record of Benchmarking initiatives.</p><p>Expose benchmarking and technical monitoring results to Elixir Tools registry.</p><p>Establish and refine communication protocols with communities and/or infrastructure projects willing to have a unified benchmark infrastructure Coordinate with Elixir.</p><p>Interoperability Platform to keep FAIR data principles on Benchmarking data warehouse.</p><hr><p class="text-center"><b>The white paper for this project is available </b><a target="_blank" href="https://www.biorxiv.org/content/early/2017/08/31/181677">here</a></p></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'ContentTableComponent', 'selector': 'app-content-table'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DocsComponent', 'selector': 'app-docs'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolDialogComponent', 'selector': 'app-tool-dialog'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'},{'name': 'UptimeComponent', 'selector': 'app-uptime'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AboutComponent'};
 </script>

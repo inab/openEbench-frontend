@@ -79,10 +79,26 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">
 import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { MatButtonModule, MatSelectModule, MatInputModule, MatProgressSpinnerModule, MatSortModule,
-  MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatTabsModule,
-  MatExpansionModule, MatGridListModule, MatTooltipModule} from &#x27;@angular/material&#x27;;
+// import { CommonModule } from &#x27;@angular/common&#x27;;
+import { MatBadgeModule } from &#x27;@angular/material/badge&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatCheckboxModule } from &#x27;@angular/material/checkbox&#x27;;
+import { MatPseudoCheckboxModule } from &#x27;@angular/material/core&#x27;;
+import { MatExpansionModule } from &#x27;@angular/material/expansion&#x27;;
+import { MatFormFieldModule } from &#x27;@angular/material/form-field&#x27;;
+import { MatGridListModule } from &#x27;@angular/material/grid-list&#x27;;
+import { MatInputModule } from &#x27;@angular/material/input&#x27;;
+import { MatPaginatorModule } from &#x27;@angular/material/paginator&#x27;;
+import { MatProgressSpinnerModule } from &#x27;@angular/material/progress-spinner&#x27;;
+import { MatRadioModule } from &#x27;@angular/material/radio&#x27;;
+import { MatSelectModule } from &#x27;@angular/material/select&#x27;;
+import { MatSidenavModule } from &#x27;@angular/material/sidenav&#x27;;
+import { MatSortModule } from &#x27;@angular/material/sort&#x27;;
+import { MatTableModule } from &#x27;@angular/material/table&#x27;;
+import { MatTabsModule } from &#x27;@angular/material/tabs&#x27;;
+import { MatTooltipModule } from &#x27;@angular/material/tooltip&#x27;;
+import {MatDialogModule} from &#x27;@angular/material/dialog&#x27;; 
 
 
 /**
@@ -91,9 +107,13 @@ import { MatButtonModule, MatSelectModule, MatInputModule, MatProgressSpinnerMod
 
 @NgModule({
   imports: [MatButtonModule, MatSelectModule, MatInputModule, MatProgressSpinnerModule, MatSortModule, MatTabsModule,
-    MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatExpansionModule, MatGridListModule, MatTooltipModule],
+    MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatExpansionModule, MatGridListModule, MatTooltipModule,
+    MatPseudoCheckboxModule,MatDialogModule,
+    MatBadgeModule, MatCheckboxModule, MatCardModule, MatSidenavModule],
   exports: [MatButtonModule, MatSelectModule, MatInputModule, MatProgressSpinnerModule, MatSortModule, MatTabsModule,
-    MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatExpansionModule, MatGridListModule, MatTooltipModule]
+    MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatExpansionModule, MatGridListModule, MatTooltipModule,
+    MatPseudoCheckboxModule,MatDialogModule,
+    MatBadgeModule, MatCheckboxModule, MatCardModule, MatSidenavModule]
 })
 export class MaterialModule { }
 </code></pre>

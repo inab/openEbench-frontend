@@ -301,18 +301,16 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ScientificRoutingModule } from &#x27;./scientific-routing.module&#x27;;
-
-import { ScientificListComponent } from &#x27;./scientific-list/scientific-list.component&#x27;;
-
+import { ScientificRoutingModule, AllScientificRoutingComponents } from &#x27;./scientific-routing.module&#x27;;
 import { ScientificService } from &#x27;./shared/scientific.service&#x27;;
-
 import { ScientificComponent } from &#x27;./scientific.component&#x27;;
-
 import { MaterialModule } from &#x27;../material.module&#x27;;
-import { BenchmarkingListComponent } from &#x27;./benchmarking-list/benchmarking-list.component&#x27;;
-import { BenchmarkingDetailComponent } from &#x27;./benchmarking-detail/benchmarking-detail.component&#x27;;
-import { BenchmarkingChallengeListComponent } from &#x27;./benchmarking-challenge-list/benchmarking-challenge-list.component&#x27;;
+import { DataTablesModule } from &#x27;angular-datatables&#x27;;
+import {FormsModule} from &#x27;@angular/forms&#x27;;
+
+
+
+
 
 /**
  * imports and declaration for the scientific component
@@ -320,15 +318,14 @@ import { BenchmarkingChallengeListComponent } from &#x27;./benchmarking-challeng
 @NgModule({
   declarations: [
     ScientificComponent,
-    ScientificListComponent,
-    BenchmarkingListComponent,
-    BenchmarkingDetailComponent,
-    BenchmarkingChallengeListComponent
+    AllScientificRoutingComponents
   ],
   imports: [
     CommonModule,
     ScientificRoutingModule,
-    MaterialModule
+    MaterialModule,
+    DataTablesModule,
+    FormsModule
   ],
   providers: [ScientificService],
   bootstrap: [ScientificComponent]

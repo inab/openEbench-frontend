@@ -77,7 +77,7 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
 
@@ -183,51 +183,51 @@
 
     <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
                             ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnInit()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/footer/footer.component.ts:19</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/footer/footer.component.ts:19</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Initializer</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initializer</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
 </div>
 
@@ -260,15 +260,31 @@ export class FooterComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;hr&gt;
-&lt;div&gt;
-    &lt;p style&#x3D;&quot;float:left;&quot;&gt; &lt;img class&#x3D;&quot;eu-flag&quot; src&#x3D;&quot;assets/img/eu.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;/p&gt;
-    &lt;p&gt;Copyright © &lt;a href&#x3D;&quot;https://www.bsc.es/&quot;&gt;BSC-CNS&lt;/a&gt; 2018&lt;/p&gt;
-    &lt;p&gt;ELIXIR is partly funded by the European Commission within the Research Infraestructure programme of Horizon 2020.&lt;/p&gt;
-    &lt;p&gt;ELIXIR Excelerate is funded by the European Comission, contract no. 676559 &lt;/p&gt;
-    &lt;p&gt;The  sole  responsibility  for  the  content  of  this  webpage  lies  with  BSC.  It  does  not  necessarily  reflect  the  opinion  of  the  European  Union and the European Commission is not responsible for any use that may be made of the information contained therein.&lt;/p&gt;
-&lt;/div&gt;
+&lt;div class&#x3D;&quot;flex-container&quot;&gt;
+    &lt;div class&#x3D;&quot;flex-item&quot;&gt;
+        &lt;img class&#x3D;&quot;eu-flag&quot; src&#x3D;&quot;assets/img/eu.png&quot; alt&#x3D;&quot;&quot; /&gt;
 
-</code></pre>
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;flex-item&quot;&gt;
+
+        &lt;small&gt;
+            ELIXIR is partly funded by the European Commission within the Research Infraestructure
+            programme of Horizon 2020, contract no. 676559.
+        &lt;/small&gt;
+        &lt;br&gt;
+        &lt;small&gt;The sole responsibility for the content of this webpage lies with BSC. It does not
+            necessarily
+            reflect the opinion of the European Union and the European Commission is not responsible for any use that
+            may
+            be made of the information contained therein.
+        &lt;/small&gt;
+        &lt;br&gt;
+        &lt;small&gt;
+            Copyright © &lt;a href&#x3D;&quot;https://www.bsc.es/&quot;&gt;BSC-CNS&lt;/a&gt; 2019
+        &lt;/small&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- &lt;p class&#x3D;&quot;flex-item&quot;&gt;ELIXIR Excelerate is funded by the European Comission, contract no. 676559 &lt;/p&gt; --&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -276,7 +292,16 @@ export class FooterComponent implements OnInit {
                     <code>./footer.component.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.eu-flag{
-    height: 8em;
+    padding-top: 0.4em;
+    height: 4em;
+}
+.flex-container{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.flex-item{
+    padding: 0.2em;
+    order: 0;
 }</code></pre>
     </div>
 
@@ -305,8 +330,8 @@ export class FooterComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><hr><div>    <p style="float:left;"> <img class="eu-flag" src="assets/img/eu.png" alt=""></p>    <p>Copyright © <a href="https://www.bsc.es/">BSC-CNS</a> 2018</p>    <p>ELIXIR is partly funded by the European Commission within the Research Infraestructure programme of Horizon 2020.</p>    <p>ELIXIR Excelerate is funded by the European Comission, contract no. 676559 </p>    <p>The  sole  responsibility  for  the  content  of  this  webpage  lies  with  BSC.  It  does  not  necessarily  reflect  the  opinion  of  the  European  Union and the European Commission is not responsible for any use that may be made of the information contained therein.</p></div></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'NgFancyLibComponent', 'selector': 'lib-ng-fancy-lib'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolListComponent', 'selector': 'app-tool-list'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'}];
+        var COMPONENT_TEMPLATE = '<div><hr><div class="flex-container">    <div class="flex-item">        <img class="eu-flag" src="assets/img/eu.png" alt="" />    </div>    <div class="flex-item">        <small>            ELIXIR is partly funded by the European Commission within the Research Infraestructure            programme of Horizon 2020, contract no. 676559.        </small>        <br>        <small>The sole responsibility for the content of this webpage lies with BSC. It does not            necessarily            reflect the opinion of the European Union and the European Commission is not responsible for any use that            may            be made of the information contained therein.        </small>        <br>        <small>            Copyright © <a href="https://www.bsc.es/">BSC-CNS</a> 2019        </small>    </div></div><!-- <p class="flex-item">ELIXIR Excelerate is funded by the European Comission, contract no. 676559 </p> --></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'ContentTableComponent', 'selector': 'app-content-table'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DocsComponent', 'selector': 'app-docs'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolDialogComponent', 'selector': 'app-tool-dialog'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'},{'name': 'UptimeComponent', 'selector': 'app-uptime'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FooterComponent'};
 </script>

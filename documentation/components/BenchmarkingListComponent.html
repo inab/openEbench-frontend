@@ -77,7 +77,7 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
 
@@ -138,11 +138,67 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#bEventsGraphql">bEventsGraphql</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#bm">bm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#communitiesGraphql">communitiesGraphql</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#currentUrl">currentUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#datasetsGraphql">datasetsGraphql</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#datasetTrigger">datasetTrigger</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dtOptions">dtOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#error">error</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getBenchmarkingEvents">getBenchmarkingEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCommunities">getCommunities</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getDatasets">getDatasets</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getTools">getTools</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#id">id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loading">loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toolsGraphql">toolsGraphql</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toolTrigger">toolTrigger</a>
                             </li>
                         </ul>
                     </td>
@@ -181,19 +237,17 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(scientificService: <a href="../injectables/ScientificService.html">ScientificService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, apollo: Apollo)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:102</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>constructor</p>
-</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -206,22 +260,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>scientificService</td>
-                                                  
-                                                        <td>
-                                                                    <code><a href="../injectables/ScientificService.html" target="_self" >ScientificService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
                                                         <td>route</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -233,7 +275,19 @@
                                                         <td>router</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>apollo</td>
+                                                  
+                                                        <td>
+                                                                    <code>Apollo</code>
                                                         </td>
                                                   
                                                     <td>
@@ -256,124 +310,125 @@
 
     <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="getParam"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getParam"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
                             getParam
-                            </b>
-                            <a href="#getParam"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getParam(param: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                    </td>
-                </tr>
+                        </b>
+                        <a href="#getParam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getParam(param: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:41</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:172</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>helper method to get params</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>helper method to get params</p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>param</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>param</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    <td>
+                                        No
+                                    </td>
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
                             ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnInit()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:34</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:114</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>initializer</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>initializer</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
     <section>
     
         <h3 id="inputs">
@@ -383,20 +438,47 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="bEventsGraphql"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            bEventsGraphql</b>
+                            <a href="#bEventsGraphql"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>constructor</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="bm"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            bm
-                            </b>
+                            bm</b>
                             <a href="#bm"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>bm:     <code>any[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -407,7 +489,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -424,31 +506,342 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="id"></a>
+                        <a name="communitiesGraphql"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
-                            id
-                            </b>
-                            <a href="#id"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Public</span>
+                            communitiesGraphql</b>
+                            <a href="#communitiesGraphql"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>id:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentUrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            currentUrl</b>
+                            <a href="#currentUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="datasetsGraphql"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            datasetsGraphql</b>
+                            <a href="#datasetsGraphql"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="datasetTrigger"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            datasetTrigger</b>
+                            <a href="#datasetTrigger"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtOptions"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dtOptions</b>
+                            <a href="#dtOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>DataTables.Settings</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="error"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            error</b>
+                            <a href="#error"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>error property for graphql</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getBenchmarkingEvents"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getBenchmarkingEvents</b>
+                            <a href="#getBenchmarkingEvents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+    query getBenchmarkingEvents($community_id: String!){
+      getBenchmarkingEvents(benchmarkingEventFilters: {community_id: $community_id}) {
+        _id
+        name
+        url
+        challenges {
+          _id
+          name
+          url
+        }
+      }
+    }
+  &#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:67</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCommunities"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getCommunities</b>
+                            <a href="#getCommunities"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+    query getCommunities($community_id: String!){
+      getCommunities (communityFilters:{id:$community_id}){
+        name
+        acronym
+        description
+        status
+      }
+    }
+  &#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDatasets"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getDatasets</b>
+                            <a href="#getDatasets"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+    query getDatasets($community_id: String!){
+      getDatasets (datasetFilters: {community_id: $community_id , visibility: &quot;public&quot;}) {
+        name
+        type
+      }
+    }
+  &#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:83</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getTools"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getTools</b>
+                            <a href="#getTools"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+  query getTools($community_id: String!){
+    getTools(toolFilters:{community_id: $community_id}) {
+      _id
+      name
+      status
+      description
+    }
+  }
+&#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:93</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="id"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            id</b>
+                            <a href="#id"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -461,6 +854,94 @@
 
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loading"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            loading</b>
+                            <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>loading property for graphql</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toolsGraphql"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            toolsGraphql</b>
+                            <a href="#toolsGraphql"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toolTrigger"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            toolTrigger</b>
+                            <a href="#toolTrigger"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/scientific/benchmarking-list/benchmarking-list.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
 </section>
 
 </div>
@@ -468,9 +949,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { ScientificService } from &#x27;../shared/scientific.service&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
+import { Apollo } from &#x27;apollo-angular&#x27;;
+import gql from &#x27;graphql-tag&#x27;;
+import { Subject } from &#x27;rxjs&#x27;;
+
 
 /**
  * component
@@ -481,32 +965,160 @@ import { Router } from &#x27;@angular/router&#x27;;
   styleUrls: [&#x27;./benchmarking-list.component.css&#x27;]
 })
 export class BenchmarkingListComponent implements OnInit {
-/**
- * id
- */
+
+  public datasetTrigger &#x3D; new Subject();
+  public toolTrigger &#x3D; new Subject();
+
+
+  public dtOptions: DataTables.Settings &#x3D; {};
+  /**
+   * id
+   */
   private id: string;
   /**
    * bm
    */
   public bm: any[];
-/**
- * constructor
- */
+  /**
+   * constructor
+   */
+  /**
+   * BenchmarkingEvents by community id using Graphql
+   */
+  public bEventsGraphql: any;
+
+  public datasetsGraphql: any;
+
+  public toolsGraphql: any;
+
+  public communitiesGraphql: any;
+  /**
+   * loading property for graphql
+   */
+  public loading &#x3D; true;
+  /**
+   * error property for graphql
+   */
+  public error: any;
+
+  public currentUrl;
+
+  public getCommunities &#x3D; gql&#x60;
+    query getCommunities($community_id: String!){
+      getCommunities (communityFilters:{id:$community_id}){
+        name
+        acronym
+        description
+        status
+      }
+    }
+  &#x60;;
+
+  public getBenchmarkingEvents &#x3D; gql&#x60;
+    query getBenchmarkingEvents($community_id: String!){
+      getBenchmarkingEvents(benchmarkingEventFilters: {community_id: $community_id}) {
+        _id
+        name
+        url
+        challenges {
+          _id
+          name
+          url
+        }
+      }
+    }
+  &#x60;;
+
+
+  public getDatasets &#x3D; gql&#x60;
+    query getDatasets($community_id: String!){
+      getDatasets (datasetFilters: {community_id: $community_id , visibility: &quot;public&quot;}) {
+        name
+        type
+      }
+    }
+  &#x60;;
+
+
+  public getTools &#x3D; gql&#x60;
+  query getTools($community_id: String!){
+    getTools(toolFilters:{community_id: $community_id}) {
+      _id
+      name
+      status
+      description
+    }
+  }
+&#x60;;
+
+
+
   constructor(
-    private scientificService: ScientificService,
     private route: ActivatedRoute,
     private router: Router,
+    private apollo: Apollo,
   ) { }
-/**
- * initializer
- */
+  /**
+   * initializer
+   */
   ngOnInit() {
     this.id &#x3D; this.getParam(&#x27;id&#x27;);
-    this.scientificService.getBenchmarkingEvents(this.id).subscribe(event &#x3D;&gt; {this.bm &#x3D; event; });
+    this.dtOptions &#x3D; {
+      pagingType: &#x27;full_numbers&#x27;,
+
+    };
+    this.apollo.watchQuery({
+        query: this.getBenchmarkingEvents,
+        variables: { community_id:  this.id }
+      })
+      .valueChanges.subscribe(result &#x3D;&gt; {
+        this.bEventsGraphql &#x3D; result.data;
+        this.loading &#x3D; result.loading;
+        this.error &#x3D; result.errors;
+      });
+
+    this.apollo.watchQuery({
+      query: this.getCommunities,
+      variables: { community_id:  this.id }
+    })
+    .valueChanges.subscribe(result &#x3D;&gt; {
+      this.communitiesGraphql &#x3D; result.data;
+      this.loading &#x3D; result.loading;
+      this.error &#x3D; result.errors;
+    });
+
+
+    this.apollo.watchQuery({
+        query: this.getDatasets,
+        variables: { community_id: this.id }
+      })
+      .valueChanges.subscribe(result &#x3D;&gt; {
+        this.datasetsGraphql &#x3D; result.data;
+        this.loading &#x3D; result.loading;
+        this.error &#x3D; result.errors;
+        setTimeout(() &#x3D;&gt; {
+          this.datasetTrigger.next();
+        });
+      });
+
+
+      this.apollo.watchQuery({
+        query: this.getTools,
+        variables: { community_id: this.id }
+      })
+      .valueChanges.subscribe(result &#x3D;&gt; {
+        this.toolsGraphql &#x3D; result.data;
+        this.loading &#x3D; result.loading;
+        this.error &#x3D; result.errors;
+        setTimeout(() &#x3D;&gt; {
+          this.toolTrigger.next();
+        });
+      });
+    this.currentUrl &#x3D; this.router.url;
   }
-/**
- * helper method to get params
- */
+  /**
+   * helper method to get params
+   */
   private getParam(param: string): string {
     return this.route.snapshot.paramMap.get(param);
   }
@@ -517,36 +1129,121 @@ export class BenchmarkingListComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;span *ngIf&#x3D;&#x27;bm; else loading&#x27;&gt;
-    &lt;br&gt;
-    &lt;br&gt;
-      &lt;div class&#x3D;&quot;example-container mat-elevation-z8&quot;&gt;
-        &lt;mat-table #table [dataSource]&#x3D;&quot;bm.BenchmarkingEvent&quot;&gt;
-            &lt;ng-container matColumnDef&#x3D;&quot;sci-card&quot;&gt;  
-                &lt;mat-cell class&#x3D;&quot;row&quot; *matCellDef&#x3D;&quot;let b&quot;&gt; 
-                  &lt;div class&#x3D;&quot;table-fields&quot;&gt;
-                      &lt;p&gt;&lt;a routerLink&#x3D;&quot;{{b._id}}&quot; name&#x3D;&quot;{{b._id}}&quot; matTooltip&#x3D;&quot;{{b._id}} details&quot;  matTooltipPosition&#x3D;&quot;right&quot;&gt;{{b.name}}&lt;/a&gt;&lt;/p&gt;
-                  &lt;/div&gt;
-                &lt;/mat-cell&gt;
-            &lt;/ng-container&gt;
-          &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: [&#x27;sci-card&#x27;];&quot;&gt;&lt;/mat-row&gt; 
-        &lt;/mat-table&gt;
-      &lt;/div&gt;
-   
-  
-    
-  &lt;/span&gt;
-  
-  
-  
-  &lt;ng-template #loading&gt;loading...&lt;/ng-template&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;span *ngIf&#x3D;&#x27;communitiesGraphql; else loading&#x27;&gt;
+  &lt;div *ngFor&#x3D;&quot;let c of communitiesGraphql.getCommunities&quot;&gt;
+    &lt;h3&gt;
+      {{c.name}} ( {{c.acronym}} )
+    &lt;/h3&gt;
+    &lt;p&gt;
+      {{c.description}}
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+
+&lt;/span&gt;
+&lt;mat-tab-group&gt;
+    &lt;mat-tab label&#x3D;&quot;Benchmarking Events&quot; style&#x3D;&quot;background-color: rgb(167, 42, 42)&quot;&gt;
+        &lt;br&gt;
+        &lt;h3&gt;Benchmarking Event&lt;/h3&gt;
+        &lt;p&gt;
+            A benchmarking event corresponds to a benchmarking experiment which is held at a certain date. It starts when the organizing community opens one or more challenges by providing participants with some input data and allows to submit their predictions.
+            Once the event is closed, the benchmark is performed and the metrics are computed. This usually occurs, recursively (every week,month and year...)
+        &lt;/p&gt;
+        &lt;span *ngIf&#x3D;&#x27;bEventsGraphql; else loading&#x27;&gt;
+      &lt;!-- &lt;span *ngIf&#x3D;&quot;tools.length!&#x3D;0; else toolNotFound&quot;&gt; --&gt;
+      &lt;mat-accordion&gt;
+        &lt;mat-expansion-panel *ngFor&#x3D;&quot;let b of bEventsGraphql.getBenchmarkingEvents&quot; &gt;
+            &lt;!-- (opened)&#x3D;&quot;openChallenges(b._id)&quot; --&gt;
+          &lt;mat-expansion-panel-header&gt;
+            &lt;mat-panel-title&gt;
+              &lt;!-- &lt;a class&#x3D;&quot;left&quot; routerLink&#x3D;&quot;{{b._id}}&quot; name&#x3D;&quot;{{b._id}}&quot; matTooltip&#x3D;&quot;{{b._id}} details&quot;
+                  matTooltipPosition&#x3D;&quot;right&quot;&gt;{{b.name}}&lt;/a&gt; --&gt;
+              {{b.name}}
+            &lt;/mat-panel-title&gt;
+            &lt;mat-panel-description&gt;
+              &lt;span class&#x3D;&quot;right&quot; *ngIf&#x3D;&quot;b.challenges&quot;&gt;challenges : {{b.challenges.length}}&lt;/span&gt;
+        &lt;/mat-panel-description&gt;
+        &lt;/mat-expansion-panel-header&gt;
+        &lt;!-- &lt;router-outlet [testid]&#x3D;&quot;b._id&quot;&gt;&lt;/router-outlet&gt; --&gt;
+        &lt;app-benchmarking-challenge-list [beventsid]&#x3D;&quot;b._id&quot;&gt;&lt;/app-benchmarking-challenge-list&gt;
+        &lt;/mat-expansion-panel&gt;
+        &lt;/mat-accordion&gt;
+        &lt;/span&gt;
+    &lt;/mat-tab&gt;
+    &lt;mat-tab label&#x3D;&quot;Datasets&quot;&gt;
+        &lt;br&gt;
+        &lt;h3&gt;Datasets&lt;/h3&gt;
+        &lt;p&gt;
+            There are four types of datasets considered in OpenEBench:
+        &lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt; &lt;b&gt;Input datasets&lt;/b&gt; are provided by the community for the participants to test their methods/tools.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Reference datasets&lt;/b&gt; are the Gold Standard datasets that are also provided by the community but are not visible.
+            &lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Participant datasets&lt;/b&gt; are uploaded by the participants to be benchmarked against the reference datasets.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Assessment datasets&lt;/b&gt; contain information about the results of metrics applied to a certain prediction.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Aggregation datasets&lt;/b&gt; are obtained by summarizing or computing statistics on assessment datasets.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;br&gt;
+
+        &lt;span *ngIf&#x3D;&#x27;datasetsGraphql; else loading&#x27;&gt;
+      &lt;table datatable [dtOptions]&#x3D;&quot;dtOptions&quot; [dtTrigger]&#x3D;&quot;datasetTrigger&quot; class&#x3D;&quot;row-border hover&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Type&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr *ngFor&#x3D;&quot;let d of datasetsGraphql.getDatasets&quot;&gt;
+            &lt;td&gt;{{ d.name }}&lt;/td&gt;
+            &lt;td&gt;{{ d.type }}&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/span&gt;
+    &lt;/mat-tab&gt;
+    &lt;mat-tab label&#x3D;&quot;Participants&quot;&gt;
+        &lt;br&gt;
+        &lt;h3&gt;Participants&lt;/h3&gt;
+        &lt;p&gt;
+            Participants are the users who upload their predictions to take part in the benchmarking event.
+        &lt;/p&gt;
+        &lt;span *ngIf&#x3D;&#x27;toolsGraphql; else loading&#x27;&gt;
+      &lt;table datatable [dtOptions]&#x3D;&quot;dtOptions&quot; [dtTrigger]&#x3D;&quot;toolTrigger&quot; class&#x3D;&quot;row-border hover&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr *ngFor&#x3D;&quot;let t of toolsGraphql.getTools&quot;&gt;
+            &lt;td&gt;{{ t.name }}&lt;/td&gt;
+            &lt;td&gt;{{ t.description }}&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/span&gt;
+        &lt;!-- &lt;/span&gt; --&gt;
+    &lt;/mat-tab&gt;
+&lt;/mat-tab-group&gt;
+
+&lt;ng-template #loading&gt;loading...&lt;/ng-template&gt;
+&lt;ng-template #notfound&gt;Event not found&lt;/ng-template&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
                     <code>./benchmarking-list.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.right{
+    float:right;
+}
+
+.left{
+    float:left;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -574,8 +1271,8 @@ export class BenchmarkingListComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><span *ngIf=\'bm; else loading\'>    <br>    <br>      <div class="example-container mat-elevation-z8">        <mat-table #table [dataSource]="bm.BenchmarkingEvent">            <ng-container matColumnDef="sci-card">                  <mat-cell class="row" *matCellDef="let b">                   <div class="table-fields">                      <p><a routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"  matTooltipPosition="right">{{b.name}}</a></p>                  </div>                </mat-cell>            </ng-container>          <mat-row *matRowDef="let row; columns: [\'sci-card\'];"></mat-row>         </mat-table>      </div>           </span>        <ng-template #loading>loading...</ng-template></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'NgFancyLibComponent', 'selector': 'lib-ng-fancy-lib'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolListComponent', 'selector': 'app-tool-list'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'}];
+        var COMPONENT_TEMPLATE = '<div><span *ngIf=\'communitiesGraphql; else loading\'>  <div *ngFor="let c of communitiesGraphql.getCommunities">    <h3>      {{c.name}} ( {{c.acronym}} )    </h3>    <p>      {{c.description}}    </p>  </div></span><mat-tab-group>    <mat-tab label="Benchmarking Events" style="background-color: rgb(167, 42, 42)">        <br>        <h3>Benchmarking Event</h3>        <p>            A benchmarking event corresponds to a benchmarking experiment which is held at a certain date. It starts when the organizing community opens one or more challenges by providing participants with some input data and allows to submit their predictions.            Once the event is closed, the benchmark is performed and the metrics are computed. This usually occurs, recursively (every week,month and year...)        </p>        <span *ngIf=\'bEventsGraphql; else loading\'>      <!-- <span *ngIf="tools.length!=0; else toolNotFound"> -->      <mat-accordion>        <mat-expansion-panel *ngFor="let b of bEventsGraphql.getBenchmarkingEvents" >            <!-- (opened)="openChallenges(b._id)" -->          <mat-expansion-panel-header>            <mat-panel-title>              <!-- <a class="left" routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"                  matTooltipPosition="right">{{b.name}}</a> -->              {{b.name}}            </mat-panel-title>            <mat-panel-description>              <span class="right" *ngIf="b.challenges">challenges : {{b.challenges.length}}</span>        </mat-panel-description>        </mat-expansion-panel-header>        <!-- <router-outlet [testid]="b._id"></router-outlet> -->        <app-benchmarking-challenge-list [beventsid]="b._id"></app-benchmarking-challenge-list>        </mat-expansion-panel>        </mat-accordion>        </span>    </mat-tab>    <mat-tab label="Datasets">        <br>        <h3>Datasets</h3>        <p>            There are four types of datasets considered in OpenEBench:        </p>        <ul>            <li> <b>Input datasets</b> are provided by the community for the participants to test their methods/tools.</li>            <li><b>Reference datasets</b> are the Gold Standard datasets that are also provided by the community but are not visible.            </li>            <li><b>Participant datasets</b> are uploaded by the participants to be benchmarked against the reference datasets.</li>            <li><b>Assessment datasets</b> contain information about the results of metrics applied to a certain prediction.</li>            <li><b>Aggregation datasets</b> are obtained by summarizing or computing statistics on assessment datasets.</li>        </ul>        <br>        <span *ngIf=\'datasetsGraphql; else loading\'>      <table datatable [dtOptions]="dtOptions" [dtTrigger]="datasetTrigger" class="row-border hover">        <thead>          <tr>            <th>Name</th>            <th>Type</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let d of datasetsGraphql.getDatasets">            <td>{{ d.name }}</td>            <td>{{ d.type }}</td>          </tr>        </tbody>      </table>    </span>    </mat-tab>    <mat-tab label="Participants">        <br>        <h3>Participants</h3>        <p>            Participants are the users who upload their predictions to take part in the benchmarking event.        </p>        <span *ngIf=\'toolsGraphql; else loading\'>      <table datatable [dtOptions]="dtOptions" [dtTrigger]="toolTrigger" class="row-border hover">        <thead>          <tr>            <th>Name</th>            <th>Description</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let t of toolsGraphql.getTools">            <td>{{ t.name }}</td>            <td>{{ t.description }}</td>          </tr>        </tbody>      </table>    </span>        <!-- </span> -->    </mat-tab></mat-tab-group><ng-template #loading>loading...</ng-template><ng-template #notfound>Event not found</ng-template></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'ContentTableComponent', 'selector': 'app-content-table'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DocsComponent', 'selector': 'app-docs'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolDialogComponent', 'selector': 'app-tool-dialog'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'},{'name': 'UptimeComponent', 'selector': 'app-uptime'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BenchmarkingListComponent'};
 </script>

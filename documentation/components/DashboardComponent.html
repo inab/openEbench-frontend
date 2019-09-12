@@ -68,7 +68,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Dashboard component</p>
+        <p>Elastic search url to server</p>
 
     </p>
 
@@ -91,7 +91,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                            <code><a href="../injectables/OpebService.html" target="_self" >OpebService</a></code>
+                                <code><a href="../injectables/ElasticsearchService.html" target="_self" >ElasticsearchService</a></code>
                 </td>
             </tr>
 
@@ -186,12 +186,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_service: <a href="../injectables/OpebService.html">OpebService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(_service: <a href="../injectables/ElasticsearchService.html">ElasticsearchService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/dashboard/dashboard.component.ts:84</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/dashboard/dashboard.component.ts:78</a></div>
                             </td>
                         </tr>
 
@@ -214,7 +214,7 @@
                                                         <td>_service</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/OpebService.html" target="_self" >OpebService</a></code>
+                                                                        <code><a href="../injectables/ElasticsearchService.html" target="_self" >ElasticsearchService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -226,7 +226,7 @@
                                                         <td>router</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -249,126 +249,127 @@
 
     <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="goToToolsPage"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToToolsPage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
                             goToToolsPage
-                            </b>
-                            <a href="#goToToolsPage"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>goToToolsPage(term: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                    </td>
-                </tr>
+                        </b>
+                        <a href="#goToToolsPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goToToolsPage(term: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/dashboard/dashboard.component.ts:112</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:106</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Naviage to searched tool via URL</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Naviage to searched tool via URL</p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>term</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                    <td>
+                                        No
+                                    </td>
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="submitForm"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitForm"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
                             submitForm
-                            </b>
-                            <a href="#submitForm"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>submitForm()</code>
-                    </td>
-                </tr>
+                        </b>
+                        <a href="#submitForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>submitForm()</code>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/dashboard/dashboard.component.ts:118</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:112</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Submit the search</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Submit the search</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
     <section>
     
         <h3 id="inputs">
@@ -381,27 +382,20 @@
                         <a name="model"></a>
                         <span class="name">
                             <b>
-                            model
-                            </b>
+                            model</b>
                             <a href="#model"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>model:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/dashboard/dashboard.component.ts:76</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/dashboard/dashboard.component.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -421,40 +415,19 @@
                         <a name="search"></a>
                         <span class="name">
                             <b>
-                            search
-                            </b>
+                            search</b>
                             <a href="#search"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>search:     <code></code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>(text$: Observable&lt;string&gt;) &#x3D;&gt;
-    text$.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      tap(() &#x3D;&gt; this.searching &#x3D; true),
-      switchMap(term &#x3D;&gt;
-        this._service.search(term).pipe(
-          tap(() &#x3D;&gt; this.searchFailed &#x3D; false),
-          catchError(() &#x3D;&gt; {
-            this.searchFailed &#x3D; true;
-            return of([]);
-          }))
-      ),
-      tap(() &#x3D;&gt; this.searching &#x3D; false)
-    )</code>
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/dashboard/dashboard.component.ts:93</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/dashboard/dashboard.component.ts:87</a></div>
                             </td>
                         </tr>
 
@@ -474,16 +447,9 @@
                         <a name="searchFailed"></a>
                         <span class="name">
                             <b>
-                            searchFailed
-                            </b>
+                            searchFailed</b>
                             <a href="#searchFailed"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>searchFailed:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -493,7 +459,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/dashboard/dashboard.component.ts:84</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/dashboard/dashboard.component.ts:78</a></div>
                             </td>
                         </tr>
 
@@ -513,16 +479,9 @@
                         <a name="searching"></a>
                         <span class="name">
                             <b>
-                            searching
-                            </b>
+                            searching</b>
                             <a href="#searching"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>searching:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -532,7 +491,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/dashboard/dashboard.component.ts:80</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/dashboard/dashboard.component.ts:74</a></div>
                             </td>
                         </tr>
 
@@ -559,58 +518,52 @@ import * as $ from &#x27;jquery&#x27;;
 
 import {Observable, of} from &#x27;rxjs&#x27;;
 import {debounceTime, distinctUntilChanged, map, tap, switchMap, catchError} from &#x27;rxjs/operators&#x27;;
-import { HttpParams } from &#x27;@angular/common/http&#x27;;
-import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
+
+import { environment } from &#x27;../../environments/environment&#x27;;
+import { ElasticsearchService } from &#x27;./elasticsearch.service&#x27;;
 
 
-//   fromObject: {
-//     action: &#x27;opensearch&#x27;,
-//     format: &#x27;json&#x27;,
-//     origin: &#x27;*&#x27;
-//   }
-// });
 
 /**
  * Elastic search url to server
  */
-const ES_URL &#x3D; &#x27;https://dev-openebench.bsc.es/esapi/filter&#x27;;
+// const ES_URL &#x3D; environment.ES_URL;
 
-/**
- * http params for the search
- */
-const PARAMS &#x3D; new HttpParams({});
+// /**
+//  * http params for the search
+//  */
+// const PARAMS &#x3D; new HttpParams({});
 
 /**
  * Injectable
  */
-@Injectable()
-export class OpebService {
-  /**
-   * Constructor for the injectable class
-   */
-  constructor(private http: HttpClient) {}
+// @Injectable()
+// export class OpebService {
+//   /**
+//    * Constructor for the injectable class
+//    */
+//   constructor(private http: HttpClient) {}
 
-  /**
-   * Serch function
-   */
-  search(term: string) {
-    if (term &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
-      return of([]);
-    }
+//   /**
+//    * Serch function
+//    */
+//   search(term: string) {
+//     if (term &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+//       return of([]);
+//     }
 
-    return this.http
-      .get(ES_URL, {params: PARAMS.set(&#x27;text&#x27;, term)}).pipe(
-        map(response &#x3D;&gt;
-          $.map(response[&#x27;hits&#x27;].hits, function(tool) {
-            const t &#x3D; [];
-            t.push(tool[&#x27;_source&#x27;].name);
-            return t;
-          }
-        )
-      ));
-  }
-}
+//     return this.http
+//       .get(ES_URL, {params: PARAMS.set(&#x27;text&#x27;, term)}).pipe(
+//         map(response &#x3D;&gt;
+//           $.map(response[&#x27;hits&#x27;].hits, function(tool) {
+//             const t &#x3D; [];
+//             t.push(tool[&#x27;_source&#x27;].name);
+//             return t;
+//           }
+//         )
+//       ));
+//   }
+// }
 
 /**
  * Dashboard component
@@ -618,7 +571,7 @@ export class OpebService {
 @Component({
     selector: &#x27;app-dashboard&#x27;,
     templateUrl: &#x27;./dashboard.component.html&#x27;,
-    providers: [OpebService],
+    providers: [ElasticsearchService],
     styleUrls: [&#x27;./dashboard.component.css&#x27;]
   })
 
@@ -639,7 +592,7 @@ export class DashboardComponent {
   /**
    * Constructor
    */
-  constructor(private _service: OpebService, private router: Router) { }
+  constructor(private _service: ElasticsearchService, private router: Router) { }
 /**
  * search for elastic search
  */
@@ -680,84 +633,84 @@ export class DashboardComponent {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div&gt;
-  &lt;div class&#x3D;&quot;card-group&quot;&gt;
-      &lt;div class&#x3D;&quot;card border-light&quot;&gt;
-          &lt;img class&#x3D;&quot;main-logo&quot; src&#x3D;&quot;assets/img/opeb_logo.gif&quot; alt&#x3D;&quot;Card image cap&quot;&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-
-
-  &lt;!-- &lt;label for&#x3D;&quot;typeahead-basic&quot;&gt;Search for a state:&lt;/label&gt;
-  &lt;input id&#x3D;&quot;typeahead-basic&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;model&quot; [ngbTypeahead]&#x3D;&quot;search&quot;/&gt;
-  &lt;hr&gt;
-  &lt;pre&gt;Model: {{ model | json }}&lt;/pre&gt; --&gt;
-
-  &lt;form class&#x3D;&quot;main-search-div&quot; &gt;
-      &lt;!-- &lt;input class&#x3D;&quot;main-search&quot;  placeholder&#x3D;&quot;Search ...&quot; value&#x3D;&quot;&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&#x27;text&#x27;&gt; --&gt;
-      
-      &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;main-search&quot; name&#x3D;&#x27;text&#x27; [(ngModel)]&#x3D;&quot;model&quot; [ngbTypeahead]&#x3D;&quot;search&quot;/&gt;
-      &lt;button class&#x3D;&quot;main-submit&quot;type&#x3D;&quot;submit&quot; (click)&#x3D;&#x27;submitForm()&#x27; &gt;Go!&lt;/button&gt;
-  &lt;/form&gt;
-
-  
-  &lt;!-- &lt;p&gt;Form value: {{ search.value | json }}&lt;/p&gt;
-  &lt;p&gt; Form status {{ search.status | json}} &lt;/p&gt; --&gt;
-  &lt;div class&#x3D;&quot;card-group&quot;&gt;
-      &lt;div class&#x3D;&quot;card border-light&quot;&gt;
-        &lt;div class&#x3D;&quot;card-body&quot;&gt;
-          &lt;h5 class&#x3D;&quot;card-title text-center&quot;&gt;Technical Monitoring&lt;/h5&gt;
-          
+    &lt;div class&#x3D;&quot;card-group&quot;&gt;
+        &lt;div class&#x3D;&quot;card border-light&quot;&gt;
+            &lt;img class&#x3D;&quot;main-logo&quot; src&#x3D;&quot;assets/img/opeb_logo.gif&quot; alt&#x3D;&quot;Card image cap&quot;&gt;
         &lt;/div&gt;
-        &lt;a routerLink&#x3D;&#x27;/tool&#x27; class&#x3D;&quot;card-icon&quot;&gt;
-          &lt;img class&#x3D;&quot;card-img-top&quot; src&#x3D;&quot;assets/img/technical_monitoring.svg&quot; alt&#x3D;&quot;Card image cap&quot;&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-      &lt;div class&#x3D;&quot;card border-light&quot;&gt;
-        &lt;div class&#x3D;&quot;card-body&quot;&gt;
-          &lt;h5 class&#x3D;&quot;card-title text-center&quot;&gt;Scientific Benchmark&lt;/h5&gt;
-          
+    &lt;/div&gt;
+
+    &lt;form class&#x3D;&quot;main-search-div&quot;&gt;
+        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;main-search&quot; name&#x3D;&#x27;text&#x27; [(ngModel)]&#x3D;&quot;model&quot; /&gt;
+        &lt;button class&#x3D;&quot;main-submit&quot; type&#x3D;&quot;submit&quot; (click)&#x3D;&#x27;submitForm()&#x27;&gt;Go!&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;div class&#x3D;&quot;card-group&quot;&gt;
+        &lt;div class&#x3D;&quot;card border-light&quot;&gt;
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                &lt;h5 class&#x3D;&quot;card-title text-center&quot;&gt;Scientific Benchmark&lt;/h5&gt;
+
+            &lt;/div&gt;
+            &lt;a routerLink&#x3D;&#x27;/scientific&#x27; class&#x3D;&quot;card-icon&quot;&gt;
+                &lt;img class&#x3D;&quot;card-img-top&quot; src&#x3D;&quot;assets/img/scientific_benchmarking.svg&quot; alt&#x3D;&quot;Card image cap&quot;&gt;
+            &lt;/a&gt;
         &lt;/div&gt;
-        &lt;a routerLink&#x3D;&#x27;/scientific&#x27; class&#x3D;&quot;card-icon&quot;&gt;
-          &lt;img class&#x3D;&quot;card-img-top&quot; src&#x3D;&quot;assets/img/scientific_benchmarking.svg&quot; alt&#x3D;&quot;Card image cap&quot;&gt;
-        &lt;/a&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card border-light&quot;&gt;
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                &lt;h5 class&#x3D;&quot;card-title text-center&quot;&gt;Technical Monitoring&lt;/h5&gt;
 
-  &lt;hr&gt;
+            &lt;/div&gt;
+            &lt;a routerLink&#x3D;&#x27;/tool&#x27; class&#x3D;&quot;card-icon&quot;&gt;
+                &lt;img class&#x3D;&quot;card-img-top&quot; src&#x3D;&quot;assets/img/technical_monitoring.svg&quot; alt&#x3D;&quot;Card image cap&quot;&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
 
-  &lt;h3 class&#x3D;&quot;text-center&quot;&gt;What is OpenEBench ?&lt;/h3&gt;
-  &lt;p&gt;
-      OpenEBench is an infra-structure designed to establish a continuous automated benchmarking system for bioinformatics methods, tools and web services. It is being developed so as to cater for the needs of the bioinformatics community, especially software developers who need an objective and quantitative way to inform their decisions as well as the larger community of end-users, in their search for unbiased and up-to-date evaluation of bioinformatics methods.
-  &lt;/p&gt;
+    &lt;/div&gt;
 
-  &lt;div&gt;
-      &lt;img class&#x3D;&quot;diagram&quot; src&#x3D;&quot;assets/img/dashboard_diagram.svg&quot; alt&#x3D;&quot;Diagram&quot;&gt;
-  &lt;/div&gt;
-
-
-  &lt;hr&gt;
-
-    &lt;p class&#x3D;&quot;text-center&quot;&gt;&lt;b&gt;The goals of OpenEBench are to:&lt;/b&gt;&lt;/p&gt;
-    &lt;p&gt;Provide guidance and software infrastructure for Benchmarking and Techincal monitoring of bioinformatics tools.&lt;/p&gt;
-    &lt;p&gt;Engage with existing benchmark initiatives making different communities aware of the platform.&lt;/p&gt;
-    &lt;p&gt;Maintain a data warehouse infrastructure to keep record of Benchmarking initiatives.&lt;/p&gt;
-    &lt;p&gt;Expose benchmarking and technical monitoring results to Elixir Tools registry.&lt;/p&gt;
-    &lt;p&gt;Establish and refine communication protocols with communities and/or infrastructure projects willing to have a unified benchmark infrastructure Coordinate with Elixir.&lt;/p&gt;
-    &lt;p&gt;Interoperability Platform to keep FAIR data principles on Benchmarking data warehouse.&lt;/p&gt;
-
-  &lt;hr&gt;
-
-    &lt;p class&#x3D;&quot;text-center&quot;&gt;&lt;b&gt;The white paper for this project is available &lt;/b&gt;&lt;a target&#x3D;&quot;_blank&quot;  href&#x3D;&quot;https://www.biorxiv.org/content/early/2017/08/31/181677&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
                     <code>./dashboard.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.main-search-div {
+    padding: 1vh 0 1vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-submit {
+    background-color: #FFFFFF;
+    border: solid 1px #EF7500;
+    padding: 15px 32px;
+    text-align: center;
+    width: 20%;
+    height: 60px;
+    cursor: not-allowed;
+}
+
+.main-submit:enabled {
+    cursor: pointer;
+    color: #EF7500;
+}
+
+.border-light {
+    border-color: white !important;
+}
+
+.main-logo {
+    width: 40%;
+    align-self: center
+}
+
+.card-icon {
+    width: 25%;
+    height: auto;
+    align-self: center;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -785,8 +738,8 @@ export class DashboardComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div>  <div class="card-group">      <div class="card border-light">          <img class="main-logo" src="assets/img/opeb_logo.gif" alt="Card image cap">      </div>  </div>  <!-- <label for="typeahead-basic">Search for a state:</label>  <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>  <hr>  <pre>Model: {{ model | json }}</pre> -->  <form class="main-search-div" >      <!-- <input class="main-search"  placeholder="Search ..." value="" type="text" formControlName=\'text\'> -->            <input type="text" class="main-search" name=\'text\' [(ngModel)]="model" [ngbTypeahead]="search"/>      <button class="main-submit"type="submit" (click)=\'submitForm()\' >Go!</button>  </form>    <!-- <p>Form value: {{ search.value | json }}</p>  <p> Form status {{ search.status | json}} </p> -->  <div class="card-group">      <div class="card border-light">        <div class="card-body">          <h5 class="card-title text-center">Technical Monitoring</h5>                  </div>        <a routerLink=\'/tool\' class="card-icon">          <img class="card-img-top" src="assets/img/technical_monitoring.svg" alt="Card image cap">        </a>      </div>      <div class="card border-light">        <div class="card-body">          <h5 class="card-title text-center">Scientific Benchmark</h5>                  </div>        <a routerLink=\'/scientific\' class="card-icon">          <img class="card-img-top" src="assets/img/scientific_benchmarking.svg" alt="Card image cap">        </a>      </div>  </div>  <hr>  <h3 class="text-center">What is OpenEBench ?</h3>  <p>      OpenEBench is an infra-structure designed to establish a continuous automated benchmarking system for bioinformatics methods, tools and web services. It is being developed so as to cater for the needs of the bioinformatics community, especially software developers who need an objective and quantitative way to inform their decisions as well as the larger community of end-users, in their search for unbiased and up-to-date evaluation of bioinformatics methods.  </p>  <div>      <img class="diagram" src="assets/img/dashboard_diagram.svg" alt="Diagram">  </div>  <hr>    <p class="text-center"><b>The goals of OpenEBench are to:</b></p>    <p>Provide guidance and software infrastructure for Benchmarking and Techincal monitoring of bioinformatics tools.</p>    <p>Engage with existing benchmark initiatives making different communities aware of the platform.</p>    <p>Maintain a data warehouse infrastructure to keep record of Benchmarking initiatives.</p>    <p>Expose benchmarking and technical monitoring results to Elixir Tools registry.</p>    <p>Establish and refine communication protocols with communities and/or infrastructure projects willing to have a unified benchmark infrastructure Coordinate with Elixir.</p>    <p>Interoperability Platform to keep FAIR data principles on Benchmarking data warehouse.</p>  <hr>    <p class="text-center"><b>The white paper for this project is available </b><a target="_blank"  href="https://www.biorxiv.org/content/early/2017/08/31/181677">here</a></p></div></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'NgFancyLibComponent', 'selector': 'lib-ng-fancy-lib'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolListComponent', 'selector': 'app-tool-list'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'}];
+        var COMPONENT_TEMPLATE = '<div><div>    <div class="card-group">        <div class="card border-light">            <img class="main-logo" src="assets/img/opeb_logo.gif" alt="Card image cap">        </div>    </div>    <form class="main-search-div">        <input type="text" class="main-search" name=\'text\' [(ngModel)]="model" />        <button class="main-submit" type="submit" (click)=\'submitForm()\'>Go!</button>    </form>    <div class="card-group">        <div class="card border-light">            <div class="card-body">                <h5 class="card-title text-center">Scientific Benchmark</h5>            </div>            <a routerLink=\'/scientific\' class="card-icon">                <img class="card-img-top" src="assets/img/scientific_benchmarking.svg" alt="Card image cap">            </a>        </div>        <div class="card border-light">            <div class="card-body">                <h5 class="card-title text-center">Technical Monitoring</h5>            </div>            <a routerLink=\'/tool\' class="card-icon">                <img class="card-img-top" src="assets/img/technical_monitoring.svg" alt="Card image cap">            </a>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenchmarkingChallengeListComponent', 'selector': 'app-benchmarking-challenge-list'},{'name': 'BenchmarkingDetailComponent', 'selector': 'app-benchmarking-detail'},{'name': 'BenchmarkingListComponent', 'selector': 'app-benchmarking-list'},{'name': 'ContentTableComponent', 'selector': 'app-content-table'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DocsComponent', 'selector': 'app-docs'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'ScientificComponent', 'selector': 'app-scientific'},{'name': 'ScientificListComponent', 'selector': 'app-scientific-list'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'ToolComponent', 'selector': 'app-tool'},{'name': 'ToolDetailComponent', 'selector': 'app-tool-detail'},{'name': 'ToolDialogComponent', 'selector': 'app-tool-dialog'},{'name': 'ToolTableComponent', 'selector': 'app-tool-table'},{'name': 'TopMenuComponent', 'selector': 'app-top-menu'},{'name': 'UptimeComponent', 'selector': 'app-uptime'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
 </script>

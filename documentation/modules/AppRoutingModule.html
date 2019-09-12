@@ -143,37 +143,55 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { DashboardComponent } from &#x27;./dashboard/dashboard.component&#x27;;
 import { AboutComponent } from &#x27;./about/about.component&#x27;;
 import { PageNotFoundComponent } from &#x27;./page-not-found/page-not-found.component&#x27;;
 import { StatisticsComponent } from &#x27;./statistics/statistics.component&#x27;;
+import { DocsComponent } from &#x27;./docs/docs.component&#x27;;
 import { PrivateComponent } from &#x27;./private/private.component&#x27;;
 import { AppAuthGuard } from &#x27;./app.authguard&#x27;;
+// import { ToolModule } from &#x27;./tool/tool.module&#x27;;
+// import { ScientificModule } from &#x27;./scientific/scientific.module&#x27;;
 
 /**
  * Routes to componentes, ToolComponent and Scientific component have there own specific routeing.modules
  */
-
 export const routes: Routes &#x3D; [
   { path: &#x27;&#x27;, redirectTo: &#x27;/dashboard&#x27;, pathMatch: &#x27;full&#x27;},
-  { path: &#x27;dashboard&#x27;,  component: DashboardComponent },
+  { path: &#x27;dashboard&#x27;, component: DashboardComponent, },
+  { path: &#x27;tool&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./tool/tool.module&#x27;).then(m &#x3D;&gt; m.ToolModule)&quot;, },
+  { path: &#x27;scientific&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./scientific/scientific.module&#x27;).then(m &#x3D;&gt; m.ScientificModule)&quot; },
   { path: &#x27;stats&#x27;, component: StatisticsComponent, },
-  { path: &#x27;about&#x27;, component: AboutComponent},
+  { path: &#x27;about&#x27;, component: AboutComponent , } ,
+  { path: &#x27;docs&#x27;, component: DocsComponent , } ,
   { path: &#x27;private&#x27;, component: PrivateComponent, canActivate: [AppAuthGuard]},
   { path: &#x27;**&#x27;, component: PageNotFoundComponent }
 ];
 
+/**
+ * root module for routing
+ */
 @NgModule({
   // This is a root module so we use forRoot, ,  { enableTracing: true }  is for debuging
-  imports: [ RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes, {
+    onSameUrlNavigation: &#x27;reload&#x27;,
+    anchorScrolling: &#x27;enabled&#x27;,
+  }),
+    ],
   exports: [ RouterModule ],
   providers: [AppAuthGuard],
 })
+
+/**
+ * export routing module
+ */
 export class AppRoutingModule { }
 
-// so we dont have to import everything in the module.ts again
+/**
+ *  routing component
+ *  so we dont have to import everything in the module.ts again
+ */
 export const routingComponents &#x3D; [DashboardComponent, StatisticsComponent, AboutComponent, PrivateComponent, PageNotFoundComponent];
 </code></pre>
     </div>

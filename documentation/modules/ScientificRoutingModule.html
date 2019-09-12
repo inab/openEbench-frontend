@@ -77,27 +77,48 @@ import { BenchmarkingListComponent } from &#x27;./benchmarking-list/benchmarking
 import { BenchmarkingDetailComponent } from &#x27;./benchmarking-detail/benchmarking-detail.component&#x27;;
 
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
+
 import { BenchmarkingChallengeListComponent } from &#x27;./benchmarking-challenge-list/benchmarking-challenge-list.component&#x27;;
 
 
-
+/**
+ * routes
+ */
 const routes: Routes &#x3D; [
-  { path: &#x27;scientific&#x27; ,  component: ScientificListComponent },
-  { path: &#x27;scientific/:id&#x27;, component: BenchmarkingListComponent },
-  { path: &#x27;scientific/:id/:beventsid&#x27;, component: BenchmarkingChallengeListComponent },
-  { path: &#x27;scientific/:id/:beventsid/:bchallengeid&#x27;, component: BenchmarkingDetailComponent },
-
+  {
+    path: &#x27;&#x27;, children: [
+      { path: &#x27;&#x27;, component: ScientificListComponent },
+      // { path: &#x27;:id&#x27;, component: BenchmarkingListComponent, children: [
+      //   {
+      //     path: &#x27;:beventsid&#x27;, component: BenchmarkingChallengeListComponent,
+      //   }
+      // ]},
+      // { path: &#x27;:id/:beventsid&#x27;, component: BenchmarkingChallengeListComponent},
+      { path: &#x27;:id&#x27;, component: BenchmarkingListComponent },
+      { path: &#x27;:id/:bchallengeid&#x27;, component: BenchmarkingDetailComponent },
+    ]
+  }
 ];
 
+/**
+ * child module for routing
+ */
 @NgModule({
   // This is a child module so we use forChild
-  imports: [ RouterModule.forChild(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class ScientificRoutingModule { }
 
-export const routingComponents &#x3D; [ScientificListComponent, BenchmarkingListComponent, BenchmarkingDetailComponent];
+/**
+ * export routing module
+ */
+export class ScientificRoutingModule { }
+/**
+ * routing components export
+ */
+
+export const AllScientificRoutingComponents &#x3D; [ScientificListComponent, BenchmarkingListComponent,
+  BenchmarkingChallengeListComponent, BenchmarkingDetailComponent];
 </code></pre>
     </div>
 </div>
