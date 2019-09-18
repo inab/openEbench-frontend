@@ -34,7 +34,7 @@ export class PrivateComponent implements OnInit {
  * logout function
  */
   async logout() {
-    const redirectUri = window.location.origin + '/html/dashboard';
+    const redirectUri = window.location.origin + '/dashboard';
     await this.keycloakService.logout(redirectUri);
   }
 
