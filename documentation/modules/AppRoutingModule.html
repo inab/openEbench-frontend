@@ -160,8 +160,8 @@ import { AppAuthGuard } from &#x27;./app.authguard&#x27;;
 export const routes: Routes &#x3D; [
   { path: &#x27;&#x27;, redirectTo: &#x27;/dashboard&#x27;, pathMatch: &#x27;full&#x27;},
   { path: &#x27;dashboard&#x27;, component: DashboardComponent, },
-  { path: &#x27;tool&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./tool/tool.module&#x27;).then(m &#x3D;&gt; m.ToolModule)&quot;, },
-  { path: &#x27;scientific&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./scientific/scientific.module&#x27;).then(m &#x3D;&gt; m.ScientificModule)&quot; },
+  { path: &#x27;tool&#x27;, loadChildren: &#x27;./tool/tool.module#ToolModule&#x27;},
+  { path: &#x27;scientific&#x27;, loadChildren: &#x27;./scientific/scientific.module#ScientificModule&#x27; },
   { path: &#x27;stats&#x27;, component: StatisticsComponent, },
   { path: &#x27;about&#x27;, component: AboutComponent , } ,
   { path: &#x27;docs&#x27;, component: DocsComponent , } ,
@@ -171,6 +171,7 @@ export const routes: Routes &#x3D; [
 
 /**
  * root module for routing
+ * { path: &#x27;scientific&#x27;, loadChildren: () &#x3D;&gt; import(&#x27;./scientific/scientific.module&#x27;).then(m &#x3D;&gt; m.ScientificModule) },
  */
 @NgModule({
   // This is a root module so we use forRoot, ,  { enableTracing: true }  is for debuging

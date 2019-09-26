@@ -285,7 +285,7 @@ export class AppAuthGuard extends KeycloakAuthGuard {
   isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise&lt;boolean&gt; {
     return new Promise((resolve, reject) &#x3D;&gt; {
         const keycloakLoginOptions &#x3D; {
-            redirectUri: window.location.origin + &#x27;/html/private&#x27;,
+            redirectUri: window.location.origin + &#x27;/private&#x27;,
         };
       if (!this.authenticated) {
         this.keycloakAngular.login(keycloakLoginOptions);

@@ -125,13 +125,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppRoutingModule.html" data-type="entity-link">AppRoutingModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AppRoutingModule-15d79944d9193a052970f39478f8609a"' : 'data-target="#xs-injectables-links-module-AppRoutingModule-15d79944d9193a052970f39478f8609a"' }>
+                                        'data-target="#injectables-links-module-AppRoutingModule-559cd36e1f66474ded2182081d664b50"' : 'data-target="#xs-injectables-links-module-AppRoutingModule-559cd36e1f66474ded2182081d664b50"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AppRoutingModule-15d79944d9193a052970f39478f8609a"' :
-                                        'id="xs-injectables-links-module-AppRoutingModule-15d79944d9193a052970f39478f8609a"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AppRoutingModule-559cd36e1f66474ded2182081d664b50"' :
+                                        'id="xs-injectables-links-module-AppRoutingModule-559cd36e1f66474ded2182081d664b50"' }>
                                         <li class="link">
                                             <a href="injectables/AppAuthGuard.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>AppAuthGuard</a>
