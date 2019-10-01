@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "downlevelIteration": true,
     "importHelpers": true,
     "module": "esnext",
@@ -22,8 +23,8 @@
     "paths": {
       "ng-fancy-lib": [
         "dist/ng-fancy-lib"
-      ],
-    },
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableIvy": false
