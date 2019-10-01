@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -20,8 +21,8 @@
     "paths": {
       "ng-fancy-lib": [
         "dist/ng-fancy-lib"
-      ],
-    },
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableIvy": false
