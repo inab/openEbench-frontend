@@ -1,4 +1,4 @@
-<span *ngIf="challengesGraphql; else loading">
+<span *ngIf="challengesGraphql && datasetsGraphql; else loading">
     <span *ngFor="let c of challengesGraphql.getChallenges">
         <div>
             <h3>{{c.name}} ( {{c.acronym}} )</h3>
@@ -20,21 +20,28 @@
         </p>
 
 
-        <span *ngIf="datasetsGraphql && challengesGraphql;">
-            <span *ngIf="datasetsGraphql.getDatasets[0].datalink.inline_data.visualization.type=='2D-plot'">
+
+        <span [ngSwitch]="datasetsGraphql?.getDatasets[0].datalink.inline_data.visualization.type">
+            <span *ngSwitchCase="'2D-plot'">
 
                 <div class="break">
                     <div attr.data-id="{{c._id}}" attr.metric_x="{{c.metrics_categories[0].metrics[0].metrics_id}}"
                         attr.metric_y="{{c.metrics_categories[0].metrics[1].metrics_id}}" data-mode="dev" toTable="true"
-                        class="benchmarkingChart"></div>
+                        class="benchmarkingChart_scatter"></div>
                 </div>
+                <script>
+                    conosle.log("hola")
+                </script>
             </span>
-            <span *ngIf="datasetsGraphql.getDatasets[0].datalink.inline_data.visualization.type=='bar-plot'">
+            <span *ngSwitchCase="'bar-plot'">
 
                 <div class="break">
-                    <div attr.data-id="{{c._id}}" class="benchmarkingChart" data-mode="dev"
+                    <div attr.data-id="{{c._id}}" class="benchmarkingChart_bars" data-mode="dev"
                         attr.metric_y="{{c.metrics_categories[0].metrics[0].metrics_id}}"></div>
                 </div>
+            </span>
+            <span *ngSwitchDefault>
+                No visual representation implemented
             </span>
         </span>
 
