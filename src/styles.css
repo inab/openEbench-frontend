@@ -8,9 +8,7 @@
 
 /* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
 
-
 /* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
-
 
 /* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
 
@@ -72,7 +70,7 @@ nav {
 }
 
 .assessment-badge {
-    border-right: 20px solid skyblue!important;
+    border-right: 20px solid skyblue !important;
 }
 
 .metrics_reference-badge {
@@ -114,11 +112,11 @@ nav {
     margin-left: 5px;
 }
 
-
 /*all external links */
 
 a[href^="https://"],
-a[href^="http://"] {
+a[href^="http://"],
+a[href^="ftp://"] {
     background: url(assets/img/external-link.svg) center right no-repeat;
     height: auto;
     width: auto;
