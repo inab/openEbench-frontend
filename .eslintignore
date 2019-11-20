@@ -1,3 +1,4 @@
 documentation/js/libs/*.js
 documentation/js/search/*.min.js
 src/app/scientific/shared/*.js
+src/app/tool/shared/citation.js
