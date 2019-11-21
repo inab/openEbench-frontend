@@ -23,7 +23,7 @@
                         ],
                         "styles": [
                             "./node_modules/datatables.net-dt/css/jquery.dataTables.css",
-                            // "./node_modules/c3/c3.min.css",
+                            "./node_modules/c3/c3.min.css",
                             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles.css"
                         ],
@@ -32,7 +32,9 @@
                             "./node_modules/jquery/dist/jquery.min.js",
                             "./node_modules/popper.js/dist/umd/popper.min.js",
                             "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-                            "node_modules/datatables.net/js/jquery.dataTables.js"
+                            "node_modules/datatables.net/js/jquery.dataTables.js",
+                            "./node_modules/c3/c3.min.js",
+                            "./node_modules/d3/dist/d3.min.js"
                         ]
                     },
                     "configurations": {
@@ -46,10 +48,12 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.prod.ts"
-                            }]
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ]
                         }
                     }
                 },
@@ -78,13 +82,8 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "src/tsconfig.spec.json",
                         "scripts": [],
-                        "styles": [
-                            "src/styles.css"
-                        ],
-                        "assets": [
-                            "src/assets",
-                            "src/favicon.ico"
-                        ]
+                        "styles": ["src/styles.css"],
+                        "assets": ["src/assets", "src/favicon.ico"]
                     }
                 },
                 "lint": {
@@ -94,9 +93,7 @@
                             "src/tsconfig.app.json",
                             "src/tsconfig.spec.json"
                         ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
@@ -116,12 +113,8 @@
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
-                        "tsConfig": [
-                            "e2e/tsconfig.e2e.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "tsConfig": ["e2e/tsconfig.e2e.json"],
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
@@ -159,9 +152,7 @@
                             "projects/ng-fancy-lib/tsconfig.lib.json",
                             "projects/ng-fancy-lib/tsconfig.spec.json"
                         ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }

@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 // import { CommonModule } from '@angular/common';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -19,21 +18,57 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatDialogModule} from '@angular/material/dialog'; 
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 /**
  * Common Material Design modules.
  */
 
 @NgModule({
-  imports: [MatButtonModule, MatSelectModule, MatInputModule, MatProgressSpinnerModule, MatSortModule, MatTabsModule,
-    MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatExpansionModule, MatGridListModule, MatTooltipModule,
-    MatPseudoCheckboxModule,MatDialogModule,
-    MatBadgeModule, MatCheckboxModule, MatCardModule, MatSidenavModule],
-  exports: [MatButtonModule, MatSelectModule, MatInputModule, MatProgressSpinnerModule, MatSortModule, MatTabsModule,
-    MatFormFieldModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatExpansionModule, MatGridListModule, MatTooltipModule,
-    MatPseudoCheckboxModule,MatDialogModule,
-    MatBadgeModule, MatCheckboxModule, MatCardModule, MatSidenavModule]
+    imports: [
+        MatButtonModule,
+        MatSelectModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatSortModule,
+        MatTabsModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatRadioModule,
+        MatExpansionModule,
+        MatGridListModule,
+        MatTooltipModule,
+        MatPseudoCheckboxModule,
+        MatDialogModule,
+        MatIconModule,
+        MatBadgeModule,
+        MatCheckboxModule,
+        MatCardModule,
+        MatSidenavModule
+    ],
+    exports: [
+        MatButtonModule,
+        MatSelectModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatSortModule,
+        MatTabsModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatRadioModule,
+        MatExpansionModule,
+        MatGridListModule,
+        MatTooltipModule,
+        MatPseudoCheckboxModule,
+        MatDialogModule,
+        MatIconModule,
+        MatBadgeModule,
+        MatCheckboxModule,
+        MatCardModule,
+        MatSidenavModule
+    ]
 })
-export class MaterialModule { }
+export class MaterialModule {}

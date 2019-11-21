@@ -1,34 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, bindCallback } from 'rxjs';
-import { ToolTableComponent } from '../tool-table/tool-table.component';
-
-import { Filter } from '../shared/filter';
-import { Tool } from '../shared/tool';
-import { Metrics } from '../shared/metrics';
-import { ToolService } from '../shared/tool.service';
-import uptime from '../shared/uptime.js';
-import citation from '../shared/citation.js';
-import { Input } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { Observable, bindCallback } from "rxjs";
+import { ToolTableComponent } from "../tool-table/tool-table.component";
+import * as c3 from "c3";
+import * as d3 from "d3";
+import { Filter } from "../shared/filter";
+import { Tool } from "../shared/tool";
+import { Metrics } from "../shared/metrics";
+import { ToolService } from "../shared/tool.service";
+import uptime from "../shared/uptime.js";
+import citation from "../shared/citation.js";
+import { Input } from "@angular/core";
 import {
     MatDialog,
     MatDialogRef,
     MAT_DIALOG_DATA
-} from '@angular/material/dialog';
-import { ToolDialogComponent } from '../tool-dialog/tool-dialog.component';
-import { SourceListMap } from 'source-list-map';
+} from "@angular/material/dialog";
+import { ToolDialogComponent } from "../tool-dialog/tool-dialog.component";
+import { SourceListMap } from "source-list-map";
 
 /**
  * Component for tool details
  */
 @Component({
-    selector: 'app-tool-detail',
-    templateUrl: './tool-detail.component.html',
-    styleUrls: ['./tool-detail.component.css']
+    selector: "app-tool-detail",
+    templateUrl: "./tool-detail.component.html",
+    styleUrls: ["./tool-detail.component.css"]
 })
 export class ToolDetailComponent implements OnInit {
-    tableOfContent = ['Metrics', 'Uptime', 'Publication'];
+    tableOfContent = ["Metrics", "Uptime", "Publication"];
 
+    cdr = [
+        "ensembl",
+        "ensembl_genomes",
+        "europe_pmc",
+        "proteinatlas",
+        "intact",
+        "mint",
+        "interpro",
+        "orphadata",
+        "pdbe",
+        "pride",
+        "silva",
+        "string"
+    ];
     /**
      *  panelOpenState
      */
@@ -85,12 +100,12 @@ export class ToolDetailComponent implements OnInit {
 
     openDialog(): void {
         const dialogRef = this.dialog.open(ToolDialogComponent, {
-            width: '250px',
+            width: "250px",
             data: { name: this.name, animal: this.animal }
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
+            console.log("The dialog was closed");
             this.animal = result;
         });
     }
@@ -99,7 +114,7 @@ export class ToolDetailComponent implements OnInit {
      * Initializer
      */
     ngOnInit() {
-        this.id = this.getParam('id');
+        this.id = this.getParam("id");
         this.getToolById();
     }
 
@@ -131,8 +146,8 @@ export class ToolDetailComponent implements OnInit {
         tools.forEach(tool => {
             tool.entities.forEach(entity => {
                 entity.tools.forEach(element => {
-                    const str = element['@id'];
-                    const s = str.split('/tool/')[1].split(':')[0];
+                    const str = element["@id"];
+                    const s = str.split("/tool/")[1].split(":")[0];
                     if (i > 0) {
                         if (!this.sources.includes(s)) {
                             this.sources.push(s);
@@ -149,13 +164,13 @@ export class ToolDetailComponent implements OnInit {
      */
     private sourceHref(source, tool) {
         switch (source) {
-            case 'biotools':
-                window.open('https://bio.tools/' + tool, '_blank');
+            case "biotools":
+                window.open("https://bio.tools/" + tool, "_blank");
                 break;
-            case 'bioconda':
-                window.open('https://anaconda.org/bioconda/' + tool, '_blank');
+            case "bioconda":
+                window.open("https://anaconda.org/bioconda/" + tool, "_blank");
                 break;
-            case 'galaxy':
+            case "galaxy":
 
             default:
                 break;
@@ -165,9 +180,9 @@ export class ToolDetailComponent implements OnInit {
      * metrics that loads the graphs
      */
     private getMetrics() {
-        this.selectedValue['metrics'] = this.selectedValue['@id'].replace(
-            '/tool/',
-            '/metrics/'
+        this.selectedValue["metrics"] = this.selectedValue["@id"].replace(
+            "/tool/",
+            "/metrics/"
         );
         this.toolService
             .getToolMetricsById(this.selectedValue.metrics)

@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
-@import url('https://fonts.googleapis.com/css?family=Karla');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
+@import url("https://fonts.googleapis.com/css?family=Karla");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 /* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
 
@@ -13,7 +13,7 @@
 /* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
 
 * {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     /* font-family: 'Roboto', sans-serif; */
     /* font-family: 'Libre Baskerville', serif; */
     /* font-family: 'Karla', sans-serif; */
@@ -104,6 +104,17 @@ nav {
 .badge-no-color {
     color: white;
     background-color: #3c3c3c;
+    font-size: 14px;
+    /* border: 1px solid #5c5c5c; */
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 2px 3px 2px 3px;
+    margin-left: 5px;
+}
+
+.cdr-badge {
+    color: white;
+    background-color: #f47d20;
     font-size: 14px;
     /* border: 1px solid #5c5c5c; */
     font-weight: 400;

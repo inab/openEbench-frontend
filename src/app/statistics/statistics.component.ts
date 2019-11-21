@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { StatisticsService } from '../shared/statistics.service';
-
-
-declare var c3;
-declare var d3;
+import { Component, OnInit } from "@angular/core";
+import { StatisticsService } from "../shared/statistics.service";
+import * as c3 from "c3";
+import * as d3 from "d3";
 /**
+ *
  * Componet for Statistics
  */
 @Component({
-    selector: 'app-statistics',
-    templateUrl: './statistics.component.html',
-    styleUrls: ['./statistics.component.css']
+    selector: "app-statistics",
+    templateUrl: "./statistics.component.html",
+    styleUrls: ["./statistics.component.css"]
 })
 export class StatisticsComponent implements OnInit {
-
     /**
      * data
      */
@@ -28,14 +26,14 @@ export class StatisticsComponent implements OnInit {
     public event = false;
 
     /**
-    * loading
-    */
+     * loading
+     */
     public loading;
 
     /**
      * constructor function
      */
-    constructor(private statsService: StatisticsService) { }
+    constructor(private statsService: StatisticsService) {}
     /**
      * initializer
      */
@@ -46,18 +44,17 @@ export class StatisticsComponent implements OnInit {
      * fetches the data and generates the statistics charts
      */
     private fetchdata() {
-        this.statsService.getStats()
-            .subscribe(data => {
-                this.loading = 1;
-                this.data = data;
-                this.statistics = {
-                    'tools': this.data['/@timestamp'],
-                    'publications': this.data['/project/publications'],
-                    'bioschemas': this.data['/project/website/bioschemas:true'],
-                    'opensource': this.data['/project/license/open_source:true'],
-                };
-                this.generateChart(this.statistics);
-            });
+        this.statsService.getStats().subscribe(data => {
+            this.loading = 1;
+            this.data = data;
+            this.statistics = {
+                tools: this.data["/@timestamp"],
+                publications: this.data["/project/publications"],
+                bioschemas: this.data["/project/website/bioschemas:true"],
+                opensource: this.data["/project/license/open_source:true"]
+            };
+            this.generateChart(this.statistics);
+        });
     }
     /**
      * helper method for the fechdata
@@ -70,23 +67,30 @@ export class StatisticsComponent implements OnInit {
                 width: 680
             },
             title: {
-                text: 'Publications'
+                text: "Publications"
             },
             data: {
                 columns: [
-                    ['Tools with no publications ', data.tools - data.publications],
-                    ['Tools with publications', data.publications]
+                    [
+                        "Tools with no publications ",
+                        data.tools - data.publications
+                    ],
+                    ["Tools with publications", data.publications]
                 ],
-                type: 'pie',
+                type: "pie"
             },
             tooltip: {
                 format: {
-                    value: function (value) {
-                        return (d3.format(',')(value) + ' / ' + d3.format(',')(data.tools));
+                    value: function(value) {
+                        return (
+                            d3.format(",")(value) +
+                            " / " +
+                            d3.format(",")(data.tools)
+                        );
                     }
                 }
             },
-            bindto: '#toolspublications',
+            bindto: "#toolspublications"
         });
         c3.generate({
             size: {
@@ -94,23 +98,27 @@ export class StatisticsComponent implements OnInit {
                 width: 680
             },
             title: {
-                text: 'Bioschemas'
+                text: "Bioschemas"
             },
             data: {
                 columns: [
-                    ['Tools with bioschemas', data.bioschemas],
-                    ['Tools without bioschemas ', data.tools - data.bioschemas]
+                    ["Tools with bioschemas", data.bioschemas],
+                    ["Tools without bioschemas ", data.tools - data.bioschemas]
                 ],
-                type: 'pie',
+                type: "pie"
             },
             tooltip: {
                 format: {
-                    value: function (value) {
-                        return (d3.format(',')(value) + ' / ' + d3.format(',')(data.tools));
+                    value: function(value) {
+                        return (
+                            d3.format(",")(value) +
+                            " / " +
+                            d3.format(",")(data.tools)
+                        );
                     }
                 }
             },
-            bindto: '#toolsbioschemas',
+            bindto: "#toolsbioschemas"
         });
         c3.generate({
             size: {
@@ -119,23 +127,29 @@ export class StatisticsComponent implements OnInit {
             },
             data: {
                 columns: [
-                    ['Tools with opensource license', data.opensource],
-                    ['Tools without opensource license ', data.tools - data.opensource]
+                    ["Tools with opensource license", data.opensource],
+                    [
+                        "Tools without opensource license ",
+                        data.tools - data.opensource
+                    ]
                 ],
-                type: 'pie',
+                type: "pie"
             },
             title: {
-                text: 'Open Source'
+                text: "Open Source"
             },
             tooltip: {
                 format: {
-                    value: function (value) {
-                        return (d3.format(',')(value) + ' / ' + d3.format(',')(data.tools));
+                    value: function(value) {
+                        return (
+                            d3.format(",")(value) +
+                            " / " +
+                            d3.format(",")(data.tools)
+                        );
                     }
                 }
             },
-            bindto: '#toolsopensource',
+            bindto: "#toolsopensource"
         });
     }
-
 }

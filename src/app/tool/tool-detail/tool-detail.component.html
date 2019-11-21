@@ -2,9 +2,15 @@
     <span *ngIf="tools.length!=0; else toolNotFound">
         <span *ngFor="let instance of tools">
 
-            <h4 class="text-center">{{instance?.id | uppercase}}</h4>
+            <h4 class="text-center">{{instance?.id | uppercase}}
+
+            </h4>
+            <p class="text-center"><span *ngFor="let r of cdr">
+                    <span class="cdr-badge" *ngIf="instance?.id==r">Core Data Resource</span>
+                </span></p>
             <p class="text-center"><small><a
                         href="{{selectedValue['web']['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>
+
             <p class="text-center"><span *ngFor="let source of sources" (click)="sourceHref(source,instance?.id)"
                     ngClass="badge-no-color false-link">{{source}}</span>
             </p>
@@ -20,6 +26,7 @@
                         </ng-template>
                         <ng-template matTabContent>
 
+
                             <b> Version : </b>
                             <mat-form-field>
                                 <mat-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}"
@@ -27,10 +34,22 @@
                                     <mat-option *ngFor="let tool of entity.tools" [value]="tool">
                                         {{tool['@version']? tool['@version'] : 'N/A'}}</mat-option>
                                 </mat-select>
+
                             </mat-form-field>
+                            <div class="card-group alert alert-warning" *ngIf="selectedValue.depricated">
+
+                                <p class=" text-center">This version of the resource is depricated or has been deleted
+                                    from the original
+                                    entry in bio.tools</p>
+
+                            </div>
                             <div class="card-group">
                                 <div class="card border-light">
+
                                     <p><b> Description : </b>{{selectedValue.description}}</p>
+                                    <span *ngIf="selectedValue.depricated=='true'">
+                                        <p>{{selectedValue.depricated}}</p>
+                                    </span>
                                     <span>
                                         <p><b>OS : </b> <span *ngIf="selectedValue.os;else notavailable"> <span
                                                     *ngFor="let os of selectedValue.os">{{os}} </span></span>
