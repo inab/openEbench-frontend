@@ -4,8 +4,8 @@ import { Observable, bindCallback } from "rxjs";
 import { ToolTableComponent } from "../tool-table/tool-table.component";
 import * as c3 from "c3";
 import * as d3 from "d3";
-import { Filter } from "../shared/filter";
-import { Tool } from "../shared/tool";
+import { Filter } from "../shared/models/filter";
+import { Tools } from "../shared/models/tools";
 import { Metrics } from "../shared/metrics";
 import { ToolService } from "../shared/tool.service";
 import uptime from "../shared/uptime.js";
@@ -51,7 +51,7 @@ export class ToolDetailComponent implements OnInit {
     /**
      *  tools
      */
-    tools: Tool[];
+    tools: Tools[];
     /**
      *  filter
      */

@@ -1,16 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
-@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
+/* @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
 @import url("https://fonts.googleapis.com/css?family=Karla");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Roboto"); */
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-
-/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
-
-/* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
-
-/* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
 
 * {
     font-family: "Montserrat", sans-serif;
@@ -33,11 +27,10 @@
     padding-left: 15px;
 }
 
-nav {
-    /* margin-left: 0% !important; */
+/* nav {
     padding-left: 0% !important;
     padding-right: 0% !important;
-}
+} */
 
 .metrics-true {
     color: white;
@@ -139,7 +132,7 @@ a[href^="ftp://"] {
     font-size: 20px;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .container {
         max-width: 90% !important;
     }
@@ -149,7 +142,7 @@ a[href^="ftp://"] {
     .container {
         max-width: 90% !important;
     }
-}
+} */
 
 .false-link {
     cursor: pointer;
