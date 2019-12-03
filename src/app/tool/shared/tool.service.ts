@@ -110,7 +110,9 @@ export class ToolService {
         // );
     }
 
-    getTools(skip: number, limit: number, filter?: Filter) {}
+    getTools(skip: number, limit: number, filter?: Filter) {
+        return this.http.get<Tools>(this.toolUrl, {});
+    }
 
     /**
      * Get global statistics

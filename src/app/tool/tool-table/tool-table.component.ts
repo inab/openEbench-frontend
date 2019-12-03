@@ -137,7 +137,7 @@ export class ToolTableComponent implements OnInit {
         this.filterValue = this.getQueryParam("search");
         this.filter.text = this.filterValue != null ? this.filterValue : "";
         this.filter.freeTextSearch();
-
+        this.getTools();
         this.skip = 0;
         this.limit = 10;
 
@@ -166,6 +166,10 @@ export class ToolTableComponent implements OnInit {
      * Gets the tools
      */
     private getTools(): void {
+        this.toolService.getTools(0, 10).subscribe(tools => console.log(tools));
+        console.log("hola");
+        console.log(this.toolService.getTools(0, 10));
+
         // this.toolService
         //     .getToolWithFilters(this.filter, this.skip, this.limit)
         //     .subscribe(res => {
