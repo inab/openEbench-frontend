@@ -72,46 +72,11 @@ export class ToolService {
     /**
      * Filter search for tools
      */
-    getToolWithFilters(filter: Filter, skip: number, limit: number) {
-        // const headers = new HttpHeaders().set('Range' , 'items=' + skip + '-' + limit);
-        // let params = new HttpParams().set('projection', 'description').append('projection' , 'web');
-        // if ( filter.type != null) {
-        //   for ( const x of filter.type) {
-        //     params = params.append('type', x);
-        //   }
-        // }
-        // switch (filter.filter) {
-        //   case 'Name':
-        //     this.res = this.http.get(this.toolSearchUrl, {
-        //       headers: headers,
-        //       params: params = params.set('name', filter.text).set('label', filter.label),
-        //       observe: 'response',
-        //     });
-        //     break;
-        //   case 'Description':
-        //     this.res = this.http.get(this.toolSearchUrl, {
-        //       headers: headers,
-        //       params: params = params.set('description', filter.text).set('label', filter.label),
-        //       observe: 'response',
-        //     });
-        //     console.log(params);
-        //     break;
-        //   default:
-        //     this.res = this.http.get(this.toolSearchUrl, {
-        //       headers: headers,
-        //       params: params = params.set('text', filter.text).set('label', filter.label),
-        //       observe: 'response',
-        //     });
-        //     break;
-        // }
-        // return this.res
-        // .pipe(
-        //   catchError(this.handleError('getToolById', []))
-        // );
-    }
 
-    getTools(skip: number, limit: number, filter?: Filter) {
-        return this.http.get<Tools>(this.toolUrl, {});
+
+    getTools(skip: number, limit: number, filter?: Filter):Observable<Tools[]> {
+        let params = new HttpParams().set("skip",skip.toString()).set("limit", limit.toString());
+        return this.http.get<Tools[]>(this.toolUrl, {params:params});
     }
 
     /**

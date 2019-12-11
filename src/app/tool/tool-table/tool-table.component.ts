@@ -6,19 +6,37 @@ import { FormGroup, FormControl, FormBuilder } from "@angular/forms";
 import { Filter } from "../shared/models/filter";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Metrics } from "../shared/metrics";
+import { merge, of } from 'rxjs';
+import { startWith, switchMap, map, catchError } from 'rxjs/operators';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 /**
  * Component to list the tools
  */
 @Component({
     selector: "app-tool-table",
     templateUrl: "./tool-table.component.html",
-    styleUrls: ["./tool-table.component.css"]
+    styleUrls: ["./tool-table.component.css"],
+    animations: [
+        trigger('detailExpand', [
+            state('collapsed', style({height: '0px', minHeight: '0'})),
+            state('expanded', style({height: '*'})),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
 })
 
 /**
  * Class ToolTable Component
  */
 export class ToolTableComponent implements OnInit {
+    public displayedColumns: string[] = ['ID','name','status'];
+    /**
+     * tools
+     */
+    public tools: Tools[] = [];
+    /**
+     * core data resources that need badges //TODO 
+     */
     cdr = [
         "ensembl",
         "ensembl_genomes",
@@ -33,6 +51,11 @@ export class ToolTableComponent implements OnInit {
         "silva",
         "string"
     ];
+    public resultsLength = 0;
+    public isLoadingResults = true;
+    @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+    
+
     /**
      * options
      */
@@ -50,10 +73,7 @@ export class ToolTableComponent implements OnInit {
      * search
      */
     private search: FormGroup;
-    /**
-     * tools
-     */
-    public tools: Tools[];
+    
     /**
      * metrics
      */
@@ -112,7 +132,6 @@ export class ToolTableComponent implements OnInit {
     private toogle = false;
 
     public optionss: FormGroup;
-    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
     /**
      * Construtor for the tool table;
@@ -122,13 +141,7 @@ export class ToolTableComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private fb: FormBuilder
-    ) {
-        // this.optionss = fb.group({
-        //     bottom: 0,
-        //     fixed: false,
-        //     top: 100
-        // });
-    }
+    ) {}
 
     /**
      * On init method checks for search param in the url or filters applied
@@ -166,19 +179,24 @@ export class ToolTableComponent implements OnInit {
      * Gets the tools
      */
     private getTools(): void {
-        this.toolService.getTools(0, 10).subscribe(tools => console.log(tools));
-        console.log("hola");
-        console.log(this.toolService.getTools(0, 10));
-
-        // this.toolService
-        //     .getToolWithFilters(this.filter, this.skip, this.limit)
-        //     .subscribe(res => {
-        //         this.length = res.headers.get("Content-Range").split("/")[1];
-        //         this.tools = res.body;
-        //     });
-        // this.pageIndex = 0;
-        // this.pageSize = 10;
-    }
+        merge()
+        .pipe(
+            startWith({}),
+            switchMap(() => {
+                this.isLoadingResults = true;
+                return  this.toolService.getTools(0, 100);
+            }),
+            map(data => {
+            this.isLoadingResults = false;
+            return data;
+            }),
+            catchError(() => {
+            this.isLoadingResults = false;
+            // Catch if the GitHub API has reached its rate limit. Return empty data.
+            return of([]);
+            })
+        ).subscribe(data => this.tools = data);
+        }
 
     /**
      * Initialize search from

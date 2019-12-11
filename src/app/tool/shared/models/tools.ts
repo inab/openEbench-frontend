@@ -1,9 +1,5 @@
 class Web {
     homepage: string;
-
-    constructor(homepage?: string) {
-        this.homepage = homepage;
-    }
 }
 
 class Tool {
