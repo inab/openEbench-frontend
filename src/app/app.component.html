@@ -1,6 +1,39 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-    <app-top-menu></app-top-menu>
-    <router-outlet></router-outlet>
+<div class="">
+    <mat-toolbar color="primary">
+        <div fxShow="true" fxHide.gt-sm="true">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+
+        <a mat-button routerLink="/">
+            <!-- <img width="50px" src="assets/img/opeb_logo.gif" alt="OpEB" /> -->
+            OEB
+        </a>
+        <span class="spacer"></span>
+        <div fxShow="true" fxHide.lt-md="true">
+            <app-top-menu></app-top-menu>
+        </div>
+    </mat-toolbar>
+    <mat-sidenav-container fxFlexFill class="">
+        <mat-sidenav
+            color="primary"
+            #sidenav
+            fxLayout="column"
+            mode="over"
+            opened="false"
+            fxHide.gt-sm="true"
+        >
+            <div fxLayout="column">
+                <app-top-menu></app-top-menu>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+            <mat-card>
+                <router-outlet></router-outlet>
+            </mat-card>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
     <app-footer></app-footer>
 </div>

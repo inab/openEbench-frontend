@@ -1,36 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 /* @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
 @import url("https://fonts.googleapis.com/css?family=Karla");
 @import url("https://fonts.googleapis.com/css?family=Roboto"); */
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 * {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     /* font-family: 'Roboto', sans-serif; */
     /* font-family: 'Libre Baskerville', serif; */
     /* font-family: 'Karla', sans-serif; */
     text-align: justify;
 }
 
-.diagram {
-    width: 100%;
-    height: auto;
-    align-content: center;
+body {
+    margin: 0%;
 }
-
-.main-search {
-    border: 1px solid lightgray;
-    height: 60px;
-    width: 80%;
-    padding-left: 15px;
-}
-
-/* nav {
-    padding-left: 0% !important;
-    padding-right: 0% !important;
-} */
 
 .metrics-true {
     color: white;
@@ -54,7 +40,7 @@
     margin-left: 5px;
 }
 
-.output-badge {
+/* .output-badge {
     border-right: 20px solid #ef7500 !important;
 }
 
@@ -76,7 +62,7 @@
 
 .participant-badge {
     border-right: 20px solid rgb(217, 251, 19) !important;
-}
+} */
 
 .badge {
     color: white;
@@ -148,10 +134,10 @@ a[href^="ftp://"] {
     cursor: pointer;
 }
 
-.menu-margin {
-    margin-top: 1%;
-}
+/* .menu-margin {
+    margin-top: 2%;
+} */
 
-mat-spinner {
-    margin: 35vh auto;
-}
+/* mat-spinner {
+    margin: 25vh auto;
+} */

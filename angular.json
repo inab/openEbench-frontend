@@ -24,14 +24,15 @@
                         "styles": [
                             "./node_modules/datatables.net-dt/css/jquery.dataTables.css",
                             "./node_modules/c3/c3.min.css",
-                            "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            //"./node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            //"src/reset.css",
                             "src/styles.css"
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.js",
                             "./node_modules/jquery/dist/jquery.min.js",
                             "./node_modules/popper.js/dist/umd/popper.min.js",
-                            "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+                            //"./node_modules/bootstrap/dist/js/bootstrap.min.js",
                             "node_modules/datatables.net/js/jquery.dataTables.js",
                             "./node_modules/c3/c3.min.js",
                             "./node_modules/d3/dist/d3.min.js"

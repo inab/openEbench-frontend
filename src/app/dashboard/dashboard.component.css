@@ -1,4 +1,4 @@
-.main-search-div {
+/* .main-search-div {
     padding: 1vh 0 1vh 0;
     display: flex;
     justify-content: center;
@@ -7,31 +7,43 @@
 }
 
 .main-submit {
-    background-color: #FFFFFF;
-    border: solid 1px #EF7500;
+    background-color: #ffffff;
+    border: solid 1px #ef7500;
     padding: 15px 32px;
     text-align: center;
     width: 20%;
     height: 60px;
     cursor: not-allowed;
-}
+} */
 
-.main-submit:enabled {
+/* .main-submit:enabled {
     cursor: pointer;
-    color: #EF7500;
-}
+    color: #ef7500;
+} */
 
-.border-light {
+/* .border-light {
     border-color: white !important;
-}
+} */
 
 .main-logo {
     width: 40%;
-    align-self: center
+    align-self: center;
 }
 
-.card-icon {
+/* .card-icon {
     width: 25%;
     height: auto;
     align-self: center;
 }
+.diagram {
+    width: 100%;
+    height: auto;
+    align-content: center;
+} */
+
+/* .main-search {
+    border: 1px solid lightgray;
+    height: 60px;
+    width: 80%;
+    padding-left: 15px;
+} */

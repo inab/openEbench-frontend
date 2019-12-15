@@ -1,100 +1,60 @@
-/* .sidenav {
-    padding: 0 2em 2em 2em;
-}
-
-.table-content {
-    min-height: 55vh;
-}
-
-.table-desc {
-    text-align: justify;
-}
-
-.table-fields {
-    padding: 1rem !important;
-} */
-
-/* Structure */
 table {
     width: 100%;
-  }
-  
-  tr.example-detail-row {
+}
+
+tr.detail-row {
     height: 0;
-  }
-  
-  tr.example-element-row:not(.example-expanded-row):hover {
-    background:lightblue;
-  }
-  
-  tr.example-element-row:not(.example-expanded-row):active {
+}
+
+tr.element-row:not(.expanded-row):hover {
+    background-color: whitesmoke;
+}
+
+tr.element-row:not(.expanded-row):active {
     background: #efefef;
-  }
-  
-  .example-element-row td {
+}
+
+/* .example-element-row td {
     border-bottom-width: 0;
-  }
-  
-  .example-element-detail {
+} */
+
+.element-detail {
     overflow: hidden;
     display: flex;
-  }
-  
-  .example-element-diagram {
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 104px;
-  }
-  
-  .example-element-symbol {
-    font-weight: bold;
-    font-size: 40px;
-    line-height: normal;
-  }
-  
-  .example-element-description {
-    padding: 16px;
-  }
-  
-  .example-element-description-attribution {
-    opacity: 0.5;
-  }
-  
-.example-container {
-    position: relative;
-    min-height: 200px;
-  }
-  
-  .example-table-container {
-    position: relative;
-    max-height: 400px;
-    overflow: auto;
-  }
+}
 
-  
-  .example-loading-shade {
+.example-container {
+    /* position: relative; */
+    min-height: 73vh;
+    overflow: none;
+}
+
+.table-container {
+    /* position: relative; */
+    max-height: 66vh;
+    overflow: auto;
+}
+
+.example-loading-shade {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 56px;
+    bottom: 0px;
     right: 0;
-    background: rgba(0, 0, 0, 0.15);
+    background: white;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .example-rate-limit-reached {
+}
+
+.example-rate-limit-reached {
     color: #980000;
     max-width: 360px;
     text-align: center;
-  }
-  
-  /* Column Widths */
+}
+
+/* Column Widths
   .mat-column-number,
   .mat-column-state {
     max-width: 64px;
@@ -102,4 +62,13 @@ table {
   
   .mat-column-created {
     max-width: 124px;
-  }
+  } */
+.example-form {
+    min-width: 10vw;
+    max-width: 18vw;
+    width: 90%;
+}
+
+.example-full-width {
+    width: 100%;
+}

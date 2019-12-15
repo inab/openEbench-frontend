@@ -20,6 +20,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 /**
  * Common Material Design modules.
@@ -46,7 +47,8 @@ import { MatIconModule } from '@angular/material/icon';
         MatBadgeModule,
         MatCheckboxModule,
         MatCardModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatToolbarModule
     ],
     exports: [
         MatButtonModule,
@@ -68,7 +70,8 @@ import { MatIconModule } from '@angular/material/icon';
         MatBadgeModule,
         MatCheckboxModule,
         MatCardModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatToolbarModule
     ]
 })
 export class MaterialModule {}
