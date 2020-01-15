@@ -14,8 +14,6 @@
     </div> -->
 <!-- </nav> -->
 
-<div>
-    <a *ngFor="let link of navLinks" mat-button [routerLink]="link.path">{{
+<a *ngFor="let link of navLinks" mat-button [routerLink]="link.path">{{
         link.label
     }}</a>
-</div>
