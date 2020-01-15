@@ -47,6 +47,7 @@ export class ScientificListComponent implements OnInit {
       links{
         label
         uri
+        comment
       }
     }
   }

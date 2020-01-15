@@ -21,7 +21,7 @@
         <span *ngIf="c.links">
           <span *ngFor="let link of c.links">
             <span *ngIf="link.label !='other'"><a target='_blank' href="{{link.uri}}">{{link.label}} </a></span><br>
-    <span *ngIf="link.label =='other'"><img src="{{link.uri}}" alt="" width="100"></span>
+    <span *ngIf="link.comment =='@logo'"><img src="{{link.uri}}" alt="" width="100"></span>
     </span>
     </span>
 

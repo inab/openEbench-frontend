@@ -57,6 +57,10 @@ export class BenchmarkingListComponent implements OnInit {
                 acronym
                 description
                 status
+                links{
+                    uri
+                    comment
+                }
             }
         }
     `;

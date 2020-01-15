@@ -3,9 +3,14 @@
     <h3>
       {{c.name}} ( {{c.acronym}} )
     </h3>
-    <p>
+    <p style="white-space: pre-line">
       {{c.description}}
     </p>
+    <span *ngIf="c.links">
+      <span *ngFor="let link of c.links">
+        <span *ngIf="link.comment =='@VRE_link'">If you want to benchmark your own method please refer to OpenEBench <a href="{{link.uri}}">Virtual Research Environment </a></span>
+      </span>
+    </span>
   </div>
 
 
