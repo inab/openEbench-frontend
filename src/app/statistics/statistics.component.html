@@ -1,10 +1,19 @@
+<!-- <div class="containerflex" *ngIf="loading==true; else loading ">
+   
+    
+</div>
+<ng-template #loading>loading...</ng-template> -->
+<!-- <div id="chart" style="width: 900;height: 500"></div> -->
 
-<div class="containerflex" *ngIf="loading; else loading ">
+
+<!-- loading true -->
+<div *ngIf="loading">
+    loading...
+</div>
+
+<!-- loading false -->
+<div>
     <div class="item" id="toolspublications"></div>
     <div class="item" id="toolsbioschemas"></div>
     <div class="item" id="toolsopensource"></div>
 </div>
-<ng-template #loading>loading...</ng-template>
-<!-- <div id="chart" style="width: 900;height: 500"></div> -->
-
-
