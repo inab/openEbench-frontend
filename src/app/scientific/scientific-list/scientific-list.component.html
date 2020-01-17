@@ -20,31 +20,18 @@
     <h3>Communities</h3>
 
     <span class="flex-container" *ngIf="communitiesGraphql; else loading">
-        <mat-card
-            *ngFor="let c of communitiesGraphql.getCommunities"
-            class="communities-card"
-        >
+        <mat-card *ngFor="let c of communitiesGraphql.getCommunities" class="communities-card">
             <mat-card-actions>
-                <a
-                    routerLink="{{ c._id }}"
-                    name="{{ c._id }}"
-                    matTooltip="{{ c._id }} details"
-                    matTooltipPosition="right"
-                    >{{ c.acronym }}</a
-                >
+                <a routerLink="{{ c._id }}" name="{{ c._id }}" matTooltip="{{ c._id }} details"
+                    matTooltipPosition="right">{{ c.acronym }}</a>
 
                 <mat-card-subtitle>{{ c.name }}</mat-card-subtitle>
                 <!-- <p><a target='_blank' href="{{c.links[0].uri}}">Website</a></p> -->
                 <span *ngIf="c.links">
                     <span *ngFor="let link of c.links">
-                        <span *ngIf="link.label != 'other'"
-                            ><a target="_blank" href="{{ link.uri }}"
-                                >{{ link.label }}
-                            </a></span
-                        ><br />
-                        <span *ngIf="link.label == 'other'"
-                            ><img src="{{ link.uri }}" alt="" width="100"
-                        /></span>
+                        <span *ngIf="link.label != 'other'"><a target="_blank" href="{{ link.uri }}">{{ link.label }}
+                            </a></span><br />
+                        <span *ngIf="link.comment == '@comment'"><img src="{{ link.uri }}" alt="" width="100" /></span>
                     </span>
                 </span>
 

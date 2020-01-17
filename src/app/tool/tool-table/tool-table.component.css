@@ -23,19 +23,18 @@ tr.element-row:not(.expanded-row):active {
     display: flex;
 }
 
-.example-container {
+.table-outer-container {
     /* position: relative; */
     min-height: 73vh;
     overflow: none;
 }
 
 .table-container {
-    /* position: relative; */
-    max-height: 66vh;
+    max-height: 67vh;
     overflow: auto;
 }
 
-.example-loading-shade {
+.loading-shade {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,12 +62,12 @@ tr.element-row:not(.expanded-row):active {
   .mat-column-created {
     max-width: 124px;
   } */
-.example-form {
+.search-form {
     min-width: 10vw;
     max-width: 18vw;
     width: 90%;
 }
 
-.example-full-width {
+.form-full-width {
     width: 100%;
 }

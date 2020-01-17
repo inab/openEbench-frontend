@@ -1,4 +1,4 @@
-.mat-toolbar {
+/* .mat-toolbar {
     height: 5vh;
 }
 
@@ -9,7 +9,7 @@ div {
 .mat-sidenav-container {
     background-color: white;
     min-height: 78vh !important;
-}
+}*/
 
 a {
     text-decoration: none;
@@ -20,6 +20,6 @@ a {
 .spacer {
     flex: 1 1 auto;
 }
-.example-icon {
+/* .icon {
     padding: 0 14px;
-}
+} */

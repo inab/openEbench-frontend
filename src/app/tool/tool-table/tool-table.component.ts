@@ -186,7 +186,7 @@ export class ToolTableComponent implements OnInit {
                 startWith({}),
                 switchMap(() => {
                     this.isLoadingResults = true
-                    return this.toolService.getTools(0, 100)
+                    return this.toolService.getTools(0, 20)
                 }),
                 map(data => {
                     this.isLoadingResults = false
