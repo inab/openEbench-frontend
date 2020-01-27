@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
             <li *ngFor="let link of navLinks" class="nav-item">
                 <a *ngIf="link.path!=''" [routerLink]="link.path" class="nav-link">{{link.label}}</a>
-                <a *ngIf="link.path==''" href={{link.href}} target="_blank" class="nav-link">{{link.label}}&nbsp;</a>
+                <a *ngIf="link.path==''" href={{link.href}} target="_blank" class="nav-link">{{link.label}} &nbsp;</a>
             </li>
         </ul>
     </div>
