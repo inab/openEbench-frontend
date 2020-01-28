@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { load_scatter_visualization } from '../shared/benchmarkingChart_scatter.js';
-import { load_bars_visualization } from '../shared/benchmarkingChart_bar.js';
+import { Component, OnInit } from "@angular/core";
+import { load_scatter_visualization } from "../shared/benchmarkingChart_scatter.js";
+import { load_bars_visualization } from "../shared/benchmarkingChart_bar.js";
 // declare let loadurl: any;
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from "@angular/router";
 
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Apollo } from "apollo-angular";
+import gql from "graphql-tag";
 
 /**
  * benchmarking details
  */
 @Component({
-    selector: 'app-benchmarking-detail',
-    templateUrl: './benchmarking-detail.component.html',
-    styleUrls: ['./benchmarking-detail.component.css']
+    selector: "app-benchmarking-detail",
+    templateUrl: "./benchmarking-detail.component.html",
+    styleUrls: ["./benchmarking-detail.component.css"]
 })
 export class BenchmarkingDetailComponent implements OnInit {
     /**
@@ -77,7 +77,7 @@ export class BenchmarkingDetailComponent implements OnInit {
      * initializer
      */
     ngOnInit() {
-        this.id = this.getParam('bchallengeid');
+        this.id = this.getParam("bchallengeid");
 
         this.apollo
             .watchQuery({
@@ -113,11 +113,11 @@ export class BenchmarkingDetailComponent implements OnInit {
         );
 
         switch (data.getDatasets[0].datalink.inline_data.visualization.type) {
-            case '2D-plot':
+            case "2D-plot":
                 load_scatter_visualization();
 
                 break;
-            case 'bar-plot':
+            case "bar-plot":
                 load_bars_visualization();
 
                 break;
@@ -131,4 +131,11 @@ export class BenchmarkingDetailComponent implements OnInit {
     private getParam(param: string): string {
         return this.route.snapshot.paramMap.get(param);
     }
+
+    // public tabClick(event: Object): void {
+    //     console.log(event);
+    //     $(".benchmarkingChart_scatter").html("");
+    //     $(".benchmarkingChart_bars").html("");
+    //     this.loadCharts(this.datasetsGraphql);
+    // }
 }

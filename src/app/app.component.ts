@@ -2,12 +2,7 @@ import { Component } from '@angular/core'
 import { Router, NavigationEnd } from '@angular/router'
 import { filter } from 'rxjs/operators'
 
-declare var gtag: (
-    arg0: string,
-    arg1: string,
-    arg2: { page_path: string }
-) => void
-
+declare var gtag
 /**
  * main app component
  */
@@ -30,7 +25,7 @@ export class AppComponent {
             filter(event => event instanceof NavigationEnd)
         )
         navEndEvents.subscribe((event: NavigationEnd) => {
-            gtag('config', 'UA-143782781-2', {
+            gtag('config', 'UA-143782781-1', {
                 page_path: event.urlAfterRedirects
             })
         })

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { StatisticsService } from "../shared/statistics.service";
 import * as c3 from "c3";
 import * as d3 from "d3";
+import { setTimeout } from "timers";
 /**
  *
  * Componet for Statistics
@@ -16,19 +17,11 @@ export class StatisticsComponent implements OnInit {
      * data
      */
     private data: any;
-    /**
-     * statistics
-     */
-    public statistics: any;
-    /**
-     * event
-     */
-    public event = false;
 
     /**
-     * loading
+     * Visual loading flag
      */
-    public loading;
+    public loading = false;
 
     /**
      * constructor function
@@ -44,23 +37,33 @@ export class StatisticsComponent implements OnInit {
      * fetches the data and generates the statistics charts
      */
     private fetchdata() {
-        this.statsService.getStats().subscribe(data => {
-            this.loading = 1;
-            this.data = data;
-            this.statistics = {
-                tools: this.data["/@timestamp"],
-                publications: this.data["/project/publications"],
-                bioschemas: this.data["/project/website/bioschemas:true"],
-                opensource: this.data["/project/license/open_source:true"]
-            };
-            this.generateChart(this.statistics);
-        });
+        this.loading = true;
+        this.statsService.getStats().subscribe(
+            // 1
+            data => {
+                this.data = data;
+            },
+            // 2
+            err => console.log(err),
+            // 3
+            () => {
+                const statistics = {
+                    tools: this.data["/@timestamp"],
+                    publications: this.data["/project/publications"],
+                    bioschemas: this.data["/project/website/bioschemas:true"],
+                    opensource: this.data["/project/license/open_source:true"]
+                };
+                this.generateChart(statistics);
+            }
+        );
     }
+
     /**
      * helper method for the fechdata
      */
+
     private generateChart(data) {
-        this.event = true;
+        this.loading = false;
         c3.generate({
             size: {
                 height: 340,
