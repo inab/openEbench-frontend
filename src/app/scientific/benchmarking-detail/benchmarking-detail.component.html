@@ -3,7 +3,6 @@
         <div>
             <h3>{{c.name}} ( {{c.acronym}} )</h3>
         </div>
-        <hr>
         <p>
             In order to facilitate the interpretation of benchmarking results OpenEbench offers several ways to
             visualize metrics: <br>
@@ -21,55 +20,31 @@
 
 
 
-        <!-- <mat-tab-group (selectedTabChange)="tabClick($event)">
-            <mat-tab label="metrics 1 + metrics 2"> -->
-        <span [ngSwitch]="datasetsGraphql?.getDatasets[0].datalink.inline_data.visualization.type">
-            <span *ngSwitchCase="'2D-plot'">
+        <mat-tab-group (selectedTabChange)="tabClick($event)">
+            <mat-tab *ngFor="let d of datasetsGraphql.getDatasets"
+                label="{{d.datalink.inline_data.visualization.x_axis}} + {{d.datalink.inline_data.visualization.y_axis}}">
+                <span [ngSwitch]="d.datalink.inline_data.visualization.type">
+                    <span *ngSwitchCase="'2D-plot'">
 
-                <div class="break">
-                    <div id="a" attr.data-id="{{c._id}}"
-                        attr.metric_x="{{c.metrics_categories[0].metrics[0].metrics_id}}"
-                        attr.metric_y="{{c.metrics_categories[0].metrics[1].metrics_id}}" data-mode="dev" toTable="true"
-                        class="benchmarkingChart_scatter"></div>
-                </div>
-            </span>
-            <span *ngSwitchCase="'bar-plot'">
+                        <div class="break">
+                            <div attr.data-id="{{d._id}}" data-mode="dev" toTable="true" onchange="myFunction('aas')"
+                                class=" benchmarkingChart_scatter"></div>
+                        </div>
 
-                <div class="break">
-                    <div attr.data-id="{{c._id}}" class="benchmarkingChart_bars" data-mode="dev"
-                        attr.metric_y="{{c.metrics_categories[0].metrics[0].metrics_id}}"></div>
-                </div>
-            </span>
-            <span *ngSwitchDefault>
-                No visual representation implemented
-            </span>
-        </span>
-        <!-- </mat-tab>
-            <mat-tab label="metrics 3 + metrics 4"> -->
-        <!-- <span [ngSwitch]="datasetsGraphql?.getDatasets[0].datalink.inline_data.visualization.type">
-            <span *ngSwitchCase="'2D-plot'">
+                    </span>
+                    <span *ngSwitchCase="'bar-plot'">
+                        <div class="break">
+                            <div attr.data-id="{{c._id}}" class="benchmarkingChart_bars" data-mode="dev"
+                                attr.metric_y="{{c.metrics_categories[0].metrics[0].metrics_id}}"></div>
+                        </div>
+                    </span>
+                    <span *ngSwitchDefault>
+                        No visual representation implemented
+                    </span>
+                </span>
+            </mat-tab>
 
-                <div class="break">
-                    <div id="b" attr.data-id="{{c._id}}"
-                        attr.metric_x="{{c.metrics_categories[0].metrics[0].metrics_id}}"
-                        attr.metric_y="{{c.metrics_categories[0].metrics[1].metrics_id}}" data-mode="dev" toTable="true"
-                        class="benchmarkingChart_scatter"></div>
-                </div>
-            </span>
-            <span *ngSwitchCase="'bar-plot'">
-
-                <div class="break">
-                    <div attr.data-id="{{c._id}}" class="benchmarkingChart_bars" data-mode="dev"
-                        attr.metric_y="{{c.metrics_categories[0].metrics[0].metrics_id}}"></div>
-                </div>
-            </span>
-            <span *ngSwitchDefault>
-                No visual representation implemented
-            </span>
-        </span> -->
-        <!-- </mat-tab>
-
-        </mat-tab-group> -->
+        </mat-tab-group>
 
     </span>
 

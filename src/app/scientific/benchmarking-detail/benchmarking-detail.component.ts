@@ -1,43 +1,43 @@
-import { Component, OnInit } from "@angular/core";
-import { load_scatter_visualization } from "../shared/benchmarkingChart_scatter.js";
-import { load_bars_visualization } from "../shared/benchmarkingChart_bar.js";
+import { Component, OnInit } from '@angular/core'
+import { load_scatter_visualization } from '../shared/benchmarkingChart_scatter.js'
+import { load_bars_visualization } from '../shared/benchmarkingChart_bar.js'
 // declare let loadurl: any;
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router'
 
-import { Apollo } from "apollo-angular";
-import gql from "graphql-tag";
+import { Apollo } from 'apollo-angular'
+import gql from 'graphql-tag'
 
 /**
  * benchmarking details
  */
 @Component({
-    selector: "app-benchmarking-detail",
-    templateUrl: "./benchmarking-detail.component.html",
-    styleUrls: ["./benchmarking-detail.component.css"]
+    selector: 'app-benchmarking-detail',
+    templateUrl: './benchmarking-detail.component.html',
+    styleUrls: ['./benchmarking-detail.component.css']
 })
 export class BenchmarkingDetailComponent implements OnInit {
     /**
      * htmlToAdd
      */
-    public htmlToAdd;
+    public htmlToAdd
     /**
      * id
      */
-    public id: string;
+    public id: string
     /**
      * bm
      */
-    public bm: any[];
-    challengesGraphql: any;
-    datasetsGraphql: any;
+    public bm: any[]
+    challengesGraphql: any
+    datasetsGraphql: any
     /**
      * loading property for graphql
      */
-    public loading = true;
+    public loading = true
     /**
      * error property for graphql
      */
-    public error: any;
+    public error: any
 
     public getChallenges = gql`
         query getChallenges($id: String!) {
@@ -53,7 +53,7 @@ export class BenchmarkingDetailComponent implements OnInit {
                 }
             }
         }
-    `;
+    `
 
     public getDatasets = gql`
         query getDatasets($id: String!) {
@@ -63,21 +63,22 @@ export class BenchmarkingDetailComponent implements OnInit {
                 datalink {
                     inline_data
                 }
+                _id
             }
         }
-    `;
+    `
 
     /**
      * constructor
      */
     constructor(private route: ActivatedRoute, private apollo: Apollo) {}
 
-    data: any;
+    data: any
     /**
      * initializer
      */
     ngOnInit() {
-        this.id = this.getParam("bchallengeid");
+        this.id = this.getParam('bchallengeid')
 
         this.apollo
             .watchQuery({
@@ -85,9 +86,9 @@ export class BenchmarkingDetailComponent implements OnInit {
                 variables: { id: this.id }
             })
             .valueChanges.subscribe(result => {
-                this.challengesGraphql = result.data;
-                this.loading = result.loading;
-                this.error = result.errors;
+                this.challengesGraphql = result.data
+                this.loading = result.loading
+                this.error = result.errors
             }),
             this.apollo
                 .watchQuery({
@@ -95,47 +96,49 @@ export class BenchmarkingDetailComponent implements OnInit {
                     variables: { id: this.id }
                 })
                 .valueChanges.subscribe(result => {
-                    this.datasetsGraphql = result.data;
-                    this.loading = result.loading;
-                    this.error = result.errors;
-                });
+                    this.datasetsGraphql = result.data
+                    this.loading = result.loading
+                    this.error = result.errors
+                })
     }
 
     ngAfterViewInit() {
         setTimeout(() => {
-            this.loadCharts(this.datasetsGraphql);
-        }, 500);
+            this.loadCharts(this.datasetsGraphql)
+        }, 500)
     }
 
     private loadCharts(data) {
-        console.log(
-            data.getDatasets[0].datalink.inline_data.visualization.type
-        );
+        console.log(data.getDatasets[0].datalink.inline_data.visualization.type)
 
         switch (data.getDatasets[0].datalink.inline_data.visualization.type) {
-            case "2D-plot":
-                load_scatter_visualization();
+            case '2D-plot':
+                load_scatter_visualization()
 
-                break;
-            case "bar-plot":
-                load_bars_visualization();
+                break
+            case 'bar-plot':
+                load_bars_visualization()
 
-                break;
+                break
             default:
-                break;
+                break
         }
     }
     /**
      * helper method get param
      */
     private getParam(param: string): string {
-        return this.route.snapshot.paramMap.get(param);
+        return this.route.snapshot.paramMap.get(param)
     }
 
-    // public tabClick(event: Object): void {
-    //     console.log(event);
-    //     $(".benchmarkingChart_scatter").html("");
-    //     $(".benchmarkingChart_bars").html("");
-    //     this.loadCharts(this.datasetsGraphql);
-    // }
+    public tabClick(event: Object): void {
+        //console.log(event)
+        $('.benchmarkingChart_scatter').html('')
+        $('.benchmarkingChart_bars').html('')
+        this.loadCharts(this.datasetsGraphql)
+    }
+
+    public myFunction(a) {
+        console.log('hola')
+    }
 }
