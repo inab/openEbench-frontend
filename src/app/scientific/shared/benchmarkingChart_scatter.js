@@ -1,22 +1,22 @@
 !(function(t, e) {
-    for (var n in e) t[n] = e[n];
+    for (var r in e) t[r] = e[r];
 })(
     this,
     (function(t) {
         var e = {};
-        function n(r) {
-            if (e[r]) return e[r].exports;
-            var o = (e[r] = { i: r, l: !1, exports: {} });
-            return t[r].call(o.exports, o, o.exports, n), (o.l = !0), o.exports;
+        function r(n) {
+            if (e[n]) return e[n].exports;
+            var o = (e[n] = { i: n, l: !1, exports: {} });
+            return t[n].call(o.exports, o, o.exports, r), (o.l = !0), o.exports;
         }
         return (
-            (n.m = t),
-            (n.c = e),
-            (n.d = function(t, e, r) {
-                n.o(t, e) ||
-                    Object.defineProperty(t, e, { enumerable: !0, get: r });
+            (r.m = t),
+            (r.c = e),
+            (r.d = function(t, e, n) {
+                r.o(t, e) ||
+                    Object.defineProperty(t, e, { enumerable: !0, get: n });
             }),
-            (n.r = function(t) {
+            (r.r = function(t) {
                 "undefined" != typeof Symbol &&
                     Symbol.toStringTag &&
                     Object.defineProperty(t, Symbol.toStringTag, {
@@ -24,30 +24,30 @@
                     }),
                     Object.defineProperty(t, "__esModule", { value: !0 });
             }),
-            (n.t = function(t, e) {
-                if ((1 & e && (t = n(t)), 8 & e)) return t;
+            (r.t = function(t, e) {
+                if ((1 & e && (t = r(t)), 8 & e)) return t;
                 if (4 & e && "object" == typeof t && t && t.__esModule)
                     return t;
-                var r = Object.create(null);
+                var n = Object.create(null);
                 if (
-                    (n.r(r),
-                    Object.defineProperty(r, "default", {
+                    (r.r(n),
+                    Object.defineProperty(n, "default", {
                         enumerable: !0,
                         value: t
                     }),
                     2 & e && "string" != typeof t)
                 )
                     for (var o in t)
-                        n.d(
-                            r,
+                        r.d(
+                            n,
                             o,
                             function(e) {
                                 return t[e];
                             }.bind(null, o)
                         );
-                return r;
+                return n;
             }),
-            (n.n = function(t) {
+            (r.n = function(t) {
                 var e =
                     t && t.__esModule
                         ? function() {
@@ -56,56 +56,27 @@
                         : function() {
                               return t;
                           };
-                return n.d(e, "a", e), e;
+                return r.d(e, "a", e), e;
             }),
-            (n.o = function(t, e) {
+            (r.o = function(t, e) {
                 return Object.prototype.hasOwnProperty.call(t, e);
             }),
-            (n.p = ""),
-            n((n.s = 8))
+            (r.p = ""),
+            r((r.s = 2))
         );
     })([
-        function(t, e, n) {
+        function(t, e, r) {
             "use strict";
-            function r(t) {
-                var e = this;
-                (this.location = i(t)),
-                    (this.label = i()),
-                    (this.updateLabel = function(t) {
-                        var n,
-                            r,
-                            o = t.map(function(t) {
-                                return (
-                                    (n = e.location()),
-                                    (r = t.location()),
-                                    n
-                                        .map(function(t, e) {
-                                            return Math.pow(t - r[e], 2);
-                                        })
-                                        .reduce(function(t, e) {
-                                            return t + e;
-                                        }, 0)
-                                );
-                                var n, r;
-                            });
-                        e.label(
-                            ((r = (n = o).reduce(function(t, e) {
-                                return Math.min(t, e);
-                            })),
-                            n.indexOf(r))
-                        );
-                    });
-            }
-            function o(t, e) {
-                var n = this;
-                (this.location = i(t)),
-                    (this.label = i(e)),
+            function n(t, e) {
+                var r = this;
+                (this.location = o(t)),
+                    (this.label = o(e)),
                     (this.updateLocation = function(t) {
                         var e = t.filter(function(t) {
-                            return t.label() == n.label();
+                            return t.label() == r.label();
                         });
                         e.length > 0 &&
-                            n.location(
+                            r.location(
                                 (function(t) {
                                     var e = t[0].location().map(function() {
                                         return 0;
@@ -116,8 +87,8 @@
                                         })
                                         .reduce(function(t, e) {
                                             return (function(t, e) {
-                                                return t.map(function(t, n) {
-                                                    return t + e[n];
+                                                return t.map(function(t, r) {
+                                                    return t + e[r];
                                                 });
                                             })(t, e);
                                         }, e)
@@ -128,20 +99,20 @@
                             );
                     });
             }
-            function i(t, e) {
-                var n = t,
-                    r =
+            function o(t, e) {
+                var r = t,
+                    n =
                         e ||
                         function(t) {
                             return !0;
                         };
                 return function(t) {
-                    if (void 0 === t) return n;
-                    r(t) && (n = t);
+                    if (void 0 === t) return r;
+                    n(t) && (r = t);
                 };
             }
             t.exports = {
-                data: i([], function(t) {
+                data: o([], function(t) {
                     var e = t[0].length;
                     return t
                         .map(function(t) {
@@ -154,19 +125,72 @@
                 clusters: function() {
                     var t = (function(t, e) {
                             for (
-                                var n =
+                                var r =
                                         e.k ||
                                         Math.round(Math.sqrt(t.length / 2)),
                                     i = e.iterations,
                                     a = t.map(function(t) {
-                                        return new r(t);
+                                        return new (function(t) {
+                                            var e = this;
+                                            (this.location = o(t)),
+                                                (this.label = o()),
+                                                (this.updateLabel = function(
+                                                    t
+                                                ) {
+                                                    var r = t.map(function(t) {
+                                                        return (function(t, e) {
+                                                            return t
+                                                                .map(function(
+                                                                    t,
+                                                                    r
+                                                                ) {
+                                                                    return Math.pow(
+                                                                        t -
+                                                                            e[
+                                                                                r
+                                                                            ],
+                                                                        2
+                                                                    );
+                                                                })
+                                                                .reduce(
+                                                                    function(
+                                                                        t,
+                                                                        e
+                                                                    ) {
+                                                                        return (
+                                                                            t +
+                                                                            e
+                                                                        );
+                                                                    },
+                                                                    0
+                                                                );
+                                                        })(
+                                                            e.location(),
+                                                            t.location()
+                                                        );
+                                                    });
+                                                    e.label(
+                                                        (function(t) {
+                                                            var e = t.reduce(
+                                                                function(t, e) {
+                                                                    return Math.min(
+                                                                        t,
+                                                                        e
+                                                                    );
+                                                                }
+                                                            );
+                                                            return t.indexOf(e);
+                                                        })(r)
+                                                    );
+                                                });
+                                        })(t);
                                     }),
                                     s = [],
                                     l = 0;
-                                l < n;
+                                l < r;
                                 l++
                             )
-                                s.push(new o(a[l % a.length].location(), l));
+                                s.push(new n(a[l % a.length].location(), l));
                             for (var c = 0; c < i; c++)
                                 a.forEach(function(t) {
                                     t.updateLabel(s);
@@ -193,17 +217,17 @@
                         };
                     });
                 },
-                k: i(void 0, function(t) {
+                k: o(void 0, function(t) {
                     return (t % 1 == 0) & (t > 0);
                 }),
-                iterations: i(Math.pow(10, 3), function(t) {
+                iterations: o(Math.pow(10, 3), function(t) {
                     return (t % 1 == 0) & (t > 0);
                 })
             };
         },
-        function(t, e, n) {
+        function(t, e, r) {
             "use strict";
-            const r = Object.freeze({
+            const n = Object.freeze({
                 topRight: (t, e) =>
                     e[0] < t[0]
                         ? -1
@@ -251,11 +275,11 @@
                     !t.every(t => Array.isArray(t) && t.length >= 2)
                 )
                     throw new TypeError("Require array of points as input");
-                const n = (e && r[e.optimize]) || r.topRight,
-                    o = n([0, 1], [0, 0]) < 0;
+                const r = (e && n[e.optimize]) || n.topRight,
+                    o = r([0, 1], [0, 0]) < 0;
                 let i;
                 return Array.from(t)
-                    .sort(n)
+                    .sort(r)
                     .filter(
                         (t, e) =>
                             !!(
@@ -266,862 +290,41 @@
                     );
             };
         },
-        function(t, e, n) {
-            var r = n(3);
-            "string" == typeof r && (r = [[t.i, r, ""]]);
-            var o = { hmr: !0, transform: void 0, insertInto: void 0 };
-            n(5)(r, o);
-            r.locals && (t.exports = r.locals);
-        },
-        function(t, e, n) {
-            (t.exports = n(4)(!1)).push([
-                t.i,
-                '\n  \n  .error-line {\n    stroke:black;\n    stroke-dasharray: 2,2;\n  }\n  \n  .error-cap {\n    stroke:black;\n    stroke-width: 1px;\n  }\n  \n    div.benchmark_tooltip {\n      background-color: #fff;\n      padding: 7px;\n      text-shadow: #f5f5f5 0 1px 0;\n      font: 15px Helvetica Neue;\n      border: 4.5px solid;\n      border-color: #0A58A2;\n      border-radius: 3px;\n      opacity: 0.95;\n      position: absolute;\n      box-shadow: rgba(0, 0, 0, 0.3) 0 10px 15px;\n    }\n  \n  .benchmark_tooltip:after {\n      content: " ";\n      position: absolute;\n      top: 50%;\n      right: 100%;\n      margin-top: -10px;\n      border-width: 10px;\n      border-style: solid;\n      border-color: transparent transparent transparent transparent;\n      \n  }\n  \n   .plot-bg {\n     fill:#F8F8F8;\n     stroke: black;\n   }\n      \n   .axis path,\n   .axis line {\n       fill: none;\n       stroke: grey;\n       stroke-width: 1;\n       shape-rendering: crispEdges;\n   }\n\n   .bench_grid {\n    stroke-opacity: 0.1;\n    stroke-dasharray: 7,5;\n  }\n\n    \n    .classificators_list{\n        background-color: #0A58A2; \n        border-radius: 8px;\n        color: #fff;\n        font-size: 1vw;\n        padding-left: 25px;\n        padding-right: 25px;\n        text-align: center;\n        width: 20vw;\n    \n        }\n    \n    .classificators_list:hover {\n        background-color: #b3cde0;\n    \n    }\n\n    .benchmarkingTable_scatter td {\n        border: 2px solid black;\n        border-collapse: collapse;\n        text-align: center;\n        font-size: .7vw;\n    }\n\n    .benchmarkingTable_scatter {\n        width: 17vw; \n        border-collapse: collapse; \n        background-color: #f0f0f0;\n        border: 5px solid black; \n        float: right;\n    }\n\n    .benchmark_legend_rect {\n        cursor: pointer;\n    }\n\n    .benchmarkingChart_scatter{\n        width: 90vw;\n    }\n\n    .benchmarkingSVG{\n        width: 68vw;\n    }\n      .axis--x {\n          font-size: 12px;\n      }\n\n      .axis--y {\n        font-size: 12px;\n    }\n\n    .removal_alert {\n        padding: 10px;\n        background-color: #ffcccc;\n        color: #D10000;\n    }\n    \n    .closebtn {\n        margin-left: 15px;\n        color: #D10000;\n        font-weight: bold;\n        float: right;\n        font-size: 22px;\n        line-height: 20px;\n        cursor: pointer;\n        transition: 0.3s;\n    }\n    \n    .closebtn:hover {\n        color: white;\n    }',
-                ""
-            ]);
-        },
-        function(t, e) {
-            t.exports = function(t) {
-                var e = [];
-                return (
-                    (e.toString = function() {
-                        return this.map(function(e) {
-                            var n = (function(t, e) {
-                                var n = t[1] || "",
-                                    r = t[3];
-                                if (!r) return n;
-                                if (e && "function" == typeof btoa) {
-                                    var o =
-                                            ((a = r),
-                                            "/*# sourceMappingURL=data:application/json;charset=utf-8;base64," +
-                                                btoa(
-                                                    unescape(
-                                                        encodeURIComponent(
-                                                            JSON.stringify(a)
-                                                        )
-                                                    )
-                                                ) +
-                                                " */"),
-                                        i = r.sources.map(function(t) {
-                                            return (
-                                                "/*# sourceURL=" +
-                                                r.sourceRoot +
-                                                t +
-                                                " */"
-                                            );
-                                        });
-                                    return [n]
-                                        .concat(i)
-                                        .concat([o])
-                                        .join("\n");
-                                }
-                                var a;
-                                return [n].join("\n");
-                            })(e, t);
-                            return e[2] ? "@media " + e[2] + "{" + n + "}" : n;
-                        }).join("");
-                    }),
-                    (e.i = function(t, n) {
-                        "string" == typeof t && (t = [[null, t, ""]]);
-                        for (var r = {}, o = 0; o < this.length; o++) {
-                            var i = this[o][0];
-                            "number" == typeof i && (r[i] = !0);
-                        }
-                        for (o = 0; o < t.length; o++) {
-                            var a = t[o];
-                            ("number" == typeof a[0] && r[a[0]]) ||
-                                (n && !a[2]
-                                    ? (a[2] = n)
-                                    : n &&
-                                      (a[2] = "(" + a[2] + ") and (" + n + ")"),
-                                e.push(a));
-                        }
-                    }),
-                    e
-                );
-            };
-        },
-        function(t, e, n) {
-            var r,
-                o,
-                i = {},
-                a =
-                    ((r = function() {
-                        return (
-                            window && document && document.all && !window.atob
-                        );
-                    }),
-                    function() {
-                        return (
-                            void 0 === o && (o = r.apply(this, arguments)), o
-                        );
-                    }),
-                s = function(t) {
-                    return document.querySelector(t);
-                },
-                l = (function(t) {
-                    var e = {};
-                    return function(t) {
-                        if ("function" == typeof t) return t();
-                        if (void 0 === e[t]) {
-                            var n = s.call(this, t);
-                            if (
-                                window.HTMLIFrameElement &&
-                                n instanceof window.HTMLIFrameElement
-                            )
-                                try {
-                                    n = n.contentDocument.head;
-                                } catch (t) {
-                                    n = null;
-                                }
-                            e[t] = n;
-                        }
-                        return e[t];
-                    };
-                })(),
-                c = null,
-                u = 0,
-                d = [],
-                p = n(6);
-            function f(t, e) {
-                for (var n = 0; n < t.length; n++) {
-                    var r = t[n],
-                        o = i[r.id];
-                    if (o) {
-                        o.refs++;
-                        for (var a = 0; a < o.parts.length; a++)
-                            o.parts[a](r.parts[a]);
-                        for (; a < r.parts.length; a++)
-                            o.parts.push(b(r.parts[a], e));
-                    } else {
-                        var s = [];
-                        for (a = 0; a < r.parts.length; a++)
-                            s.push(b(r.parts[a], e));
-                        i[r.id] = { id: r.id, refs: 1, parts: s };
-                    }
-                }
-            }
-            function h(t, e) {
-                for (var n = [], r = {}, o = 0; o < t.length; o++) {
-                    var i = t[o],
-                        a = e.base ? i[0] + e.base : i[0],
-                        s = { css: i[1], media: i[2], sourceMap: i[3] };
-                    r[a]
-                        ? r[a].parts.push(s)
-                        : n.push((r[a] = { id: a, parts: [s] }));
-                }
-                return n;
-            }
-            function y(t, e) {
-                var n = l(t.insertInto);
-                if (!n)
-                    throw new Error(
-                        "Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid."
-                    );
-                var r = d[d.length - 1];
-                if ("top" === t.insertAt)
-                    r
-                        ? r.nextSibling
-                            ? n.insertBefore(e, r.nextSibling)
-                            : n.appendChild(e)
-                        : n.insertBefore(e, n.firstChild),
-                        d.push(e);
-                else if ("bottom" === t.insertAt) n.appendChild(e);
-                else {
-                    if ("object" != typeof t.insertAt || !t.insertAt.before)
-                        throw new Error(
-                            "[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n"
-                        );
-                    var o = l(t.insertInto + " " + t.insertAt.before);
-                    n.insertBefore(e, o);
-                }
-            }
-            function _(t) {
-                if (null === t.parentNode) return !1;
-                t.parentNode.removeChild(t);
-                var e = d.indexOf(t);
-                e >= 0 && d.splice(e, 1);
-            }
-            function m(t) {
-                var e = document.createElement("style");
-                return (
-                    void 0 === t.attrs.type && (t.attrs.type = "text/css"),
-                    g(e, t.attrs),
-                    y(t, e),
-                    e
-                );
-            }
-            function g(t, e) {
-                Object.keys(e).forEach(function(n) {
-                    t.setAttribute(n, e[n]);
-                });
-            }
-            function b(t, e) {
-                var n, r, o, i;
-                if (e.transform && t.css) {
-                    if (!(i = e.transform(t.css))) return function() {};
-                    t.css = i;
-                }
-                if (e.singleton) {
-                    var a = u++;
-                    (n = c || (c = m(e))),
-                        (r = w.bind(null, n, a, !1)),
-                        (o = w.bind(null, n, a, !0));
-                } else
-                    t.sourceMap &&
-                    "function" == typeof URL &&
-                    "function" == typeof URL.createObjectURL &&
-                    "function" == typeof URL.revokeObjectURL &&
-                    "function" == typeof Blob &&
-                    "function" == typeof btoa
-                        ? ((n = (function(t) {
-                              var e = document.createElement("link");
-                              return (
-                                  void 0 === t.attrs.type &&
-                                      (t.attrs.type = "text/css"),
-                                  (t.attrs.rel = "stylesheet"),
-                                  g(e, t.attrs),
-                                  y(t, e),
-                                  e
-                              );
-                          })(e)),
-                          (r = k.bind(null, n, e)),
-                          (o = function() {
-                              _(n), n.href && URL.revokeObjectURL(n.href);
-                          }))
-                        : ((n = m(e)),
-                          (r = A.bind(null, n)),
-                          (o = function() {
-                              _(n);
-                          }));
-                return (
-                    r(t),
-                    function(e) {
-                        if (e) {
-                            if (
-                                e.css === t.css &&
-                                e.media === t.media &&
-                                e.sourceMap === t.sourceMap
-                            )
-                                return;
-                            r((t = e));
-                        } else o();
-                    }
-                );
-            }
-            t.exports = function(t, e) {
-                if (
-                    "undefined" != typeof DEBUG &&
-                    DEBUG &&
-                    "object" != typeof document
-                )
-                    throw new Error(
-                        "The style-loader cannot be used in a non-browser environment"
-                    );
-                ((e = e || {}).attrs =
-                    "object" == typeof e.attrs ? e.attrs : {}),
-                    e.singleton ||
-                        "boolean" == typeof e.singleton ||
-                        (e.singleton = a()),
-                    e.insertInto || (e.insertInto = "head"),
-                    e.insertAt || (e.insertAt = "bottom");
-                var n = h(t, e);
-                return (
-                    f(n, e),
-                    function(t) {
-                        for (var r = [], o = 0; o < n.length; o++) {
-                            var a = n[o];
-                            (s = i[a.id]).refs--, r.push(s);
-                        }
-                        t && f(h(t, e), e);
-                        for (o = 0; o < r.length; o++) {
-                            var s;
-                            if (0 === (s = r[o]).refs) {
-                                for (var l = 0; l < s.parts.length; l++)
-                                    s.parts[l]();
-                                delete i[s.id];
-                            }
-                        }
-                    }
-                );
-            };
-            var v,
-                x =
-                    ((v = []),
-                    function(t, e) {
-                        return (v[t] = e), v.filter(Boolean).join("\n");
-                    });
-            function w(t, e, n, r) {
-                var o = n ? "" : r.css;
-                if (t.styleSheet) t.styleSheet.cssText = x(e, o);
-                else {
-                    var i = document.createTextNode(o),
-                        a = t.childNodes;
-                    a[e] && t.removeChild(a[e]),
-                        a.length ? t.insertBefore(i, a[e]) : t.appendChild(i);
-                }
-            }
-            function A(t, e) {
-                var n = e.css,
-                    r = e.media;
-                if ((r && t.setAttribute("media", r), t.styleSheet))
-                    t.styleSheet.cssText = n;
-                else {
-                    for (; t.firstChild; ) t.removeChild(t.firstChild);
-                    t.appendChild(document.createTextNode(n));
-                }
-            }
-            function k(t, e, n) {
-                var r = n.css,
-                    o = n.sourceMap,
-                    i = void 0 === e.convertToAbsoluteUrls && o;
-                (e.convertToAbsoluteUrls || i) && (r = p(r)),
-                    o &&
-                        (r +=
-                            "\n/*# sourceMappingURL=data:application/json;base64," +
-                            btoa(
-                                unescape(encodeURIComponent(JSON.stringify(o)))
-                            ) +
-                            " */");
-                var a = new Blob([r], { type: "text/css" }),
-                    s = t.href;
-                (t.href = URL.createObjectURL(a)), s && URL.revokeObjectURL(s);
-            }
-        },
-        function(t, e) {
-            t.exports = function(t) {
-                var e = "undefined" != typeof window && window.location;
-                if (!e) throw new Error("fixUrls requires window.location");
-                if (!t || "string" != typeof t) return t;
-                var n = e.protocol + "//" + e.host,
-                    r = n + e.pathname.replace(/\/[^\/]*$/, "/");
-                return t.replace(
-                    /url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi,
-                    function(t, e) {
-                        var o,
-                            i = e
-                                .trim()
-                                .replace(/^"(.*)"$/, function(t, e) {
-                                    return e;
-                                })
-                                .replace(/^'(.*)'$/, function(t, e) {
-                                    return e;
-                                });
-                        return /^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(
-                            i
-                        )
-                            ? t
-                            : ((o =
-                                  0 === i.indexOf("//")
-                                      ? i
-                                      : 0 === i.indexOf("/")
-                                      ? n + i
-                                      : r + i.replace(/^\.\//, "")),
-                              "url(" + JSON.stringify(o) + ")");
-                    }
-                );
-            };
-        },
-        function(t, e) {
-            !(function(t) {
-                "use strict";
-                if (!t.fetch) {
-                    var e = {
-                        searchParams: "URLSearchParams" in t,
-                        iterable: "Symbol" in t && "iterator" in Symbol,
-                        blob:
-                            "FileReader" in t &&
-                            "Blob" in t &&
-                            (function() {
-                                try {
-                                    return new Blob(), !0;
-                                } catch (t) {
-                                    return !1;
-                                }
-                            })(),
-                        formData: "FormData" in t,
-                        arrayBuffer: "ArrayBuffer" in t
-                    };
-                    if (e.arrayBuffer)
-                        var n = [
-                                "[object Int8Array]",
-                                "[object Uint8Array]",
-                                "[object Uint8ClampedArray]",
-                                "[object Int16Array]",
-                                "[object Uint16Array]",
-                                "[object Int32Array]",
-                                "[object Uint32Array]",
-                                "[object Float32Array]",
-                                "[object Float64Array]"
-                            ],
-                            r = function(t) {
-                                return t && DataView.prototype.isPrototypeOf(t);
-                            },
-                            o =
-                                ArrayBuffer.isView ||
-                                function(t) {
-                                    return (
-                                        t &&
-                                        n.indexOf(
-                                            Object.prototype.toString.call(t)
-                                        ) > -1
-                                    );
-                                };
-                    (u.prototype.append = function(t, e) {
-                        (t = s(t)), (e = l(e));
-                        var n = this.map[t];
-                        this.map[t] = n ? n + "," + e : e;
-                    }),
-                        (u.prototype.delete = function(t) {
-                            delete this.map[s(t)];
-                        }),
-                        (u.prototype.get = function(t) {
-                            return (t = s(t)), this.has(t) ? this.map[t] : null;
-                        }),
-                        (u.prototype.has = function(t) {
-                            return this.map.hasOwnProperty(s(t));
-                        }),
-                        (u.prototype.set = function(t, e) {
-                            this.map[s(t)] = l(e);
-                        }),
-                        (u.prototype.forEach = function(t, e) {
-                            for (var n in this.map)
-                                this.map.hasOwnProperty(n) &&
-                                    t.call(e, this.map[n], n, this);
-                        }),
-                        (u.prototype.keys = function() {
-                            var t = [];
-                            return (
-                                this.forEach(function(e, n) {
-                                    t.push(n);
-                                }),
-                                c(t)
-                            );
-                        }),
-                        (u.prototype.values = function() {
-                            var t = [];
-                            return (
-                                this.forEach(function(e) {
-                                    t.push(e);
-                                }),
-                                c(t)
-                            );
-                        }),
-                        (u.prototype.entries = function() {
-                            var t = [];
-                            return (
-                                this.forEach(function(e, n) {
-                                    t.push([n, e]);
-                                }),
-                                c(t)
-                            );
-                        }),
-                        e.iterable &&
-                            (u.prototype[Symbol.iterator] =
-                                u.prototype.entries);
-                    var i = ["DELETE", "GET", "HEAD", "OPTIONS", "POST", "PUT"];
-                    (_.prototype.clone = function() {
-                        return new _(this, { body: this._bodyInit });
-                    }),
-                        y.call(_.prototype),
-                        y.call(g.prototype),
-                        (g.prototype.clone = function() {
-                            return new g(this._bodyInit, {
-                                status: this.status,
-                                statusText: this.statusText,
-                                headers: new u(this.headers),
-                                url: this.url
-                            });
-                        }),
-                        (g.error = function() {
-                            var t = new g(null, { status: 0, statusText: "" });
-                            return (t.type = "error"), t;
-                        });
-                    var a = [301, 302, 303, 307, 308];
-                    (g.redirect = function(t, e) {
-                        if (-1 === a.indexOf(e))
-                            throw new RangeError("Invalid status code");
-                        return new g(null, {
-                            status: e,
-                            headers: { location: t }
-                        });
-                    }),
-                        (t.Headers = u),
-                        (t.Request = _),
-                        (t.Response = g),
-                        (t.fetch = function(t, n) {
-                            return new Promise(function(r, o) {
-                                var i = new _(t, n),
-                                    a = new XMLHttpRequest();
-                                (a.onload = function() {
-                                    var t,
-                                        e,
-                                        n = {
-                                            status: a.status,
-                                            statusText: a.statusText,
-                                            headers:
-                                                ((t =
-                                                    a.getAllResponseHeaders() ||
-                                                    ""),
-                                                (e = new u()),
-                                                t
-                                                    .split(/\r?\n/)
-                                                    .forEach(function(t) {
-                                                        var n = t.split(":"),
-                                                            r = n
-                                                                .shift()
-                                                                .trim();
-                                                        if (r) {
-                                                            var o = n
-                                                                .join(":")
-                                                                .trim();
-                                                            e.append(r, o);
-                                                        }
-                                                    }),
-                                                e)
-                                        };
-                                    n.url =
-                                        "responseURL" in a
-                                            ? a.responseURL
-                                            : n.headers.get("X-Request-URL");
-                                    var o =
-                                        "response" in a
-                                            ? a.response
-                                            : a.responseText;
-                                    r(new g(o, n));
-                                }),
-                                    (a.onerror = function() {
-                                        o(
-                                            new TypeError(
-                                                "Network request failed"
-                                            )
-                                        );
-                                    }),
-                                    (a.ontimeout = function() {
-                                        o(
-                                            new TypeError(
-                                                "Network request failed"
-                                            )
-                                        );
-                                    }),
-                                    a.open(i.method, i.url, !0),
-                                    "include" === i.credentials &&
-                                        (a.withCredentials = !0),
-                                    "responseType" in a &&
-                                        e.blob &&
-                                        (a.responseType = "blob"),
-                                    i.headers.forEach(function(t, e) {
-                                        a.setRequestHeader(e, t);
-                                    }),
-                                    a.send(
-                                        void 0 === i._bodyInit
-                                            ? null
-                                            : i._bodyInit
-                                    );
-                            });
-                        }),
-                        (t.fetch.polyfill = !0);
-                }
-                function s(t) {
-                    if (
-                        ("string" != typeof t && (t = String(t)),
-                        /[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(t))
-                    )
-                        throw new TypeError(
-                            "Invalid character in header field name"
-                        );
-                    return t.toLowerCase();
-                }
-                function l(t) {
-                    return "string" != typeof t && (t = String(t)), t;
-                }
-                function c(t) {
-                    var n = {
-                        next: function() {
-                            var e = t.shift();
-                            return { done: void 0 === e, value: e };
-                        }
-                    };
-                    return (
-                        e.iterable &&
-                            (n[Symbol.iterator] = function() {
-                                return n;
-                            }),
-                        n
-                    );
-                }
-                function u(t) {
-                    (this.map = {}),
-                        t instanceof u
-                            ? t.forEach(function(t, e) {
-                                  this.append(e, t);
-                              }, this)
-                            : Array.isArray(t)
-                            ? t.forEach(function(t) {
-                                  this.append(t[0], t[1]);
-                              }, this)
-                            : t &&
-                              Object.getOwnPropertyNames(t).forEach(function(
-                                  e
-                              ) {
-                                  this.append(e, t[e]);
-                              },
-                              this);
-                }
-                function d(t) {
-                    if (t.bodyUsed)
-                        return Promise.reject(new TypeError("Already read"));
-                    t.bodyUsed = !0;
-                }
-                function p(t) {
-                    return new Promise(function(e, n) {
-                        (t.onload = function() {
-                            e(t.result);
-                        }),
-                            (t.onerror = function() {
-                                n(t.error);
-                            });
-                    });
-                }
-                function f(t) {
-                    var e = new FileReader(),
-                        n = p(e);
-                    return e.readAsArrayBuffer(t), n;
-                }
-                function h(t) {
-                    if (t.slice) return t.slice(0);
-                    var e = new Uint8Array(t.byteLength);
-                    return e.set(new Uint8Array(t)), e.buffer;
-                }
-                function y() {
-                    return (
-                        (this.bodyUsed = !1),
-                        (this._initBody = function(t) {
-                            if (((this._bodyInit = t), t))
-                                if ("string" == typeof t) this._bodyText = t;
-                                else if (
-                                    e.blob &&
-                                    Blob.prototype.isPrototypeOf(t)
-                                )
-                                    this._bodyBlob = t;
-                                else if (
-                                    e.formData &&
-                                    FormData.prototype.isPrototypeOf(t)
-                                )
-                                    this._bodyFormData = t;
-                                else if (
-                                    e.searchParams &&
-                                    URLSearchParams.prototype.isPrototypeOf(t)
-                                )
-                                    this._bodyText = t.toString();
-                                else if (e.arrayBuffer && e.blob && r(t))
-                                    (this._bodyArrayBuffer = h(t.buffer)),
-                                        (this._bodyInit = new Blob([
-                                            this._bodyArrayBuffer
-                                        ]));
-                                else {
-                                    if (
-                                        !e.arrayBuffer ||
-                                        (!ArrayBuffer.prototype.isPrototypeOf(
-                                            t
-                                        ) &&
-                                            !o(t))
-                                    )
-                                        throw new Error(
-                                            "unsupported BodyInit type"
-                                        );
-                                    this._bodyArrayBuffer = h(t);
-                                }
-                            else this._bodyText = "";
-                            this.headers.get("content-type") ||
-                                ("string" == typeof t
-                                    ? this.headers.set(
-                                          "content-type",
-                                          "text/plain;charset=UTF-8"
-                                      )
-                                    : this._bodyBlob && this._bodyBlob.type
-                                    ? this.headers.set(
-                                          "content-type",
-                                          this._bodyBlob.type
-                                      )
-                                    : e.searchParams &&
-                                      URLSearchParams.prototype.isPrototypeOf(
-                                          t
-                                      ) &&
-                                      this.headers.set(
-                                          "content-type",
-                                          "application/x-www-form-urlencoded;charset=UTF-8"
-                                      ));
-                        }),
-                        e.blob &&
-                            ((this.blob = function() {
-                                var t = d(this);
-                                if (t) return t;
-                                if (this._bodyBlob)
-                                    return Promise.resolve(this._bodyBlob);
-                                if (this._bodyArrayBuffer)
-                                    return Promise.resolve(
-                                        new Blob([this._bodyArrayBuffer])
-                                    );
-                                if (this._bodyFormData)
-                                    throw new Error(
-                                        "could not read FormData body as blob"
-                                    );
-                                return Promise.resolve(
-                                    new Blob([this._bodyText])
-                                );
-                            }),
-                            (this.arrayBuffer = function() {
-                                return this._bodyArrayBuffer
-                                    ? d(this) ||
-                                          Promise.resolve(this._bodyArrayBuffer)
-                                    : this.blob().then(f);
-                            })),
-                        (this.text = function() {
-                            var t,
-                                e,
-                                n,
-                                r = d(this);
-                            if (r) return r;
-                            if (this._bodyBlob)
-                                return (
-                                    (t = this._bodyBlob),
-                                    (e = new FileReader()),
-                                    (n = p(e)),
-                                    e.readAsText(t),
-                                    n
-                                );
-                            if (this._bodyArrayBuffer)
-                                return Promise.resolve(
-                                    (function(t) {
-                                        for (
-                                            var e = new Uint8Array(t),
-                                                n = new Array(e.length),
-                                                r = 0;
-                                            r < e.length;
-                                            r++
-                                        )
-                                            n[r] = String.fromCharCode(e[r]);
-                                        return n.join("");
-                                    })(this._bodyArrayBuffer)
-                                );
-                            if (this._bodyFormData)
-                                throw new Error(
-                                    "could not read FormData body as text"
-                                );
-                            return Promise.resolve(this._bodyText);
-                        }),
-                        e.formData &&
-                            (this.formData = function() {
-                                return this.text().then(m);
-                            }),
-                        (this.json = function() {
-                            return this.text().then(JSON.parse);
-                        }),
-                        this
-                    );
-                }
-                function _(t, e) {
-                    var n,
-                        r,
-                        o = (e = e || {}).body;
-                    if (t instanceof _) {
-                        if (t.bodyUsed) throw new TypeError("Already read");
-                        (this.url = t.url),
-                            (this.credentials = t.credentials),
-                            e.headers || (this.headers = new u(t.headers)),
-                            (this.method = t.method),
-                            (this.mode = t.mode),
-                            o ||
-                                null == t._bodyInit ||
-                                ((o = t._bodyInit), (t.bodyUsed = !0));
-                    } else this.url = String(t);
-                    if (
-                        ((this.credentials =
-                            e.credentials || this.credentials || "omit"),
-                        (!e.headers && this.headers) ||
-                            (this.headers = new u(e.headers)),
-                        (this.method =
-                            ((n = e.method || this.method || "GET"),
-                            (r = n.toUpperCase()),
-                            i.indexOf(r) > -1 ? r : n)),
-                        (this.mode = e.mode || this.mode || null),
-                        (this.referrer = null),
-                        ("GET" === this.method || "HEAD" === this.method) && o)
-                    )
-                        throw new TypeError(
-                            "Body not allowed for GET or HEAD requests"
-                        );
-                    this._initBody(o);
-                }
-                function m(t) {
-                    var e = new FormData();
-                    return (
-                        t
-                            .trim()
-                            .split("&")
-                            .forEach(function(t) {
-                                if (t) {
-                                    var n = t.split("="),
-                                        r = n.shift().replace(/\+/g, " "),
-                                        o = n.join("=").replace(/\+/g, " ");
-                                    e.append(
-                                        decodeURIComponent(r),
-                                        decodeURIComponent(o)
-                                    );
-                                }
-                            }),
-                        e
-                    );
-                }
-                function g(t, e) {
-                    e || (e = {}),
-                        (this.type = "default"),
-                        (this.status = "status" in e ? e.status : 200),
-                        (this.ok = this.status >= 200 && this.status < 300),
-                        (this.statusText =
-                            "statusText" in e ? e.statusText : "OK"),
-                        (this.headers = new u(e.headers)),
-                        (this.url = e.url || ""),
-                        this._initBody(t);
-                }
-            })("undefined" != typeof self ? self : this);
-        },
-        function(t, e, n) {
+        function(t, e, r) {
             "use strict";
-            n.r(e);
-            n(2), n(7);
-            var r =
+            r.r(e);
+            r(8), r(3);
+            var n =
                 Object.assign ||
                 function(t) {
-                    for (var e, n = 1, r = arguments.length; n < r; n++)
-                        for (var o in (e = arguments[n]))
+                    for (var e, r = 1, n = arguments.length; r < n; r++)
+                        for (var o in (e = arguments[r]))
                             Object.prototype.hasOwnProperty.call(e, o) &&
                                 (t[o] = e[o]);
                     return t;
                 };
-            function o(t, e, n) {
-                var r = this,
+            function o(t, e, r) {
+                var n = this,
                     o = function() {
                         if (t.length > 0) {
                             var i = t.shift();
-                            i && i.apply(r, [e, o]);
-                        } else n(e);
+                            i && i.apply(n, [e, o]);
+                        } else r(e);
                     };
                 o();
             }
             function i(t, e) {
-                var n;
+                var r;
                 try {
-                    n = JSON.stringify(t);
+                    r = JSON.stringify(t);
                 } catch (t) {
                     throw new Error(
                         "Network request failed. Payload is not serializable: " +
                             t.message
                     );
                 }
-                return r({ body: n, method: "POST" }, e, {
-                    headers: r(
+                return n({ body: r, method: "POST" }, e, {
+                    headers: n(
                         { Accept: "*/*", "Content-Type": "application/json" },
                         e.headers || []
                     )
@@ -1130,7 +333,7 @@
             function a(t) {
                 void 0 === t && (t = {});
                 var e = t.constructOptions,
-                    n = t.customFetch,
+                    r = t.customFetch,
                     a = t.uri || "/graphql",
                     s = [],
                     l = [],
@@ -1141,8 +344,8 @@
                             p = {},
                             f = Array.isArray(t);
                         return (function(t, e) {
-                            return new Promise(function(n, r) {
-                                o(e ? l.slice() : s.slice(), t, n);
+                            return new Promise(function(r, n) {
+                                o(e ? l.slice() : s.slice(), t, r);
                             });
                         })(
                             f
@@ -1156,29 +359,29 @@
                                 )(t.request || t.requests, t.options);
                             })
                             .then(function(t) {
-                                return (p = r({}, t)), (n || fetch)(a, p);
+                                return (p = n({}, t)), (r || fetch)(a, p);
                             })
                             .then(function(t) {
                                 return t.text().then(function(e) {
                                     try {
-                                        var n = JSON.parse(e);
-                                        return (t.raw = e), (t.parsed = n), t;
-                                    } catch (n) {
-                                        return (d = n), (t.raw = e), t;
+                                        var r = JSON.parse(e);
+                                        return (t.raw = e), (t.parsed = r), t;
+                                    } catch (r) {
+                                        return (d = r), (t.raw = e), t;
                                     }
                                 });
                             })
                             .then(function(t) {
                                 return (function(t, e) {
-                                    return new Promise(function(n, r) {
-                                        o(e ? u.slice() : c.slice(), t, n);
+                                    return new Promise(function(r, n) {
+                                        o(e ? u.slice() : c.slice(), t, r);
                                     });
                                 })({ response: t, options: p }, f);
                             })
                             .then(function(t) {
                                 var e = t.response;
                                 if (e.parsed) {
-                                    if (!f) return r({}, e.parsed);
+                                    if (!f) return n({}, e.parsed);
                                     if (Array.isArray(e.parsed))
                                         return e.parsed;
                                     !(function(t) {
@@ -1189,8 +392,8 @@
                                     })(e);
                                 } else
                                     !(function(t, e) {
-                                        var n;
-                                        throw (((n =
+                                        var r;
+                                        throw (((r =
                                             t && t.status >= 300
                                                 ? new Error(
                                                       "Network request failed with status " +
@@ -1202,8 +405,8 @@
                                                 : new Error(
                                                       "Network request failed to return valid JSON"
                                                   )).response = t),
-                                        (n.parseError = e),
-                                        n);
+                                        (r.parseError = e),
+                                        r);
                                     })(e, d);
                             });
                     };
@@ -1233,8 +436,8 @@
             }
             function s(t) {
                 let e = t + "__none",
-                    n = t + "__squares",
-                    r = t + "__diagonals",
+                    r = t + "__squares",
+                    n = t + "__diagonals",
                     o = t + "__clusters";
                 d3.select("#" + t)
                     .append("div")
@@ -1251,9 +454,9 @@
                                     "__"
                                 )[0]
                             ),
-                            n = e.getAttribute("metric_x"),
-                            r = e.getAttribute("metric_y");
-                        B(this.options[this.selectedIndex].id, n, r, O);
+                            r = e.getAttribute("metric_x"),
+                            n = e.getAttribute("metric_y");
+                        S(this.options[this.selectedIndex].id, r, n, B);
                     })
                     .append("optgroup")
                     .attr("label", "Select a classification method:");
@@ -1269,7 +472,7 @@
                     i
                         .append("option")
                         .attr("class", "selection_option")
-                        .attr("id", n)
+                        .attr("id", r)
                         .attr(
                             "title",
                             "Apply square quartiles classification method (based on the 0.5 quartile of the X and Y metrics)"
@@ -1280,7 +483,7 @@
                     i
                         .append("option")
                         .attr("class", "selection_option")
-                        .attr("id", r)
+                        .attr("id", n)
                         .attr(
                             "title",
                             "Apply diagonal quartiles classifcation method (based on the assignment of a score to each participant proceeding from its distance to the 'optimal performance' corner)"
@@ -1301,38 +504,38 @@
                         .text("K-MEANS CLUSTERING");
             }
             function l(t, e) {
-                let n = [];
+                let r = [];
                 return (
                     t.forEach(t => {
                         -1 ==
                             $.inArray(
                                 t.toolname.replace(/[\. ()/_]/g, "-"),
                                 e
-                            ) && n.push(t);
+                            ) && r.push(t);
                     }),
-                    n
+                    r
                 );
             }
-            var c = n(1);
-            function u(t, e, n, r) {
+            var c = r(1);
+            function u(t, e, r, n) {
                 var o = document.getElementById(t + "_table"),
                     i = o.insertRow(-1);
                 (i.insertCell(0).innerHTML = "<b>TOOL</b>"),
                     (i.insertCell(1).innerHTML = "<b>QUARTILE</b>"),
-                    n.forEach(function(n) {
+                    r.forEach(function(r) {
                         var i = o.insertRow(-1);
                         if (
-                            ((i.insertCell(0).innerHTML = n.toolname),
+                            ((i.insertCell(0).innerHTML = r.toolname),
                             -1 ==
                                 $.inArray(
-                                    n.toolname.replace(/[\. ()/_]/g, "-"),
-                                    r
+                                    r.toolname.replace(/[\. ()/_]/g, "-"),
+                                    n
                                 ))
                         ) {
                             let t = e.find(
                                 t =>
                                     t.toolname.replace(/[\. ()/_]/g, "-") ===
-                                    n.toolname.replace(/[\. ()/_]/g, "-")
+                                    r.toolname.replace(/[\. ()/_]/g, "-")
                             );
                             i.insertCell(1).innerHTML = t.quartile;
                         } else i.insertCell(1).innerHTML = "--";
@@ -1340,15 +543,15 @@
                         (a.id =
                             t +
                             "___cell" +
-                            n.toolname.replace(/[\. ()/-]/g, "_")),
+                            r.toolname.replace(/[\. ()/-]/g, "_")),
                             a.addEventListener("click", function(e) {
-                                let n = this.id,
-                                    r =
+                                let r = this.id,
+                                    n =
                                         t +
                                         "___leg_rect" +
-                                        n.split("___cell")[1];
+                                        r.split("___cell")[1];
                                 document
-                                    .getElementById(r)
+                                    .getElementById(n)
                                     .dispatchEvent(new Event("click"));
                             }),
                             a.addEventListener("mouseover", function(t) {
@@ -1367,12 +570,12 @@
                                           .css("opacity", 1));
                             }),
                             a.addEventListener("mouseout", function(e) {
-                                let n = this.id;
+                                let r = this.id;
                                 d3.select(this).style("cursor", "default");
-                                let r =
-                                    t + "___leg_rect" + n.split("___cell")[1];
-                                0.2 == d3.select("#" + r).style("opacity") ||
-                                0.5 == d3.select("#" + r).style("opacity")
+                                let n =
+                                    t + "___leg_rect" + r.split("___cell")[1];
+                                0.2 == d3.select("#" + n).style("opacity") ||
+                                0.5 == d3.select("#" + n).style("opacity")
                                     ? ($(this).css("opacity", 0.5),
                                       $(this)
                                           .closest("tr")
@@ -1384,8 +587,8 @@
                             });
                     });
             }
-            function d(t, e, n) {
-                var r = Object.keys(e);
+            function d(t, e, r) {
+                var n = Object.keys(e);
                 $("#" + t + "_table td").each(function() {
                     var t = $(this).html();
                     1 == t
@@ -1398,15 +601,15 @@
                         ? $(this).css({ background: "#edf8e9" })
                         : "--" == t
                         ? $(this).css({ background: "#f0f0f5" })
-                        : $.inArray(t, r) > -1 &&
-                          -1 == $.inArray(t.replace(/[\. ()/_]/g, "-"), n)
+                        : $.inArray(t, n) > -1 &&
+                          -1 == $.inArray(t.replace(/[\. ()/_]/g, "-"), r)
                         ? $(this).css({
                               background:
                                   "linear-gradient(to left, white 92%, " +
                                   e[t] +
                                   " 8%)"
                           })
-                        : $.inArray(t.replace(/[\. ()/_]/g, "-"), n) > -1
+                        : $.inArray(t.replace(/[\. ()/_]/g, "-"), r) > -1
                         ? ($(this).css({
                               background:
                                   "linear-gradient(to left, white 92%, " +
@@ -1420,7 +623,7 @@
                         : $(this).css({ background: "#FFFFFF" });
                 });
             }
-            function p(t, e, n, r, o, i, a, s, c, p) {
+            function p(t, e, r, n, o, i, a, s, c, p) {
                 let f = l(t, i),
                     h = f
                         .map(t => t.x)
@@ -1434,15 +637,15 @@
                         }),
                     _ = d3.quantile(h, 0.5),
                     m = d3.quantile(y, 0.5),
-                    g = n.domain(),
-                    b = r.domain(),
+                    g = r.domain(),
+                    b = n.domain(),
                     v = d3.format(",");
                 e
                     .append("line")
-                    .attr("x1", n(_))
-                    .attr("y1", r(b[0]))
-                    .attr("x2", n(_))
-                    .attr("y2", r(b[1]))
+                    .attr("x1", r(_))
+                    .attr("y1", n(b[0]))
+                    .attr("x2", r(_))
+                    .attr("y2", n(b[1]))
                     .attr("id", function(t) {
                         return s + "___x_quartile";
                     })
@@ -1467,10 +670,10 @@
                     }),
                     e
                         .append("line")
-                        .attr("x1", n(g[0]))
-                        .attr("y1", r(m))
-                        .attr("x2", n(g[1]))
-                        .attr("y2", r(m))
+                        .attr("x1", r(g[0]))
+                        .attr("y1", n(m))
+                        .attr("x2", r(g[1]))
+                        .attr("y2", n(m))
                         .attr("id", function(t) {
                             return s + "___y_quartile";
                         })
@@ -1494,46 +697,46 @@
                                 .style("opacity", 0);
                         }),
                     1 == c &&
-                        (function(t, e, n, r, o, i, a, s) {
+                        (function(t, e, r, n, o, i, a, s) {
                             "bottom-right" == t
                                 ? e.forEach(function(t) {
-                                      t.x >= n && t.y <= r
+                                      t.x >= r && t.y <= n
                                           ? (t.quartile = 1)
-                                          : t.x >= n && t.y > r
+                                          : t.x >= r && t.y > n
                                           ? (t.quartile = 3)
-                                          : t.x < n && t.y > r
+                                          : t.x < r && t.y > n
                                           ? (t.quartile = 4)
-                                          : t.x < n &&
-                                            t.y <= r &&
+                                          : t.x < r &&
+                                            t.y <= n &&
                                             (t.quartile = 2);
                                   })
                                 : "top-right" == t &&
                                   e.forEach(function(t) {
-                                      t.x >= n && t.y < r
+                                      t.x >= r && t.y < n
                                           ? (t.quartile = 3)
-                                          : t.x >= n && t.y >= r
+                                          : t.x >= r && t.y >= n
                                           ? (t.quartile = 1)
-                                          : t.x < n && t.y >= r
+                                          : t.x < r && t.y >= n
                                           ? (t.quartile = 2)
-                                          : t.x < n &&
-                                            t.y < r &&
+                                          : t.x < r &&
+                                            t.y < n &&
                                             (t.quartile = 4);
                                   });
                             u(o, e, a, s), d(o, i, s);
                         })(a, f, _, m, s, p, t, i);
             }
-            function f(t, e, n, r, o, i, a, s, c, p, f, y) {
+            function f(t, e, r, n, o, i, a, s, c, p, f, y) {
                 let _ = l(t, s),
                     m = _.map(t => t.x),
                     g = _.map(t => t.y),
                     b = (function(t, e) {
-                        let n = Math.max.apply(null, t),
-                            r = Math.max.apply(null, e),
+                        let r = Math.max.apply(null, t),
+                            n = Math.max.apply(null, e),
                             o = t.map(function(t) {
-                                return t / n;
+                                return t / r;
                             }),
                             i = e.map(function(t) {
-                                return t / r;
+                                return t / n;
                             });
                         return [o, i];
                     })(m, g),
@@ -1555,25 +758,24 @@
                     return e - t;
                 });
                 let T = d3.quantile(k, 0.25),
-                    q = d3.quantile(k, 0.5),
-                    O = d3.quantile(k, 0.75),
-                    M = [
-                        h(k, E, T, c, w, A, e, n, r),
-                        h(k, E, q, c, w, A, e, n, r),
-                        h(k, E, O, c, w, A, e, n, r)
-                    ],
-                    $ = 0;
-                M.forEach(t => {
+                    M = d3.quantile(k, 0.5),
+                    B = d3.quantile(k, 0.75),
+                    O = 0;
+                [
+                    h(k, E, T, c, w, A, e, r, n),
+                    h(k, E, M, c, w, A, e, r, n),
+                    h(k, E, B, c, w, A, e, r, n)
+                ].forEach(t => {
                     let [o, s] = [t[0], t[1]];
                     e
                         .append("line")
                         .attr("clip-path", "url(#clip)")
-                        .attr("x1", n(o[0]))
-                        .attr("y1", r(s[0]))
-                        .attr("x2", n(o[1]))
-                        .attr("y2", r(s[1]))
+                        .attr("x1", r(o[0]))
+                        .attr("y1", n(s[0]))
+                        .attr("x2", r(o[1]))
+                        .attr("y2", n(s[1]))
                         .attr("id", function(t) {
-                            return p + "___diag_quartile_" + $;
+                            return p + "___diag_quartile_" + O;
                         })
                         .attr("stroke", "#0A58A2")
                         .attr("stroke-width", 2)
@@ -1585,40 +787,41 @@
                             .append("rect")
                             .attr("width", i)
                             .attr("height", a),
-                        ($ += 1);
+                        (O += 1);
                 }),
                     1 == f &&
-                        (function(t, e, n, r, o, i, a, s, l, c, p) {
+                        (function(t, e, r, n, o, i, a, s, l, c, p) {
                             let f = [[], [], [], []];
                             t.forEach(function(t) {
                                 t.score > e
                                     ? ((t.quartile = 1), f[0].push([t.x, t.y]))
-                                    : t.score > n && t.score <= e
+                                    : t.score > r && t.score <= e
                                     ? ((t.quartile = 2), f[1].push([t.x, t.y]))
-                                    : t.score > r && t.score <= n
+                                    : t.score > n && t.score <= r
                                     ? ((t.quartile = 3), f[2].push([t.x, t.y]))
-                                    : t.score <= r &&
+                                    : t.score <= n &&
                                       ((t.quartile = 4), f[3].push([t.x, t.y]));
                             });
                             let h = 1;
                             f.forEach(function(t) {
-                                var e,
-                                    n = (e = t).reduce(
-                                        function(t, n) {
+                                var e = (function(t) {
+                                    return t.reduce(
+                                        function(e, r) {
                                             return [
-                                                t[0] + n[0] / e.length,
-                                                t[1] + n[1] / e.length
+                                                e[0] + r[0] / t.length,
+                                                e[1] + r[1] / t.length
                                             ];
                                         },
                                         [0, 0]
                                     );
+                                })(t);
                                 i
                                     .append("text")
                                     .attr("class", function(t) {
                                         return o + "___diag_num";
                                     })
-                                    .attr("x", a(n[0]))
-                                    .attr("y", s(n[1]))
+                                    .attr("x", a(e[0]))
+                                    .attr("y", s(e[1]))
                                     .style("opacity", 0.4)
                                     .style("font-size", "2vw")
                                     .style("fill", "#0A58A2")
@@ -1627,15 +830,15 @@
                             }),
                                 u(o, t, c, p),
                                 d(o, l, p);
-                        })(_, T, q, O, p, e, n, r, y, t, s);
+                        })(_, T, M, B, p, e, r, n, y, t, s);
             }
-            function h(t, e, n, r, o, i, a, s, l) {
+            function h(t, e, r, n, o, i, a, s, l) {
                 let c;
-                for (let r = 0; r < t.length; r++)
-                    if (t[r] <= n) {
+                for (let n = 0; n < t.length; n++)
+                    if (t[n] <= r) {
                         c = [
-                            [e[t[r - 1]][0], e[t[r - 1]][1]],
-                            [e[t[r]][0], e[t[r]][1]]
+                            [e[t[n - 1]][0], e[t[n - 1]][1]],
+                            [e[t[n]][0], e[t[n]][1]]
                         ];
                         break;
                     }
@@ -1643,51 +846,51 @@
                     d,
                     p = [(c[0][0] + c[1][0]) / 2, (c[0][1] + c[1][1]) / 2];
                 return (
-                    "bottom-right" == r
+                    "bottom-right" == n
                         ? ((u = [p[0] - 2 * o, p[0] + 2 * o]),
                           (d = [p[1] - 2 * i, p[1] + 2 * i]))
-                        : "top-right" == r &&
+                        : "top-right" == n &&
                           ((u = [p[0] + 2 * o, p[0] - 2 * o]),
                           (d = [p[1] - 2 * i, p[1] + 2 * i])),
                     [u, d]
                 );
             }
-            var y = n(0),
-                _ = function(t, e, n) {
+            var y = r(0),
+                _ = function(t, e, r) {
                     return (
-                        (e[0] - t[0]) * (n[1] - t[1]) -
-                        (e[1] - t[1]) * (n[0] - t[0])
+                        (e[0] - t[0]) * (r[1] - t[1]) -
+                        (e[1] - t[1]) * (r[0] - t[0])
                     );
                 };
             function m(t, e) {
                 return t[0] - e[0] || t[1] - e[1];
             }
             function g(t) {
-                for (var e = t.length, n = [0, 1], r = 2, o = 2; o < e; ++o) {
-                    for (; r > 1 && _(t[n[r - 2]], t[n[r - 1]], t[o]) <= 0; )
-                        --r;
-                    n[r++] = o;
+                for (var e = t.length, r = [0, 1], n = 2, o = 2; o < e; ++o) {
+                    for (; n > 1 && _(t[r[n - 2]], t[r[n - 1]], t[o]) <= 0; )
+                        --n;
+                    r[n++] = o;
                 }
-                return n.slice(0, r);
+                return r.slice(0, n);
             }
             var b = function(t) {
-                if ((n = t.length) < 3) return null;
+                if ((r = t.length) < 3) return null;
                 var e,
-                    n,
-                    r = new Array(n),
-                    o = new Array(n);
-                for (e = 0; e < n; ++e) r[e] = [+t[e][0], +t[e][1], e];
-                for (r.sort(m), e = 0; e < n; ++e) o[e] = [r[e][0], -r[e][1]];
-                var i = g(r),
+                    r,
+                    n = new Array(r),
+                    o = new Array(r);
+                for (e = 0; e < r; ++e) n[e] = [+t[e][0], +t[e][1], e];
+                for (n.sort(m), e = 0; e < r; ++e) o[e] = [n[e][0], -n[e][1]];
+                var i = g(n),
                     a = g(o),
                     s = a[0] === i[0],
                     l = a[a.length - 1] === i[i.length - 1],
                     c = [];
-                for (e = i.length - 1; e >= 0; --e) c.push(t[r[i[e]][2]]);
-                for (e = +s; e < a.length - l; ++e) c.push(t[r[a[e]][2]]);
+                for (e = i.length - 1; e >= 0; --e) c.push(t[n[i[e]][2]]);
+                for (e = +s; e < a.length - l; ++e) c.push(t[n[a[e]][2]]);
                 return c;
             };
-            function v(t, e, n, r, o, i, a, s, c, p, f, h) {
+            function v(t, e, r, n, o, i, a, s, c, p, f, h) {
                 let _ = l(t, s),
                     m = _.map(t => t.x),
                     g = _.map(t => t.y),
@@ -1701,13 +904,13 @@
                     w.push(t.centroid[0]), A.push(t.centroid[1]);
                 });
                 let [k, E] = (function(t, e) {
-                        let n = Math.max.apply(null, t),
-                            r = Math.max.apply(null, e),
+                        let r = Math.max.apply(null, t),
+                            n = Math.max.apply(null, e),
                             o = t.map(function(t) {
-                                return t / n;
+                                return t / r;
                             }),
                             i = e.map(function(t) {
-                                return t / r;
+                                return t / n;
                             });
                         return [o, i];
                     })(w, A),
@@ -1722,15 +925,14 @@
                         let e = k[t] + (1 - E[t]);
                         T.push(e), (x[t].score = e);
                     }
-                let q =
-                    ((O = "score"),
-                    x.sort(function(t, e) {
-                        var n = t[O],
-                            r = e[O];
-                        return -1 * (n < r ? -1 : n > r ? 1 : 0);
-                    }));
-                var O;
-                (q = (function(t, e, n, r, o) {
+                let M = (function(t, e) {
+                    return t.sort(function(t, r) {
+                        var n = t[e],
+                            o = r[e];
+                        return -1 * (n < o ? -1 : n > o ? 1 : 0);
+                    });
+                })(x, "score");
+                (M = (function(t, e, r, n, o) {
                     let i = 1;
                     var a = [];
                     return (
@@ -1742,8 +944,8 @@
                                     .attr("class", function(t) {
                                         return e + "___cluster_num";
                                     })
-                                    .attr("x", n(o.centroid[0]))
-                                    .attr("y", r(o.centroid[1]))
+                                    .attr("x", r(o.centroid[0]))
+                                    .attr("y", n(o.centroid[1]))
                                     .style("opacity", 0.9)
                                     .style("font-size", "2vw")
                                     .style("fill", "#0A58A2")
@@ -1752,10 +954,10 @@
                                     s.push([i[0], i[1]]),
                                         t
                                             .append("line")
-                                            .attr("x1", n(o.centroid[0]))
-                                            .attr("y1", r(o.centroid[1]))
-                                            .attr("x2", n(i[0]))
-                                            .attr("y2", r(i[1]))
+                                            .attr("x1", r(o.centroid[0]))
+                                            .attr("y1", n(o.centroid[1]))
+                                            .attr("x2", r(i[0]))
+                                            .attr("y2", n(i[1]))
                                             .attr("class", function(t) {
                                                 return e + "___clust_lines";
                                             })
@@ -1776,7 +978,7 @@
                                 if (null != t.points)
                                     return t.points
                                         .map(function(t) {
-                                            return [n(t[0]), r(t[1])].join(",");
+                                            return [r(t[0]), n(t[1])].join(",");
                                         })
                                         .join(" ");
                             })
@@ -1787,32 +989,32 @@
                             .style("opacity", 0.1),
                         o
                     );
-                })(e, p, n, r, q)),
+                })(e, p, r, n, M)),
                     1 == f &&
-                        (function(t, e, n, r, o, i) {
+                        (function(t, e, r, n, o, i) {
                             t.forEach(function(t) {
-                                let n = [t.x, t.y];
+                                let r = [t.x, t.y];
                                 e.forEach(function(e) {
-                                    var r, o, i;
                                     1 ==
-                                        ((r = e.points),
-                                        (o = n),
-                                        (i = JSON.stringify(o)),
-                                        r.some(function(t) {
-                                            return JSON.stringify(t) === i;
-                                        })) && (t.quartile = e.cluster);
+                                        (function(t, e) {
+                                            var r = JSON.stringify(e);
+                                            return t.some(function(t) {
+                                                return JSON.stringify(t) === r;
+                                            });
+                                        })(e.points, r) &&
+                                        (t.quartile = e.cluster);
                                 });
                             }),
-                                u(n, t, o, i),
-                                d(n, r, i);
-                        })(_, q, p, h, t, s);
+                                u(r, t, o, i),
+                                d(r, n, i);
+                        })(_, M, p, h, t, s);
             }
-            function x(t, e, n, r, o, i, a, s, l, c, u, d) {
+            function x(t, e, r, n, o, i, a, s, l, c, u, d) {
                 let h;
                 null != document.getElementById(l + "_table") &&
                     ((document.getElementById(l + "_table").innerHTML = ""),
                     (h = !0)),
-                    (function(t, e, n, r, o) {
+                    (function(t, e, r, n, o) {
                         e.append("svg:defs")
                             .append("svg:marker")
                             .attr("id", "opt_triangle")
@@ -1834,8 +1036,8 @@
                             s,
                             l,
                             c,
-                            u = n.domain(),
-                            d = r.domain();
+                            u = r.domain(),
+                            d = n.domain();
                         "bottom-right" == o
                             ? ((i = u[1] - 0.05 * (u[1] - u[0])),
                               (a = d[1] - 0.9 * (d[1] - d[0])),
@@ -1852,10 +1054,10 @@
                             .attr("class", function(e) {
                                 return t + "___better_annotation";
                             })
-                            .attr("x1", n(i))
-                            .attr("y1", r(a))
-                            .attr("x2", n(s))
-                            .attr("y2", r(l))
+                            .attr("x1", r(i))
+                            .attr("y1", n(a))
+                            .attr("x2", r(s))
+                            .attr("y2", n(l))
                             .attr("stroke", "black")
                             .attr("stroke-width", 2)
                             .attr("marker-end", "url(#opt_triangle)")
@@ -1864,25 +1066,25 @@
                             .attr("class", function(e) {
                                 return t + "___better_annotation";
                             })
-                            .attr("x", n(u[1]))
-                            .attr("y", r(d[c]))
+                            .attr("x", r(u[1]))
+                            .attr("y", n(d[c]))
                             .style("opacity", 0.4)
                             .style("font-size", ".7vw")
                             .text("better");
-                    })(l, e, n, r, d),
+                    })(l, e, r, n, d),
                     c == l + "__squares"
-                        ? (w(t, e, n, r, s, l, d),
-                          p(t, e, n, r, o, s, d, l, h, u),
-                          (function(t, e, n, r, o) {
+                        ? (w(t, e, r, n, s, l, d),
+                          p(t, e, r, n, o, s, d, l, h, u),
+                          (function(t, e, r, n, o) {
                               let i,
                                   a,
                                   s,
                                   l,
                                   c = e.domain(),
-                                  u = n.domain();
-                              "bottom-right" == r
+                                  u = r.domain();
+                              "bottom-right" == n
                                   ? ((i = "1"), (a = "2"), (s = "3"), (l = "4"))
-                                  : "top-right" == r &&
+                                  : "top-right" == n &&
                                     ((i = "3"),
                                     (a = "4"),
                                     (s = "1"),
@@ -1893,7 +1095,7 @@
                                           return o + "___num_bottom_right";
                                       })
                                       .attr("x", e(c[1] - 0.05 * (c[1] - c[0])))
-                                      .attr("y", n(u[1] - 0.97 * (u[1] - u[0])))
+                                      .attr("y", r(u[1] - 0.97 * (u[1] - u[0])))
                                       .style("opacity", 0.4)
                                       .style("font-size", "2vw")
                                       .style("fill", "#0A58A2")
@@ -1904,7 +1106,7 @@
                                           return o + "___num_bottom_left";
                                       })
                                       .attr("x", e(c[1] - 0.98 * (c[1] - c[0])))
-                                      .attr("y", n(u[1] - 0.97 * (u[1] - u[0])))
+                                      .attr("y", r(u[1] - 0.97 * (u[1] - u[0])))
                                       .style("opacity", 0.4)
                                       .style("font-size", "2vw")
                                       .style("fill", "#0A58A2")
@@ -1915,7 +1117,7 @@
                                           return o + "___num_top_right";
                                       })
                                       .attr("x", e(c[1] - 0.05 * (c[1] - c[0])))
-                                      .attr("y", n(u[1] - 0.1 * (u[1] - u[0])))
+                                      .attr("y", r(u[1] - 0.1 * (u[1] - u[0])))
                                       .style("opacity", 0.4)
                                       .style("font-size", "2vw")
                                       .style("fill", "#0A58A2")
@@ -1926,45 +1128,45 @@
                                           return o + "___num_top_left";
                                       })
                                       .attr("x", e(c[1] - 0.98 * (c[1] - c[0])))
-                                      .attr("y", n(u[1] - 0.1 * (u[1] - u[0])))
+                                      .attr("y", r(u[1] - 0.1 * (u[1] - u[0])))
                                       .style("opacity", 0.4)
                                       .style("font-size", "2vw")
                                       .style("fill", "#0A58A2")
                                       .text(l);
-                          })(e, n, r, d, l))
+                          })(e, r, n, d, l))
                         : c == l + "__diagonals"
-                        ? (w(t, e, n, r, s, l, d),
-                          f(t, e, n, r, 0, i, a, s, d, l, h, u))
+                        ? (w(t, e, r, n, s, l, d),
+                          f(t, e, r, n, 0, i, a, s, d, l, h, u))
                         : c == l + "__clusters"
-                        ? (w(t, e, n, r, s, l, d),
-                          v(t, e, n, r, 0, 0, 0, s, d, l, h, u))
-                        : w(t, e, n, r, s, l, d);
+                        ? (w(t, e, r, n, s, l, d),
+                          v(t, e, r, n, 0, 0, 0, s, d, l, h, u))
+                        : w(t, e, r, n, s, l, d);
             }
-            function w(t, e, n, r, o, i, a) {
+            function w(t, e, r, n, o, i, a) {
                 const s = [];
                 let u;
                 l(t, o).forEach(function(t) {
                     s.push([t.x, t.y]);
                 });
-                let d = n.domain(),
-                    p = r.domain();
+                let d = r.domain(),
+                    p = n.domain();
                 "bottom-right" == a
                     ? ((u = c.getParetoFrontier(s, {
                           optimize: "bottomRight"
-                      })),
-                      u.unshift([u[0][0], p[1]]),
+                      })).unshift([u[0][0], p[1]]),
                       u.push([d[0], u[u.length - 1][1]]))
                     : "top-right" == a &&
-                      ((u = c.getParetoFrontier(s, { optimize: "topRight" })),
-                      u.unshift([u[0][0], p[0]]),
+                      ((u = c.getParetoFrontier(s, {
+                          optimize: "topRight"
+                      })).unshift([u[0][0], p[0]]),
                       u.push([d[0], u[u.length - 1][1]]));
                 for (var f = 0; f < u.length - 1; f++)
                     e.append("line")
                         .attr("clip-path", "url(#clip)")
-                        .attr("x1", n(u[f][0]))
-                        .attr("y1", r(u[f][1]))
-                        .attr("x2", n(u[f + 1][0]))
-                        .attr("y2", r(u[f + 1][1]))
+                        .attr("x1", r(u[f][0]))
+                        .attr("y1", n(u[f][1]))
+                        .attr("x2", r(u[f + 1][0]))
+                        .attr("y2", n(u[f + 1][1]))
                         .attr("id", function(t) {
                             return i + "___pareto";
                         })
@@ -1973,24 +1175,24 @@
                         .style("stroke-dasharray", "20, 5")
                         .style("opacity", 0.4);
             }
-            function A(t, e, n, r, o, i, a, s, l, c, u, d, p) {
+            function A(t, e, r, n, o, i, a, s, l, c, u, d, p) {
                 let f = t.split("___")[1];
                 if (
-                    (n.selectAll("#" + c + "___x_quartile").remove(),
-                    n.selectAll("#" + c + "___y_quartile").remove(),
-                    n.selectAll("#" + c + "___diag_quartile_0").remove(),
-                    n.selectAll("#" + c + "___diag_quartile_1").remove(),
-                    n.selectAll("#" + c + "___diag_quartile_2").remove(),
-                    n.selectAll("#" + c + "___num_bottom_right").remove(),
-                    n.selectAll("#" + c + "___num_top_right").remove(),
-                    n.selectAll("#" + c + "___num_bottom_left").remove(),
-                    n.selectAll("#" + c + "___num_top_left").remove(),
-                    n.selectAll("#" + c + "___pareto").remove(),
-                    n.selectAll("." + c + "___diag_num").remove(),
-                    n.selectAll("." + c + "___cluster_num").remove(),
-                    n.selectAll("." + c + "___clust_lines").remove(),
-                    n.selectAll("." + c + "___clust_polygons").remove(),
-                    n.selectAll("." + c + "___better_annotation").remove(),
+                    (r.selectAll("#" + c + "___x_quartile").remove(),
+                    r.selectAll("#" + c + "___y_quartile").remove(),
+                    r.selectAll("#" + c + "___diag_quartile_0").remove(),
+                    r.selectAll("#" + c + "___diag_quartile_1").remove(),
+                    r.selectAll("#" + c + "___diag_quartile_2").remove(),
+                    r.selectAll("#" + c + "___num_bottom_right").remove(),
+                    r.selectAll("#" + c + "___num_top_right").remove(),
+                    r.selectAll("#" + c + "___num_bottom_left").remove(),
+                    r.selectAll("#" + c + "___num_top_left").remove(),
+                    r.selectAll("#" + c + "___pareto").remove(),
+                    r.selectAll("." + c + "___diag_num").remove(),
+                    r.selectAll("." + c + "___cluster_num").remove(),
+                    r.selectAll("." + c + "___clust_lines").remove(),
+                    r.selectAll("." + c + "___clust_polygons").remove(),
+                    r.selectAll("." + c + "___better_annotation").remove(),
                     0 == d3.select("#" + t).style("opacity"))
                 ) {
                     d3.select("#" + t).style("opacity", 1),
@@ -2004,7 +1206,7 @@
                         d3.select("#" + c + "___left" + f).style("opacity", 1);
                     let h = $.inArray(f.replace(/_/g, "-"), l);
                     l.splice(h, 1),
-                        x(e, n, r, o, i, a, s, l, c, u, p, O[c]),
+                        x(e, r, n, o, i, a, s, l, c, u, p, B[c]),
                         d3.select(d).style("opacity", 1),
                         d3.select("text#" + c + "___" + f).style("opacity", 1);
                 } else
@@ -2018,13 +1220,13 @@
                         d3.select("#" + c + "___right" + f).style("opacity", 0),
                         d3.select("#" + c + "___left" + f).style("opacity", 0),
                         l.push(f.replace(/_/g, "-")),
-                        x(e, n, r, o, i, a, s, l, c, u, p, O[c]),
+                        x(e, r, n, o, i, a, s, l, c, u, p, B[c]),
                         d3.select(d).style("opacity", 0.2),
                         d3
                             .select("text#" + c + "___" + f)
                             .style("opacity", 0.2);
             }
-            function k(t, e, n, r, o, i, a) {
+            function k(t, e, r, n, o, i, a) {
                 let s = 20,
                     l = 40,
                     c = (function(t) {
@@ -2090,11 +1292,12 @@
                         .attr("height", p + s + c)
                         .append("g")
                         .attr("transform", "translate(" + u + "," + s + ")");
-                T.append("g")
-                    .append("rect")
-                    .attr("width", d)
-                    .attr("height", p)
-                    .attr("class", "plot-bg"),
+                if (
+                    (T.append("g")
+                        .append("rect")
+                        .attr("width", d)
+                        .attr("height", p)
+                        .attr("class", "plot-bg"),
                     T.append("g")
                         .attr("class", "axis axis--x")
                         .attr("transform", "translate(0," + p + ")")
@@ -2102,21 +1305,25 @@
                     T.append("g")
                         .attr("class", "axis axis--y")
                         .call(w),
-                    T.append("text")
-                        .attr(
-                            "transform",
-                            "translate(" +
-                                d / 2 +
-                                " ," +
-                                (p +
-                                    s +
-                                    Math.round(0.0347 * $(window).height())) +
-                                ")"
-                        )
-                        .style("text-anchor", "middle")
-                        .style("font-weight", "bold")
-                        .style("font-size", ".75vw")
-                        .text(i[r]),
+                    1 == n.startsWith("OEBM"))
+                )
+                    var M = i[n];
+                else M = n;
+                if (1 == o.startsWith("OEBM")) var B = i[o];
+                else B = o;
+                T.append("text")
+                    .attr(
+                        "transform",
+                        "translate(" +
+                            d / 2 +
+                            " ," +
+                            (p + s + Math.round(0.0347 * $(window).height())) +
+                            ")"
+                    )
+                    .style("text-anchor", "middle")
+                    .style("font-weight", "bold")
+                    .style("font-size", ".75vw")
+                    .text(M),
                     T.append("text")
                         .attr("transform", "rotate(-90)")
                         .attr("y", 0 - u)
@@ -2125,7 +1332,7 @@
                         .style("text-anchor", "middle")
                         .style("font-weight", "bold")
                         .style("font-size", ".75vw")
-                        .text(i[o]),
+                        .text(B),
                     T.append("line")
                         .attr("x1", 0)
                         .attr(
@@ -2156,13 +1363,13 @@
                         .style("text-anchor", "middle")
                         .style("font-size", ".75vw")
                         .text("Pareto frontier");
-                var q = d3
+                var O = d3
                         .axisBottom()
                         .ticks(12)
                         .tickFormat("")
                         .tickSize(p)
                         .scale(_),
-                    O = d3
+                    q = d3
                         .axisLeft()
                         .ticks((12 * p) / d)
                         .tickFormat("")
@@ -2170,21 +1377,21 @@
                         .scale(b);
                 T.append("g")
                     .attr("class", "bench_grid")
-                    .call(q),
+                    .call(O),
                     T.append("g")
                         .attr("class", "bench_grid")
-                        .call(O);
-                let M = [],
-                    S = d3.scaleOrdinal(
+                        .call(q);
+                let S = [],
+                    U = d3.scaleOrdinal(
                         d3.schemeSet1
                             .concat(d3.schemeSet3)
                             .concat(d3.schemeSet2)
                     );
-                var B = {};
+                var L = {};
                 t.forEach(function(t) {
-                    B[t.toolname] = S(t.toolname);
+                    L[t.toolname] = U(t.toolname);
                 }),
-                    (function(t, e, n, r, o, i, a, s, l, c, u) {
+                    (function(t, e, r, n, o, i, a, s, l, c, u) {
                         t
                             .append("g")
                             .selectAll("line")
@@ -2200,16 +1407,16 @@
                                 );
                             })
                             .attr("x1", function(t) {
-                                return n(t.x);
+                                return r(t.x);
                             })
                             .attr("y1", function(t) {
-                                return r(t.y + t.e_y);
+                                return n(t.y + t.e_y);
                             })
                             .attr("x2", function(t) {
-                                return n(t.x);
+                                return r(t.x);
                             })
                             .attr("y2", function(t) {
-                                return r(t.y - t.e_y);
+                                return n(t.y - t.e_y);
                             }),
                             t
                                 .append("g")
@@ -2226,16 +1433,16 @@
                                     );
                                 })
                                 .attr("x1", function(t) {
-                                    return n(t.x - t.e_x);
+                                    return r(t.x - t.e_x);
                                 })
                                 .attr("y1", function(t) {
-                                    return r(t.y);
+                                    return n(t.y);
                                 })
                                 .attr("x2", function(t) {
-                                    return n(t.x + t.e_x);
+                                    return r(t.x + t.e_x);
                                 })
                                 .attr("y2", function(t) {
-                                    return r(t.y);
+                                    return n(t.y);
                                 }),
                             t
                                 .append("g")
@@ -2252,16 +1459,16 @@
                                 })
                                 .attr("class", "error-cap")
                                 .attr("x1", function(t) {
-                                    return n(t.x) - 4;
+                                    return r(t.x) - 4;
                                 })
                                 .attr("y1", function(t) {
-                                    return r(t.y + t.e_y);
+                                    return n(t.y + t.e_y);
                                 })
                                 .attr("x2", function(t) {
-                                    return n(t.x) + 4;
+                                    return r(t.x) + 4;
                                 })
                                 .attr("y2", function(t) {
-                                    return r(t.y + t.e_y);
+                                    return n(t.y + t.e_y);
                                 }),
                             t
                                 .append("g")
@@ -2278,16 +1485,16 @@
                                 })
                                 .attr("class", "error-cap")
                                 .attr("x1", function(t) {
-                                    return n(t.x) - 4;
+                                    return r(t.x) - 4;
                                 })
                                 .attr("y1", function(t) {
-                                    return r(t.y - t.e_y);
+                                    return n(t.y - t.e_y);
                                 })
                                 .attr("x2", function(t) {
-                                    return n(t.x) + 4;
+                                    return r(t.x) + 4;
                                 })
                                 .attr("y2", function(t) {
-                                    return r(t.y - t.e_y);
+                                    return n(t.y - t.e_y);
                                 }),
                             t
                                 .append("g")
@@ -2304,16 +1511,16 @@
                                     );
                                 })
                                 .attr("x1", function(t) {
-                                    return n(t.x + t.e_x);
+                                    return r(t.x + t.e_x);
                                 })
                                 .attr("y1", function(t) {
-                                    return r(t.y) - 4;
+                                    return n(t.y) - 4;
                                 })
                                 .attr("x2", function(t) {
-                                    return n(t.x + t.e_x);
+                                    return r(t.x + t.e_x);
                                 })
                                 .attr("y2", function(t) {
-                                    return r(t.y) + 4;
+                                    return n(t.y) + 4;
                                 }),
                             t
                                 .append("g")
@@ -2330,16 +1537,16 @@
                                     );
                                 })
                                 .attr("x1", function(t) {
-                                    return n(t.x - t.e_x);
+                                    return r(t.x - t.e_x);
                                 })
                                 .attr("y1", function(t) {
-                                    return r(t.y) - 4;
+                                    return n(t.y) - 4;
                                 })
                                 .attr("x2", function(t) {
-                                    return n(t.x - t.e_x);
+                                    return r(t.x - t.e_x);
                                 })
                                 .attr("y2", function(t) {
-                                    return r(t.y) + 4;
+                                    return n(t.y) + 4;
                                 });
                         let d = d3.symbol(),
                             p = d3.format(","),
@@ -2365,7 +1572,7 @@
                             .attr("class", "line")
                             .attr("transform", function(t) {
                                 return (
-                                    "translate(" + n(t.x) + "," + r(t.y) + ")"
+                                    "translate(" + r(t.x) + "," + n(t.y) + ")"
                                 );
                             })
                             .attr("r", 6)
@@ -2377,6 +1584,10 @@
                                     s +
                                     "___" +
                                     t.toolname.replace(/[\. ()/-]/g, "_");
+                                if (1 == l.startsWith("OEBM")) var r = u[l];
+                                else r = l;
+                                if (1 == c.startsWith("OEBM")) var n = u[c];
+                                else n = c;
                                 1 == d3.select("#" + e).style("opacity") &&
                                     (o
                                         .transition()
@@ -2387,11 +1598,11 @@
                                             "<b>" +
                                                 t.toolname +
                                                 "</b><br/>" +
-                                                u[l] +
+                                                r +
                                                 ": " +
                                                 p(t.x) +
                                                 "<br/>" +
-                                                u[c] +
+                                                n +
                                                 ": " +
                                                 f(t.y)
                                         )
@@ -2412,13 +1623,13 @@
                         function(t) {
                             return t.toolname;
                         },
-                        S,
+                        U,
                         e,
-                        r,
+                        n,
                         o,
                         i
                     ),
-                    (function(t, e, n, r, o, i, a, s, l, c, u, d, p) {
+                    (function(t, e, r, n, o, i, a, s, l, c, u, d, p) {
                         let f = e
                             .selectAll(".legend")
                             .data(c)
@@ -2475,14 +1686,14 @@
                                         "___" +
                                         l.replace(/[\. ()/-]/g, "_")
                                 )._groups[0][0].id;
-                                if (t.length - s.length - 1 >= 4) {
-                                    A(c, t, e, n, r, o, i, a, s, u, d, this, p);
-                                } else if (
+                                if (t.length - s.length - 1 >= 4)
+                                    A(c, t, e, r, n, o, i, a, s, u, d, this, p);
+                                else if (
                                     t.length - s.length - 1 < 4 &&
                                     0 == d3.select("#" + c).style("opacity")
-                                ) {
-                                    A(c, t, e, n, r, o, i, a, s, u, d, this, p);
-                                } else {
+                                )
+                                    A(c, t, e, r, n, o, i, a, s, u, d, this, p);
+                                else {
                                     $(".removal_alert").remove();
                                     var f = $(
                                         '<div class="removal_alert">                                  <span class="closebtn" onclick="(this.parentNode.remove());">&times;</span>                                  At least four participants are required for the benchmark!!                                </div>'
@@ -2501,15 +1712,15 @@
                                             "___" +
                                             t.replace(/[\. ()/-]/g, "_")
                                     )._groups[0][0].id,
-                                    n = e.split("___")[1];
+                                    r = e.split("___")[1];
                                 0 == d3.select("#" + e).style("opacity")
                                     ? (d3.select(this).style("opacity", 1),
                                       d3
-                                          .select("text#" + u + "___" + n)
+                                          .select("text#" + u + "___" + r)
                                           .style("opacity", 1))
                                     : (d3.select(this).style("opacity", 0.2),
                                       d3
-                                          .select("text#" + u + "___" + n)
+                                          .select("text#" + u + "___" + r)
                                           .style("opacity", 0.2));
                             })
                             .on("mouseout", function(t) {
@@ -2519,15 +1730,15 @@
                                             "___" +
                                             t.replace(/[\. ()/-]/g, "_")
                                     )._groups[0][0].id,
-                                    n = e.split("___")[1];
+                                    r = e.split("___")[1];
                                 0 == d3.select("#" + e).style("opacity")
                                     ? (d3.select(this).style("opacity", 0.2),
                                       d3
-                                          .select("text#" + u + "___" + n)
+                                          .select("text#" + u + "___" + r)
                                           .style("opacity", 0.2))
                                     : (d3.select(this).style("opacity", 1),
                                       d3
-                                          .select("text#" + u + "___" + n)
+                                          .select("text#" + u + "___" + r)
                                           .style("opacity", 1));
                             }),
                             f
@@ -2551,182 +1762,156 @@
                                 .text(function(t) {
                                     return t;
                                 });
-                    })(t, T, _, b, k, d, p, M, S, S.domain(), e, n, B),
-                    x(t, T, _, b, k, d, p, M, e, n, B, a[e]);
+                    })(t, T, _, b, k, d, p, S, U, U.domain(), e, r, L),
+                    x(t, T, _, b, k, d, p, S, e, r, L, a[e]);
             }
             function E(t, e) {
-                var n = 0;
+                var r = 0;
                 return (
                     t.forEach(function(t) {
-                        "y" == e ? (n += t.e_y) : "x" == e && (n += t.e_x);
+                        "y" == e ? (r += t.e_y) : "x" == e && (r += t.e_x);
                     }),
-                    n / t.length
+                    r / t.length
                 );
             }
-            n.d(e, "load_scatter_visualization", function() {
-                return M;
+            r.d(e, "load_scatter_visualization", function() {
+                return O;
             }),
-                n.d(e, "onQuartileChange", function() {
-                    return B;
+                r.d(e, "onQuartileChange", function() {
+                    return S;
                 }),
-                n.d(e, "better", function() {
-                    return O;
+                r.d(e, "better", function() {
+                    return B;
                 });
             let T = {},
-                q = {},
-                O = {};
-            function M() {
+                M = {},
+                B = {};
+            function O() {
                 let t,
                     e,
-                    n,
-                    r = document.getElementsByClassName(
+                    r,
+                    n = document.getElementsByClassName(
                         "benchmarkingChart_scatter"
                     ),
                     o = 0;
-                for (n of ((o = 0), r)) {
-                    let r =
+                for (r of ((o = 0), n)) {
+                    let n =
                         "https://" +
-                        ($(n).data("mode") ? "dev-openebench" : "openebench") +
+                        ($(r).data("mode") ? "dev-openebench" : "openebench") +
                         ".bsc.es/";
-                    e = n.getAttribute("data-id");
-                    var i = n.getAttribute("metric_x"),
-                        a = n.getAttribute("metric_y");
                     if (
-                        ((t = (e + o).replace(":", "_")),
-                        (n.id = t),
+                        ((t = ((e = r.getAttribute("data-id")) + o).replace(
+                            ":",
+                            "_"
+                        )),
+                        (r.id = t),
                         s(t),
-                        S(
-                            r + "sciapi/graphql",
-                            'query getDatasets($challenge_id: String!){\n                          getDatasets(datasetFilters:{challenge_id: $challenge_id, type:"assessment"}) {\n                              _id\n                              community_ids\n                              datalink{\n                                  inline_data\n                              }\n                              depends_on{\n                                  tool_id\n                                  metrics_id\n                              }\n                          }\n                        }',
+                        q(
+                            n + "sciapi/graphql",
+                            'query getDatasets($dataset_id: String!){\n                          getDatasets(datasetFilters:{id: $dataset_id, type:"aggregation"}) {\n                              _id\n                              community_ids\n                              datalink{\n                                  inline_data\n                              }\n                          }\n                        }',
                             e,
-                            t,
-                            i,
-                            a
+                            t
                         ),
-                        "true" == n.getAttribute("toTable"))
+                        "true" == r.getAttribute("toTable"))
                     ) {
-                        var l = $(
+                        var i = $(
                             '<br><br><table id="' +
                                 (t + "_table") +
                                 '" data-id="' +
                                 e +
                                 '" class="benchmarkingTable_scatter"></table>'
                         );
-                        $("#" + t).append(l);
+                        $("#" + t).append(i);
                     }
                     o++;
                 }
             }
-            function S(t, e, n, r, o, i) {
+            function q(t, e, r, n) {
                 try {
-                    const s = a({ uri: t });
-                    s({ query: e, variables: { challenge_id: n } }).then(t => {
+                    const o = a({ uri: t });
+                    o({ query: e, variables: { dataset_id: r } }).then(t => {
                         let e = t.data.getDatasets;
                         if (0 == e.length) {
                             document
-                                .getElementById(r + "_dropdown_list")
+                                .getElementById(n + "_dropdown_list")
                                 .remove();
-                            var a = document.createElement("td");
-                            a.id = "no_benchmark_data";
-                            var l = document.createTextNode(
+                            var i = document.createElement("td");
+                            i.id = "no_benchmark_data";
+                            var a = document.createTextNode(
                                 "No data available for the selected challenge: " +
-                                    n
+                                    r
                             );
-                            a.appendChild(l),
-                                document.getElementById(r).appendChild(a);
+                            i.appendChild(a),
+                                document.getElementById(n).appendChild(i);
                         } else {
                             (() =>
-                                s({
+                                o({
                                     query:
-                                        "query getTools($community_id: String!){\n                        getTools(toolFilters:{community_id: $community_id}) {\n                            _id\n                            name\n                        }\n                        getMetrics {\n                          _id\n                          title\n                          representation_hints\n                        }\n                    }",
-                                    variables: {
-                                        community_id: e[0].community_ids[0]
-                                    }
+                                        "query getMetrics{\n                        getMetrics {\n                          _id\n                          title\n                          representation_hints\n                        }\n                    }"
                                 }))().then(t => {
-                                let n = t.data.getTools,
-                                    a = t.data.getMetrics,
-                                    s = {};
-                                n.forEach(function(t) {
-                                    s[t._id] = t.name;
-                                });
-                                let l = {},
-                                    c = {};
-                                a.forEach(function(t) {
-                                    (l[t._id] = t.title),
-                                        null !== t.representation_hints
-                                            ? (c[t._id] =
-                                                  t.representation_hints.optimization)
-                                            : (c[t._id] = null);
+                                let r = {};
+                                t.data.getMetrics.forEach(function(t) {
+                                    r[t._id] = t.title;
                                 }),
-                                    "minimize" == c[o] || "minimize" == c[i]
-                                        ? (O[r] = "bottom-right")
-                                        : (O[r] = "top-right"),
-                                    (function(t, e, n, r, o, i, a) {
+                                    "bottom-right" ==
+                                    e[0].datalink.inline_data.visualization
+                                        .optimization
+                                        ? (B[n] = "bottom-right")
+                                        : (B[n] = "top-right");
+                                let o =
+                                        e[0].datalink.inline_data.visualization
+                                            .x_axis,
+                                    i =
+                                        e[0].datalink.inline_data.visualization
+                                            .y_axis;
+                                document
+                                    .getElementById(n)
+                                    .setAttribute("metric_x", o),
+                                    document
+                                        .getElementById(n)
+                                        .setAttribute("metric_y", i),
+                                    (function(t, e, r, n, o, i) {
                                         try {
-                                            let l = {};
-                                            t.forEach(function(t) {
-                                                let n = e[t.depends_on.tool_id];
-                                                n in l || (l[n] = new Array(4));
-                                                let i = parseFloat(
-                                                    t.datalink.inline_data.value
-                                                );
-                                                t.depends_on.metrics_id == r
-                                                    ? ((l[n][0] = i),
-                                                      void 0 !==
-                                                      t.datalink.inline_data
-                                                          .error
-                                                          ? (l[
-                                                                n
-                                                            ][3] = parseFloat(
-                                                                t.datalink
-                                                                    .inline_data
-                                                                    .error
-                                                            ))
-                                                          : (l[n][3] = 0))
-                                                    : t.depends_on.metrics_id ==
-                                                          o &&
-                                                      ((l[n][1] = i),
-                                                      void 0 !==
-                                                      t.datalink.inline_data
-                                                          .error
-                                                          ? (l[
-                                                                n
-                                                            ][2] = parseFloat(
-                                                                t.datalink
-                                                                    .inline_data
-                                                                    .error
-                                                            ))
-                                                          : (l[n][2] = 0));
-                                            });
-                                            let c = [];
-                                            Object.keys(l).forEach(t => {
-                                                var e;
-                                                e =
-                                                    t.length > 22
-                                                        ? t.substring(0, 22)
-                                                        : t;
-                                                let n = {};
-                                                (n.toolname = e),
-                                                    (n.x = l[t][0]),
-                                                    (n.y = l[t][1]),
-                                                    (n.e_y = l[t][2]),
-                                                    (n.e_x = l[t][3]),
-                                                    c.push(n);
-                                            }),
-                                                (T[n] = c),
-                                                (q[n] = i);
-                                            var s = document.getElementById(
-                                                n + "_dropdown_list"
+                                            let s = [];
+                                            t[0].datalink.inline_data.challenge_participants.forEach(
+                                                function(t) {
+                                                    let e = t.tool_id;
+                                                    var r;
+                                                    r =
+                                                        e.length > 22
+                                                            ? e.substring(0, 22)
+                                                            : e;
+                                                    let n = {};
+                                                    (n.toolname = r),
+                                                        (n.x = t.metric_x),
+                                                        (n.y = t.metric_y),
+                                                        (n.e_y = t.stderr_y
+                                                            ? parseFloat(
+                                                                  t.stderr_y
+                                                              )
+                                                            : 0),
+                                                        (n.e_x = t.stderr_x
+                                                            ? parseFloat(
+                                                                  t.stderr_x
+                                                              )
+                                                            : 0),
+                                                        s.push(n);
+                                                }
+                                            ),
+                                                (T[e] = s),
+                                                (M[e] = o);
+                                            var a = document.getElementById(
+                                                e + "_dropdown_list"
                                             );
-                                            let u =
-                                                s.options[s.selectedIndex].id;
-                                            k(c, n, u, r, o, i, a);
+                                            let l =
+                                                a.options[a.selectedIndex].id;
+                                            k(s, e, l, r, n, o, i);
                                         } catch (t) {
                                             console.log(
                                                 `Invalid Url Error: ${t.stack} `
                                             );
                                         }
-                                    })(e, s, r, o, i, l, O);
+                                    })(e, n, o, i, r, B);
                             });
                         }
                     });
@@ -2734,13 +1919,826 @@
                     console.log(`Invalid Url Error: ${t.stack} `);
                 }
             }
-            function B(t, e, n, r) {
+            function S(t, e, r, n) {
                 var o = t.split("__")[0];
                 d3.select("#svg_" + o).remove();
                 let i = t;
-                k(T[o], o, i, e, n, q[o], r);
+                k(T[o], o, i, e, r, M[o], n);
             }
-            M();
+            O();
+        },
+        function(t, e) {
+            !(function(t) {
+                "use strict";
+                if (!t.fetch) {
+                    var e = {
+                        searchParams: "URLSearchParams" in t,
+                        iterable: "Symbol" in t && "iterator" in Symbol,
+                        blob:
+                            "FileReader" in t &&
+                            "Blob" in t &&
+                            (function() {
+                                try {
+                                    return new Blob(), !0;
+                                } catch (t) {
+                                    return !1;
+                                }
+                            })(),
+                        formData: "FormData" in t,
+                        arrayBuffer: "ArrayBuffer" in t
+                    };
+                    if (e.arrayBuffer)
+                        var r = [
+                                "[object Int8Array]",
+                                "[object Uint8Array]",
+                                "[object Uint8ClampedArray]",
+                                "[object Int16Array]",
+                                "[object Uint16Array]",
+                                "[object Int32Array]",
+                                "[object Uint32Array]",
+                                "[object Float32Array]",
+                                "[object Float64Array]"
+                            ],
+                            n = function(t) {
+                                return t && DataView.prototype.isPrototypeOf(t);
+                            },
+                            o =
+                                ArrayBuffer.isView ||
+                                function(t) {
+                                    return (
+                                        t &&
+                                        r.indexOf(
+                                            Object.prototype.toString.call(t)
+                                        ) > -1
+                                    );
+                                };
+                    (u.prototype.append = function(t, e) {
+                        (t = s(t)), (e = l(e));
+                        var r = this.map[t];
+                        this.map[t] = r ? r + "," + e : e;
+                    }),
+                        (u.prototype.delete = function(t) {
+                            delete this.map[s(t)];
+                        }),
+                        (u.prototype.get = function(t) {
+                            return (t = s(t)), this.has(t) ? this.map[t] : null;
+                        }),
+                        (u.prototype.has = function(t) {
+                            return this.map.hasOwnProperty(s(t));
+                        }),
+                        (u.prototype.set = function(t, e) {
+                            this.map[s(t)] = l(e);
+                        }),
+                        (u.prototype.forEach = function(t, e) {
+                            for (var r in this.map)
+                                this.map.hasOwnProperty(r) &&
+                                    t.call(e, this.map[r], r, this);
+                        }),
+                        (u.prototype.keys = function() {
+                            var t = [];
+                            return (
+                                this.forEach(function(e, r) {
+                                    t.push(r);
+                                }),
+                                c(t)
+                            );
+                        }),
+                        (u.prototype.values = function() {
+                            var t = [];
+                            return (
+                                this.forEach(function(e) {
+                                    t.push(e);
+                                }),
+                                c(t)
+                            );
+                        }),
+                        (u.prototype.entries = function() {
+                            var t = [];
+                            return (
+                                this.forEach(function(e, r) {
+                                    t.push([r, e]);
+                                }),
+                                c(t)
+                            );
+                        }),
+                        e.iterable &&
+                            (u.prototype[Symbol.iterator] =
+                                u.prototype.entries);
+                    var i = ["DELETE", "GET", "HEAD", "OPTIONS", "POST", "PUT"];
+                    (_.prototype.clone = function() {
+                        return new _(this, { body: this._bodyInit });
+                    }),
+                        y.call(_.prototype),
+                        y.call(g.prototype),
+                        (g.prototype.clone = function() {
+                            return new g(this._bodyInit, {
+                                status: this.status,
+                                statusText: this.statusText,
+                                headers: new u(this.headers),
+                                url: this.url
+                            });
+                        }),
+                        (g.error = function() {
+                            var t = new g(null, { status: 0, statusText: "" });
+                            return (t.type = "error"), t;
+                        });
+                    var a = [301, 302, 303, 307, 308];
+                    (g.redirect = function(t, e) {
+                        if (-1 === a.indexOf(e))
+                            throw new RangeError("Invalid status code");
+                        return new g(null, {
+                            status: e,
+                            headers: { location: t }
+                        });
+                    }),
+                        (t.Headers = u),
+                        (t.Request = _),
+                        (t.Response = g),
+                        (t.fetch = function(t, r) {
+                            return new Promise(function(n, o) {
+                                var i = new _(t, r),
+                                    a = new XMLHttpRequest();
+                                (a.onload = function() {
+                                    var t = {
+                                        status: a.status,
+                                        statusText: a.statusText,
+                                        headers: (function(t) {
+                                            var e = new u();
+                                            return (
+                                                t
+                                                    .split(/\r?\n/)
+                                                    .forEach(function(t) {
+                                                        var r = t.split(":"),
+                                                            n = r
+                                                                .shift()
+                                                                .trim();
+                                                        if (n) {
+                                                            var o = r
+                                                                .join(":")
+                                                                .trim();
+                                                            e.append(n, o);
+                                                        }
+                                                    }),
+                                                e
+                                            );
+                                        })(a.getAllResponseHeaders() || "")
+                                    };
+                                    t.url =
+                                        "responseURL" in a
+                                            ? a.responseURL
+                                            : t.headers.get("X-Request-URL");
+                                    var e =
+                                        "response" in a
+                                            ? a.response
+                                            : a.responseText;
+                                    n(new g(e, t));
+                                }),
+                                    (a.onerror = function() {
+                                        o(
+                                            new TypeError(
+                                                "Network request failed"
+                                            )
+                                        );
+                                    }),
+                                    (a.ontimeout = function() {
+                                        o(
+                                            new TypeError(
+                                                "Network request failed"
+                                            )
+                                        );
+                                    }),
+                                    a.open(i.method, i.url, !0),
+                                    "include" === i.credentials &&
+                                        (a.withCredentials = !0),
+                                    "responseType" in a &&
+                                        e.blob &&
+                                        (a.responseType = "blob"),
+                                    i.headers.forEach(function(t, e) {
+                                        a.setRequestHeader(e, t);
+                                    }),
+                                    a.send(
+                                        void 0 === i._bodyInit
+                                            ? null
+                                            : i._bodyInit
+                                    );
+                            });
+                        }),
+                        (t.fetch.polyfill = !0);
+                }
+                function s(t) {
+                    if (
+                        ("string" != typeof t && (t = String(t)),
+                        /[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(t))
+                    )
+                        throw new TypeError(
+                            "Invalid character in header field name"
+                        );
+                    return t.toLowerCase();
+                }
+                function l(t) {
+                    return "string" != typeof t && (t = String(t)), t;
+                }
+                function c(t) {
+                    var r = {
+                        next: function() {
+                            var e = t.shift();
+                            return { done: void 0 === e, value: e };
+                        }
+                    };
+                    return (
+                        e.iterable &&
+                            (r[Symbol.iterator] = function() {
+                                return r;
+                            }),
+                        r
+                    );
+                }
+                function u(t) {
+                    (this.map = {}),
+                        t instanceof u
+                            ? t.forEach(function(t, e) {
+                                  this.append(e, t);
+                              }, this)
+                            : Array.isArray(t)
+                            ? t.forEach(function(t) {
+                                  this.append(t[0], t[1]);
+                              }, this)
+                            : t &&
+                              Object.getOwnPropertyNames(t).forEach(function(
+                                  e
+                              ) {
+                                  this.append(e, t[e]);
+                              },
+                              this);
+                }
+                function d(t) {
+                    if (t.bodyUsed)
+                        return Promise.reject(new TypeError("Already read"));
+                    t.bodyUsed = !0;
+                }
+                function p(t) {
+                    return new Promise(function(e, r) {
+                        (t.onload = function() {
+                            e(t.result);
+                        }),
+                            (t.onerror = function() {
+                                r(t.error);
+                            });
+                    });
+                }
+                function f(t) {
+                    var e = new FileReader(),
+                        r = p(e);
+                    return e.readAsArrayBuffer(t), r;
+                }
+                function h(t) {
+                    if (t.slice) return t.slice(0);
+                    var e = new Uint8Array(t.byteLength);
+                    return e.set(new Uint8Array(t)), e.buffer;
+                }
+                function y() {
+                    return (
+                        (this.bodyUsed = !1),
+                        (this._initBody = function(t) {
+                            if (((this._bodyInit = t), t))
+                                if ("string" == typeof t) this._bodyText = t;
+                                else if (
+                                    e.blob &&
+                                    Blob.prototype.isPrototypeOf(t)
+                                )
+                                    this._bodyBlob = t;
+                                else if (
+                                    e.formData &&
+                                    FormData.prototype.isPrototypeOf(t)
+                                )
+                                    this._bodyFormData = t;
+                                else if (
+                                    e.searchParams &&
+                                    URLSearchParams.prototype.isPrototypeOf(t)
+                                )
+                                    this._bodyText = t.toString();
+                                else if (e.arrayBuffer && e.blob && n(t))
+                                    (this._bodyArrayBuffer = h(t.buffer)),
+                                        (this._bodyInit = new Blob([
+                                            this._bodyArrayBuffer
+                                        ]));
+                                else {
+                                    if (
+                                        !e.arrayBuffer ||
+                                        (!ArrayBuffer.prototype.isPrototypeOf(
+                                            t
+                                        ) &&
+                                            !o(t))
+                                    )
+                                        throw new Error(
+                                            "unsupported BodyInit type"
+                                        );
+                                    this._bodyArrayBuffer = h(t);
+                                }
+                            else this._bodyText = "";
+                            this.headers.get("content-type") ||
+                                ("string" == typeof t
+                                    ? this.headers.set(
+                                          "content-type",
+                                          "text/plain;charset=UTF-8"
+                                      )
+                                    : this._bodyBlob && this._bodyBlob.type
+                                    ? this.headers.set(
+                                          "content-type",
+                                          this._bodyBlob.type
+                                      )
+                                    : e.searchParams &&
+                                      URLSearchParams.prototype.isPrototypeOf(
+                                          t
+                                      ) &&
+                                      this.headers.set(
+                                          "content-type",
+                                          "application/x-www-form-urlencoded;charset=UTF-8"
+                                      ));
+                        }),
+                        e.blob &&
+                            ((this.blob = function() {
+                                var t = d(this);
+                                if (t) return t;
+                                if (this._bodyBlob)
+                                    return Promise.resolve(this._bodyBlob);
+                                if (this._bodyArrayBuffer)
+                                    return Promise.resolve(
+                                        new Blob([this._bodyArrayBuffer])
+                                    );
+                                if (this._bodyFormData)
+                                    throw new Error(
+                                        "could not read FormData body as blob"
+                                    );
+                                return Promise.resolve(
+                                    new Blob([this._bodyText])
+                                );
+                            }),
+                            (this.arrayBuffer = function() {
+                                return this._bodyArrayBuffer
+                                    ? d(this) ||
+                                          Promise.resolve(this._bodyArrayBuffer)
+                                    : this.blob().then(f);
+                            })),
+                        (this.text = function() {
+                            var t = d(this);
+                            if (t) return t;
+                            if (this._bodyBlob)
+                                return (function(t) {
+                                    var e = new FileReader(),
+                                        r = p(e);
+                                    return e.readAsText(t), r;
+                                })(this._bodyBlob);
+                            if (this._bodyArrayBuffer)
+                                return Promise.resolve(
+                                    (function(t) {
+                                        for (
+                                            var e = new Uint8Array(t),
+                                                r = new Array(e.length),
+                                                n = 0;
+                                            n < e.length;
+                                            n++
+                                        )
+                                            r[n] = String.fromCharCode(e[n]);
+                                        return r.join("");
+                                    })(this._bodyArrayBuffer)
+                                );
+                            if (this._bodyFormData)
+                                throw new Error(
+                                    "could not read FormData body as text"
+                                );
+                            return Promise.resolve(this._bodyText);
+                        }),
+                        e.formData &&
+                            (this.formData = function() {
+                                return this.text().then(m);
+                            }),
+                        (this.json = function() {
+                            return this.text().then(JSON.parse);
+                        }),
+                        this
+                    );
+                }
+                function _(t, e) {
+                    var r = (e = e || {}).body;
+                    if (t instanceof _) {
+                        if (t.bodyUsed) throw new TypeError("Already read");
+                        (this.url = t.url),
+                            (this.credentials = t.credentials),
+                            e.headers || (this.headers = new u(t.headers)),
+                            (this.method = t.method),
+                            (this.mode = t.mode),
+                            r ||
+                                null == t._bodyInit ||
+                                ((r = t._bodyInit), (t.bodyUsed = !0));
+                    } else this.url = String(t);
+                    if (
+                        ((this.credentials =
+                            e.credentials || this.credentials || "omit"),
+                        (!e.headers && this.headers) ||
+                            (this.headers = new u(e.headers)),
+                        (this.method = (function(t) {
+                            var e = t.toUpperCase();
+                            return i.indexOf(e) > -1 ? e : t;
+                        })(e.method || this.method || "GET")),
+                        (this.mode = e.mode || this.mode || null),
+                        (this.referrer = null),
+                        ("GET" === this.method || "HEAD" === this.method) && r)
+                    )
+                        throw new TypeError(
+                            "Body not allowed for GET or HEAD requests"
+                        );
+                    this._initBody(r);
+                }
+                function m(t) {
+                    var e = new FormData();
+                    return (
+                        t
+                            .trim()
+                            .split("&")
+                            .forEach(function(t) {
+                                if (t) {
+                                    var r = t.split("="),
+                                        n = r.shift().replace(/\+/g, " "),
+                                        o = r.join("=").replace(/\+/g, " ");
+                                    e.append(
+                                        decodeURIComponent(n),
+                                        decodeURIComponent(o)
+                                    );
+                                }
+                            }),
+                        e
+                    );
+                }
+                function g(t, e) {
+                    e || (e = {}),
+                        (this.type = "default"),
+                        (this.status = "status" in e ? e.status : 200),
+                        (this.ok = this.status >= 200 && this.status < 300),
+                        (this.statusText =
+                            "statusText" in e ? e.statusText : "OK"),
+                        (this.headers = new u(e.headers)),
+                        (this.url = e.url || ""),
+                        this._initBody(t);
+                }
+            })("undefined" != typeof self ? self : this);
+        },
+        function(t, e) {
+            t.exports = function(t) {
+                var e = "undefined" != typeof window && window.location;
+                if (!e) throw new Error("fixUrls requires window.location");
+                if (!t || "string" != typeof t) return t;
+                var r = e.protocol + "//" + e.host,
+                    n = r + e.pathname.replace(/\/[^\/]*$/, "/");
+                return t.replace(
+                    /url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi,
+                    function(t, e) {
+                        var o,
+                            i = e
+                                .trim()
+                                .replace(/^"(.*)"$/, function(t, e) {
+                                    return e;
+                                })
+                                .replace(/^'(.*)'$/, function(t, e) {
+                                    return e;
+                                });
+                        return /^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(
+                            i
+                        )
+                            ? t
+                            : ((o =
+                                  0 === i.indexOf("//")
+                                      ? i
+                                      : 0 === i.indexOf("/")
+                                      ? r + i
+                                      : n + i.replace(/^\.\//, "")),
+                              "url(" + JSON.stringify(o) + ")");
+                    }
+                );
+            };
+        },
+        function(t, e, r) {
+            var n = {},
+                o = (function(t) {
+                    var e;
+                    return function() {
+                        return (
+                            void 0 === e && (e = t.apply(this, arguments)), e
+                        );
+                    };
+                })(function() {
+                    return window && document && document.all && !window.atob;
+                }),
+                i = (function(t) {
+                    var e = {};
+                    return function(t) {
+                        if ("function" == typeof t) return t();
+                        if (void 0 === e[t]) {
+                            var r = function(t) {
+                                return document.querySelector(t);
+                            }.call(this, t);
+                            if (
+                                window.HTMLIFrameElement &&
+                                r instanceof window.HTMLIFrameElement
+                            )
+                                try {
+                                    r = r.contentDocument.head;
+                                } catch (t) {
+                                    r = null;
+                                }
+                            e[t] = r;
+                        }
+                        return e[t];
+                    };
+                })(),
+                a = null,
+                s = 0,
+                l = [],
+                c = r(4);
+            function u(t, e) {
+                for (var r = 0; r < t.length; r++) {
+                    var o = t[r],
+                        i = n[o.id];
+                    if (i) {
+                        i.refs++;
+                        for (var a = 0; a < i.parts.length; a++)
+                            i.parts[a](o.parts[a]);
+                        for (; a < o.parts.length; a++)
+                            i.parts.push(_(o.parts[a], e));
+                    } else {
+                        var s = [];
+                        for (a = 0; a < o.parts.length; a++)
+                            s.push(_(o.parts[a], e));
+                        n[o.id] = { id: o.id, refs: 1, parts: s };
+                    }
+                }
+            }
+            function d(t, e) {
+                for (var r = [], n = {}, o = 0; o < t.length; o++) {
+                    var i = t[o],
+                        a = e.base ? i[0] + e.base : i[0],
+                        s = { css: i[1], media: i[2], sourceMap: i[3] };
+                    n[a]
+                        ? n[a].parts.push(s)
+                        : r.push((n[a] = { id: a, parts: [s] }));
+                }
+                return r;
+            }
+            function p(t, e) {
+                var r = i(t.insertInto);
+                if (!r)
+                    throw new Error(
+                        "Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid."
+                    );
+                var n = l[l.length - 1];
+                if ("top" === t.insertAt)
+                    n
+                        ? n.nextSibling
+                            ? r.insertBefore(e, n.nextSibling)
+                            : r.appendChild(e)
+                        : r.insertBefore(e, r.firstChild),
+                        l.push(e);
+                else if ("bottom" === t.insertAt) r.appendChild(e);
+                else {
+                    if ("object" != typeof t.insertAt || !t.insertAt.before)
+                        throw new Error(
+                            "[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n"
+                        );
+                    var o = i(t.insertInto + " " + t.insertAt.before);
+                    r.insertBefore(e, o);
+                }
+            }
+            function f(t) {
+                if (null === t.parentNode) return !1;
+                t.parentNode.removeChild(t);
+                var e = l.indexOf(t);
+                e >= 0 && l.splice(e, 1);
+            }
+            function h(t) {
+                var e = document.createElement("style");
+                return (
+                    void 0 === t.attrs.type && (t.attrs.type = "text/css"),
+                    y(e, t.attrs),
+                    p(t, e),
+                    e
+                );
+            }
+            function y(t, e) {
+                Object.keys(e).forEach(function(r) {
+                    t.setAttribute(r, e[r]);
+                });
+            }
+            function _(t, e) {
+                var r, n, o, i;
+                if (e.transform && t.css) {
+                    if (!(i = e.transform(t.css))) return function() {};
+                    t.css = i;
+                }
+                if (e.singleton) {
+                    var l = s++;
+                    (r = a || (a = h(e))),
+                        (n = g.bind(null, r, l, !1)),
+                        (o = g.bind(null, r, l, !0));
+                } else
+                    t.sourceMap &&
+                    "function" == typeof URL &&
+                    "function" == typeof URL.createObjectURL &&
+                    "function" == typeof URL.revokeObjectURL &&
+                    "function" == typeof Blob &&
+                    "function" == typeof btoa
+                        ? ((r = (function(t) {
+                              var e = document.createElement("link");
+                              return (
+                                  void 0 === t.attrs.type &&
+                                      (t.attrs.type = "text/css"),
+                                  (t.attrs.rel = "stylesheet"),
+                                  y(e, t.attrs),
+                                  p(t, e),
+                                  e
+                              );
+                          })(e)),
+                          (n = function(t, e, r) {
+                              var n = r.css,
+                                  o = r.sourceMap,
+                                  i = void 0 === e.convertToAbsoluteUrls && o;
+                              (e.convertToAbsoluteUrls || i) && (n = c(n));
+                              o &&
+                                  (n +=
+                                      "\n/*# sourceMappingURL=data:application/json;base64," +
+                                      btoa(
+                                          unescape(
+                                              encodeURIComponent(
+                                                  JSON.stringify(o)
+                                              )
+                                          )
+                                      ) +
+                                      " */");
+                              var a = new Blob([n], { type: "text/css" }),
+                                  s = t.href;
+                              (t.href = URL.createObjectURL(a)),
+                                  s && URL.revokeObjectURL(s);
+                          }.bind(null, r, e)),
+                          (o = function() {
+                              f(r), r.href && URL.revokeObjectURL(r.href);
+                          }))
+                        : ((r = h(e)),
+                          (n = function(t, e) {
+                              var r = e.css,
+                                  n = e.media;
+                              n && t.setAttribute("media", n);
+                              if (t.styleSheet) t.styleSheet.cssText = r;
+                              else {
+                                  for (; t.firstChild; )
+                                      t.removeChild(t.firstChild);
+                                  t.appendChild(document.createTextNode(r));
+                              }
+                          }.bind(null, r)),
+                          (o = function() {
+                              f(r);
+                          }));
+                return (
+                    n(t),
+                    function(e) {
+                        if (e) {
+                            if (
+                                e.css === t.css &&
+                                e.media === t.media &&
+                                e.sourceMap === t.sourceMap
+                            )
+                                return;
+                            n((t = e));
+                        } else o();
+                    }
+                );
+            }
+            t.exports = function(t, e) {
+                if (
+                    "undefined" != typeof DEBUG &&
+                    DEBUG &&
+                    "object" != typeof document
+                )
+                    throw new Error(
+                        "The style-loader cannot be used in a non-browser environment"
+                    );
+                ((e = e || {}).attrs =
+                    "object" == typeof e.attrs ? e.attrs : {}),
+                    e.singleton ||
+                        "boolean" == typeof e.singleton ||
+                        (e.singleton = o()),
+                    e.insertInto || (e.insertInto = "head"),
+                    e.insertAt || (e.insertAt = "bottom");
+                var r = d(t, e);
+                return (
+                    u(r, e),
+                    function(t) {
+                        for (var o = [], i = 0; i < r.length; i++) {
+                            var a = r[i];
+                            (s = n[a.id]).refs--, o.push(s);
+                        }
+                        t && u(d(t, e), e);
+                        for (i = 0; i < o.length; i++) {
+                            var s;
+                            if (0 === (s = o[i]).refs) {
+                                for (var l = 0; l < s.parts.length; l++)
+                                    s.parts[l]();
+                                delete n[s.id];
+                            }
+                        }
+                    }
+                );
+            };
+            var m = (function() {
+                var t = [];
+                return function(e, r) {
+                    return (t[e] = r), t.filter(Boolean).join("\n");
+                };
+            })();
+            function g(t, e, r, n) {
+                var o = r ? "" : n.css;
+                if (t.styleSheet) t.styleSheet.cssText = m(e, o);
+                else {
+                    var i = document.createTextNode(o),
+                        a = t.childNodes;
+                    a[e] && t.removeChild(a[e]),
+                        a.length ? t.insertBefore(i, a[e]) : t.appendChild(i);
+                }
+            }
+        },
+        function(t, e) {
+            t.exports = function(t) {
+                var e = [];
+                return (
+                    (e.toString = function() {
+                        return this.map(function(e) {
+                            var r = (function(t, e) {
+                                var r = t[1] || "",
+                                    n = t[3];
+                                if (!n) return r;
+                                if (e && "function" == typeof btoa) {
+                                    var o = (function(t) {
+                                            return (
+                                                "/*# sourceMappingURL=data:application/json;charset=utf-8;base64," +
+                                                btoa(
+                                                    unescape(
+                                                        encodeURIComponent(
+                                                            JSON.stringify(t)
+                                                        )
+                                                    )
+                                                ) +
+                                                " */"
+                                            );
+                                        })(n),
+                                        i = n.sources.map(function(t) {
+                                            return (
+                                                "/*# sourceURL=" +
+                                                n.sourceRoot +
+                                                t +
+                                                " */"
+                                            );
+                                        });
+                                    return [r]
+                                        .concat(i)
+                                        .concat([o])
+                                        .join("\n");
+                                }
+                                return [r].join("\n");
+                            })(e, t);
+                            return e[2] ? "@media " + e[2] + "{" + r + "}" : r;
+                        }).join("");
+                    }),
+                    (e.i = function(t, r) {
+                        "string" == typeof t && (t = [[null, t, ""]]);
+                        for (var n = {}, o = 0; o < this.length; o++) {
+                            var i = this[o][0];
+                            "number" == typeof i && (n[i] = !0);
+                        }
+                        for (o = 0; o < t.length; o++) {
+                            var a = t[o];
+                            ("number" == typeof a[0] && n[a[0]]) ||
+                                (r && !a[2]
+                                    ? (a[2] = r)
+                                    : r &&
+                                      (a[2] = "(" + a[2] + ") and (" + r + ")"),
+                                e.push(a));
+                        }
+                    }),
+                    e
+                );
+            };
+        },
+        function(t, e, r) {
+            (t.exports = r(6)(!1)).push([
+                t.i,
+                '\n  \n  .error-line {\n    stroke:black;\n    stroke-dasharray: 2,2;\n  }\n  \n  .error-cap {\n    stroke:black;\n    stroke-width: 1px;\n  }\n  \n    div.benchmark_tooltip {\n      background-color: #fff;\n      padding: 7px;\n      text-shadow: #f5f5f5 0 1px 0;\n      font: 15px Helvetica Neue;\n      border: 4.5px solid;\n      border-color: #0A58A2;\n      border-radius: 3px;\n      opacity: 0.95;\n      position: absolute;\n      box-shadow: rgba(0, 0, 0, 0.3) 0 10px 15px;\n    }\n  \n  .benchmark_tooltip:after {\n      content: " ";\n      position: absolute;\n      top: 50%;\n      right: 100%;\n      margin-top: -10px;\n      border-width: 10px;\n      border-style: solid;\n      border-color: transparent transparent transparent transparent;\n      \n  }\n  \n   .plot-bg {\n     fill:#F8F8F8;\n     stroke: black;\n   }\n      \n   .axis path,\n   .axis line {\n       fill: none;\n       stroke: grey;\n       stroke-width: 1;\n       shape-rendering: crispEdges;\n   }\n\n   .bench_grid {\n    stroke-opacity: 0.1;\n    stroke-dasharray: 7,5;\n  }\n\n    \n    .classificators_list{\n        background-color: #0A58A2; \n        border-radius: 8px;\n        color: #fff;\n        font-size: 1vw;\n        padding-left: 25px;\n        padding-right: 25px;\n        text-align: center;\n        width: 20vw;\n    \n        }\n    \n    .classificators_list:hover {\n        background-color: #b3cde0;\n    \n    }\n\n    .benchmarkingTable_scatter td {\n        border: 2px solid black;\n        border-collapse: collapse;\n        text-align: center;\n        font-size: .7vw;\n    }\n\n    .benchmarkingTable_scatter {\n        width: 17vw; \n        border-collapse: collapse; \n        background-color: #f0f0f0;\n        border: 5px solid black; \n        float: right;\n    }\n\n    .benchmark_legend_rect {\n        cursor: pointer;\n    }\n\n    .benchmarkingChart_scatter{\n        width: 90vw;\n    }\n\n    .benchmarkingSVG{\n        width: 68vw;\n    }\n      .axis--x {\n          font-size: 12px;\n      }\n\n      .axis--y {\n        font-size: 12px;\n    }\n\n    .removal_alert {\n        padding: 10px;\n        background-color: #ffcccc;\n        color: #D10000;\n    }\n    \n    .closebtn {\n        margin-left: 15px;\n        color: #D10000;\n        font-weight: bold;\n        float: right;\n        font-size: 22px;\n        line-height: 20px;\n        cursor: pointer;\n        transition: 0.3s;\n    }\n    \n    .closebtn:hover {\n        color: white;\n    }',
+                ""
+            ]);
+        },
+        function(t, e, r) {
+            var n = r(7);
+            "string" == typeof n && (n = [[t.i, n, ""]]);
+            var o = { hmr: !0, transform: void 0, insertInto: void 0 };
+            r(5)(n, o);
+            n.locals && (t.exports = n.locals);
         }
     ])
 );

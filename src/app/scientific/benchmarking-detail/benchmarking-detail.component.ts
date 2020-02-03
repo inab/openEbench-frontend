@@ -63,6 +63,7 @@ export class BenchmarkingDetailComponent implements OnInit {
                 datalink {
                     inline_data
                 }
+                _id
             }
         }
     `;
@@ -132,10 +133,10 @@ export class BenchmarkingDetailComponent implements OnInit {
         return this.route.snapshot.paramMap.get(param);
     }
 
-    // public tabClick(event: Object): void {
-    //     console.log(event);
-    //     $(".benchmarkingChart_scatter").html("");
-    //     $(".benchmarkingChart_bars").html("");
-    //     this.loadCharts(this.datasetsGraphql);
-    // }
+    public tabClick(event: Object): void {
+        //console.log(event)
+        $(".benchmarkingChart_scatter").html("");
+        $(".benchmarkingChart_bars").html("");
+        this.loadCharts(this.datasetsGraphql);
+    }
 }
