@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { Location } from '@angular/common'
 import { KeycloakService } from 'keycloak-angular'
 import { KeycloakProfile } from 'keycloak-js'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
+import { error } from '@angular/compiler/src/util'
 
 /**
  * This component is where the we specify the top menu paths
@@ -11,6 +13,7 @@ import { KeycloakProfile } from 'keycloak-js'
     templateUrl: './top-menu.component.html',
     styleUrls: ['./top-menu.component.css']
 })
+
 /**
  * Class top menu component
  */
@@ -25,7 +28,8 @@ export class TopMenuComponent implements OnInit {
      */
     constructor(
         private location: Location,
-        private keycloakService: KeycloakService
+        private keycloakService: KeycloakService,
+        private http: HttpClient
     ) {}
 
     /**
@@ -39,58 +43,65 @@ export class TopMenuComponent implements OnInit {
     /**
      * Navigation links and labels for the menu on the left
      */
-    public navLinks: any[]
+    public navItems: any
 
     /**
      * Call the getProfileName function on start
      */
     ngOnInit() {
-        this.navLinks = [
-            {
-                label: 'Scientific Benchmarking',
-                path: '/scientific'
+        const a = this.http.get('http://localhost:3030/links')
+        a.subscribe(
+            data => {
+                this.navItems = data
             },
-            {
-                label: 'Technical Monitoring',
-                path: '/tool'
-            },
-            {
-                label: 'Statistics',
-                path: '/stats'
-            },
-            {
-                label: 'About',
-                path: '/about'
-            },
-            {
-                label: 'Docs',
-                path: '',
-                href: 'https://openebench.bsc.es/docs/'
-            }
-        ]
-        this.getProfileName()
+            err => console.log(err)
+            // () => console.log(this.navLinks)
+        )
+        // this.navLinks = [
+        // {
+        //     label: 'Scientific Benchmarking',
+        //     path: '/scientific'
+        // },
+        // {
+        //     label: 'Technical Monitoring',
+        //     path: '/tool'
+        // },
+        // {
+        //     label: 'Statistics',
+        //     path: '/stats'
+        // },
+        // {
+        //     label: 'About',
+        //     path: '/about'
+        // },
+        // {
+        //     label: 'Docs',
+        //     path: '',
+        //     href: 'https://openebench.bsc.es/docs/'
+        // }
+        // this.getProfileName()
     }
 
     /**
      * Gets the name of the user to add toggle between login and username
      */
-    getProfileName() {
-        this.keycloakService.isLoggedIn().then(res => {
-            if (res) {
-                this.keycloakService.loadUserProfile().then(resp => {
-                    this.navLinks.push({
-                        label: resp.username,
-                        path: '/private'
-                    })
-                })
-            } else {
-                this.navLinks.push({
-                    label: 'Login',
-                    path: '/private'
-                })
-            }
-        })
-    }
+    // getProfileName() {
+    //     this.keycloakService.isLoggedIn().then(res => {
+    //         if (res) {
+    //             this.keycloakService.loadUserProfile().then(resp => {
+    //                 this.navLinks.push({
+    //                     label: resp.username,
+    //                     path: '/private'
+    //                 })
+    //             })
+    //         } else {
+    //             this.navLinks.push({
+    //                 label: 'Login',
+    //                 path: '/private'
+    //             })
+    //         }
+    //     })
+    // }
 
     /**
      * Get URL path

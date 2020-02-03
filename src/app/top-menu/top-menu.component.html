@@ -1,1 +1,22 @@
-<a *ngFor="let link of navLinks" mat-menu-item [routerLink]="link.path">{{link.label}}</a>
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+	<mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+
+	<span *ngFor="let item of navItems">
+		<span *ngIf="item.submenu && item.submenu.length > 0">
+			<button mat-menu-item [matMenuTriggerFor]="menu.childMenu">
+				{{item.label}}
+			</button>
+			<app-menu-item #menu [items]="item.submenu"></app-menu-item>
+		</span>
+		<!-- Leaf node buttons here -->
+		<span *ngIf="!item.submenu || item.submenu.length === 0">
+			<button mat-menu-item [routerLink]="item.path">
+				{{item.label}}
+			</button>
+		</span>
+	</span>
+
+</mat-menu>
