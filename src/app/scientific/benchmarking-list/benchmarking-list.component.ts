@@ -152,7 +152,6 @@ export class BenchmarkingListComponent implements OnInit {
                 variables: { community_id: this.id }
             })
             .valueChanges.subscribe(result => {
-                console.log(result.data);
                 this.datasetsGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;

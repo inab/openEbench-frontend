@@ -109,9 +109,6 @@ export class BenchmarkingDetailComponent implements OnInit {
     }
 
     private loadCharts(data) {
-        console.log(
-            data.getDatasets[0].datalink.inline_data.visualization.type
-        );
 
         switch (data.getDatasets[0].datalink.inline_data.visualization.type) {
             case "2D-plot":
