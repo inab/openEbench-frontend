@@ -44,7 +44,6 @@
         "jquery": "^3.4.1",
         "keycloak-angular": "^6.1.0",
         "license-checker": "^25.0.1",
-        "ngrx": "^2.0.1",
         "popper.js": "^1.15.0",
         "rxjs": "^6.5.2",
         "rxjs-compat": "^6.5.2",
