@@ -23,9 +23,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
             transition(
                 'expanded <=> collapsed',
                 animate('125ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-            )
-        ])
-    ]
+            ),
+        ]),
+    ],
 })
 
 /**
@@ -52,7 +52,7 @@ export class ToolTableComponent implements OnInit {
         'pdbe',
         'pride',
         'silva',
-        'string'
+        'string',
     ]
     public resultsLength = 0
     public isLoadingResults = true
@@ -121,7 +121,7 @@ export class ToolTableComponent implements OnInit {
         'script',
         'rest',
         'workbench',
-        'suite'
+        'suite',
     ]
 
     private edamSubOntologyList = ['topic', 'operation', 'format', 'data']
@@ -156,9 +156,9 @@ export class ToolTableComponent implements OnInit {
         this.skip = 0
         this.limit = 10
 
-        //this.initializeForm();
+        // this.initializeForm();
         // this.submitForm();
-        //this.opened = true;
+        // this.opened = true;
     }
 
     /**
@@ -167,7 +167,7 @@ export class ToolTableComponent implements OnInit {
     private getStats() {
         this.toolService
             .getStats()
-            .subscribe(tmpStats => (this.stats = tmpStats))
+            .subscribe((tmpStats) => (this.stats = tmpStats))
     }
 
     /**
@@ -188,7 +188,7 @@ export class ToolTableComponent implements OnInit {
                     this.isLoadingResults = true
                     return this.toolService.getTools(0, 20)
                 }),
-                map(data => {
+                map((data) => {
                     this.isLoadingResults = false
                     return data
                 }),
@@ -198,7 +198,7 @@ export class ToolTableComponent implements OnInit {
                     return of([])
                 })
             )
-            .subscribe(data => (this.tools = data))
+            .subscribe((data) => (this.tools = data))
     }
 
     /**

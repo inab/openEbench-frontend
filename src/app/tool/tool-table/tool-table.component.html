@@ -41,19 +41,17 @@
           matTooltipPosition="right">submit</button> -->
         <!-- </form> -->
         <!-- search will be hereeeeeeeeeeeeee -->
-        <br>
+        <br />
         <form class="search-form">
             <mat-form-field class="form-full-width">
-                <input matInput placeholder="Search" value="trimal" />
+                <input matInput placeholder="Tool Name" value="" />
             </mat-form-field>
 
-            <mat-form-field class="form-full-width">
+            <!-- <mat-form-field class="form-full-width">
                 <textarea matInput placeholder="Leave a comment"></textarea>
-            </mat-form-field>
+            </mat-form-field> -->
         </form>
     </mat-sidenav>
-
-
 
     <mat-sidenav-content>
         <div class="table-outer-container">
@@ -78,21 +76,27 @@
 
                     <ng-container matColumnDef="status">
                         <th mat-header-cell *matHeaderCellDef>Status</th>
-                        <td mat-cell *matCellDef="let row">online</td>
+                        <td mat-cell *matCellDef="let row">
+                            {{ row.metrics.project.website.operational }}
+                        </td>
                     </ng-container>
                     <ng-container matColumnDef="expandedDetail">
-                        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-                            <div class="element-detail" [@detailExpand]="
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                            [attr.colspan]="displayedColumns.length"
+                        >
+                            <div
+                                class="element-detail"
+                                [@detailExpand]="
                                     element == expandedElement
                                         ? 'expanded'
                                         : 'collapsed'
-                                ">
+                                "
+                            >
                                 <div>
                                     <p>
-                                        {{
-                                            element.entities[0].tools[0]
-                                                .name
-                                        }}
+                                        {{ element.entities[0].tools[0].name }}
                                     </p>
                                     <p>
                                         {{
@@ -100,14 +104,25 @@
                                                 .description
                                         }}
                                     </p>
-                                    <p>
+                                    <a
+                                        [href]="
+                                            element.entities[0].tools[0].web
+                                                .homepage
+                                        "
+                                    >
                                         {{
                                             element.entities[0].tools[0].web
                                                 .homepage
                                         }}
-                                    </p>
-                                    <p *ngFor="let entity of element.entities">
-                                        {{ entity.type }}
+                                    </a>
+                                    <p>
+                                        <span
+                                            *ngFor="
+                                                let entity of element.entities
+                                            "
+                                        >
+                                            {{ entity.type }}
+                                        </span>
                                     </p>
                                 </div>
                             </div>
@@ -115,16 +130,25 @@
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let element; columns: displayedColumns" class="element-row"
-                        [class.expanded-row]="expandedElement === element" (click)="
+                    <tr
+                        mat-row
+                        *matRowDef="let element; columns: displayedColumns"
+                        class="element-row"
+                        [class.expanded-row]="expandedElement === element"
+                        (click)="
                             expandedElement =
                                 expandedElement === element ? null : element
-                        "></tr>
-                    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+                        "
+                    ></tr>
+                    <tr
+                        mat-row
+                        *matRowDef="let row; columns: ['expandedDetail']"
+                        class="detail-row"
+                    ></tr>
                 </table>
             </div>
 
-            <mat-paginator [length]="resultsLength" [pageSize]="20" [pageSizeOptions]="[5, 10, 25, 100]">
+            <mat-paginator [length]="resultsLength" [pageSize]="20">
             </mat-paginator>
         </div>
     </mat-sidenav-content>
