@@ -9,7 +9,7 @@ import { KeycloakProfile } from "keycloak-js";
 @Component({
     selector: "app-top-menu",
     templateUrl: "./top-menu.component.html",
-    styleUrls: ["./top-menu.component.css"]
+    styleUrls: ["./top-menu.component.css"],
 })
 /**
  * Class top menu component
@@ -33,7 +33,7 @@ export class TopMenuComponent implements OnInit {
      */
     public dashboardLink = {
         label: "Dashboard",
-        path: "dashboard"
+        path: "dashboard",
     };
 
     /**
@@ -48,45 +48,45 @@ export class TopMenuComponent implements OnInit {
         this.navLinks = [
             {
                 label: "Scientific Benchmarking",
-                path: "/scientific"
+                path: "/scientific",
             },
             {
                 label: "Technical Monitoring",
-                path: "/tool"
+                path: "/tool",
             },
             {
                 label: "Statistics",
-                path: "/stats"
+                path: "/stats",
             },
             {
                 label: "About",
-                path: "/about"
+                path: "/about",
             },
             {
                 label: "Docs",
                 path: "",
-                href: "https://openebench.bsc.es/docs/"
-            }
+                href: "https://openebench.bsc.es/docs/",
+            },
         ];
-        this.getProfileName();
+        //this.getProfileName();
     }
 
     /**
      * Gets the name of the user to add toggle between login and username
      */
     getProfileName() {
-        this.keycloakService.isLoggedIn().then(res => {
+        this.keycloakService.isLoggedIn().then((res) => {
             if (res) {
-                this.keycloakService.loadUserProfile().then(resp => {
+                this.keycloakService.loadUserProfile().then((resp) => {
                     this.navLinks.push({
                         label: resp.username,
-                        path: "/private"
+                        path: "/private",
                     });
                 });
             } else {
                 this.navLinks.push({
                     label: "Login",
-                    path: "/private"
+                    path: "/private",
                 });
             }
         });
