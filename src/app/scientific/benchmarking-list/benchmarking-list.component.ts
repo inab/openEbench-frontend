@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
-import { Subject } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
+import { Apollo } from "apollo-angular";
+import gql from "graphql-tag";
+import { Subject } from "rxjs";
 
 /**
  * component
  */
 @Component({
-    selector: 'app-benchmarking-list',
-    templateUrl: './benchmarking-list.component.html',
-    styleUrls: ['./benchmarking-list.component.css']
+    selector: "app-benchmarking-list",
+    templateUrl: "./benchmarking-list.component.html",
+    styleUrls: ["./benchmarking-list.component.css"]
 })
 export class BenchmarkingListComponent implements OnInit {
     public datasetTrigger = new Subject();
@@ -57,7 +57,7 @@ export class BenchmarkingListComponent implements OnInit {
                 acronym
                 description
                 status
-                links{
+                links {
                     uri
                     comment
                 }
@@ -120,9 +120,9 @@ export class BenchmarkingListComponent implements OnInit {
      * initializer
      */
     ngOnInit() {
-        this.id = this.getParam('id');
+        this.id = this.getParam("id");
         this.dtOptions = {
-            pagingType: 'full_numbers'
+            pagingType: "full_numbers"
         };
         this.apollo
             .watchQuery({
