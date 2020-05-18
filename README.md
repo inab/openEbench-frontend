@@ -1,17 +1,13 @@
 # OpenEBench Web application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6
+This is the web application for openebench
 
-## Useage
-Clone repository from github
-Install NPM modules 
-`npm install`
+#### Stack
 
-## Development server
+-   Angular 8.0+
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+-   3rd party Javascript libraries (c3 & D3)
 
+#### Useage
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Publicly available at [https://openebench.bsc.es](https://openebench.bsc.es)
