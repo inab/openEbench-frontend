@@ -1,49 +1,46 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { HttpClientModule } from '@angular/common/http';
-import { ToolRoutingModule, AllToolRoutingComponents } from './tool-routing.module';
+import { HttpClientModule } from "@angular/common/http";
+import {
+    ToolRoutingModule,
+    AllToolRoutingComponents,
+} from "./tool-routing.module";
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from "../material.module";
 
-import { ToolComponent } from './tool.component';
-import { ToolService } from './shared/tool.service';
+import { ToolComponent } from "./tool.component";
+import { ToolService } from "./shared/tool.service";
 
-import { KeyValuePipe } from './shared/pipes/key-value.pipe';
-import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
-import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
-import { ContentTableModule } from '../content-table/content-table.module';
-import { ToolDialogComponent } from './tool-dialog/tool-dialog.component';
-import { UptimeComponent } from '../uptime/uptime.component';
+import { KeyValuePipe } from "./shared/pipes/key-value.pipe";
+import { ChartIdPipe } from "./shared/pipes/chart-id.pipe";
+import { SourceBadgeClassPipe } from "./shared/pipes/source-badge-class.pipe";
+import { ContentTableModule } from "../content-table/content-table.module";
 
-
+import { UptimeComponent } from "../uptime/uptime.component";
 
 @NgModule({
-  declarations: [
-    ToolComponent,
-    AllToolRoutingComponents,
-    KeyValuePipe,
-    ChartIdPipe,
-    SourceBadgeClassPipe,
-    UptimeComponent,
-  ],
-  imports: [
-    HttpClientModule,
-    CommonModule,
-    ToolRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    // BrowserAnimationsModule,
-    MaterialModule,
-    ContentTableModule
-  ],
-  providers: [ToolService],
-  bootstrap: [ToolComponent],
-  exports: [],
-  entryComponents: [
-    ToolDialogComponent
-  ],
+    declarations: [
+        ToolComponent,
+        AllToolRoutingComponents,
+        KeyValuePipe,
+        ChartIdPipe,
+        SourceBadgeClassPipe,
+        UptimeComponent,
+    ],
+    imports: [
+        HttpClientModule,
+        CommonModule,
+        ToolRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        // BrowserAnimationsModule,
+        MaterialModule,
+        ContentTableModule,
+    ],
+    providers: [ToolService],
+    bootstrap: [ToolComponent],
+    exports: [],
 })
-export class ToolModule { }
-
+export class ToolModule {}

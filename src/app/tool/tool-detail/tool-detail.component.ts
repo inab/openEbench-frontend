@@ -14,10 +14,10 @@ import { Input } from "@angular/core";
 import {
     MatDialog,
     MatDialogRef,
-    MAT_DIALOG_DATA
+    MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
-import { ToolDialogComponent } from "../tool-dialog/tool-dialog.component";
 import { SourceListMap } from "source-list-map";
+import { Title } from "@angular/platform-browser";
 
 /**
  * Component for tool details
@@ -25,7 +25,7 @@ import { SourceListMap } from "source-list-map";
 @Component({
     selector: "app-tool-detail",
     templateUrl: "./tool-detail.component.html",
-    styleUrls: ["./tool-detail.component.css"]
+    styleUrls: ["./tool-detail.component.css"],
 })
 export class ToolDetailComponent implements OnInit {
     tableOfContent = ["Metrics", "Uptime", "Publication"];
@@ -42,7 +42,7 @@ export class ToolDetailComponent implements OnInit {
         "pdbe",
         "pride",
         "silva",
-        "string"
+        "string",
     ];
     /**
      *  panelOpenState
@@ -95,26 +95,16 @@ export class ToolDetailComponent implements OnInit {
         private toolService: ToolService,
         private route: ActivatedRoute,
         private router: Router,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        private titleService: Title
     ) {}
-
-    openDialog(): void {
-        const dialogRef = this.dialog.open(ToolDialogComponent, {
-            width: "250px",
-            data: { name: this.name, animal: this.animal }
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-            console.log("The dialog was closed");
-            this.animal = result;
-        });
-    }
 
     /**
      * Initializer
      */
     ngOnInit() {
         this.id = this.getParam("id");
+        this.titleService.setTitle(this.id);
         this.getToolById();
     }
 
@@ -129,7 +119,7 @@ export class ToolDetailComponent implements OnInit {
      * Find tool by id
      */
     private getToolById(): void {
-        this.toolService.getToolById(this.id).subscribe(tools => {
+        this.toolService.getToolById(this.id).subscribe((tools) => {
             this.tools = tools;
             if (this.tools.length !== 0) {
                 this.getSources(this.tools);
@@ -143,9 +133,9 @@ export class ToolDetailComponent implements OnInit {
      */
     private getSources(tools) {
         let i = 0;
-        tools.forEach(tool => {
-            tool.entities.forEach(entity => {
-                entity.tools.forEach(element => {
+        tools.forEach((tool) => {
+            tool.entities.forEach((entity) => {
+                entity.tools.forEach((element) => {
                     const str = element["@id"];
                     const s = str.split("/tool/")[1].split(":")[0];
                     if (i > 0) {
@@ -186,7 +176,7 @@ export class ToolDetailComponent implements OnInit {
         );
         this.toolService
             .getToolMetricsById(this.selectedValue.metrics)
-            .subscribe(res => {
+            .subscribe((res) => {
                 this.metrics = res;
             });
         setTimeout(() => {

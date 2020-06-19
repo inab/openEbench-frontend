@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
 import { Subject } from "rxjs";
+import { Title } from "@angular/platform-browser";
 
 /**
  * component
@@ -11,7 +12,7 @@ import { Subject } from "rxjs";
 @Component({
     selector: "app-benchmarking-list",
     templateUrl: "./benchmarking-list.component.html",
-    styleUrls: ["./benchmarking-list.component.css"]
+    styleUrls: ["./benchmarking-list.component.css"],
 })
 export class BenchmarkingListComponent implements OnInit {
     public datasetTrigger = new Subject();
@@ -114,22 +115,24 @@ export class BenchmarkingListComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private apollo: Apollo
+        private apollo: Apollo,
+        private titleService: Title
     ) {}
     /**
      * initializer
      */
     ngOnInit() {
         this.id = this.getParam("id");
+
         this.dtOptions = {
-            pagingType: "full_numbers"
+            pagingType: "full_numbers",
         };
         this.apollo
             .watchQuery({
                 query: this.getBenchmarkingEvents,
-                variables: { community_id: this.id }
+                variables: { community_id: this.id },
             })
-            .valueChanges.subscribe(result => {
+            .valueChanges.subscribe((result) => {
                 this.bEventsGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;
@@ -138,20 +141,23 @@ export class BenchmarkingListComponent implements OnInit {
         this.apollo
             .watchQuery({
                 query: this.getCommunities,
-                variables: { community_id: this.id }
+                variables: { community_id: this.id },
             })
-            .valueChanges.subscribe(result => {
+            .valueChanges.subscribe((result) => {
                 this.communitiesGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;
+                this.titleService.setTitle(
+                    result.data["getCommunities"][0].name
+                );
             });
 
         this.apollo
             .watchQuery({
                 query: this.getDatasets,
-                variables: { community_id: this.id }
+                variables: { community_id: this.id },
             })
-            .valueChanges.subscribe(result => {
+            .valueChanges.subscribe((result) => {
                 this.datasetsGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;
@@ -163,9 +169,9 @@ export class BenchmarkingListComponent implements OnInit {
         this.apollo
             .watchQuery({
                 query: this.getTools,
-                variables: { community_id: this.id }
+                variables: { community_id: this.id },
             })
-            .valueChanges.subscribe(result => {
+            .valueChanges.subscribe((result) => {
                 this.toolsGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;
