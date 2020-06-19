@@ -3,6 +3,7 @@ import { StatisticsService } from "../shared/statistics.service";
 import * as c3 from "c3";
 import * as d3 from "d3";
 import { setTimeout } from "timers";
+import { Title } from "@angular/platform-browser";
 /**
  *
  * Componet for Statistics
@@ -10,7 +11,7 @@ import { setTimeout } from "timers";
 @Component({
     selector: "app-statistics",
     templateUrl: "./statistics.component.html",
-    styleUrls: ["./statistics.component.css"]
+    styleUrls: ["./statistics.component.css"],
 })
 export class StatisticsComponent implements OnInit {
     /**
@@ -26,11 +27,16 @@ export class StatisticsComponent implements OnInit {
     /**
      * constructor function
      */
-    constructor(private statsService: StatisticsService) {}
+    pageTitle = "Statistics";
+    constructor(
+        private statsService: StatisticsService,
+        private titleService: Title
+    ) {}
     /**
      * initializer
      */
     ngOnInit() {
+        this.titleService.setTitle(this.pageTitle);
         this.fetchdata();
     }
     /**
@@ -40,18 +46,18 @@ export class StatisticsComponent implements OnInit {
         this.loading = true;
         this.statsService.getStats().subscribe(
             // 1
-            data => {
+            (data) => {
                 this.data = data;
             },
             // 2
-            err => console.log(err),
+            (err) => console.log(err),
             // 3
             () => {
                 const statistics = {
                     tools: this.data["/@timestamp"],
                     publications: this.data["/project/publications"],
                     bioschemas: this.data["/project/website/bioschemas:true"],
-                    opensource: this.data["/project/license/open_source:true"]
+                    opensource: this.data["/project/license/open_source:true"],
                 };
                 this.generateChart(statistics);
             }
@@ -67,92 +73,92 @@ export class StatisticsComponent implements OnInit {
         c3.generate({
             size: {
                 height: 340,
-                width: 680
+                width: 680,
             },
             title: {
-                text: "Publications"
+                text: "Publications",
             },
             data: {
                 columns: [
                     [
                         "Tools with no publications ",
-                        data.tools - data.publications
+                        data.tools - data.publications,
                     ],
-                    ["Tools with publications", data.publications]
+                    ["Tools with publications", data.publications],
                 ],
-                type: "pie"
+                type: "pie",
             },
             tooltip: {
                 format: {
-                    value: function(value) {
+                    value: function (value) {
                         return (
                             d3.format(",")(value) +
                             " / " +
                             d3.format(",")(data.tools)
                         );
-                    }
-                }
+                    },
+                },
             },
-            bindto: "#toolspublications"
+            bindto: "#toolspublications",
         });
         c3.generate({
             size: {
                 height: 340,
-                width: 680
+                width: 680,
             },
             title: {
-                text: "Bioschemas"
+                text: "Bioschemas",
             },
             data: {
                 columns: [
                     ["Tools with bioschemas", data.bioschemas],
-                    ["Tools without bioschemas ", data.tools - data.bioschemas]
+                    ["Tools without bioschemas ", data.tools - data.bioschemas],
                 ],
-                type: "pie"
+                type: "pie",
             },
             tooltip: {
                 format: {
-                    value: function(value) {
+                    value: function (value) {
                         return (
                             d3.format(",")(value) +
                             " / " +
                             d3.format(",")(data.tools)
                         );
-                    }
-                }
+                    },
+                },
             },
-            bindto: "#toolsbioschemas"
+            bindto: "#toolsbioschemas",
         });
         c3.generate({
             size: {
                 height: 340,
-                width: 680
+                width: 680,
             },
             data: {
                 columns: [
                     ["Tools with opensource license", data.opensource],
                     [
                         "Tools without opensource license ",
-                        data.tools - data.opensource
-                    ]
+                        data.tools - data.opensource,
+                    ],
                 ],
-                type: "pie"
+                type: "pie",
             },
             title: {
-                text: "Open Source"
+                text: "Open Source",
             },
             tooltip: {
                 format: {
-                    value: function(value) {
+                    value: function (value) {
                         return (
                             d3.format(",")(value) +
                             " / " +
                             d3.format(",")(data.tools)
                         );
-                    }
-                }
+                    },
+                },
             },
-            bindto: "#toolsopensource"
+            bindto: "#toolsopensource",
         });
     }
 }

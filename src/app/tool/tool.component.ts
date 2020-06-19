@@ -1,29 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 /**
  * Wrapper component for tool componentes
-*/
+ */
 @Component({
-  selector: 'app-tool',
-  templateUrl: './tool.component.html',
-  styleUrls: ['./tool.component.css']
+    selector: "app-tool",
+    templateUrl: "./tool.component.html",
+    styleUrls: ["./tool.component.css"],
 })
-
 
 /**
  * Class tool component
-*/
+ */
 export class ToolComponent implements OnInit {
+    /**
+     * Constructor for wrapper
+     */
+    constructor() {}
 
-  /**
-   * Constructor for wrapper
-  */
-  constructor() { }
-
-  /**
-   * On init function
-  */
-  ngOnInit() {
-  }
-
+    /**
+     * On init function
+     */
+    ngOnInit() {}
 }

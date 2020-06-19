@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from "@angular/core";
 import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
+import { Title } from "@angular/platform-browser";
 
 /**
  * scientific list
@@ -8,7 +9,7 @@ import gql from "graphql-tag";
 @Component({
     selector: "app-scientific-list",
     templateUrl: "./scientific-list.component.html",
-    styleUrls: ["./scientific-list.component.css"]
+    styleUrls: ["./scientific-list.component.css"],
 })
 export class ScientificListComponent implements OnInit {
     /**
@@ -55,16 +56,18 @@ export class ScientificListComponent implements OnInit {
     /**
      * constructor
      */
-    constructor(private apollo: Apollo) {}
+    pageTitle = "Scientific benchmarking";
+    constructor(private apollo: Apollo, private titleService: Title) {}
     /**
      * initializer
      */
     ngOnInit() {
+        this.titleService.setTitle(this.pageTitle);
         this.apollo
             .watchQuery({
-                query: this.getCommunities
+                query: this.getCommunities,
             })
-            .valueChanges.subscribe(result => {
+            .valueChanges.subscribe((result) => {
                 this.communitiesGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;

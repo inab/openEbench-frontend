@@ -6,6 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 
 import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
+import { Title } from "@angular/platform-browser";
 
 /**
  * benchmarking details
@@ -13,7 +14,7 @@ import gql from "graphql-tag";
 @Component({
     selector: "app-benchmarking-detail",
     templateUrl: "./benchmarking-detail.component.html",
-    styleUrls: ["./benchmarking-detail.component.css"]
+    styleUrls: ["./benchmarking-detail.component.css"],
 })
 export class BenchmarkingDetailComponent implements OnInit {
     /**
@@ -71,7 +72,11 @@ export class BenchmarkingDetailComponent implements OnInit {
     /**
      * constructor
      */
-    constructor(private route: ActivatedRoute, private apollo: Apollo) {}
+    constructor(
+        private route: ActivatedRoute,
+        private apollo: Apollo,
+        private titleService: Title
+    ) {}
 
     data: any;
     /**
@@ -83,19 +88,22 @@ export class BenchmarkingDetailComponent implements OnInit {
         this.apollo
             .watchQuery({
                 query: this.getChallenges,
-                variables: { id: this.id }
+                variables: { id: this.id },
             })
-            .valueChanges.subscribe(result => {
+            .valueChanges.subscribe((result) => {
                 this.challengesGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;
+                this.titleService.setTitle(
+                    result.data["getChallenges"][0].name
+                );
             }),
             this.apollo
                 .watchQuery({
                     query: this.getDatasets,
-                    variables: { id: this.id }
+                    variables: { id: this.id },
                 })
-                .valueChanges.subscribe(result => {
+                .valueChanges.subscribe((result) => {
                     this.datasetsGraphql = result.data;
                     this.loading = result.loading;
                     this.error = result.errors;
@@ -109,7 +117,6 @@ export class BenchmarkingDetailComponent implements OnInit {
     }
 
     private loadCharts(data) {
-
         switch (data.getDatasets[0].datalink.inline_data.visualization.type) {
             case "2D-plot":
                 load_scatter_visualization();

@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { Router } from '@angular/router';
-import * as $ from 'jquery';
+import { Router } from "@angular/router";
+import * as $ from "jquery";
 
+import { Observable, of } from "rxjs";
+import {
+    debounceTime,
+    distinctUntilChanged,
+    map,
+    tap,
+    switchMap,
+    catchError,
+} from "rxjs/operators";
 
-import {Observable, of} from 'rxjs';
-import {debounceTime, distinctUntilChanged, map, tap, switchMap, catchError} from 'rxjs/operators';
-
-import { environment } from '../../environments/environment';
-import { ElasticsearchService } from './elasticsearch.service';
-
-
+import { environment } from "../../environments/environment";
+import { ElasticsearchService } from "./elasticsearch.service";
+import { Title } from "@angular/platform-browser";
 
 /**
  * Elastic search url to server
@@ -57,62 +62,70 @@ import { ElasticsearchService } from './elasticsearch.service';
  * Dashboard component
  */
 @Component({
-    selector: 'app-dashboard',
-    templateUrl: './dashboard.component.html',
+    selector: "app-dashboard",
+    templateUrl: "./dashboard.component.html",
     providers: [ElasticsearchService],
-    styleUrls: ['./dashboard.component.css']
-  })
-
+    styleUrls: ["./dashboard.component.css"],
+})
 export class DashboardComponent {
-  /**
-   * model
-   */
-  model: any;
-  /**
-   * searching
-   */
-  searching = false;
-  /**
-   * searchFailed
-   */
-  searchFailed = false;
+    /**
+     * model
+     */
+    model: any;
+    /**
+     * searching
+     */
+    searching = false;
+    /**
+     * searchFailed
+     */
+    searchFailed = false;
 
-  /**
-   * Constructor
-   */
-  constructor(private _service: ElasticsearchService, private router: Router) { }
-/**
- * search for elastic search
- */
-  search = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      tap(() => this.searching = true),
-      switchMap(term =>
-        this._service.search(term).pipe(
-          tap(() => this.searchFailed = false),
-          catchError(() => {
-            this.searchFailed = true;
-            return of([]);
-          }))
-      ),
-      tap(() => this.searching = false)
-    )
+    /**
+     * Constructor
+     */
+    pageTitle = "OpenEBench";
+    constructor(
+        private _service: ElasticsearchService,
+        private router: Router,
+        private titleService: Title
+    ) {}
+    /**
+     * search for elastic search
+     */
+    search = (text$: Observable<string>) =>
+        text$.pipe(
+            debounceTime(300),
+            distinctUntilChanged(),
+            tap(() => (this.searching = true)),
+            switchMap((term) =>
+                this._service.search(term).pipe(
+                    tap(() => (this.searchFailed = false)),
+                    catchError(() => {
+                        this.searchFailed = true;
+                        return of([]);
+                    })
+                )
+            ),
+            tap(() => (this.searching = false))
+        );
 
-/**
- * Naviage to searched tool via URL
- */
-  private goToToolsPage(term: string) {
-    this.router.navigate(['/tool'], { queryParams: {search: term}, queryParamsHandling: '' });
-  }
-/**
- * Submit the search
- */
-  public submitForm() {
-    this.goToToolsPage(this.model);
-  }
-
-
-
+    ngOnInit() {
+        this.titleService.setTitle(this.pageTitle);
+    }
+    /**
+     * Naviage to searched tool via URL
+     */
+    private goToToolsPage(term: string) {
+        this.router.navigate(["/tool"], {
+            queryParams: { search: term },
+            queryParamsHandling: "",
+        });
+    }
+    /**
+     * Submit the search
+     */
+    public submitForm() {
+        this.goToToolsPage(this.model);
+    }
 }

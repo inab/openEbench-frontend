@@ -1,15 +1,38 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
-    <a [hidden]="getPath()" [routerLink]="dashboardLink.path" class="navbar-brand"> <img width="100px"
-            src="assets/img/opeb_logo.gif" alt="OpEB"> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a
+        [hidden]="getPath()"
+        [routerLink]="dashboardLink.path"
+        class="navbar-brand"
+    >
+        <img width="100px" src="assets/img/opeb_logo.gif" alt="OpEB" />
+    </a>
+    <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+    >
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li *ngFor="let link of navLinks" class="nav-item">
-                <a *ngIf="link.path!=''" [routerLink]="link.path" class="nav-link">{{link.label}}</a>
-                <a *ngIf="link.path==''" href={{link.href}} target="_blank" class="nav-link">{{link.label}} &nbsp;</a>
+                <a
+                    *ngIf="link.path != ''"
+                    [routerLink]="link.path"
+                    class="nav-link"
+                    >{{ link.label }}</a
+                >
+                <a
+                    *ngIf="link.path == ''"
+                    href="{{ link.href }}"
+                    target="_blank"
+                    class="nav-link"
+                    >{{ link.label }} &nbsp;</a
+                >
             </li>
         </ul>
     </div>
