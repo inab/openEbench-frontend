@@ -35,8 +35,4 @@ export class AppComponent {
     ngOnInit() {
         this.titleService.setTitle(this.pageTitle);
     }
-
-    public setTitle(pageTitle: string) {
-        this.titleService.setTitle(pageTitle);
-    }
 }
