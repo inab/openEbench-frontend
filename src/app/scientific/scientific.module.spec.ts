@@ -1,13 +1,13 @@
-import { ScientificModule } from './scientific.module';
+import { ScientificModule } from "./scientific.module";
 
-describe('ScientificModule', () => {
-  let scientificModule: ScientificModule;
+describe("ScientificModule", () => {
+    let scientificModule: ScientificModule;
 
-  beforeEach(() => {
-    scientificModule = new ScientificModule();
-  });
+    beforeEach(() => {
+        scientificModule = new ScientificModule();
+    });
 
-  it('should create an instance', () => {
-    expect(scientificModule).toBeTruthy();
-  });
+    it("should create an instance", () => {
+        expect(scientificModule).toBeTruthy();
+    });
 });

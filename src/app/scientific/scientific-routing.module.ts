@@ -1,28 +1,28 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 
-import { ScientificListComponent } from './scientific-list/scientific-list.component';
-import { BenchmarkingListComponent } from './benchmarking-list/benchmarking-list.component';
-import { BenchmarkingDetailComponent } from './benchmarking-detail/benchmarking-detail.component';
+import { ScientificListComponent } from "./scientific-list/scientific-list.component";
+import { BenchmarkingListComponent } from "./benchmarking-list/benchmarking-list.component";
+import { BenchmarkingDetailComponent } from "./benchmarking-detail/benchmarking-detail.component";
 
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from "@angular/router";
 
-import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-list/benchmarking-challenge-list.component';
+import { BenchmarkingChallengeListComponent } from "./benchmarking-challenge-list/benchmarking-challenge-list.component";
 
 /**
  * routes
  */
 const routes: Routes = [
     {
-        path: '',
+        path: "",
         children: [
-            { path: '', component: ScientificListComponent },
-            { path: ':id', component: BenchmarkingListComponent },
+            { path: "", component: ScientificListComponent },
+            { path: ":id", component: BenchmarkingListComponent },
             {
-                path: ':id/:bchallengeid',
-                component: BenchmarkingDetailComponent
-            }
-        ]
-    }
+                path: ":id/:bchallengeid",
+                component: BenchmarkingDetailComponent,
+            },
+        ],
+    },
 ];
 
 /**
@@ -31,7 +31,7 @@ const routes: Routes = [
 @NgModule({
     // This is a child module so we use forChild
     imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
 
 /**
@@ -46,5 +46,5 @@ export const AllScientificRoutingComponents = [
     ScientificListComponent,
     BenchmarkingListComponent,
     BenchmarkingChallengeListComponent,
-    BenchmarkingDetailComponent
+    BenchmarkingDetailComponent,
 ];

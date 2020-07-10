@@ -1,12 +1,12 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { ElasticsearchService } from './elasticsearch.service';
+import { ElasticsearchService } from "./elasticsearch.service";
 
-describe('ElasticsearchService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe("ElasticsearchService", () => {
+    beforeEach(() => TestBed.configureTestingModule({}));
 
-  it('should be created', () => {
-    const service: ElasticsearchService = TestBed.get(ElasticsearchService);
-    expect(service).toBeTruthy();
-  });
+    it("should be created", () => {
+        const service: ElasticsearchService = TestBed.get(ElasticsearchService);
+        expect(service).toBeTruthy();
+    });
 });

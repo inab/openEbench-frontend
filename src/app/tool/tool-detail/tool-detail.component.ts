@@ -1,9 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { Observable, bindCallback } from "rxjs";
-import { ToolTableComponent } from "../tool-table/tool-table.component";
-import * as c3 from "c3";
-import * as d3 from "d3";
+
 import { Filter } from "../shared/filter";
 import { Tool } from "../shared/tool";
 import { Metrics } from "../shared/metrics";
@@ -11,12 +8,8 @@ import { ToolService } from "../shared/tool.service";
 import uptime from "../shared/uptime.js";
 import citation from "../shared/citation.js";
 import { Input } from "@angular/core";
-import {
-    MatDialog,
-    MatDialogRef,
-    MAT_DIALOG_DATA,
-} from "@angular/material/dialog";
-import { SourceListMap } from "source-list-map";
+import { MatDialog } from "@angular/material/dialog";
+
 import { Title } from "@angular/platform-browser";
 
 /**

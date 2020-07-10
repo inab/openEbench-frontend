@@ -3,3 +3,4 @@ documentation/js/search/*.min.js
 documentation/js/menu-wc.js
 src/app/scientific/shared/*.js
 src/app/tool/shared/*.js
+*.html

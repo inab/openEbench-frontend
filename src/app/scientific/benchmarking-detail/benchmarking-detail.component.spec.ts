@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { BenchmarkingDetailComponent } from './benchmarking-detail.component';
+import { BenchmarkingDetailComponent } from "./benchmarking-detail.component";
 
-describe('BenchmarkingDetailComponent', () => {
-  let component: BenchmarkingDetailComponent;
-  let fixture: ComponentFixture<BenchmarkingDetailComponent>;
+describe("BenchmarkingDetailComponent", () => {
+    let component: BenchmarkingDetailComponent;
+    let fixture: ComponentFixture<BenchmarkingDetailComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ BenchmarkingDetailComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [BenchmarkingDetailComponent],
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BenchmarkingDetailComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(BenchmarkingDetailComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it("should create", () => {
+        expect(component).toBeTruthy();
+    });
 });

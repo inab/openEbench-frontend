@@ -1,19 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SourceListMap } from 'source-list-map';
+import { Component, OnInit, Input } from "@angular/core";
+import { SourceListMap } from "source-list-map";
 
 @Component({
-  selector: 'app-content-table',
-  templateUrl: './content-table.component.html',
-  styleUrls: ['./content-table.component.css']
+    selector: "app-content-table",
+    templateUrl: "./content-table.component.html",
+    styleUrls: ["./content-table.component.css"],
 })
 export class ContentTableComponent implements OnInit {
+    @Input() contents: [];
 
-  @Input() contents: [];
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-    console.log(this.contents)
-  }
-
+    ngOnInit() {
+        console.log(this.contents);
+    }
 }

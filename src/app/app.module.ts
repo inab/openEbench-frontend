@@ -34,7 +34,7 @@ const envurl = environment.SCIENTIFIC_SERVICE_URL;
 export function createApollo(httpLink: HttpLink) {
     return {
         link: httpLink.create({ uri: envurl }),
-        cache: new InMemoryCache()
+        cache: new InMemoryCache(),
     };
 }
 
@@ -50,7 +50,7 @@ export function createApollo(httpLink: HttpLink) {
         routingComponents,
         FooterComponent,
         PageNotFoundComponent,
-        DocsComponent
+        DocsComponent,
     ],
     imports: [
         BrowserModule,
@@ -63,7 +63,7 @@ export function createApollo(httpLink: HttpLink) {
         KeycloakAngularModule,
         HttpClientModule,
         ApolloModule,
-        HttpLinkModule
+        HttpLinkModule,
     ],
     providers: [
         StatisticsService,
@@ -71,14 +71,14 @@ export function createApollo(httpLink: HttpLink) {
             provide: APP_INITIALIZER,
             useFactory: initializer,
             multi: true,
-            deps: [KeycloakService]
+            deps: [KeycloakService],
         },
         {
             provide: APOLLO_OPTIONS,
             useFactory: createApollo,
-            deps: [HttpLink]
-        }
+            deps: [HttpLink],
+        },
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

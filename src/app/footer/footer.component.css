@@ -1,12 +1,12 @@
-.eu-flag{
+.eu-flag {
     padding-top: 0.4em;
     height: 4em;
 }
-.flex-container{
+.flex-container {
     display: flex;
     flex-wrap: nowrap;
 }
-.flex-item{
+.flex-item {
     padding: 0.2em;
     order: 0;
 }

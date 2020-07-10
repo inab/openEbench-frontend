@@ -1,16 +1,11 @@
 import { Component, Input, OnInit, AfterViewInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { run_summary_table } from "../shared/benchmarkingTable.js";
-// import { load_table } from '/home/vsundesh/public_html/bench_event_table/build/build.js';
-// declare let load_table: any;
-import { MatPaginator } from "@angular/material/paginator";
-import { ViewChild } from "@angular/core";
-import { FormBuilder, FormControl, FormsModule } from "@angular/forms";
-import { FormGroup } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
+
 import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
-import { SourceListMap } from "source-list-map";
-import { timeout } from "q";
+
 import { Subject } from "rxjs";
 
 /**
@@ -19,7 +14,7 @@ import { Subject } from "rxjs";
 @Component({
     selector: "app-benchmarking-challenge-list",
     templateUrl: "./benchmarking-challenge-list.component.html",
-    styleUrls: ["./benchmarking-challenge-list.component.css"]
+    styleUrls: ["./benchmarking-challenge-list.component.css"],
 })
 export class BenchmarkingChallengeListComponent
     implements OnInit, AfterViewInit {
@@ -82,9 +77,9 @@ export class BenchmarkingChallengeListComponent
         this.apollo
             .watchQuery({
                 query: this.getChallenges,
-                variables: { benchmarking_event_id: this.beventsid }
+                variables: { benchmarking_event_id: this.beventsid },
             })
-            .valueChanges.subscribe(result => {
+            .valueChanges.subscribe((result) => {
                 this.challengeGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;
