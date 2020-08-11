@@ -90,6 +90,7 @@ export class ToolTableComponent implements OnInit {
      */
     private limit: number;
 
+    private length: number;
     public optionss: FormGroup;
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
@@ -155,11 +156,20 @@ export class ToolTableComponent implements OnInit {
     private getTools(): void {
         this.toolService
             .getToolWithFilters(this.filter, this.skip, this.limit)
+
             .subscribe((res) => {
+                this.length = res.headers.get("Content-Range").split("/")[1];
                 this.tools = res.body;
             });
     }
-
+    /**
+     * Change page (Paginator)
+     */
+    private changePage(event) {
+        this.skip = event.pageIndex * event.pageSize;
+        this.limit = event.pageIndex * event.pageSize + event.pageSize;
+        this.getTools();
+    }
     /**
      * Initialize search from
      */
