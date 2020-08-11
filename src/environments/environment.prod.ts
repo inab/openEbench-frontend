@@ -6,7 +6,7 @@ export const environment = {
 
     //ONLY ON DEV
     TOOL_SEARCH_URL:
-        "https://dev-openebench.bsc.es/monitor/rest/edam/aggregate",
+        "https://openebench.bsc.es/monitor/rest/edam/aggregate",
 
     TOOL_SERVICE_URL: "https://openebench.bsc.es/monitor/rest/aggregate",
     TOOL_STATISTICS_URL: "https://openebench.bsc.es/monitor/rest/statistics",
