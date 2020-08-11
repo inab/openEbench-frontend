@@ -37,6 +37,25 @@ export class ToolTableComponent implements OnInit {
         "silva",
         "string",
     ];
+
+    private typeList = [
+        "cmd",
+        "web",
+        "db",
+        "app",
+        "lib",
+        "ontology",
+        "workflow",
+        "plugin",
+        "sparql",
+        "soap",
+        "script",
+        "rest",
+        "workbench",
+        "suite",
+    ];
+
+    private edamSubOntologyList = ["topic", "operation", "format", "data"];
     /**
      * options
      */
