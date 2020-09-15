@@ -35,31 +35,58 @@
         <span *ngIf="bEventsGraphql; else loading">
             <!-- <span *ngIf="tools.length!=0; else toolNotFound"> -->
             <mat-accordion>
-                <mat-expansion-panel
-                    *ngFor="
-                        let b of bEventsGraphql.getBenchmarkingEvents;
-                        let isFirst = first
-                    "
-                    [expanded]="isFirst"
-                >
-                    <!-- (opened)="openChallenges(b._id)" -->
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <!-- <a class="left" routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"
+                <span *ngIf="bEventsGraphql.getBenchmarkingEvents?.length == 1">
+                    <mat-expansion-panel
+                        *ngFor="
+                            let b of bEventsGraphql.getBenchmarkingEvents;
+                            let isFirst = first
+                        "
+                        [expanded]="isFirst"
+                    >
+                        <!-- (opened)="openChallenges(b._id)" -->
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <!-- <a class="left" routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"
                   matTooltipPosition="right">{{b.name}}</a> -->
-                            {{ b.name }}
-                        </mat-panel-title>
-                        <mat-panel-description>
-                            <span class="right" *ngIf="b.challenges"
-                                >challenges : {{ b.challenges.length }}</span
-                            >
-                        </mat-panel-description>
-                    </mat-expansion-panel-header>
-                    <!-- <router-outlet [testid]="b._id"></router-outlet> -->
-                    <app-benchmarking-challenge-list
-                        [beventsid]="b._id"
-                    ></app-benchmarking-challenge-list>
-                </mat-expansion-panel>
+                                {{ b.name }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <span class="right" *ngIf="b.challenges"
+                                    >challenges :
+                                    {{ b.challenges.length }}</span
+                                >
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <!-- <router-outlet [testid]="b._id"></router-outlet> -->
+                        <app-benchmarking-challenge-list
+                            [beventsid]="b._id"
+                        ></app-benchmarking-challenge-list>
+                    </mat-expansion-panel>
+                </span>
+                <span *ngIf="bEventsGraphql.getBenchmarkingEvents?.length > 1">
+                    <mat-expansion-panel
+                        *ngFor="let b of bEventsGraphql.getBenchmarkingEvents"
+                    >
+                        <!-- (opened)="openChallenges(b._id)" -->
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <!-- <a class="left" routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"
+                  matTooltipPosition="right">{{b.name}}</a> -->
+                                {{ b.name }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <span class="right" *ngIf="b.challenges"
+                                    >challenges :
+                                    {{ b.challenges.length }}</span
+                                >
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <!-- <router-outlet [testid]="b._id"></router-outlet> -->
+                        <app-benchmarking-challenge-list
+                            [beventsid]="b._id"
+                        ></app-benchmarking-challenge-list>
+                    </mat-expansion-panel>
+                </span>
             </mat-accordion>
         </span>
     </mat-tab>
