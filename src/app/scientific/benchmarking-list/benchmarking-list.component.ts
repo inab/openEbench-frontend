@@ -72,6 +72,9 @@ export class BenchmarkingListComponent implements OnInit {
                 benchmarkingEventFilters: { community_id: $community_id }
             ) {
                 _id
+                dates {
+                    creation
+                }
                 name
                 url
                 challenges {
@@ -121,6 +124,17 @@ export class BenchmarkingListComponent implements OnInit {
     /**
      * initializer
      */
+
+    compare(a, b) {
+        if (a.dates.creation < b.dates.creation) {
+            return 1;
+        }
+        if (a.dates.creation > b.dates.creation) {
+            return -1;
+        }
+        return 0;
+    }
+
     ngOnInit() {
         this.id = this.getParam("id");
 
@@ -136,6 +150,8 @@ export class BenchmarkingListComponent implements OnInit {
                 this.bEventsGraphql = result.data;
                 this.loading = result.loading;
                 this.error = result.errors;
+
+                this.bEventsGraphql["getBenchmarkingEvents"].sort(this.compare);
             });
 
         this.apollo

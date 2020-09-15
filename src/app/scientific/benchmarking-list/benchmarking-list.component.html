@@ -33,7 +33,6 @@
             This usually occurs, recursively (every week,month and year...)
         </p>
         <span *ngIf="bEventsGraphql; else loading">
-            <!-- <span *ngIf="tools.length!=0; else toolNotFound"> -->
             <mat-accordion>
                 <span *ngIf="bEventsGraphql.getBenchmarkingEvents?.length == 1">
                     <mat-expansion-panel
@@ -43,11 +42,8 @@
                         "
                         [expanded]="isFirst"
                     >
-                        <!-- (opened)="openChallenges(b._id)" -->
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                <!-- <a class="left" routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"
-                  matTooltipPosition="right">{{b.name}}</a> -->
                                 {{ b.name }}
                             </mat-panel-title>
                             <mat-panel-description>
@@ -57,7 +53,7 @@
                                 >
                             </mat-panel-description>
                         </mat-expansion-panel-header>
-                        <!-- <router-outlet [testid]="b._id"></router-outlet> -->
+
                         <app-benchmarking-challenge-list
                             [beventsid]="b._id"
                         ></app-benchmarking-challenge-list>
@@ -65,13 +61,13 @@
                 </span>
                 <span *ngIf="bEventsGraphql.getBenchmarkingEvents?.length > 1">
                     <mat-expansion-panel
-                        *ngFor="let b of bEventsGraphql.getBenchmarkingEvents"
+                        *ngFor="
+                            let b of bEventsGraphql.getBenchmarkingEvents;
+                            let isFirst = first
+                        "
                     >
-                        <!-- (opened)="openChallenges(b._id)" -->
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                <!-- <a class="left" routerLink="{{b._id}}" name="{{b._id}}" matTooltip="{{b._id}} details"
-                  matTooltipPosition="right">{{b.name}}</a> -->
                                 {{ b.name }}
                             </mat-panel-title>
                             <mat-panel-description>
@@ -80,8 +76,12 @@
                                     {{ b.challenges.length }}</span
                                 >
                             </mat-panel-description>
+                            <div>
+                                <small *ngIf="isFirst"
+                                    >[LATEST]&nbsp;&nbsp;</small
+                                >
+                            </div>
                         </mat-expansion-panel-header>
-                        <!-- <router-outlet [testid]="b._id"></router-outlet> -->
                         <app-benchmarking-challenge-list
                             [beventsid]="b._id"
                         ></app-benchmarking-challenge-list>
