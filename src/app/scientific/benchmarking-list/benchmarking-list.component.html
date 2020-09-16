@@ -76,11 +76,9 @@
                                     {{ b.challenges.length }}</span
                                 >
                             </mat-panel-description>
-                            <div>
-                                <small *ngIf="isFirst"
-                                    >[LATEST]&nbsp;&nbsp;</small
-                                >
-                            </div>
+
+                            <mat-icon *ngIf="isFirst">bookmark_border</mat-icon>
+                            <div *ngIf="isFirst">LATEST&nbsp;&nbsp;</div>
                         </mat-expansion-panel-header>
                         <app-benchmarking-challenge-list
                             [beventsid]="b._id"
