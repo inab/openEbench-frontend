@@ -1,0 +1,43 @@
+<div>
+  <div class="card-group">
+    <div class="card border-light">
+      <img
+        class="main-logo"
+        src="assets/img/oeb-logo.gif"
+        alt="Card image cap"
+      />
+    </div>
+  </div>
+  <form class="main-search-div">
+    <input type="text" class="main-search" name="text" [(ngModel)]="model" />
+    <button class="main-submit" type="submit" (click)="submitForm()">
+      Go!
+    </button>
+  </form>
+  <div class="card-group">
+    <div class="card border-light">
+      <a routerLink="/scientific" class="card-icon">
+        <img
+          class="card-img-top"
+          src="assets/img/cylinder-icon.svg"
+          alt="Card image cap"
+        />
+      </a>
+      <div class="card-body">
+        <h5 class="card-title text-center">Scientific Benchmark</h5>
+      </div>
+    </div>
+    <div class="card border-light">
+      <a routerLink="/tool" class="card-icon">
+        <img
+          class="card-img-top"
+          src="assets/img/toolbox-icon.svg"
+          alt="Card image cap"
+        />
+      </a>
+      <div class="card-body">
+        <h5 class="card-title text-center">Technical Monitoring</h5>
+      </div>
+    </div>
+  </div>
+</div>
