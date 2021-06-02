@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScientificListComponent } from './scientific-list.component';
+import { CommunityListComponent } from './community-list.component';
 
-describe('ScientificListComponent', () => {
-  let component: ScientificListComponent;
-  let fixture: ComponentFixture<ScientificListComponent>;
+describe('CommunityListComponent', () => {
+  let component: CommunityListComponent;
+  let fixture: ComponentFixture<CommunityListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScientificListComponent ]
+      declarations: [ CommunityListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ScientificListComponent);
+    fixture = TestBed.createComponent(CommunityListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

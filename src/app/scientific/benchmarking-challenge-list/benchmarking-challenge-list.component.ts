@@ -1,14 +1,8 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { run_summary_table } from '../shared/benchmarkingTable.js';
-import { FormBuilder } from '@angular/forms';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Apollo, gql } from 'apollo-angular';
 import { Subject } from 'rxjs';
 
-/**
- * benchmarking challenge list component
- */
 @Component({
   selector: 'app-benchmarking-challenge-list',
   templateUrl: './benchmarking-challenge-list.component.html',
@@ -17,18 +11,14 @@ import { Subject } from 'rxjs';
 export class BenchmarkingChallengeListComponent
   implements OnInit, AfterViewInit
 {
-  public challengeTrigger = new Subject();
-
-  public dtOptions: DataTables.Settings = {};
-  /**
-   * beventsid
-   */
   @Input() beventsid: string;
-  /**
-   * selected challanges array
-   */
-  private selectedChallenges: any;
-
+  public challengeTrigger = new Subject();
+  public dtOptions: DataTables.Settings = {};
+  private selectedChallenges = [];
+  public challengeGraphql: any;
+  public loading = true;
+  public error: any;
+  public classifier: any;
   public getChallenges = gql`
     query getChallenges($benchmarking_event_id: String!) {
       getChallenges(
@@ -42,35 +32,9 @@ export class BenchmarkingChallengeListComponent
     }
   `;
 
-  public challengeGraphql: any;
+  constructor(private apollo: Apollo) {}
 
-  /**
-   * loading property for graphql
-   */
-  public loading = true;
-  /**
-   * error property for graphql
-   */
-  public error: any;
-
-  public classifier: any;
-  /**
-   * constructor
-   */
-  constructor(
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
-    private apollo: Apollo
-  ) {}
-
-  /**
-   * initializer
-   */
   ngOnInit() {
-    this.selectedChallenges = [];
-    // console.log(this.testid);
-    // this.beventsid = this.getParam('beventsid');
-
     this.apollo
       .watchQuery({
         query: this.getChallenges,
@@ -86,9 +50,12 @@ export class BenchmarkingChallengeListComponent
       });
   }
 
-  /**
-   * toogle sellec<
-   */
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      run_summary_table();
+    }, 1000);
+  }
+
   toogle(event, value) {
     if (event.checked) {
       this.selectedChallenges.push(value);
@@ -101,25 +68,11 @@ export class BenchmarkingChallengeListComponent
     }
   }
 
-  filterChallenges(id) {
+  filterChallenges(id: any) {
     run_summary_table(this.selectedChallenges, id);
-  }
-  /**
-   * after view init life cycle
-   */
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      run_summary_table();
-    }, 1000);
   }
 
   deselectAll() {
     this.selectedChallenges = [];
-  }
-  /**
-   * helper method to get params
-   */
-  private getParam(param: string): string {
-    return this.route.snapshot.paramMap.get(param);
   }
 }

@@ -1,0 +1,51 @@
+<div class="menu-margin">
+  <p>
+    Unbiased and objective evaluations of bioinformatics resources are
+    challenging to set up and can only be effective when built and implemented
+    around community driven efforts. Thus, in <b>OpenEBench</b> we gather
+    several community initiatives which establish standards and automated
+    services to facilitate scientific benchmarking.
+  </p>
+  <p>
+    These efforts provide a way for software developers to implement more
+    efficient methods, tools and web services by comparing their performance on
+    previously agreed datasets and metrics with other similar resources and,
+    more importantly, help end-users that tend to have difficulties in choosing
+    the right tool for the problem at hand, and are not necessarily aware of the
+    latest developments in each of the fields of the bioinformatics methods they
+    need to use.
+  </p>
+  <h3>Communities</h3>
+  <span class="flex-container" *ngIf="communities; else loading">
+    <mat-card
+      *ngFor="let community of communities | async"
+      class="communities-card"
+    >
+      <mat-card-actions>
+        <p>
+          <a
+            routerLink="{{ community._id }}"
+            name="{{ community._id }}"
+            matTooltip="{{ community._id }} details"
+            matTooltipPosition="right"
+            >{{ community.acronym }}</a
+          >
+        </p>
+        <mat-card-subtitle>{{ community.name }}</mat-card-subtitle>
+        <span *ngIf="community.links">
+          <span *ngFor="let link of community.links">
+            <span *ngIf="link.label != 'other'"
+              ><a target="_blank" href="{{ link.uri }}"
+                >{{ link.label }}
+              </a></span
+            ><br />
+            <span *ngIf="link.comment == '@logo'"
+              ><img src="{{ link.uri }}" alt="" width="100"
+            /></span>
+          </span>
+        </span>
+      </mat-card-actions>
+    </mat-card>
+  </span>
+</div>
+<ng-template #loading>loading...</ng-template>

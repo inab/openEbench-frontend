@@ -59,7 +59,7 @@ export class ToolService {
     return this.tool
 
     .pipe(
-      catchError(this.handleError('getToolById', []))
+      catchError(this.errorHandler('getToolById', []))
     );
   }
 
@@ -70,7 +70,7 @@ export class ToolService {
   this.metrics = this.http.get<Metrics[]>(url);
   return this.metrics
     .pipe(
-      catchError(this.handleError('getToolMetricsById', []))
+      catchError(this.errorHandler('getToolMetricsById', []))
     );
   }
 
@@ -111,7 +111,7 @@ export class ToolService {
     }
     return this.res
     .pipe(
-      catchError(this.handleError('getToolById', []))
+      catchError(this.errorHandler('getToolById', []))
     );
   }
 
@@ -125,7 +125,7 @@ export class ToolService {
 /**
  * Error handling
  */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private errorHandler<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

@@ -53,7 +53,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       useFactory: initializer,
       multi: true,
       deps: [KeycloakService],
-    }
+    },
   ],
   bootstrap: [AppComponent],
 })

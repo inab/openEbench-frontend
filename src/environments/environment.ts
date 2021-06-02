@@ -7,4 +7,5 @@ export const environment = {
   TOOL_STATISTICS_URL: 'https://dev-openebench.bsc.es/monitor/rest/statistics',
   METRICS_STATISTICS_URL: 'https://dev-openebench.bsc.es/monitor/rest/metrics/statistics',
   SCIENTIFIC_SERVICE_URL: 'https://dev-openebench.bsc.es/sciapi/graphql',
+  OPENEBENCH_REST_API_URL: 'https://dev-openebench.bsc.es/api/scientific',
 };
