@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
-  <a [hidden]="getPath()" routerLink="/" class="navbar-brand">
-    <img width="100px" src="assets/img/oeb-logo.gif" alt="OpEB" />
+  <a routerLink="/" class="navbar-brand" matTooltip="OpenEBench Homepage">
+    <img width="100px" src="assets/img/oeb-logo.gif" alt="OpenEBench logo" />
   </a>
   <button
     class="navbar-toggler"
@@ -16,17 +16,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li *ngFor="let link of navLinks" class="nav-item">
-        <a *ngIf="link.path != ''" [routerLink]="link.path" class="nav-link">
-          {{ link.label }}
-        </a>
-        <a
-          *ngIf="link.path == ''"
-          href="{{ link.href }}"
-          target="_blank"
-          class="nav-link"
-        >
-          {{ link.label }} &nbsp;
-        </a>
+        <a [routerLink]="link.path" class="nav-link">{{ link.label }}</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://openebench.bsc.es/docs/" target="_blank" class="nav-link">Docs</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/private" class="nav-link">{{ username }}</a>
       </li>
     </ul>
   </div>

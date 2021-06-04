@@ -1,101 +1,50 @@
-import { Component, OnInit } from "@angular/core";
-import { Location } from "@angular/common";
-import { KeycloakService } from "keycloak-angular";
-import { KeycloakProfile } from "keycloak-js";
+import { Component, OnInit } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 
-/**
- * This component is where the we specify the top menu paths
- */
+export interface NavLink {
+  label?: string;
+  path?: string;
+  href?: string;
+}
+
 @Component({
-    selector: "app-top-menu",
-    templateUrl: "./top-menu.component.html",
-    styleUrls: ["./top-menu.component.css"],
+  selector: 'app-top-menu',
+  templateUrl: './top-menu.component.html',
+  styleUrls: ['./top-menu.component.css'],
 })
-/**
- * Class top menu component
- */
 export class TopMenuComponent implements OnInit {
-    /**
-     * User details from keycloak
-     */
-    userDetails: KeycloakProfile = {};
+  username: string;
+  navLinks: NavLink[] = [
+    {
+      label: 'Scientific Benchmarking',
+      path: '/scientific',
+    },
+    {
+      label: 'Technical Monitoring',
+      path: '/tool',
+    },
+    {
+      label: 'Statistics',
+      path: '/stats',
+    },
+    {
+      label: 'About',
+      path: '/about',
+    },
+  ];
 
-    /**
-     * Construtor method
-     */
-    constructor(
-        private location: Location,
-        private keycloakService: KeycloakService
-    ) {}
+  constructor(private keycloak: KeycloakService) {}
 
-    /**
-     * Navigation links and labels for the menu on the right (LOGO)
-     */
-    public dashboardLink = {
-        label: "Dashboard",
-        path: "dashboard",
-    };
+  async ngOnInit() {
+    this.username = await this.getUsername();
+  }
 
-    /**
-     * Navigation links and labels for the menu on the left
-     */
-    public navLinks: any[] = [];
-
-    /**
-     * Call the getProfileName function on start
-     */
-    ngOnInit() {
-        this.navLinks = [
-            {
-                label: "Scientific Benchmarking",
-                path: "/scientific",
-            },
-            {
-                label: "Technical Monitoring",
-                path: "/tool",
-            },
-            {
-                label: "Statistics",
-                path: "/stats",
-            },
-            {
-                label: "About",
-                path: "/about",
-            },
-            {
-                label: "Docs",
-                path: "",
-                href: "https://openebench.bsc.es/docs/",
-            },
-        ];
-        this.getProfileName();
+  async getUsername() {
+    const isLoggedIn = await this.keycloak.isLoggedIn();
+    if (!isLoggedIn) {
+      return 'Login';
     }
-
-    /**
-     * Gets the name of the user to add toggle between login and username
-     */
-    getProfileName() {
-        this.keycloakService.isLoggedIn().then((res) => {
-            if (res) {
-                this.keycloakService.loadUserProfile().then((resp) => {
-                    this.navLinks.push({
-                        label: resp.username,
-                        path: "/private",
-                    });
-                });
-            } else {
-                this.navLinks.push({
-                    label: "Login",
-                    path: "/private",
-                });
-            }
-        });
-    }
-
-    /**
-     * Get URL path
-     */
-    getPath() {
-        return this.location.isCurrentPathEqualTo(this.dashboardLink.path);
-    }
+    await this.keycloak.loadUserProfile();
+    return this.keycloak.getUsername();
+  }
 }

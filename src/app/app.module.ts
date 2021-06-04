@@ -3,23 +3,23 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
-import { DataTablesModule } from 'angular-datatables';
 import { AppRoutingModule } from './app-routing.module';
+import { GraphQLModule } from './graphql.module';
 import { MaterialModule } from './material.module';
-import { initializer } from './utils/app-init';
-import { StatisticsService } from './shared/statistics.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
+import { initializeKeycloak } from './keycloak-init';
+import { StatisticsService } from './services/statistics.service';
+import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DocsComponent } from './docs/docs.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
-import { PrivateComponent } from './private/private.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { GraphQLModule } from './graphql.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PrivateComponent } from './private/private.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     StatisticsService,
     {
       provide: APP_INITIALIZER,
-      useFactory: initializer,
+      useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService],
     },

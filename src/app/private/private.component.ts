@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { KeycloakProfile } from 'keycloak-js';
+import { KeycloakProfile, KeycloakRoles } from 'keycloak-js';
 import { KeycloakService } from 'keycloak-angular';
 
 @Component({
@@ -8,18 +8,33 @@ import { KeycloakService } from 'keycloak-angular';
   styleUrls: ['./private.component.css'],
 })
 export class PrivateComponent implements OnInit {
-  userDetails: KeycloakProfile;
+  token: string;
+  userProfile: KeycloakProfile;
+  userRoles: KeycloakRoles["roles"];
+  FIRST_OEB_ROLE_POSITION = 22;
+  userSpecificRoles: string[]
 
-  constructor(private keycloakService: KeycloakService) {}
+  constructor(private keycloak: KeycloakService) {}
 
   async ngOnInit() {
-    if (await this.keycloakService.isLoggedIn()) {
-      this.userDetails = await this.keycloakService.loadUserProfile();
+    const isLoggedIn = await this.keycloak.isLoggedIn();
+    if (!isLoggedIn) {
+      return
     }
+    this.token = await this.keycloak.getToken();
+    this.userProfile = await this.keycloak.loadUserProfile();
+    this.userRoles = this.keycloak.getUserRoles();
+    this.userSpecificRoles = this.userRoles.slice(this.FIRST_OEB_ROLE_POSITION)
+
+    // TODO delete these console.log lines when finished debugging
+    console.log(this.token)
+    console.log(this.userProfile)
+    console.log(this.userRoles)
+    console.log(this.userSpecificRoles)
   }
 
   async logout() {
-    const redirectUri = window.location.origin + '/dashboard';
-    await this.keycloakService.logout(redirectUri);
+    const redirectUri = window.location.origin + '/';
+    await this.keycloak.logout(redirectUri);
   }
 }

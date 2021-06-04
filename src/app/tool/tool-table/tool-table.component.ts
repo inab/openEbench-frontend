@@ -1,22 +1,21 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Tool } from '../shared/tool';
-import { MatPaginator } from '@angular/material/paginator';
-import { ToolService } from '../shared/tool.service';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { Filter } from '../shared/filter';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Metrics } from '../shared/metrics';
 import { Title } from '@angular/platform-browser';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import { Filter } from '../shared/filter';
+import { Metrics } from '../shared/metrics';
+import { Tool } from '../shared/tool';
+import { ToolService } from '../shared/tool.service';
 
-/**
- * Class ToolTable Component to list the tools.
- */
 @Component({
   selector: 'app-tool-table',
   templateUrl: './tool-table.component.html',
   styleUrls: ['./tool-table.component.css'],
 })
 export class ToolTableComponent implements OnInit {
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  pageTitle = 'Technical monitoring';
   cdr = [
     'ensembl',
     'ensembl_genomes',
@@ -31,54 +30,23 @@ export class ToolTableComponent implements OnInit {
     'silva',
     'string',
   ];
-  /**
-   * options
-   */
   private options: string[];
-  /**
-   * filter
-   */
   private filter: Filter;
-  /**
-   * filterValue
-   */
   private filterValue: string | null;
   private edamFilterValue: string;
-  /**
-   * search
-   */
   private search: FormGroup;
-  /**
-   * tools
-   */
   public tools: Tool[];
-  /**
-   * metrics
-   */
   public metrics: Metrics[];
-  /**
-   * skip
-   */
   private skip: number;
-  /**
-   * limit
-   */
   private limit: number;
-
   public optionss: FormGroup;
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  /**
-   * Construtor for the tool table;
-   */
-
-  pageTitle = 'Technical monitoring';
   constructor(
     private toolService: ToolService,
     private route: ActivatedRoute,
     private router: Router,
-    fb: FormBuilder,
-    private titleService: Title
+    private titleService: Title,
+    fb: FormBuilder
   ) {
     this.optionss = fb.group({
       bottom: 0,
@@ -88,7 +56,7 @@ export class ToolTableComponent implements OnInit {
   }
 
   /**
-   * On init method checks for search param in the url or filters applied
+   * On init method checks for search param in the url or filters applied.
    */
   ngOnInit() {
     this.titleService.setTitle(this.pageTitle);
@@ -109,20 +77,16 @@ export class ToolTableComponent implements OnInit {
     };
     this.skip = 0;
     this.limit = 10;
-
     this.initializeForm();
   }
 
   /**
-   * Helper method to get the query param
+   * Helper method to get the query param.
    */
   private getQueryParam(param: string): string | null {
     return this.route.snapshot.queryParamMap.get(param);
   }
 
-  /**
-   * Gets the tools
-   */
   private getTools(): void {
     this.toolService
       .getToolWithFilters(this.filter, this.skip, this.limit)
@@ -131,25 +95,19 @@ export class ToolTableComponent implements OnInit {
       });
   }
 
-  /**
-   * Initialize search from
-   */
   private initializeForm() {
     this.options = ['Name', 'Name & Description', 'Description'];
     this.search = new FormGroup(
-      (this.filter = {
+      this.filter = {
         text: new FormControl(this.filterValue),
         filter: new FormControl(this.options[0]),
         type: new FormControl(),
         label: new FormControl(this.edamFilterValue),
-      })
+      }
     );
     this.submitForm();
   }
 
-  /**
-   * Submit search form
-   */
   private submitForm() {
     this.filter = {
       text: this.search.value.text == null ? '' : this.search.value.text,

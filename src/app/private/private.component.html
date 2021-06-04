@@ -1,7 +1,8 @@
 <div class="header-actions">
-  <div class="userDetails" *ngIf="userDetails">
-    <h3 class="text-center">Welcome, {{ userDetails.firstName }}</h3>
-    <p class="text-center">{{ userDetails.email }}</p>
-    <button mat-raised-button (click)="logout()">Log out</button>
+  <div *ngIf="userProfile">
+    <h1>Welcome, {{ userProfile.firstName }}</h1>
+    <p>Your registered email is: <strong>{{ userProfile.email }}</strong></p>
+    <p>Your user roles within OpenEBench are: <strong>{{ userSpecificRoles }}</strong></p>
+    <button mat-raised-button color="warn" (click)="logout()">Log out</button>
   </div>
 </div>

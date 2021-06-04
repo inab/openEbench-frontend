@@ -1,78 +1,115 @@
-<span *ngIf='tools;else loading'>
-
-
+<span *ngIf="tools; else loading">
   <div>
-    <form [formGroup]="search" novalidate>
-
+    <form class="form-container" [formGroup]="search" novalidate>
       <mat-form-field>
-        <input matInput placeholder="Filter" value="{{filterValue!=null? filterValue : ''}}" type="text"
-          formControlName='text'>
+        <input
+          matInput
+          placeholder="Filter"
+          value="{{ filterValue != null ? filterValue : '' }}"
+          type="text"
+          formControlName="text"
+        />
       </mat-form-field>
-
       <mat-form-field>
-        <mat-select placeholder="Search in " id="select" formControlName='filter' disableOptionCentering>
-          <mat-option *ngFor="let option of options" [value]="option"> {{option}}
+        <mat-select
+          placeholder="Search in "
+          id="select"
+          formControlName="filter"
+          disableOptionCentering
+        >
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{ option }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-
       <mat-form-field>
-        <mat-select placeholder="Type" formControlName="type" multiple matTooltip="Filter by type of tool"
-          disableOptionCentering>
-          <mat-option *ngFor="let type of typeList" [value]="type" aria-selected="true">{{type | uppercase}}
+        <mat-select
+          placeholder="Type"
+          formControlName="type"
+          multiple
+          matTooltip="Filter by type of tool"
+          disableOptionCentering
+        >
+          <mat-option
+            *ngFor="let type of typeList"
+            [value]="type"
+            aria-selected="true"
+          >
+            {{ type | uppercase }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-
       <mat-form-field>
-        <input matInput placeholder="Edam" value="{{edamFilterValue!=null? edamFilterValue : ''}}" type="text"
-          formControlName='label'>
+        <input
+          matInput
+          placeholder="Edam"
+          value="{{ edamFilterValue != null ? edamFilterValue : '' }}"
+          type="text"
+          formControlName="label"
+        />
       </mat-form-field>
-
-
-      <button mat-raised-button type="submit" (click)='submitForm()' [disabled]="!search.valid" matTooltip="Go"
-        matTooltipPosition="right">submit</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        (click)="submitForm()"
+        [disabled]="!search.valid"
+        matTooltipPosition="right"
+      >
+        Submit
+      </button>
     </form>
   </div>
-
-
-  <div class=" " *ngIf="tools.length > 0;else noentriesfound">
-
-    <!-- <button mat-raised-button (click)="sidenav.toggle()"><i class="material-icons">tune</i></button>       -->
+  <div class="" *ngIf="tools.length > 0; else noentriesfound">
     <mat-table #table [dataSource]="tools" class="table-content">
-
-
-
       <ng-container matColumnDef="tool-card">
-
         <mat-cell class="" *matCellDef="let tool">
           <div class="table-fields">
-
-            <a routerLink={{tool.id}} name="{{tool.id}}" matTooltip="{{tool.id}} details"
-              matTooltipPosition="right">{{tool.id}}</a>
+            <a
+              routerLink="{{ tool.id }}"
+              name="{{ tool.id }}"
+              matTooltip="{{ tool.id }} details"
+              matTooltipPosition="right"
+              >{{ tool.id }}</a
+            >
             <span *ngFor="let r of cdr">
-              <span class="cdr-badge" *ngIf="tool.id==r">Core Data Resource</span>
+              <span class="cdr-badge" *ngIf="tool.id == r">
+                Core Data Resource
+              </span>
             </span>
-            <p class="table-desc"><span>{{tool.entities[0].tools[0]['description']}}</span>
+            <p class="table-desc">
+              <span>{{ tool.entities[0].tools[0]["description"] }}</span>
             </p>
-
-            <span *ngFor="let entity of tool.entities"> {{entity.type | uppercase}}</span>
-            <p><a target="_blank" href="{{tool.entities[0].tools[0]['web']['homepage']}}"
-                matTooltip="Visit tool homepage" matTooltipPosition="right">Website</a></p>
+            <span *ngFor="let entity of tool.entities">
+              {{ entity.type | uppercase }}
+            </span>
+            <p>
+              <a
+                target="_blank"
+                href="{{ tool.entities[0].tools[0]['web']['homepage'] }}"
+                matTooltip="Visit tool homepage"
+                matTooltipPosition="right"
+              >
+                Website
+              </a>
+            </p>
             <p appOnIteration="getMetricsForTool(tool.id)"></p>
           </div>
         </mat-cell>
       </ng-container>
-      <mat-row *matRowDef="let row; columns: ['tool-card'];"></mat-row>
+      <mat-row *matRowDef="let row; columns: ['tool-card']"></mat-row>
     </mat-table>
-    <mat-paginator [length]=length [pageIndex]=pageIndex [pageSize]=pageSize [pageSizeOptions]=[10,20]
-      (page)="changePage($event)">
+    <mat-paginator
+      [length]="length"
+      [pageIndex]="pageIndex"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[10, 20]"
+      (page)="changePage($event)"
+    >
     </mat-paginator>
   </div>
-
-
 </span>
 <ng-template #loading>
   <mat-spinner></mat-spinner>
 </ng-template>
-<ng-template #noentriesfound>No entries found</ng-template>
+<ng-template #noentriesfound> No entries found </ng-template>

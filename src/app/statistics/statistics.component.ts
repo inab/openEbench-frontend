@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import * as c3 from 'c3';
 import * as d3 from 'd3';
-import { StatisticsService } from '../shared/statistics.service';
+import { StatisticsService } from '../services/statistics.service';
 
 export interface Statistics {
   tools: any;
@@ -11,42 +11,28 @@ export interface Statistics {
   opensource: any;
 }
 
-/**
- * Componet for Statistics
- */
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.css'],
 })
 export class StatisticsComponent implements OnInit {
-  /**
-   * data
-   */
+  pageTitle = 'Statistics';
   private data: any;
-
-  /**
-   * Visual loading flag
-   */
   public loading = false;
 
-  /**
-   * constructor function
-   */
-  pageTitle = 'Statistics';
   constructor(
     private statsService: StatisticsService,
-    private titleService: Title,
+    private titleService: Title
   ) {}
-  /**
-   * initializer
-   */
+
   ngOnInit() {
     this.titleService.setTitle(this.pageTitle);
     this.fetchdata();
   }
+
   /**
-   * fetches the data and generates the statistics charts
+   * Fetch the data and generates the statistics charts.
    */
   private fetchdata() {
     this.loading = true;
@@ -71,7 +57,7 @@ export class StatisticsComponent implements OnInit {
   }
 
   /**
-   * helper method for the fetchdata method
+   * Helper method for the fetchdata method.
    */
   private generateChart(data: Statistics) {
     this.loading = false;
@@ -94,7 +80,8 @@ export class StatisticsComponent implements OnInit {
       },
       tooltip: {
         format: {
-          value: (value) => `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
+          value: (value) =>
+            `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
         },
       },
       bindto: '#toolspublications',
@@ -118,7 +105,8 @@ export class StatisticsComponent implements OnInit {
       },
       tooltip: {
         format: {
-          value: (value) => `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
+          value: (value) =>
+            `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
         },
       },
       bindto: '#toolsbioschemas',
@@ -142,7 +130,8 @@ export class StatisticsComponent implements OnInit {
       },
       tooltip: {
         format: {
-          value: (value) => `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
+          value: (value) =>
+            `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
         },
       },
       bindto: '#toolsopensource',
