@@ -8,11 +8,11 @@ export interface NavLink {
 }
 
 @Component({
-  selector: 'app-top-menu',
-  templateUrl: './top-menu.component.html',
-  styleUrls: ['./top-menu.component.css'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
 })
-export class TopMenuComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   username: string;
   navLinks: NavLink[] = [
     {

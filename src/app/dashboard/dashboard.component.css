@@ -5,6 +5,12 @@
   align-items: center;
   position: relative;
 }
+.main-search {
+  border: 1px solid lightgray;
+  height: 60px;
+  width: 80%;
+  padding-left: 15px;
+}
 .main-submit {
   background-color: #ffffff;
   border: solid 1px #ef7500;

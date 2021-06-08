@@ -10,7 +10,6 @@
   width: 220px;
   height: 220px;
   margin: 5px;
-  /* background-image: linear-gradient(rgba(255,255,255,0.89), rgba(255,255,255,0.89)), url('../../../assets/img/oeb-isotype.gif'); */
   background-size: cover;
   text-align: justify;
 }
@@ -19,4 +18,7 @@
 }
 mat-card-subtitle {
   font-size: 12px;
+}
+.menu-margin {
+  margin-top: 1%;
 }

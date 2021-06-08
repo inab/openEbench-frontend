@@ -1,0 +1,33 @@
+.badge-no-color {
+  color: white;
+  background-color: #3c3c3c;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 2px 3px 2px 3px;
+  margin-left: 5px;
+}
+.false-link {
+  cursor: pointer;
+}
+.hide-metric {
+  display: none !important;
+}
+.metrics-true {
+  color: white;
+  background-color: #3c3c3c;
+  font-size: 14px;
+  border-right: 20px solid #8ab803;
+  border-radius: 5px;
+  padding: 2px 3px 2px 3px;
+  margin-left: 5px;
+}
+.metrics-false {
+  color: white;
+  background-color: #3c3c3c;
+  font-size: 14px;
+  border-right: 20px solid #cd5741;
+  border-radius: 5px;
+  padding: 2px 3px 2px 3px;
+  margin-left: 5px;
+}

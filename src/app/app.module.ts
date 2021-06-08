@@ -13,7 +13,7 @@ import { StatisticsService } from './services/statistics.service';
 import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TopMenuComponent } from './top-menu/top-menu.component';
+import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DocsComponent } from './docs/docs.component';
 import { AboutComponent } from './about/about.component';
@@ -24,7 +24,7 @@ import { PrivateComponent } from './private/private.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TopMenuComponent,
+    HeaderComponent,
     DashboardComponent,
     StatisticsComponent,
     AboutComponent,
