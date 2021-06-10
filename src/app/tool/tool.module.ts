@@ -12,7 +12,6 @@ import { ToolService } from './shared/tool.service';
 import { KeyValuePipe } from './shared/pipes/key-value.pipe';
 import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
 import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
-import { UptimeComponent } from '../uptime/uptime.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { UptimeComponent } from '../uptime/uptime.component';
     KeyValuePipe,
     ChartIdPipe,
     SourceBadgeClassPipe,
-    UptimeComponent,
     AllToolRoutingComponents,
   ],
   imports: [
