@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { Tool } from './tool';
-import { Metrics } from './metrics';
-import { environment } from '../../../environments/environment';
-import { Filter } from './filter';
+import { environment } from '../../environments/environment';
+import { Tool, Metrics, Filter } from '../interfaces';
 
 @Injectable()
 export class ToolService {

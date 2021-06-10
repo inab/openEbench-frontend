@@ -12,13 +12,13 @@ import { initializeKeycloak } from './keycloak-init';
 import { StatisticsService } from './services/statistics.service';
 import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { AboutComponent } from './about/about.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PrivateComponent } from './private/private.component';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AboutComponent } from './components/about/about.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PrivateComponent } from './components/private/private.component';
 
 @NgModule({
   declarations: [

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { load_scatter_visualization } from '../shared/benchmarkingChart_scatter.js';
-import { load_bars_visualization } from '../shared/benchmarkingChart_bar.js';
+import { load_scatter_visualization } from '../shared/benchmarkingChart_scatter';
+import { load_bars_visualization } from '../shared/benchmarkingChart_bar';
 import { ActivatedRoute } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
 import { Title } from '@angular/platform-browser';

@@ -5,7 +5,7 @@ import {
   AllScientificRoutingComponents,
 } from './scientific-routing.module';
 import { ScientificComponent } from './scientific.component';
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from '../../material.module';
 import { DataTablesModule } from 'angular-datatables';
 import { FormsModule } from '@angular/forms';
 

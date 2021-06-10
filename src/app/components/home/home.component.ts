@@ -9,7 +9,7 @@ import {
   switchMap,
   catchError,
 } from 'rxjs/operators';
-import { ElasticsearchService } from './elasticsearch.service';
+import { ElasticsearchService } from '../../services/elasticsearch.service';
 
 @Component({
   selector: 'app-home',

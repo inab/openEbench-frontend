@@ -2,14 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import * as c3 from 'c3';
 import * as d3 from 'd3';
-import { StatisticsService } from '../services/statistics.service';
-
-export interface Statistics {
-  tools: any;
-  publications: any;
-  bioschemas: any;
-  opensource: any;
-}
+import { Statistics } from 'src/app/interfaces';
+import { StatisticsService } from '../../services/statistics.service';
 
 @Component({
   selector: 'app-statistics',

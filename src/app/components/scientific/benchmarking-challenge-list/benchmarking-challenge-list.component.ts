@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { run_summary_table } from '../shared/benchmarkingTable.js';
+import { run_summary_table } from '../shared/benchmarkingTable';
 import { Apollo, gql } from 'apollo-angular';
 import { Subject } from 'rxjs';
 

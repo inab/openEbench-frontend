@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Community, GetComunitiesGQL } from '../../services/scientific.service';
+import { Community, Response } from 'src/app/interfaces';
+import { GetComunitiesGQL } from '../../../services/scientific.service';
 
 @Component({
   selector: 'app-community-list',
@@ -23,7 +24,7 @@ export class CommunityListComponent implements OnInit {
     this.communities = this.getCommunitiesGQL.watch()
       .valueChanges
       .pipe(
-        map(result => result.data.getCommunities)
+        map((result) => (result.data as unknown as Response).getCommunities)
       );
   }
 }

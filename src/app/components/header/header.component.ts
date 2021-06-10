@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
-
-export interface NavLink {
-  label?: string;
-  path?: string;
-  href?: string;
-}
+import { NavLink } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-header',

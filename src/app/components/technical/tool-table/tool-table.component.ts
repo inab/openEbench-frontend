@@ -3,10 +3,8 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
-import { Filter } from '../shared/filter';
-import { Metrics } from '../shared/metrics';
-import { Tool } from '../shared/tool';
-import { ToolService } from '../shared/tool.service';
+import { ToolService } from '../../../services/tool.service';
+import { Filter, Tool, Metrics } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-tool-table',

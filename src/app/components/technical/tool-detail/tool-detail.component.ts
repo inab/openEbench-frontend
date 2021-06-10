@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Filter } from '../shared/filter';
-import { Tool } from '../shared/tool';
-import { Metrics } from '../shared/metrics';
-import { ToolService } from '../shared/tool.service';
+import { ToolService } from '../../../services/tool.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
-import uptime from '../shared/uptime';
-import citation from '../shared/citation';
+import { Tool, Filter, Metrics } from 'src/app/interfaces';
+import uptime from 'src/app/external/uptime';
+import citation from 'src/app/external/citation';
 
 @Component({
   selector: 'app-tool-detail',

@@ -6,12 +6,12 @@ import {
   ToolRoutingModule,
   AllToolRoutingComponents,
 } from './tool-routing.module';
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from '../../material.module';
 import { ToolComponent } from './tool.component';
-import { ToolService } from './shared/tool.service';
-import { KeyValuePipe } from './shared/pipes/key-value.pipe';
-import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
-import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
+import { ToolService } from '../../services/tool.service';
+import { KeyValuePipe } from '../../pipes/key-value.pipe';
+import { ChartIdPipe } from '../../pipes/chart-id.pipe';
+import { SourceBadgeClassPipe } from '../../pipes/source-badge-class.pipe';
 
 @NgModule({
   declarations: [
