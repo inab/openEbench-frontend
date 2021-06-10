@@ -12,7 +12,7 @@ import { initializeKeycloak } from './keycloak-init';
 import { StatisticsService } from './services/statistics.service';
 import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
@@ -24,7 +24,7 @@ import { PrivateComponent } from './private/private.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    DashboardComponent,
+    HomeComponent,
     StatisticsComponent,
     AboutComponent,
     PrivateComponent,

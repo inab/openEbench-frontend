@@ -12,12 +12,12 @@ import {
 import { ElasticsearchService } from './elasticsearch.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
+  selector: 'app-home',
+  templateUrl: './home.component.html',
   providers: [ElasticsearchService],
-  styleUrls: ['./dashboard.component.css'],
+  styleUrls: ['./home.component.css'],
 })
-export class DashboardComponent {
+export class HomeComponent {
   model: any;
   searching = false;
   searchFailed = false;
