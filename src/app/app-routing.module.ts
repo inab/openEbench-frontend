@@ -12,7 +12,7 @@ import { AppAuthGuard } from './app.authguard'
  */
 export const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'tool', loadChildren: () => import('./tool/tool.module').then(m => m.ToolModule) },
+  { path: 'tool', loadChildren: () => import('./technical/tool.module').then(m => m.ToolModule) },
   { path: 'scientific', loadChildren: () => import('./scientific/scientific.module').then(m => m.ScientificModule) },
   { path: 'stats', component: StatisticsComponent },
   { path: 'about', component: AboutComponent },

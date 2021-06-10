@@ -6,8 +6,8 @@ import { Metrics } from '../shared/metrics';
 import { ToolService } from '../shared/tool.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
-import uptime from '../shared/uptime.js';
-import citation from '../shared/citation.js';
+import uptime from '../shared/uptime';
+import citation from '../shared/citation';
 
 @Component({
   selector: 'app-tool-detail',
