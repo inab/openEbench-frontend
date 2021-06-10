@@ -12,7 +12,6 @@ import { ToolService } from './shared/tool.service';
 import { KeyValuePipe } from './shared/pipes/key-value.pipe';
 import { ChartIdPipe } from './shared/pipes/chart-id.pipe';
 import { SourceBadgeClassPipe } from './shared/pipes/source-badge-class.pipe';
-import { ContentTableModule } from '../content-table/content-table.module';
 import { UptimeComponent } from '../uptime/uptime.component';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { UptimeComponent } from '../uptime/uptime.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    ContentTableModule,
   ],
   providers: [ToolService],
   bootstrap: [ToolComponent],
