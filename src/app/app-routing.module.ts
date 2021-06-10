@@ -4,7 +4,6 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import { AboutComponent } from './about/about.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { StatisticsComponent } from './statistics/statistics.component'
-import { DocsComponent } from './docs/docs.component'
 import { PrivateComponent } from './private/private.component'
 import { AppAuthGuard } from './app.authguard'
 
@@ -17,7 +16,6 @@ export const routes: Routes = [
   { path: 'scientific', loadChildren: () => import('./scientific/scientific.module').then(m => m.ScientificModule) },
   { path: 'stats', component: StatisticsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'docs', component: DocsComponent },
   { path: 'private', component: PrivateComponent, canActivate: [AppAuthGuard] },
   { path: '**', component: PageNotFoundComponent }
 ]

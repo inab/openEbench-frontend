@@ -15,7 +15,6 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DocsComponent } from './docs/docs.component';
 import { AboutComponent } from './about/about.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -31,7 +30,6 @@ import { PrivateComponent } from './private/private.component';
     PrivateComponent,
     FooterComponent,
     PageNotFoundComponent,
-    DocsComponent,
   ],
   imports: [
     BrowserModule,
