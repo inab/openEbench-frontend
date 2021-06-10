@@ -1,26 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Filter } from '../shared/filter';
 import { Tool } from '../shared/tool';
 import { Metrics } from '../shared/metrics';
 import { ToolService } from '../shared/tool.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
-import uptime from "../shared/uptime.js";
-import citation from "../shared/citation.js";
+import uptime from '../shared/uptime.js';
+import citation from '../shared/citation.js';
 
-/**
- * Component for tool details
- */
 @Component({
   selector: 'app-tool-detail',
   templateUrl: './tool-detail.component.html',
   styleUrls: ['./tool-detail.component.css'],
 })
 export class ToolDetailComponent implements OnInit {
-  tableOfContent = ['Metrics', 'Uptime', 'Publication'];
-
-  cdr = [
+  coreDataResources = [
     'ensembl',
     'ensembl_genomes',
     'europe_pmc',
@@ -34,80 +29,34 @@ export class ToolDetailComponent implements OnInit {
     'silva',
     'string',
   ];
-  /**
-   *  panelOpenState
-   */
   panelOpenState = true;
-  /**
-   *  tools
-   */
   tools: Tool[];
-  /**
-   *  filter
-   */
   filter: Filter;
-  /**
-   *  id
-   */
   id: string;
-  /**
-   *  instance
-   */
   instance: string;
-  /**
-   *  version
-   */
   version: string;
-  /**
-   *  selectedValue
-   */
   selectedValue: any;
-  /**
-   *  metrics
-   */
   metrics: Metrics[];
-  /**
-   *  charts
-   */
   charts: string;
-  /**
-   *  sources
-   */
-  sources: any = [];
-
-  /**
-   * Constructor
-   */
-  animal: string;
-  name: string;
+  sources = [];
 
   constructor(
     private toolService: ToolService,
     private route: ActivatedRoute,
-    private router: Router,
     public dialog: MatDialog,
     private titleService: Title
   ) {}
 
-  /**
-   * Initializer
-   */
   ngOnInit() {
     this.id = this.getParam('id');
     this.titleService.setTitle(this.id);
     this.getToolById();
   }
 
-  /**
-   * Get param from url
-   */
   public getParam(param: string): string {
     return this.route.snapshot.paramMap.get(param);
   }
 
-  /**
-   * Find tool by id
-   */
   private getToolById(): void {
     this.toolService.getToolById(this.id).subscribe((tools) => {
       this.tools = tools;
@@ -119,7 +68,7 @@ export class ToolDetailComponent implements OnInit {
   }
 
   /**
-   * Source of info (Bio.tools, Galaxy, Biocontainers etc .... )
+   * Source of the info (Bio.tools, Galaxy, Biocontainers, etc.).
    */
   private getSources(tools) {
     let i = 0;
@@ -140,7 +89,7 @@ export class ToolDetailComponent implements OnInit {
   }
 
   /**
-   * Helper function for getSource
+   * Helper function for getSource.
    */
   private sourceHref(source, tool) {
     switch (source) {
@@ -157,7 +106,7 @@ export class ToolDetailComponent implements OnInit {
     }
   }
   /**
-   * metrics that loads the graphs
+   * Metrics that load the graphs.
    */
   private getMetrics() {
     this.selectedValue['metrics'] = this.selectedValue['@id'].replace(
@@ -166,16 +115,14 @@ export class ToolDetailComponent implements OnInit {
     );
     this.toolService
       .getToolMetricsById(this.selectedValue.metrics)
-      .subscribe((res) => {
-        this.metrics = res;
-      });
+      .subscribe((response) => (this.metrics = response));
     setTimeout(() => {
       this.loadCharts();
     }, 1000);
   }
 
   /**
-   * helper function for loading the charts
+   * Helper function for loading the charts.
    */
   private loadCharts() {
     citation.loadCitationChart();
@@ -183,7 +130,7 @@ export class ToolDetailComponent implements OnInit {
   }
 
   /**
-   * setting whcih version of tool to be shown first
+   * Set which version of tool to be shown first.
    */
   private selectInitialValue(i) {
     this.selectedValue = this.tools[0].entities[i].tools[0];
@@ -191,14 +138,14 @@ export class ToolDetailComponent implements OnInit {
   }
 
   /**
-   * Managing the tab change
+   * Managing the tab change.
    */
   private onTabChange(e) {
     this.selectInitialValue(e.index + 1);
   }
 
   /**
-   * Managing the versoions
+   * Managing the versions.
    */
   private onVersionChange(e) {
     this.metrics = null;

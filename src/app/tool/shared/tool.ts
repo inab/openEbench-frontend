@@ -1,13 +1,5 @@
-/**
- * tool object interface
- */
 export interface Tool {
-    /**
-     * id
-     */
     id: any;
-    /**
-     * entities
-     */
-    entities: any;
+    entities: any[];
+    metrics: any;
 }

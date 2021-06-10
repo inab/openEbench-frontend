@@ -16,7 +16,7 @@ import { ToolService } from '../shared/tool.service';
 export class ToolTableComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   pageTitle = 'Technical monitoring';
-  cdr = [
+  coreDataResources = [
     'ensembl',
     'ensembl_genomes',
     'europe_pmc',
@@ -90,8 +90,8 @@ export class ToolTableComponent implements OnInit {
   private getTools(): void {
     this.toolService
       .getToolWithFilters(this.filter, this.skip, this.limit)
-      .subscribe((res: { body: Tool[] }) => {
-        this.tools = res.body;
+      .subscribe((response: { body: Tool[] }) => {
+        this.tools = response.body;
       });
   }
 

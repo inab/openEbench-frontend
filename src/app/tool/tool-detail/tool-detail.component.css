@@ -31,3 +31,8 @@
   padding: 2px 3px 2px 3px;
   margin-left: 5px;
 }
+h2 {
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}

@@ -1,19 +1,6 @@
-/**
- * Filter class
- */
-export class Filter {
-    /**
-     * text
-     */
-    text: any;
-    /**
-     * filter
-     */
-    filter: any;
-    /**
-     * type
-     */
-    type: any;
-
-    label: any;
+export interface Filter {
+  text: any;
+  filter: any;
+  type: any;
+  label: any;
 }
