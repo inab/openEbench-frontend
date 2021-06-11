@@ -120,13 +120,6 @@
               <span class="text-muted">
                 Number of citations for each of the publications
               </span>
-              <span *ngIf="metrics.project.publications">
-                <div *ngIf="metrics.project.publications.length<=0 ">
-                  <p class="text-center ">
-                    No publications found for this version
-                  </p>
-                </div>
-              </span>
               <div
                 data-id="citation"
                 data-h="400"
@@ -135,10 +128,9 @@
                 class="oebcitations"
                 #oebcitations
               ></div>
-
-              <span>
-                * If no publications are available for this version of the please select a different version.
-              </span>
+              <p *ngIf="!metrics?.project.publications">
+                No publications found. Try to select a different version of this tool.
+              </p>
             </ng-template>
           </mat-tab>
         </span>

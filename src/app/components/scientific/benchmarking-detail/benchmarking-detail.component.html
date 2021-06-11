@@ -1,13 +1,13 @@
 <span *ngIf="challengesGraphql && datasetsGraphql; else loading">
-  <span *ngFor="let c of challengesGraphql.getChallenges">
+  <span *ngFor="let challenge of challengesGraphql.getChallenges">
     <div>
-      <h3>{{ c.name }} ( {{ c.acronym }} )</h3>
+      <h3>{{ challenge.name }} ( {{ challenge.acronym }} )</h3>
     </div>
     <hr />
     <p>
       In order to facilitate the interpretation of benchmarking results
       OpenEbench offers several ways to visualize metrics: <br />
-      In this 2D plot two metrics from challenge ({{ c.acronym }}) are
+      In this 2D plot two metrics from challenge ({{ challenge.acronym }}) are
       represented in the X and Y axis, showing the results from the participants
       in this challenge. The gray line represents the pareto frontier, which
       runs over the participants showing the best efficiency and the arrow in
@@ -21,20 +21,20 @@
     </p>
     <mat-tab-group (selectedTabChange)="tabClick($event)">
       <mat-tab
-        *ngFor="let d of datasetsGraphql.getDatasets"
+        *ngFor="let dataset of datasetsGraphql.getDatasets"
         label="{{
-          d.datalink.inline_data.visualization.type == '2D-plot'
-            ? d.datalink.inline_data.visualization.x_axis +
+          dataset.datalink.inline_data.visualization.type == '2D-plot'
+            ? dataset.datalink.inline_data.visualization.x_axis +
               '+' +
-              d.datalink.inline_data.visualization.y_axis
-            : d.datalink.inline_data.visualization.metric
+              dataset.datalink.inline_data.visualization.y_axis
+            : dataset.datalink.inline_data.visualization.metric
         }}"
       >
-        <span [ngSwitch]="d.datalink.inline_data.visualization.type">
+        <span [ngSwitch]="dataset.datalink.inline_data.visualization.type">
           <span *ngSwitchCase="'2D-plot'">
             <div class="break">
               <div
-                attr.data-id="{{ d._id }}"
+                attr.data-id="{{ dataset._id }}"
                 data-mode="dev"
                 toTable="true"
                 class="benchmarkingChart_scatter"
@@ -44,7 +44,7 @@
           <span *ngSwitchCase="'bar-plot'">
             <div class="break">
               <div
-                attr.data-id="{{ d._id }}"
+                attr.data-id="{{ dataset._id }}"
                 class="benchmarkingChart_bars"
                 data-mode="dev"
               ></div>

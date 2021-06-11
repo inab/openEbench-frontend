@@ -92,17 +92,19 @@ export class ToolDetailComponent implements OnInit {
   private sourceHref(source, tool) {
     switch (source) {
       case 'biotools':
-        window.open('https://bio.tools/' + tool, '_blank');
+        window.open(`https://bio.tools/${tool}`, '_blank');
         break;
       case 'bioconda':
-        window.open('https://anaconda.org/bioconda/' + tool, '_blank');
+        window.open(`https://anaconda.org/bioconda/${tool}`, '_blank');
         break;
       case 'galaxy':
-
+        // TODO
+        break;
       default:
         break;
     }
   }
+
   /**
    * Metrics that load the graphs.
    */

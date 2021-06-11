@@ -12,8 +12,7 @@ import { StatisticsService } from '../../services/statistics.service';
 })
 export class StatisticsComponent implements OnInit {
   pageTitle = 'Statistics';
-  private data: any;
-  public loading = false;
+  public loading = true;
 
   constructor(
     private statsService: StatisticsService,
@@ -29,33 +28,25 @@ export class StatisticsComponent implements OnInit {
    * Fetch the data and generates the statistics charts.
    */
   private fetchdata() {
-    this.loading = true;
-    this.statsService.getStats().subscribe(
-      // 1
-      (data) => {
-        this.data = data;
-      },
-      // 2
-      (err) => console.log(err),
-      // 3
-      () => {
-        const statistics: Statistics = {
-          tools: this.data['/@timestamp'],
-          publications: this.data['/project/publications'],
-          bioschemas: this.data['/project/website/bioschemas:true'],
-          opensource: this.data['/project/license/open_source:true'],
-        };
-        this.generateChart(statistics);
-      }
-    );
+    this.statsService.getStats().subscribe((response) => {
+      this.generateChart({
+        tools: response['/@timestamp'],
+        publications: response['/project/publications'],
+        bioschemas: response['/project/website/bioschemas:true'],
+        opensource: response['/project/license/open_source:true'],
+      });
+    });
   }
 
   /**
    * Helper method for the fetchdata method.
    */
-  private generateChart(data: Statistics) {
-    this.loading = false;
-
+  private generateChart({
+    tools,
+    publications,
+    bioschemas,
+    opensource,
+  }: Statistics) {
     // Publications chart
     c3.generate({
       size: {
@@ -67,15 +58,15 @@ export class StatisticsComponent implements OnInit {
       },
       data: {
         columns: [
-          ['Tools with no publications ', data.tools - data.publications],
-          ['Tools with publications', data.publications],
+          ['Tools with no publications ', tools - publications],
+          ['Tools with publications', publications],
         ],
         type: 'pie',
       },
       tooltip: {
         format: {
           value: (value) =>
-            `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
+            `${d3.format(',')(Number(value))} / ${d3.format(',')(tools)}`,
         },
       },
       bindto: '#toolspublications',
@@ -92,15 +83,15 @@ export class StatisticsComponent implements OnInit {
       },
       data: {
         columns: [
-          ['Tools with bioschemas', data.bioschemas],
-          ['Tools without bioschemas ', data.tools - data.bioschemas],
+          ['Tools with bioschemas', bioschemas],
+          ['Tools without bioschemas ', tools - bioschemas],
         ],
         type: 'pie',
       },
       tooltip: {
         format: {
           value: (value) =>
-            `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
+            `${d3.format(',')(Number(value))} / ${d3.format(',')(tools)}`,
         },
       },
       bindto: '#toolsbioschemas',
@@ -114,8 +105,8 @@ export class StatisticsComponent implements OnInit {
       },
       data: {
         columns: [
-          ['Tools with opensource license', data.opensource],
-          ['Tools without opensource license ', data.tools - data.opensource],
+          ['Tools with opensource license', opensource],
+          ['Tools without opensource license ', tools - opensource],
         ],
         type: 'pie',
       },
@@ -125,10 +116,12 @@ export class StatisticsComponent implements OnInit {
       tooltip: {
         format: {
           value: (value) =>
-            `${d3.format(',')(Number(value))} / ${d3.format(',')(data.tools)}`,
+            `${d3.format(',')(Number(value))} / ${d3.format(',')(tools)}`,
         },
       },
       bindto: '#toolsopensource',
     });
+
+    this.loading = false;
   }
 }

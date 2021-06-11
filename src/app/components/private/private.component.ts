@@ -26,7 +26,7 @@ export class PrivateComponent implements OnInit {
     this.userRoles = this.keycloak.getUserRoles();
     this.userSpecificRoles = this.userRoles.slice(this.FIRST_OEB_ROLE_POSITION)
 
-    // TODO delete these console.log lines when finished debugging
+    // TODO: Delete these console.log lines when finished debugging.
     console.log(this.token)
     console.log(this.userProfile)
     console.log(this.userRoles)
