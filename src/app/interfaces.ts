@@ -1,6 +1,8 @@
+import { FormControl } from "@angular/forms";
+
 export interface Filter {
   text: any;
-  filter: any;
+  filter: string | FormControl;
   type: any;
   label: any;
 }

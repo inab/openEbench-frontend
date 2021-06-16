@@ -6,6 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { Tool, Filter, Metrics } from 'src/app/interfaces';
 import uptime from 'src/app/external/uptime';
 import citation from 'src/app/external/citation';
+import { ChartService } from 'src/app/services/chart.service';
 
 @Component({
   selector: 'app-tool-detail',
@@ -42,7 +43,8 @@ export class ToolDetailComponent implements OnInit {
     private toolService: ToolService,
     private route: ActivatedRoute,
     public dialog: MatDialog,
-    private titleService: Title
+    private titleService: Title,
+    private chartService: ChartService
   ) {}
 
   ngOnInit() {
@@ -57,11 +59,10 @@ export class ToolDetailComponent implements OnInit {
 
   private getToolById(): void {
     this.toolService.getToolById(this.id).subscribe((tools) => {
+      if (!tools) return;
       this.tools = tools;
-      if (this.tools.length !== 0) {
-        this.getSources(this.tools);
-        this.selectInitialValue(1);
-      }
+      this.getSources(this.tools);
+      this.selectInitialValue(1);
     });
   }
 
@@ -113,8 +114,9 @@ export class ToolDetailComponent implements OnInit {
       '/tool/',
       '/metrics/'
     );
+    const metricsUrl = this.selectedValue.metrics;
     this.toolService
-      .getToolMetricsById(this.selectedValue.metrics)
+      .getToolMetricsByUrl(metricsUrl)
       .subscribe((response) => (this.metrics = response));
     setTimeout(() => {
       this.loadCharts();
@@ -124,9 +126,21 @@ export class ToolDetailComponent implements OnInit {
   /**
    * Helper function for loading the charts.
    */
-  private loadCharts() {
+  private async loadCharts() {
+    // TO BE REMOVED: calls to external custom compiled and minified js libraries
+    // uptime.js and citations.js are not easily maintainable
     citation.loadCitationChart();
     uptime.loadChart();
+
+    // TODO: replace external libraries by angular services
+    this.chartService.getUptime().subscribe((response) => {
+      // TODO: build uptime chart with this response
+      console.log(response);
+    });
+    this.chartService.getCitations().subscribe((response) => {
+      // TODO: build citations chart with this response
+      console.log(response);
+    });
   }
 
   /**

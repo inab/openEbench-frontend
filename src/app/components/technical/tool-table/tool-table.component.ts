@@ -6,6 +6,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ToolService } from '../../../services/tool.service';
 import { Filter, Tool, Metrics } from 'src/app/interfaces';
 
+interface Response {
+  body: Tool[];
+}
+
 @Component({
   selector: 'app-tool-table',
   templateUrl: './tool-table.component.html',
@@ -88,7 +92,7 @@ export class ToolTableComponent implements OnInit {
   private getTools(): void {
     this.toolService
       .getToolWithFilters(this.filter, this.skip, this.limit)
-      .subscribe((response: { body: Tool[] }) => {
+      .subscribe((response: Response) => {
         this.tools = response.body;
       });
   }
@@ -96,12 +100,12 @@ export class ToolTableComponent implements OnInit {
   private initializeForm() {
     this.options = ['Name', 'Name & Description', 'Description'];
     this.search = new FormGroup(
-      this.filter = {
+      (this.filter = {
         text: new FormControl(this.filterValue),
         filter: new FormControl(this.options[0]),
         type: new FormControl(),
         label: new FormControl(this.edamFilterValue),
-      }
+      })
     );
     this.submitForm();
   }
