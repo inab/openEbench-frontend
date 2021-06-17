@@ -1,14 +1,14 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { run_summary_table } from '../shared/benchmarkingTable';
+import { run_summary_table } from 'src/app/components/scientific/shared/benchmarkingTable';
 import { Apollo, gql } from 'apollo-angular';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-benchmarking-challenge-list',
-  templateUrl: './benchmarking-challenge-list.component.html',
-  styleUrls: ['./benchmarking-challenge-list.component.css'],
+  selector: 'app-challenge-list',
+  templateUrl: './challenge-list.component.html',
+  styleUrls: ['./challenge-list.component.css'],
 })
-export class BenchmarkingChallengeListComponent
+export class ChallengeListComponent
   implements OnInit, AfterViewInit
 {
   @Input() beventsid: string;

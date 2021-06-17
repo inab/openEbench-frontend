@@ -1,4 +1,4 @@
-import { FormControl } from "@angular/forms";
+import { FormControl } from '@angular/forms';
 
 export interface Filter {
   text: any;
@@ -25,14 +25,18 @@ export interface Statistics {
   bioschemas: any;
   opensource: any;
 }
+export interface CommunityLink {
+  uri: string;
+  comment: string;
+}
 export interface Community {
   _id: string;
   name: string;
   acronym: string;
-  status_id: [string];
+  status_id: string[];
   description: string;
-  links: [any];
-  community_contacts: [string];
+  links: CommunityLink[];
+  community_contacts: string[];
   stamp: number;
   _schema: string;
 }

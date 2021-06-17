@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { load_scatter_visualization } from '../shared/benchmarkingChart_scatter';
-import { load_bars_visualization } from '../shared/benchmarkingChart_bar';
+import { load_scatter_visualization } from '../../shared/benchmarkingChart_scatter';
+import { load_bars_visualization } from '../../shared/benchmarkingChart_bar';
 import { ActivatedRoute } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-benchmarking-detail',
-  templateUrl: './benchmarking-detail.component.html',
-  styleUrls: ['./benchmarking-detail.component.css'],
+  selector: 'app-challenge',
+  templateUrl: './challenge.component.html',
+  styleUrls: ['./challenge.component.css'],
 })
-export class BenchmarkingDetailComponent implements OnInit {
+export class ChallengeComponent implements OnInit {
   data: any;
   challengesGraphql: any;
   datasetsGraphql: any;

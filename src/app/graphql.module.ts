@@ -4,7 +4,7 @@ import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
 import { environment } from '../environments/environment';
 
-const uri = environment.SCIENTIFIC_SERVICE_URL;
+const uri = environment.SCIENTIFIC_API_GRAPHQL_URL;
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {

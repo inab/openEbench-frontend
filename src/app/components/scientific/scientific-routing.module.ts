@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommunityListComponent } from './community-list/community-list.component';
-import { BenchmarkingListComponent } from './benchmarking-list/benchmarking-list.component';
-import { BenchmarkingDetailComponent } from './benchmarking-detail/benchmarking-detail.component';
-import { BenchmarkingChallengeListComponent } from './benchmarking-challenge-list/benchmarking-challenge-list.component';
+import { CommunityListComponent } from './communities/community-list/community-list.component';
+import { CommunityComponent } from './communities/community/community.component';
+import { ChallengeComponent } from './challenges/challenge/challenge.component';
+import { ChallengeListComponent } from './challenges/challenge-list/challenge-list.component';
 
 export const AllScientificRoutingComponents = [
   CommunityListComponent,
-  BenchmarkingListComponent,
-  BenchmarkingChallengeListComponent,
-  BenchmarkingDetailComponent,
+  CommunityComponent,
+  ChallengeListComponent,
+  ChallengeComponent,
 ];
 
 const routes: Routes = [
@@ -17,10 +17,10 @@ const routes: Routes = [
     path: '',
     children: [
       { path: '', component: CommunityListComponent },
-      { path: ':id', component: BenchmarkingListComponent },
+      { path: ':id', component: CommunityComponent },
       {
         path: ':id/:bchallengeid',
-        component: BenchmarkingDetailComponent,
+        component: ChallengeComponent,
       },
     ],
   },

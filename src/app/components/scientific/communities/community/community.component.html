@@ -1,0 +1,139 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<div *ngIf="community">
+  <h1>{{ community.name }} ({{ community.acronym }})</h1>
+  <p>{{ community.description }}</p>
+  <p>
+    If you want to benchmark your own method please refer to
+    <a [href]="vreLink">Virtual Research Environment</a>.
+  </p>
+</div>
+<mat-tab-group>
+  <mat-tab label="Benchmarking Events">
+    <br />
+    <h2>Benchmarking Events</h2>
+    <p>
+      A benchmarking event corresponds to a benchmarking experiment which is
+      held at a certain date. It starts when the organizing community opens one
+      or more challenges by providing participants with some input data and
+      allows to submit their predictions. Once the event is closed, the
+      benchmark is performed and the metrics are computed. This usually occurs,
+      recursively (every week, month, year...).
+    </p>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let event of events; let isFirst = first">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ event.name }}
+          </mat-panel-title>
+          <mat-panel-description>
+            <span class="right" *ngIf="event.challenges">
+              Challenges: {{ event.challenges.length }}
+            </span>
+          </mat-panel-description>
+          <mat-icon *ngIf="isFirst">bookmark_border</mat-icon>
+          <div *ngIf="isFirst">LATEST&nbsp;&nbsp;</div>
+        </mat-expansion-panel-header>
+        <app-challenge-list [beventsid]="event._id"></app-challenge-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-tab>
+  <mat-tab label="Datasets">
+    <br />
+    <h2>Datasets</h2>
+    <p>There are four types of datasets considered in OpenEBench:</p>
+    <ul>
+      <li>
+        <b>Input datasets</b> are provided by the community for the participants
+        to test their methods/tools.
+      </li>
+      <li>
+        <b>Reference datasets</b> are the Gold Standard datasets that are also
+        provided by the community but are not visible.
+      </li>
+      <li>
+        <b>Participant datasets</b> are uploaded by the participants to be
+        benchmarked against the reference datasets.
+      </li>
+      <li>
+        <b>Assessment datasets</b> contain information about the results of
+        metrics applied to a certain prediction.
+      </li>
+      <li>
+        <b>Aggregation datasets</b> are obtained by summarizing or computing
+        statistics on assessment datasets.
+      </li>
+    </ul>
+    <br />
+    <span *ngIf="datasets">
+      <table
+        datatable
+        [dtOptions]="dtOptions"
+        [dtTrigger]="datasetTrigger"
+        class="row-border hover"
+      >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dataset of datasets.getDatasets">
+            <td>{{ dataset.name }}</td>
+            <td>{{ dataset.type }}</td>
+            <td>
+              <a
+                href="{{ dataset.datalink.uri }}"
+                [disabled]="!dataset.datalink.uri ? 'true' : 'false'"
+                target="_blank"
+                mat-button
+                color="primary"
+              >
+                Download
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </span>
+  </mat-tab>
+  <mat-tab label="Participants">
+    <br />
+    <h2>Participants</h2>
+    <p>
+      Participants are the users who upload their predictions to take part in
+      the benchmarking event.
+    </p>
+    <span *ngIf="tools">
+      <table
+        datatable
+        [dtOptions]="dtOptions"
+        [dtTrigger]="toolTrigger"
+        class="row-border hover"
+      >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tool of tools">
+            <td>
+              <a
+                href="/tool/{{ t.registry_tool_id?.split('biotools:')[1] }}"
+                [disabled]="!t.registry_tool_id ? 'true' : 'false'"
+                mat-button
+                color="primary"
+              >
+                {{ tool.name }}
+              </a>
+            </td>
+            <td>{{ tool.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </span>
+  </mat-tab>
+</mat-tab-group>

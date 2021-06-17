@@ -5,6 +5,6 @@ export const environment = {
   TOOL_SERVICE_URL: 'https://openebench.bsc.es/monitor/rest/aggregate',
   TOOL_STATISTICS_URL: 'https://openebench.bsc.es/monitor/rest/statistics',
   METRICS_STATISTICS_URL: 'https://openebench.bsc.es/monitor/rest/metrics/statistics',
-  SCIENTIFIC_SERVICE_URL: 'https://openebench.bsc.es/sciapi/graphql',
   OPENEBENCH_REST_API_URL: 'https://openebench.bsc.es/api/scientific',
+  SCIENTIFIC_API_GRAPHQL_URL: 'https://openebench.bsc.es/sciapi/graphql',
 };

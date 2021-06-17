@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Community } from 'src/app/interfaces';
-import { AllComunitiesGQL } from '../../../services/graphql.service';
+import { AllComunitiesGQL } from 'src/app/services/graphql.service';
 
 @Component({
   selector: 'app-community-list',

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BenchmarkingDetailComponent } from './benchmarking-detail.component';
+import { CommunityComponent } from './community.component';
 
-describe('BenchmarkingDetailComponent', () => {
-  let component: BenchmarkingDetailComponent;
-  let fixture: ComponentFixture<BenchmarkingDetailComponent>;
+describe('BenchmarkingDetailsComponent', () => {
+  let component: CommunityComponent;
+  let fixture: ComponentFixture<CommunityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BenchmarkingDetailComponent ]
+      declarations: [ CommunityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BenchmarkingDetailComponent);
+    fixture = TestBed.createComponent(CommunityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
