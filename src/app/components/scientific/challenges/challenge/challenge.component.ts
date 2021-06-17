@@ -62,7 +62,7 @@ export class ChallengeComponent implements OnInit {
         this.challengesGraphql = result.data;
         this.loading = result.loading;
         this.error = result.errors;
-        this.titleService.setTitle(result.data['getChallenges'][0].name);
+        this.titleService.setTitle(`${result.data['getChallenges'][0].name} | OpenEBench`);
       }),
       this.apollo
         .watchQuery({

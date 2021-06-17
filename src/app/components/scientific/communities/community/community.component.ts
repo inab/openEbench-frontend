@@ -55,7 +55,7 @@ export class CommunityComponent implements OnInit {
       .valueChanges.pipe(map((result) => result.data.getCommunities))
       .subscribe((filteredCommunities) => {
         this.community = filteredCommunities[0];
-        this.titleService.setTitle(this.community.name);
+        this.titleService.setTitle(`${this.community.name} | OpenEBench`);
         this.vreLink = this.community.links.find(
           (link) => link.comment === '@VRE_link'
         )?.uri;

@@ -20,7 +20,7 @@ export class StatisticsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.titleService.setTitle(this.pageTitle);
+    this.titleService.setTitle(`${this.pageTitle} | OpenEBench`);
     this.fetchdata();
   }
 

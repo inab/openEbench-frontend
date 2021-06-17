@@ -19,20 +19,10 @@ const routes: Routes = [
    * This is a child module so we use forChild
    */
   imports: [RouterModule.forChild(routes)],
-  /**
-   * Export RoutingModule
-   */
   exports: [RouterModule],
 })
-
-/**
- * Export Routing Module
- */
 export class ToolRoutingModule {}
 
-/**
- * Export routing components
- */
 export const AllToolRoutingComponents = [
   ToolTableComponent,
   ToolDetailComponent,

@@ -49,7 +49,7 @@ export class ToolDetailComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.getParam('id');
-    this.titleService.setTitle(this.id);
+    this.titleService.setTitle(`${this.id} | OpenEbench`);
     this.getToolById();
   }
 

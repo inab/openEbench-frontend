@@ -17,7 +17,7 @@ interface Response {
 })
 export class ToolTableComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  pageTitle = 'Technical monitoring';
+  pageTitle = 'Tools';
   coreDataResources = [
     'ensembl',
     'ensembl_genomes',
@@ -61,7 +61,7 @@ export class ToolTableComponent implements OnInit {
    * On init method checks for search param in the url or filters applied.
    */
   ngOnInit() {
-    this.titleService.setTitle(this.pageTitle);
+    this.titleService.setTitle(`${this.pageTitle} | OpenEBench`);
     this.filterValue = this.getQueryParam('search');
     this.filter = {
       text:
