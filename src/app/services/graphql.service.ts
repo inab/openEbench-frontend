@@ -2,11 +2,16 @@
 
 import { Injectable } from '@angular/core';
 import { Query, gql } from 'apollo-angular';
+import { Community } from '../interfaces';
+
+export interface Response {
+  getCommunities: Community[];
+}
 
 @Injectable({
   providedIn: 'root',
 })
-export class GetComunitiesGQL extends Query<Response> {
+export class AllComunitiesGQL extends Query<Response> {
   document = gql`
     query getCommunities {
       getCommunities {

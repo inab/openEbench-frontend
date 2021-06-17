@@ -36,7 +36,3 @@ export interface Community {
   stamp: number;
   _schema: string;
 }
-
-export interface Response {
-  getCommunities: Community[];
-}

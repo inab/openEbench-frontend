@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Community, Response } from 'src/app/interfaces';
-import { GetComunitiesGQL } from '../../../services/scientific.service';
+import { Community } from 'src/app/interfaces';
+import { AllComunitiesGQL } from '../../../services/graphql.service';
 
 @Component({
   selector: 'app-community-list',
@@ -11,20 +10,18 @@ import { GetComunitiesGQL } from '../../../services/scientific.service';
   styleUrls: ['./community-list.component.css'],
 })
 export class CommunityListComponent implements OnInit {
-  pageTitle = 'Scientific benchmarking';
   communities: Observable<Community[]>;
   public data = [];
   public loading = true;
   public error: any;
 
-  constructor(private titleService: Title, private getCommunitiesGQL: GetComunitiesGQL) {}
+  constructor(private allCommunitiesGQL: AllComunitiesGQL) {}
 
   ngOnInit() {
-    this.titleService.setTitle(this.pageTitle);
-    this.communities = this.getCommunitiesGQL.watch()
+    this.communities = this.allCommunitiesGQL.watch()
       .valueChanges
       .pipe(
-        map((result) => (result.data as unknown as Response).getCommunities)
+        map(result => result.data.getCommunities)
       );
   }
 }
