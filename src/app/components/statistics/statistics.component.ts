@@ -12,7 +12,7 @@ import { StatisticsService } from '../../services/statistics.service';
 })
 export class StatisticsComponent implements OnInit {
   pageTitle = 'Statistics';
-  public loading = true;
+  loading = true;
 
   constructor(
     private statsService: StatisticsService,

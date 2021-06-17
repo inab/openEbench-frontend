@@ -14,9 +14,9 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'tool', loadChildren: () => import('./components/technical/tool.module').then(m => m.ToolModule) },
   { path: 'scientific', loadChildren: () => import('./components/scientific/scientific.module').then(m => m.ScientificModule) },
-  { path: 'stats', component: StatisticsComponent },
+  { path: 'statistics', component: StatisticsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'private', component: PrivateComponent, canActivate: [AppAuthGuard] },
+  { path: 'user-private-area', component: PrivateComponent, canActivate: [AppAuthGuard] },
   { path: '**', component: PageNotFoundComponent }
 ]
 

@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     },
     {
       label: 'Statistics',
-      path: '/stats',
+      path: 'statistics',
     },
     {
       label: 'About',
