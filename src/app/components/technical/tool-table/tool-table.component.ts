@@ -18,6 +18,16 @@ interface Response {
 export class ToolTableComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   pageTitle = 'Tools';
+  private options: string[];
+  private filter: Filter;
+  private filterValue: string | null;
+  private edamFilterValue: string;
+  private search: FormGroup;
+  public tools: Tool[];
+  public metrics: Metrics[];
+  private skip: number;
+  private limit: number;
+  public optionss: FormGroup;
   coreDataResources = [
     'ensembl',
     'ensembl_genomes',
@@ -32,16 +42,22 @@ export class ToolTableComponent implements OnInit {
     'silva',
     'string',
   ];
-  private options: string[];
-  private filter: Filter;
-  private filterValue: string | null;
-  private edamFilterValue: string;
-  private search: FormGroup;
-  public tools: Tool[];
-  public metrics: Metrics[];
-  private skip: number;
-  private limit: number;
-  public optionss: FormGroup;
+  typeList = [
+    "cmd",
+    "web",
+    "db",
+    "app",
+    "lib",
+    "ontology",
+    "workflow",
+    "plugin",
+    "sparql",
+    "soap",
+    "script",
+    "rest",
+    "workbench",
+    "suite",
+];
 
   constructor(
     private toolService: ToolService,
