@@ -21,7 +21,7 @@ export class ManageEventsComponent implements OnInit {
     private formlyJsonschema: FormlyJsonschema,
     private http: HttpClient,
   ) {
-    this.http.get<any>('https://github.com/inab/OpEB-VRE-schemas/blob/frontend-schema/oeb_event_schema.json').pipe(
+    this.http.get<any>('https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-schema/oeb_event_schema.json').pipe(
       tap(({ schema, model }) => {
         this.form = new FormGroup({});
         this.options = {};
