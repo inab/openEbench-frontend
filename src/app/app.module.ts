@@ -50,6 +50,10 @@ export function createApollo(httpLink: HttpLink) {
     };
 }
 
+export function patternNecessary(err, field: FormlyFieldConfig) {
+  return `The pattern should be ${field.templateOptions.pattern}`;
+}
+
 export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
     return `should NOT have fewer than ${field.templateOptions.minItems} items`;
   }
@@ -127,6 +131,7 @@ export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
             extras: { resetFieldOnHide: true },
             validationMessages: [
               { name: 'required', message: 'This field is required' },
+	            { name: 'pattern', message: patternNecessary },
               { name: 'null', message: 'should be null' },
               { name: 'minlength', message: minlengthValidationMessage },
               { name: 'maxlength', message: maxlengthValidationMessage },
