@@ -46,6 +46,7 @@ export class TopMenuComponent implements OnInit {
      * Call the getProfileName function on start
      */
     ngOnInit() {
+
         this.navLinks = [
             {
                 label: "Scientific Benchmarking",
