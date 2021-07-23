@@ -40,6 +40,7 @@ export class TopMenuComponent implements OnInit {
      * Navigation links and labels for the menu on the left
      */
     public navLinks: any[];
+    public navDocs: any[];
 
     /**
      * Call the getProfileName function on start
@@ -69,6 +70,18 @@ export class TopMenuComponent implements OnInit {
             },
         ];
         //this.getProfileName();
+        this.navDocs = [
+            {
+                label: "Technical",
+                path: "",
+                href: "https://openebench.bsc.es/docs/"
+            },
+            {
+                label: "Read the docs",
+                path: "",
+                href: "https://openebench.readthedocs.io/en/latest/"
+            }
+        ]
     }
 
     /**
