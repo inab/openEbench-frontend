@@ -37,10 +37,28 @@ export class ToolTableComponent implements OnInit {
         "silva",
         "string",
     ];
+
+    public typeList = [
+        "cmd",
+        "web",
+        "db",
+        "app",
+        "lib",
+        "ontology",
+        "workflow",
+        "plugin",
+        "sparql",
+        "soap",
+        "script",
+        "rest",
+        "workbench",
+        "suite",
+    ];
+
     /**
      * options
      */
-    private options: string[];
+    public options: string[];
     /**
      * filter
      */
@@ -48,12 +66,12 @@ export class ToolTableComponent implements OnInit {
     /**
      * filterValue
      */
-    private filterValue: string;
-    private edamFilterValue: string;
+    public filterValue: string;
+    public edamFilterValue: string;
     /**
      * search
      */
-    private search: FormGroup;
+    public search: FormGroup;
     /**
      * tools
      */
@@ -142,6 +160,15 @@ export class ToolTableComponent implements OnInit {
     }
 
     /**
+     * Change page (Paginator)
+     */
+    public changePage(event) {
+        this.skip = event.pageIndex * event.pageSize;
+        this.limit = event.pageIndex * event.pageSize + event.pageSize;
+        this.getTools();
+    }
+
+    /**
      * Initialize search from
      */
     private initializeForm() {
@@ -160,7 +187,7 @@ export class ToolTableComponent implements OnInit {
     /**
      * Submit search form
      */
-    private submitForm() {
+    public submitForm() {
         this.filter = {
             text: this.search.value.text == null ? "" : this.search.value.text,
             filter: this.search.value.filter,

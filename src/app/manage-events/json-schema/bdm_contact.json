@@ -1,0 +1,7 @@
+{
+	"model": {
+	},
+	"schema": {
+		"$ref": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/2.0/Contact"
+	}
+}

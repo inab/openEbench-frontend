@@ -5,14 +5,20 @@
             <h4 class="text-center">{{instance?.id | uppercase}}
 
             </h4>
-            <p class="text-center"><span *ngFor="let r of cdr">
+            <p class="text-center">
+                <span *ngFor="let r of cdr">
                     <span class="cdr-badge" *ngIf="instance?.id==r">Core Data Resource</span>
                 </span></p>
-            <p class="text-center"><small><a
-                        href="{{selectedValue['web']['homepage']}}">{{selectedValue['web']['homepage']}}</a></small></p>
+            <p class="text-center">
+                <small>
+                    <a href="{{selectedValue['web']['homepage']}}">{{selectedValue['web']['homepage']}}</a>
+                </small>
+            </p>
 
-            <p class="text-center"><span *ngFor="let source of sources" (click)="sourceHref(source,instance?.id)"
-                    ngClass="badge-no-color false-link">{{source}}</span>
+            <p class="text-center">
+                <span *ngFor="let source of sources" (click)="sourceHref(source,instance?.id)"
+                    ngClass="badge-no-color false-link">{{source}}
+                </span>
             </p>
 
             <!-- <app-content-table [contents]=tableOfContent></app-content-table> -->
@@ -59,7 +65,14 @@
                                     </span>
                                 </div>
                             </div>
-                            <hr>
+                        </ng-template>
+                    </mat-tab>
+                </span>
+                <hr>
+                <span *ngFor="let metrics of instance.metrics">
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <!-- METRICS PART -->
                             <div class="card-group" *ngIf="metrics">
                                 <div class="card border-light">
                                     <h3 id="Metrics" class="card-title">Metrics</h3>

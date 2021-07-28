@@ -1,5 +1,5 @@
 import { KeycloakService } from 'keycloak-angular';
-import { resolve } from 'q';
+//import { resolve } from 'q';
 import { environment } from '../../environments/environment';
 /**
  * Keycloak config file.
@@ -23,7 +23,7 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
             '/scientific'
           ],
         });
-          resolve();
+          resolve("some");
         } catch (error) {
           reject(error);
         }

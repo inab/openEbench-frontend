@@ -152,7 +152,7 @@ export class ToolDetailComponent implements OnInit {
     /**
      * Helper function for getSource
      */
-    private sourceHref(source, tool) {
+    public sourceHref(source, tool) {
         switch (source) {
             case "biotools":
                 window.open("https://bio.tools/" + tool, "_blank");
@@ -203,14 +203,14 @@ export class ToolDetailComponent implements OnInit {
     /**
      * Managing the tab change
      */
-    private onTabChange(e) {
+    public onTabChange(e) {
         this.selectInitialValue(e.index + 1);
     }
 
     /**
      * Managing the versoions
      */
-    private onVersionChange(e) {
+    public onVersionChange(e) {
         this.metrics = null;
         this.getMetrics();
     }

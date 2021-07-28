@@ -1,0 +1,81 @@
+{
+  "schema": {
+    "title": "A registration form",
+    "description": "A simple form example.",
+    "type": "object",
+    "required": [
+      "firstName",
+      "lastName",
+      "id"
+    ],
+    "properties": {
+      "firstName": {
+        "type": "string",
+        "title": "First name",
+        "pattern": "^(pmid|doi|pmc|isbn|issn|http(s)?):.+$",
+        "widget": {
+          "formlyConfig": {
+            "templateOptions": {
+              "type": "string",
+              "placeholder": "hola",
+              "writeonly": true
+            }
+          }
+        }
+      },
+      "dates": {
+				"title": "Relevant dates for this benchmarking event",
+				"type": "object",
+				"properties": {
+					"creation": {
+						"title": "Creation date of the benchmarking event",
+						"type": "string",
+						"format": "date-time"
+					},
+					"modification": {
+						"title": "Last modification date of the benchmarking event",
+						"type": "string",
+						"format": "date-time"
+					},
+					"public": {
+						"title": "The date when this benchmarking event becomes public",
+						"type": "string",
+						"format": "date-time"
+					}
+        }
+      },
+      "bio": {
+        "type": "boolean",
+        "title": "Bio",
+        "widget": {
+          "formlyConfig": {
+            "type": "checkbox",
+            "default": false
+          }
+        }
+      },
+      "lastName": {
+        "type": "string",
+        "title": "Last name"
+      },
+      "age": {
+        "type": "integer",
+        "title": "Age"
+      },
+      "password": {
+        "type": "string",
+        "title": "Password",
+        "minLength": 3
+      },
+      "telephone": {
+        "type": "string",
+        "title": "Telephone",
+        "minLength": 10
+      }
+    }
+  },
+  "model": {
+    "id": "1234",
+    "firstName": "pepe"
+  }
+}
