@@ -19,6 +19,31 @@ export class ManageEventsComponent implements OnInit {
   options: FormlyFormOptions;
   fields: FormlyFieldConfig[];
 
+  type: string;
+  examples = [
+    'bdm_benchmarkingEvent',
+    'bdm_challenge',
+    'bdm_community',
+    'bdm_contact',
+    'bdm_dataset',
+    'bdm_metrics',
+    'bdm_reference',
+    'bdm_testAction',
+    'bdm_tool',
+    'simple',
+    'nested',
+    'arrays',
+    'numbers',
+    'references',
+    'schema_dependencies',
+    'null_field',
+    'nullable',
+    'allOf',
+    'anyOf',
+    'oneOf',
+    'select_alternatives',
+  ];
+
   BDMShortNames = [
     '_shared',
     'benchmarkingEvent',
@@ -40,10 +65,11 @@ export class ManageEventsComponent implements OnInit {
     private http: HttpClient,
   ) {
     this.refParser.setParameters({});
-    const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/benchmarking-data-model/2.0.x/json-schemas/2.0.x/${sn}.json`);
-  
+    //const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/benchmarking-data-model/2.0.x/json-schemas/2.0.x/${sn}.json`);
+    const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-schema/${sn}.json`);
+
     this.refParser.loadResources(BDMSchemas)
-      .then(() => fetch('https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-schema/benchmarkingEvent.json'))
+      .then(() => fetch(`https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-mode-schema/benchmarkingEvent.json`))
       .then((r) => r.json())
       .then((schemaModel) => this.refParser.resolveSchema(schemaModel))
       .then((schemaModel) => {
