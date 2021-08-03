@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { RefParser, RefParserError } from '../services/RefParser';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { from } from 'rxjs';
 
 @Component({
   selector: 'app-manage-events',
   templateUrl: './manage-events.component.html',
   providers: [RefParser],
+  styleUrls: ['./manage-events.component.css'],
 })
 export class ManageEventsComponent implements OnInit {
 
@@ -18,31 +20,6 @@ export class ManageEventsComponent implements OnInit {
   model: any;
   options: FormlyFormOptions;
   fields: FormlyFieldConfig[];
-
-  type: string;
-  examples = [
-    'bdm_benchmarkingEvent',
-    'bdm_challenge',
-    'bdm_community',
-    'bdm_contact',
-    'bdm_dataset',
-    'bdm_metrics',
-    'bdm_reference',
-    'bdm_testAction',
-    'bdm_tool',
-    'simple',
-    'nested',
-    'arrays',
-    'numbers',
-    'references',
-    'schema_dependencies',
-    'null_field',
-    'nullable',
-    'allOf',
-    'anyOf',
-    'oneOf',
-    'select_alternatives',
-  ];
 
   BDMShortNames = [
     '_shared',
@@ -60,6 +37,7 @@ export class ManageEventsComponent implements OnInit {
 
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private formlyJsonschema: FormlyJsonschema,
     private refParser: RefParser,
     private http: HttpClient,
@@ -69,7 +47,7 @@ export class ManageEventsComponent implements OnInit {
     const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-schema/${sn}.json`);
 
     this.refParser.loadResources(BDMSchemas)
-      .then(() => fetch(`https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-mode-schema/benchmarkingEvent.json`))
+      .then(() => fetch(`https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-mode-schema/${this.data["type_URL"]}.json`))
       .then((r) => r.json())
       .then((schemaModel) => this.refParser.resolveSchema(schemaModel))
       .then((schemaModel) => {

@@ -23,7 +23,7 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
             '/scientific'
           ],
         });
-          resolve("some");
+          resolve({});
         } catch (error) {
           reject(error);
         }

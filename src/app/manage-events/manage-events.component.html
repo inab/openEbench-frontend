@@ -1,4 +1,9 @@
-<h5>Benchmarking Event concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon class="close-icon" color="warn">close</mat-icon>
+</button>
+
+<h5 *ngIf="data['type_URL']=='benchmarkingEvent'">Benchmarking Event concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
+<h5 *ngIf="data['type_URL']=='reference'">Bibliographic reference concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
 <hr>
 
 <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="fields">

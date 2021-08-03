@@ -38,6 +38,7 @@ import { ArrayTypeComponent } from './manage-events/array.type';
 import { ObjectTypeComponent } from './manage-events/object.type';
 import { MultiSchemaTypeComponent } from './manage-events/multischema.type';
 import { NullTypeComponent } from './manage-events/null.type';
+import { FormlyLinkComponent } from './manage-events/alink.type';
 
 // env variable to a local variable
 const envurl = environment.SCIENTIFIC_SERVICE_URL;
@@ -112,7 +113,8 @@ export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
         ArrayTypeComponent,
         ObjectTypeComponent,
         MultiSchemaTypeComponent,
-        NullTypeComponent
+        NullTypeComponent,
+        FormlyLinkComponent
     ],
     imports: [
         BrowserModule,
@@ -168,6 +170,7 @@ export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
               { name: 'enum', extends: 'select' },
               { name: 'null', component: NullTypeComponent, wrappers: ['form-field'] },
               { name: 'array', component: ArrayTypeComponent },
+              { name: "link", component: FormlyLinkComponent },
               { name: 'object', component: ObjectTypeComponent },
               { name: 'multischema', component: MultiSchemaTypeComponent },
             ],
