@@ -1,0 +1,8 @@
+<div class="d-flex flex-row-reverse">
+    <button (click)="openDialog(to.short_name)" type="button" class="btn btn-dark">New</button>
+    
+    <select class="selectBDMLoader" name="{{to.BDMType}}" (change)="onChange($event.target.value)" style="width: 85%; margin-right: auto;">
+        <option *ngFor="let i of BDMType" value="{{i}}">{{i}}</option>
+    </select>
+</div>
+<br>

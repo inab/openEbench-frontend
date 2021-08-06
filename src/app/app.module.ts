@@ -17,7 +17,7 @@ import { AppComponent } from "./app.component";
 import { TopMenuComponent } from "./top-menu/top-menu.component";
 import { FooterComponent } from "./footer/footer.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { ManageEventsComponent } from "./manage-events/manage-events.component";
+import { BDMCreatorComponent } from "./BDMCreator/BDMCreator.component";
 
 import { DataTablesModule } from "angular-datatables";
 
@@ -31,14 +31,14 @@ import { DocsComponent } from "./docs/docs.component";
 import { FormlyModule, FormlyFieldConfig } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FormlyFieldTabs } from './manage-events/tabs.type';
+import { FormlyFieldTabs } from './BDMCreator/schema-types/tabs.type';
 import { MatMenuModule } from '@angular/material/menu';
 
-import { ArrayTypeComponent } from './manage-events/array.type';
-import { ObjectTypeComponent } from './manage-events/object.type';
-import { MultiSchemaTypeComponent } from './manage-events/multischema.type';
-import { NullTypeComponent } from './manage-events/null.type';
-import { FormlyLinkComponent } from './manage-events/alink.type';
+import { ArrayTypeComponent } from './BDMCreator/schema-types/array.type';
+import { ObjectTypeComponent } from './BDMCreator/schema-types/object.type';
+import { MultiSchemaTypeComponent } from './BDMCreator/schema-types/multischema.type';
+import { NullTypeComponent } from './BDMCreator/schema-types/null.type';
+import { BDMLoaderComponent } from './BDMCreator/BDMLoader/BDMLoader.type';
 
 // env variable to a local variable
 const envurl = environment.SCIENTIFIC_SERVICE_URL;
@@ -108,13 +108,13 @@ export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
         FooterComponent,
         PageNotFoundComponent,
         DocsComponent,
-        ManageEventsComponent,
+        BDMCreatorComponent,
         FormlyFieldTabs,
         ArrayTypeComponent,
         ObjectTypeComponent,
         MultiSchemaTypeComponent,
         NullTypeComponent,
-        FormlyLinkComponent
+        BDMLoaderComponent
     ],
     imports: [
         BrowserModule,
@@ -170,7 +170,7 @@ export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
               { name: 'enum', extends: 'select' },
               { name: 'null', component: NullTypeComponent, wrappers: ['form-field'] },
               { name: 'array', component: ArrayTypeComponent },
-              { name: "link", component: FormlyLinkComponent },
+              { name: "BDMLoader", component: BDMLoaderComponent },
               { name: 'object', component: ObjectTypeComponent },
               { name: 'multischema', component: MultiSchemaTypeComponent },
             ],

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageEventsComponent } from './manage-events.component';
+import { BDMCreatorComponent } from './BDMCreator.component';
 
-describe('ManageEventsComponent', () => {
-  let component: ManageEventsComponent;
-  let fixture: ComponentFixture<ManageEventsComponent>;
+describe('BDMCreatorComponent', () => {
+  let component: BDMCreatorComponent;
+  let fixture: ComponentFixture<BDMCreatorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageEventsComponent ]
+      declarations: [ BDMCreatorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageEventsComponent);
+    fixture = TestBed.createComponent(BDMCreatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

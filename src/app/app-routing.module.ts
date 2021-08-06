@@ -7,7 +7,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { DocsComponent } from './docs/docs.component';
 import { PrivateComponent } from './private/private.component';
 import { AppAuthGuard } from './app.authguard';
-import { ManageEventsComponent } from './manage-events/manage-events.component';
+import { BDMCreatorComponent } from './BDMCreator/BDMCreator.component';
 // import { ToolModule } from './tool/tool.module';
 // import { ScientificModule } from './scientific/scientific.module';
 
@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent , } ,
   { path: 'docs', component: DocsComponent , } ,
   { path: 'private', component: PrivateComponent, canActivate: [AppAuthGuard]},
-  { path: 'private/manage-events', component: ManageEventsComponent },
+  { path: 'private/BDMCreator', component: BDMCreatorComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

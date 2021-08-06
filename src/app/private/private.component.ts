@@ -4,7 +4,7 @@ import { KeycloakService } from 'keycloak-angular';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Location } from '@angular/common';
-import { ManageEventsComponent } from "../manage-events/manage-events.component";
+import { BDMCreatorComponent } from "../BDMCreator/BDMCreator.component";
 
 /**
  * Private area Component
@@ -42,12 +42,12 @@ export class PrivateComponent implements OnInit {
     await this.keycloakService.logout(redirectUri);
   }
 
-  openDialog(type_of_form: string): void {
-    const dialogRef = this.dialog.open(ManageEventsComponent, {
+  openDialog(BDM_short_name: string): void {
+    const dialogRef = this.dialog.open(BDMCreatorComponent, {
       width: '70%',
       height: '70%',
       data: {
-        type_URL: type_of_form
+        short_name: BDM_short_name
       }
     });
 
