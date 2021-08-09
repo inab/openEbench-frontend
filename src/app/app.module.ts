@@ -39,6 +39,7 @@ import { ObjectTypeComponent } from './BDMCreator/schema-types/object.type';
 import { MultiSchemaTypeComponent } from './BDMCreator/schema-types/multischema.type';
 import { NullTypeComponent } from './BDMCreator/schema-types/null.type';
 import { BDMLoaderComponent } from './BDMCreator/BDMLoader/BDMLoader.type';
+import { DataService } from './BDMCreator/data.service';
 
 // env variable to a local variable
 const envurl = environment.SCIENTIFIC_SERVICE_URL;
@@ -180,6 +181,7 @@ export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
     ],
     providers: [
         StatisticsService,
+        DataService,
         {
             provide: APP_INITIALIZER,
             useFactory: initializer,

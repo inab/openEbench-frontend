@@ -47,7 +47,8 @@ export class PrivateComponent implements OnInit {
       width: '70%',
       height: '70%',
       data: {
-        short_name: BDM_short_name
+        short_name: BDM_short_name,
+        type: "creator"
       }
     });
 

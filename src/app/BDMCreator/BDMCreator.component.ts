@@ -5,8 +5,9 @@ import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { RefParser, RefParserError } from '../services/RefParser';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { from } from 'rxjs';
+import { DataService } from './data.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-BDMCreator',
@@ -20,10 +21,12 @@ export class BDMCreatorComponent implements OnInit {
   model: any;
   options: FormlyFormOptions;
   fields: FormlyFieldConfig[];
-  select: any;
+
+  select_loader: any;
   BDMSelected: Array<string> = [];
-  BDMShort_name: any;
-  BDMType: any;
+  BDMType_loader: any;
+  BDMElements_loader: Array<any> = [];
+  BDM_name: string;
 
   BDMShortNames = [
     '_shared',
@@ -41,12 +44,13 @@ export class BDMCreatorComponent implements OnInit {
 
 
   constructor(
+    public popup: MatDialogRef<BDMCreatorComponent>,
     @Inject(MAT_DIALOG_DATA) public BDMInfo: any,
     private formlyJsonschema: FormlyJsonschema,
     private refParser: RefParser,
     private http: HttpClient,
+    private dataService: DataService
   ) {
-    this.BDMShort_name = this.BDMInfo["short_name"];
     this.refParser.setParameters({});
     //const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/benchmarking-data-model/2.0.x/json-schemas/2.0.x/${sn}.json`);
     const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-schema/${sn}.json`);
@@ -66,22 +70,32 @@ export class BDMCreatorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.BDMElements_loader = [];
   }
 
   submit() {
-    this.select = $('select[class="selectBDMLoader"]');
-    this.BDMType = $('select[class="selectBDMLoader"]').attr('name');
+    this.select_loader = $('select[class="selectBDMLoader"]');
+    this.BDMType_loader = $('select[class="selectBDMLoader"]').attr('name');
 
-    this.BDMSelected = [];
-    for (let i = 0; i < this.select.length; i++) {
-      this.BDMSelected[i] = this.select.eq(i).val();
+    if (this.BDMInfo['short_name'] == "benchmarkingEvent") {
+      this.model[this.BDMType_loader] = this.select_loader.eq(0).val();
     }
-    this.model[this.BDMType] = this.BDMSelected;
 
     //FINAL
-    if (this.form.valid == true) console.log("VALIDADO");
-    else console.log("NO VALIDADO");
+    if (this.form.valid == true) {
+      console.log("GUARDAR EN LA BBDD");
+      
+      if (this.model['name']) this.BDM_name = this.model['name'];
+      else this.BDM_name = this.model['title'];
 
+      this.dataService.setBDMValue({value: this.model['_id'], name: this.BDM_name});
+      this.popup.close();
+      
+    } else {
+      console.log("NO VALIDADO");
+      console.log(this.form);
+    } 
+    
     console.log(this.model);
   }
 
