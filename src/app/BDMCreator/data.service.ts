@@ -1,33 +1,24 @@
 import { Injectable, OnInit, Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     template: ''
 })
 
 export class DataService implements OnInit {
+    title = 'http-get';
+    url: string = 'https://dev2-openebench.bsc.es/api/scientific/staged/Reference';
 
-    BDMOptions: Array<{value: string, name: string}> = []; 
+    constructor(private http: HttpClient) { }
+    
+    ngOnInit() { }
 
-    ngOnInit() {
-        this.loadBDM();
+    getBDMOptions(): Observable<Array<any>> {
+        return this.http.get<any>(this.url);
     }
 
-    loadBDM() {
-        this.BDMOptions= [
-            { value: 'option1', name: 'opción 1' },
-            { value: 'option2', name: 'opción 2' },
-            { value: 'option3', name: 'opción 3' },
-            { value: 'option4', name: 'opción 4' },
-            { value: 'option5', name: 'opción 5' }];
-    }
-
-    getBDMOptions(): Observable<any[]> {
-        this.loadBDM();
-        return of(this.BDMOptions);
-    }
-
-    setBDMValue(BDMValue: {value: string, name: string}) {
+/*     setBDMValue(BDMValue: {value: string, name: string}) {
         this.BDMOptions.push(BDMValue);
-    }
+    } */
 }

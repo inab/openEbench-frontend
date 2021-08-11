@@ -20,6 +20,7 @@ export class BDMLoaderComponent extends FieldType implements OnInit {
     this.dataService.getBDMOptions().subscribe(
       result=>{
         this.BDMOptions = result;
+        //console.log(this.BDMOptions);
       },
       error=>{
         var errorMessage = <any>error;

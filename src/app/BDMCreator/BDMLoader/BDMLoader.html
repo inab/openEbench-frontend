@@ -1,9 +1,9 @@
 <legend class="ng-star-inserted">{{to.title}}</legend>
-<div class="d-flex flex-row-reverse">
+<div class="d-flex flex-row-reverse" style="height: 130px;">
     <button (click)="openDialog(to.short_name)" type="button" class="btn btn-primary">New</button>
     
     <select class="selectBDMLoader" name="{{to.BDMType}}" [multiple]="true" style="width: 85%; margin-right: auto;">
-        <option *ngFor="let i of BDMOptions" value="{{i.value}}">{{i.name}}</option>
+        <option title="{{i.title}}" style="padding: 5px; width:100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; word-wrap: break-word;" class="BDMOption" *ngFor="let i of BDMOptions" value="{{i._id}}">{{i.title}}</option>
     </select>
 </div>
 <br>

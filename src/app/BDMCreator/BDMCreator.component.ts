@@ -88,7 +88,7 @@ export class BDMCreatorComponent implements OnInit {
       if (this.model['name']) this.BDM_name = this.model['name'];
       else this.BDM_name = this.model['title'];
 
-      this.dataService.setBDMValue({value: this.model['_id'], name: this.BDM_name});
+      //this.dataService.setBDMValue({value: this.model['_id'], name: this.BDM_name});
       this.popup.close();
       
     } else {
