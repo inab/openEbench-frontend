@@ -1,9 +1,16 @@
 <legend class="ng-star-inserted">{{to.title}}</legend>
-<div class="d-flex flex-row-reverse" style="height: 130px;">
-    <button (click)="openDialog(to.short_name)" type="button" class="btn btn-primary">New</button>
+
+<div class="d-flex flex-row-reverse">
+    <button (click)="openDialog(to.short_name)" *ngIf="to.short_name != 'community'" type="button" class="btn btn-primary">New</button>
     
     <select class="selectBDMLoader" name="{{to.BDMType}}" [multiple]="true" style="width: 85%; margin-right: auto;">
-        <option title="{{i.title}}" style="padding: 5px; width:100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; word-wrap: break-word;" class="BDMOption" *ngFor="let i of BDMOptions" value="{{i._id}}">{{i.title}}</option>
+        <ng-container *ngFor="let i of BDMOptions">
+            <option title="{{i.title}}" *ngIf="i.title" style="padding: 5px; width:100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; word-wrap: break-word;" class="BDMOption" value="{{i._id}}">{{i.title}}</option>
+            <option title="{{i.name}}" *ngIf="!i.title && i.name" style="padding: 5px; width:100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; word-wrap: break-word;" class="BDMOption" value="{{i._id}}">{{i.name}}</option>
+            <option title="{{i.givenName}}" *ngIf="!i.title && !i.name && i.givenName" style="padding: 5px; width:100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; word-wrap: break-word;" class="BDMOption" value="{{i._id}}">{{i.givenName}} {{i.surname}}</option>
+            <option title="{{i.given_name}}" *ngIf="!i.title && !i.name && !i.givenName && i.given_name" style="padding: 5px; width:100%; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; word-wrap: break-word;" class="BDMOption" value="{{i._id}}">{{i.given_name}} {{i.surname}}</option>
+        </ng-container>
     </select>
 </div>
+
 <br>

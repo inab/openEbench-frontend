@@ -4,6 +4,8 @@
 
 <h5 *ngIf="BDMInfo['short_name']=='benchmarkingEvent'">Benchmarking Event concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
 <h5 *ngIf="BDMInfo['short_name']=='reference'">Bibliographic reference concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
+<h5 *ngIf="BDMInfo['short_name']=='contact'">Contact concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
+<h5 *ngIf="BDMInfo['short_name']=='community'">Community concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
 <hr>
 
 <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="fields">

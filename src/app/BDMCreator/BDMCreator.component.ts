@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { FormlyJsonschema } from '@ngx-formly/core/json-schema';
@@ -8,6 +8,7 @@ import { RefParser, RefParserError } from '../services/RefParser';
 import { from } from 'rxjs';
 import { DataService } from './data.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { resultKeyNameFromField } from '@apollo/client/utilities';
 
 @Component({
   selector: 'app-BDMCreator',
@@ -21,13 +22,13 @@ export class BDMCreatorComponent implements OnInit {
   model: any;
   options: FormlyFormOptions;
   fields: FormlyFieldConfig[];
+  url_submit: string;
 
-  select_loader: any;
-  BDMSelected: Array<string> = [];
-  BDMType_loader: any;
+  select_loader: Array<any> = [];
+  BDMSelected: Array<string>;
+  BDMType_loader: Array<string> = [];
   BDMElements_loader: Array<any> = [];
   BDM_name: string;
-
   BDMShortNames = [
     '_shared',
     'benchmarkingEvent',
@@ -51,6 +52,7 @@ export class BDMCreatorComponent implements OnInit {
     private http: HttpClient,
     private dataService: DataService
   ) {
+    this.url_submit = BDMInfo["url_submit"];
     this.refParser.setParameters({});
     //const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/benchmarking-data-model/2.0.x/json-schemas/2.0.x/${sn}.json`);
     const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-schema/${sn}.json`);
@@ -73,13 +75,27 @@ export class BDMCreatorComponent implements OnInit {
     this.BDMElements_loader = [];
   }
 
-  submit() {
-    this.select_loader = $('select[class="selectBDMLoader"]');
-    this.BDMType_loader = $('select[class="selectBDMLoader"]').attr('name');
+  async submit() {
+    var select_loader: Array<any> = [];
+    var BDMType_loader: Array<string> = [];
 
-    if (this.BDMInfo['short_name'] == "benchmarkingEvent") {
-      this.model[this.BDMType_loader] = this.select_loader.eq(0).val();
+    $('select.selectBDMLoader').each(function() {
+      select_loader.push($(this));
+      BDMType_loader.push($(this).attr('name'));
+    });
+
+    this.select_loader = select_loader;
+    this.BDMType_loader = BDMType_loader;
+
+    for (let i = 0; i < this.BDMType_loader.length; i++) {
+
+      if (this.BDMInfo['short_name'] == "benchmarkingEvent") {
+        this.model[this.BDMType_loader[i]] = this.select_loader[i].eq(0).val();
+      }
+
     }
+
+    console.log(JSON.stringify(this.model));
 
     //FINAL
     if (this.form.valid == true) {
@@ -88,15 +104,10 @@ export class BDMCreatorComponent implements OnInit {
       if (this.model['name']) this.BDM_name = this.model['name'];
       else this.BDM_name = this.model['title'];
 
-      //this.dataService.setBDMValue({value: this.model['_id'], name: this.BDM_name});
+      this.dataService.setBDMValue(this.model, this.url_submit);
+
       this.popup.close();
-      
-    } else {
-      console.log("NO VALIDADO");
-      console.log(this.form);
-    } 
-    
-    console.log(this.model);
+    }
   }
 
 }

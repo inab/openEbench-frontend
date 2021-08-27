@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule, APP_INITIALIZER } from "@angular/core";
+import { NgModule, APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { KeycloakService, KeycloakAngularModule } from "keycloak-angular";
 import { initializer } from "./utils/app-init";
 
@@ -194,6 +194,7 @@ export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
             deps: [HttpLink]
         }
     ],
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
