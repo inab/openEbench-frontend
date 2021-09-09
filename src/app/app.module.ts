@@ -38,7 +38,7 @@ import { ArrayTypeComponent } from './BDMCreator/schema-types/array.type';
 import { ObjectTypeComponent } from './BDMCreator/schema-types/object.type';
 import { MultiSchemaTypeComponent } from './BDMCreator/schema-types/multischema.type';
 import { NullTypeComponent } from './BDMCreator/schema-types/null.type';
-import { BDMLoaderComponent } from './BDMCreator/BDMLoader/BDMLoader.type';
+import { BDMLoaderComponent } from './BDMCreator/BDMLoader/BDMLoader.component.type';
 import { DataService } from './BDMCreator/data.service';
 
 // env variable to a local variable

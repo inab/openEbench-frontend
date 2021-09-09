@@ -2,13 +2,15 @@
   <mat-icon class="close-icon" color="warn">close</mat-icon>
 </button>
 
-<h5 *ngIf="BDMInfo['short_name']=='benchmarkingEvent'">Benchmarking Event concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
-<h5 *ngIf="BDMInfo['short_name']=='reference'">Bibliographic reference concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
-<h5 *ngIf="BDMInfo['short_name']=='contact'">Contact concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
-<h5 *ngIf="BDMInfo['short_name']=='community'">Community concept (ELIXIR-EXCELERATE WP2 Benchmarking schemas)</h5>
+<h5>{{this.BDM_title}}</h5>
 <hr>
 
 <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="fields">
   <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+  
   <button type="submit" class="btn btn-primary submit-button" >Submit</button>
+  <br><br>
+  * <img class="explicative" src="assets/img/icon_staged.png"><small><b> Staged: </b>fefrerfe. </small>
+  <img class="explicative" src="assets/img/icon_sandbox.png"><small><b> Sandbox: </b>Temporary database where a complete set of generated JSON is deposited to later be validated and passed to the definitive database.</small>
+  <br>
 </form>

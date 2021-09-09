@@ -58,7 +58,7 @@ export class DataService implements OnInit {
         return await this.http.get<any>(url_submission, httpOptions).toPromise();
     }
 
-    async setBDMValue(BDMValue, url_submit) {
+    async setBDMValue(BDMValue, url_submit, BDM_use_community) {
 
         this.setter_array.push(BDMValue);
 
@@ -73,7 +73,8 @@ export class DataService implements OnInit {
             })
         };
         
-        //link = https://dev2-openebench.bsc.es/api/scientific/staged/Reference/
+        if (BDM_use_community) url_submit = url_submit + "?community_id=" + BDMValue["community_id"];
+        //url_submit = https://dev2-openebench.bsc.es/api/scientific/staged/Reference/
         await this.http.post(url_submit, JSON.stringify(this.setter_array), httpOptions).toPromise();
     }
 }

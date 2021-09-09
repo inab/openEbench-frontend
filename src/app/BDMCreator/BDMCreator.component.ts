@@ -23,12 +23,14 @@ export class BDMCreatorComponent implements OnInit {
   options: FormlyFormOptions;
   fields: FormlyFieldConfig[];
   url_submit: string;
+  BDM_title: string;
 
   select_loader: Array<any> = [];
   BDMSelected: Array<string>;
   BDMType_loader: Array<string> = [];
   BDMElements_loader: Array<any> = [];
   BDM_name: string;
+  BDM_use_community: boolean = false;
   BDMShortNames = [
     '_shared',
     'benchmarkingEvent',
@@ -42,7 +44,7 @@ export class BDMCreatorComponent implements OnInit {
     'testAction',
     'tool'
   ];
-
+  BDM_raw: any;
 
   constructor(
     public popup: MatDialogRef<BDMCreatorComponent>,
@@ -52,7 +54,10 @@ export class BDMCreatorComponent implements OnInit {
     private http: HttpClient,
     private dataService: DataService
   ) {
-    this.url_submit = BDMInfo["url_submit"];
+    if (BDMInfo["url_submit"]) this.url_submit = BDMInfo["url_submit"];
+    if (BDMInfo["title"]) this.BDM_title = BDMInfo["title"];
+    if (BDMInfo["use_community"]) this.BDM_use_community = BDMInfo["use_community"];
+
     this.refParser.setParameters({});
     //const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/benchmarking-data-model/2.0.x/json-schemas/2.0.x/${sn}.json`);
     const BDMSchemas = this.BDMShortNames.map(sn => `https://raw.githubusercontent.com/inab/OpEB-VRE-schemas/frontend-schema/${sn}.json`);
@@ -75,6 +80,13 @@ export class BDMCreatorComponent implements OnInit {
     this.BDMElements_loader = [];
   }
 
+  eliminarNulls(json) {
+    Object.keys(json).forEach(key => {
+      if (json[key] && typeof json[key] === "object") this.eliminarNulls(json[key]); // recurse
+      else if (json[key] == null) delete json[key]; // delete
+    });
+  }
+
   async submit() {
     var select_loader: Array<any> = [];
     var BDMType_loader: Array<string> = [];
@@ -87,24 +99,29 @@ export class BDMCreatorComponent implements OnInit {
     this.select_loader = select_loader;
     this.BDMType_loader = BDMType_loader;
 
+    this.BDM_raw = this.form.getRawValue();
+
     for (let i = 0; i < this.BDMType_loader.length; i++) {
 
       if (this.BDMInfo['short_name'] == "benchmarkingEvent") {
-        this.model[this.BDMType_loader[i]] = this.select_loader[i].eq(0).val();
+        this.BDM_raw[this.BDMType_loader[i]] = this.select_loader[i].eq(0).val();
       }
-
     }
 
-    console.log(JSON.stringify(this.model));
+    this.form.setValue(this.BDM_raw);
 
     //FINAL
     if (this.form.valid == true) {
       console.log("GUARDAR EN LA BBDD");
-      
-      if (this.model['name']) this.BDM_name = this.model['name'];
-      else this.BDM_name = this.model['title'];
 
-      this.dataService.setBDMValue(this.model, this.url_submit);
+      this.BDM_raw["_schema"] = this.model["_schema"];
+
+      this.eliminarNulls(this.BDM_raw);
+
+      console.log(this.BDM_raw);
+      console.log(JSON.stringify(this.BDM_raw));
+
+      this.dataService.setBDMValue(this.BDM_raw, this.url_submit, this.BDM_use_community);
 
       this.popup.close();
     }

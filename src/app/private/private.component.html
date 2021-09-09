@@ -4,7 +4,8 @@
         <p class="text-center">{{userDetails.email}}</p>
         
         <!-- <button mat-raised-button routerLink="/private/BDMCreator">Manage Benchmarking Events</button> -->
-        <button mat-raised-button (click)="openDialog('benchmarkingEvent')">Manage Benchmarking Events</button>
+        <button mat-raised-button (click)="openDialog('benchmarkingEvent')">New Benchmarking Event</button>
+        <button mat-raised-button (click)="move('benchmarkingEvent')">Move Event to staged</button>
         <br><br>
         <button mat-raised-button (click)="logout()">Log out</button>
 

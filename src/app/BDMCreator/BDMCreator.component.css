@@ -21,3 +21,8 @@
   ::ng-deep .icon-outside .mat-dialog-container {
    overflow: unset
   }
+
+  .explicative {
+    width: 10px;
+    height: 10px;
+  }
