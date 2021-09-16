@@ -12,10 +12,18 @@ import { Console } from 'console';
 
 export class DataService implements OnInit {
     title = 'http-get';
-    //url_staged: string = 'https://dev2-openebench.bsc.es/api/scientific/staged/Reference';
-    //url_submission: string = 'https://dev2-openebench.bsc.es/api/scientific/submission/Reference';
     userDetails: any;
     setter_array: Array<any> = [];
+
+    BDMShortNames = [
+        'BenchmarkingEvent',
+        'Challenge',
+        'Dataset',
+        'Metrics',
+        'Tool'
+    ];
+
+    sandboxObjects: Array<any> = [];
 
     constructor(
         private http: HttpClient,
@@ -74,7 +82,49 @@ export class DataService implements OnInit {
         };
         
         if (BDM_use_community) url_submit = url_submit + "?community_id=" + BDMValue["community_id"];
-        //url_submit = https://dev2-openebench.bsc.es/api/scientific/staged/Reference/
+
         await this.http.post(url_submit, JSON.stringify(this.setter_array), httpOptions).toPromise();
+    }
+
+    async getSandboxObjects(): Promise<Array<any>> {
+        if (await this.keycloakService.isLoggedIn()) {
+            this.userDetails = await this.keycloakService.getToken();
+        }
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type' :  'application/json',
+              'Accept'       : 'application/json',
+              'Authorization': "Bearer " + this.userDetails
+            })
+        };
+        
+        this.sandboxObjects = [];
+
+        let objects = await this.http.get<any>("https://dev2-openebench.bsc.es/api/scientific/sandbox/", httpOptions).toPromise();
+
+        for (let i = 0; i < objects.length; i++) {
+            var schema = objects[i]["_schema"];
+            var type_schema  = schema.substring(schema.lastIndexOf("/") + 1);
+            
+            this.sandboxObjects.push({ value: objects[i], type: type_schema });
+        }
+        
+        return this.sandboxObjects;
+    }
+
+    async migrateToStaged() {
+        if (await this.keycloakService.isLoggedIn()) {
+            this.userDetails = await this.keycloakService.getToken();
+        }
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type' :  'application/json',
+              'Authorization': "Bearer " + this.userDetails
+            })
+        };
+
+        return await this.http.get<any>("https://dev2-openebench.bsc.es/api/scientific/execute/migrate?dryrun=false", httpOptions).toPromise();
     }
 }

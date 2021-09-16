@@ -1,11 +1,13 @@
 <legend class="ng-star-inserted">{{to.title}}</legend>
 
 <div class="d-flex flex-row-reverse">
+    <!-- Exist if the attribute "new_button" of the JSON Schema exist -->
     <button (click)="openDialog(to.short_name)" *ngIf="new_button == true" type="button" class="btn btn-primary">New</button>
     
     <select class="selectBDMLoader" name="{{to.BDMType}}" [multiple]="multiple" style="width: 85%; margin-right: auto;">
         <ng-container *ngFor="let i of BDMOptions">
-            <option title="{{i.type}}(*): {{i.value.title}}" *ngIf="i.value.title" class="BDMOption" [style.background-image]="'url(assets/img/icon_'+i.type+'.png)'" value="{{i.value._id}}">{{i.value.title}}</option>
+            <!-- Depending on what the object has, show one thing or other, also contains an image to know if it comes from sandbox or staged -->
+            <option title="{{i.value.title}}" *ngIf="i.value.title" class="BDMOption" [style.background-image]="'url(assets/img/icon_'+i.type+'.png)'" value="{{i.value._id}}">{{i.value.title}}</option>
             <option title="{{i.value.name}}" *ngIf="!i.value.title && i.value.name" [style.background-image]="'url(assets/img/icon_'+i.type+'.png)'" class="BDMOption" value="{{i.value._id}}">{{i.value.name}}</option>
             <option title="{{i.value.givenName}}" *ngIf="!i.value.title && !i.value.name && i.value.givenName" [style.background-image]="'url(assets/img/icon_'+i.type+'.png)'" class="BDMOption" value="{{i.value._id}}">{{i.value.givenName}} {{i.value.surname}}</option>
         </ng-container>

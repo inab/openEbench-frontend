@@ -1,16 +1,21 @@
+<!-- Button to close the form -->
 <button mat-icon-button class="close-button" [mat-dialog-close]="true">
   <mat-icon class="close-icon" color="warn">close</mat-icon>
 </button>
 
+<!-- Title of the form -->
 <h5>{{this.BDM_title}}</h5>
 <hr>
 
 <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="fields">
+  <!-- The form -->
   <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
   
   <button type="submit" class="btn btn-primary submit-button" >Submit</button>
   <br><br>
-  * <img class="explicative" src="assets/img/icon_staged.png"><small><b> Staged: </b>fefrerfe. </small>
+  <!-- Image to explain the image of the select (BDMLoader) -->
+  <img class="explicative" src="assets/img/icon_staged.png"><small><b> Staged: </b>Definitive database where a complete set of generated JSON is deposited which are validated.</small>
+  <br>
   <img class="explicative" src="assets/img/icon_sandbox.png"><small><b> Sandbox: </b>Temporary database where a complete set of generated JSON is deposited to later be validated and passed to the definitive database.</small>
   <br>
 </form>

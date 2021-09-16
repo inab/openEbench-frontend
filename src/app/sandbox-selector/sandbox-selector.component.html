@@ -1,0 +1,48 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon" color="warn">close</mat-icon>
+</button>
+
+<h5>Sandbox Database</h5>
+<hr>
+
+<br>
+
+<ng-container >
+    <table>
+        <thead>
+            <tr>
+            <th>ID
+            <th>Original ID
+            <th>Name
+            <th>Title
+            <th>Type
+            <th>JSON Object
+        </thead>
+        <!-- If sandbox database is empty -->
+        <ng-container *ngIf="sandboxObjects.length == 0">
+            <tbody>
+                <tr>
+                <td colspan="6" style="text-align: center;"> There are any objects in sandbox Database.
+            </tbody>
+        </ng-container>
+        <!-- Else: for with all the objects inside -->
+        <ng-container *ngIf="sandboxObjects.length != 0">
+            <ng-container *ngFor="let object of sandboxObjects">
+                <tbody *ngIf="sandboxObjects.length != 0"> 
+                    <tr>
+                    <td>{{object.value._id}}
+                    <td *ngIf="object.value.orig_id">{{object.value.orig_id}}
+                    <td *ngIf="!object.value.orig_id">
+                    <td *ngIf="object.value.name">{{object.value.name}}
+                    <td *ngIf="!object.value.name">
+                    <td *ngIf="object.value.title">{{object.value.title}}
+                    <td *ngIf="!object.value.title">
+                    <td>{{object.type}}
+                    <td><button (click)="open_json(object.value._id)" type="button" class="btn btn-light">View JSON</button>
+                </tbody>
+            </ng-container>
+        </ng-container>
+    </table>
+</ng-container>
+<div id="informativeDiv" style="margin:10px; padding: 8px;" [className]="className" [hidden]="hidden">{{divMessage}}</div>
+<button type="submit" (click)="submit_sandbox()" class="btn btn-warning submit-button">Submit All</button>

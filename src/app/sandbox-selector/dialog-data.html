@@ -1,0 +1,42 @@
+<!-- What the user see when click the option View JSON in the sandbox table -->
+<div class="modal-header">
+    <h4 class="modal-title">{{data.json_object.type}}</h4>
+    <button type="button" (click)="close()" class="close" data-dismiss="modal">&times;</button>
+</div>
+<div class="modal-body table-responsive">
+    <pre>{{json_object}}</pre>
+</div>
+<div mat-dialog-actions>
+    <button type="button" class="btn btn-light" (click)="close()">close</button>
+ </div>
+
+
+<style>
+    .modal-body {
+        position: relative;
+        padding: 15px;
+    }
+    .table-responsive {
+        overflow-x: auto;
+        min-height: .01%;
+    }
+
+    pre {
+        max-height: calc(100vh - 300px);
+        white-space: pre-wrap;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #333;
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+    }
+
+    .modal-header .close {
+        margin-top: -2px;
+    }
+</style>

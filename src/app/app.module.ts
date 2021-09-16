@@ -38,8 +38,9 @@ import { ArrayTypeComponent } from './BDMCreator/schema-types/array.type';
 import { ObjectTypeComponent } from './BDMCreator/schema-types/object.type';
 import { MultiSchemaTypeComponent } from './BDMCreator/schema-types/multischema.type';
 import { NullTypeComponent } from './BDMCreator/schema-types/null.type';
-import { BDMLoaderComponent } from './BDMCreator/BDMLoader/BDMLoader.component.type';
-import { DataService } from './BDMCreator/data.service';
+import { BDMLoaderComponent } from './BDMCreator/schema-types/BDMLoader/BDMLoader.component.type';
+import { DataService } from './data-service/data.service';
+import { SandboxSelectorComponent } from './sandbox-selector/sandbox-selector.component';
 
 // env variable to a local variable
 const envurl = environment.SCIENTIFIC_SERVICE_URL;
@@ -58,43 +59,43 @@ export function patternNecessary(err, field: FormlyFieldConfig) {
 
 export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
     return `should NOT have fewer than ${field.templateOptions.minItems} items`;
-  }
-  
-  export function maxItemsValidationMessage(err, field: FormlyFieldConfig) {
-    return `should NOT have more than ${field.templateOptions.maxItems} items`;
-  }
-  
-  export function minlengthValidationMessage(err, field: FormlyFieldConfig) {
-    return `should NOT be shorter than ${field.templateOptions.minLength} characters`;
-  }
-  
-  export function maxlengthValidationMessage(err, field: FormlyFieldConfig) {
-    return `should NOT be longer than ${field.templateOptions.maxLength} characters`;
-  }
-  
-  export function minValidationMessage(err, field: FormlyFieldConfig) {
-    return `should be >= ${field.templateOptions.min}`;
-  }
-  
-  export function maxValidationMessage(err, field: FormlyFieldConfig) {
-    return `should be <= ${field.templateOptions.max}`;
-  }
-  
-  export function multipleOfValidationMessage(err, field: FormlyFieldConfig) {
-    return `should be multiple of ${field.templateOptions.step}`;
-  }
-  
-  export function exclusiveMinimumValidationMessage(err, field: FormlyFieldConfig) {
-    return `should be > ${field.templateOptions.step}`;
-  }
-  
-  export function exclusiveMaximumValidationMessage(err, field: FormlyFieldConfig) {
-    return `should be < ${field.templateOptions.step}`;
-  }
-  
-  export function constValidationMessage(err, field: FormlyFieldConfig) {
-    return `should be equal to constant "${field.templateOptions.const}"`;
-  }
+}
+
+export function maxItemsValidationMessage(err, field: FormlyFieldConfig) {
+  return `should NOT have more than ${field.templateOptions.maxItems} items`;
+}
+
+export function minlengthValidationMessage(err, field: FormlyFieldConfig) {
+  return `should NOT be shorter than ${field.templateOptions.minLength} characters`;
+}
+
+export function maxlengthValidationMessage(err, field: FormlyFieldConfig) {
+  return `should NOT be longer than ${field.templateOptions.maxLength} characters`;
+}
+
+export function minValidationMessage(err, field: FormlyFieldConfig) {
+  return `should be >= ${field.templateOptions.min}`;
+}
+
+export function maxValidationMessage(err, field: FormlyFieldConfig) {
+  return `should be <= ${field.templateOptions.max}`;
+}
+
+export function multipleOfValidationMessage(err, field: FormlyFieldConfig) {
+  return `should be multiple of ${field.templateOptions.step}`;
+}
+
+export function exclusiveMinimumValidationMessage(err, field: FormlyFieldConfig) {
+  return `should be > ${field.templateOptions.step}`;
+}
+
+export function exclusiveMaximumValidationMessage(err, field: FormlyFieldConfig) {
+  return `should be < ${field.templateOptions.step}`;
+}
+
+export function constValidationMessage(err, field: FormlyFieldConfig) {
+  return `should be equal to constant "${field.templateOptions.const}"`;
+}
 
 /**
  * Main app module
@@ -115,7 +116,8 @@ export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
         ObjectTypeComponent,
         MultiSchemaTypeComponent,
         NullTypeComponent,
-        BDMLoaderComponent
+        BDMLoaderComponent,
+        SandboxSelectorComponent
     ],
     imports: [
         BrowserModule,
