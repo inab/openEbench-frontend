@@ -104,6 +104,9 @@ export class BenchmarkingDetailComponent implements OnInit {
                     variables: { id: this.id },
                 })
                 .valueChanges.subscribe((result) => {
+                    for (let i = 0; i < result.data["getDatasets"].length; i++) {
+                        result.data["getDatasets"][i].datalink.inline_data = JSON.parse(result.data["getDatasets"][i].datalink.inline_data);
+                    }
                     this.datasetsGraphql = result.data;
                     this.loading = result.loading;
                     this.error = result.errors;
