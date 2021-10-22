@@ -22,7 +22,8 @@
             <li *ngIf="link.path != ''" class="nav-item">
                 <a
                     [routerLink]="link.path"
-                    class="nav-link"
+                    [ngClass]="{'btn btn-primary' : link.isBtn,
+                                'nav-link' : !link.isBtn}"
                     >{{ link.label }}
                 </a>
             </li>

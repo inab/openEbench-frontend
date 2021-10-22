@@ -107,6 +107,7 @@ export class TopMenuComponent implements OnInit {
                 this.navLinks.push({
                     label: "Login",
                     path: "/private",
+                    isBtn: true,
                 });
             }
         });
