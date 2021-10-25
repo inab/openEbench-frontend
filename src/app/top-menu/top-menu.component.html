@@ -27,14 +27,6 @@
                     >{{ link.label }}
                 </a>
             </li>
-            <li *ngIf="link.path == '' && link.label != 'Docs'" class="nav-item">
-                <a
-                    href="{{ link.href }}"
-                    target="_blank"
-                    class="nav-link"
-                    >{{ link.label }} &nbsp;</a
-                >
-            </li>
             <li *ngIf="link.path == '' && link.label == 'Docs'" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link.label }}</a>
                 <div class="dropdown-menu"  aria-labelledby="navbarDropdown" style="border:0 !important">
