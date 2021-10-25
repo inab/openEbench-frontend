@@ -17,8 +17,7 @@ import { AppComponent } from "./app.component";
 import { TopMenuComponent } from "./top-menu/top-menu.component";
 import { FooterComponent } from "./footer/footer.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { BDMCreatorComponent } from "./BDMCreator/BDMCreator.component";
-
+import { ManageEventsComponent } from "./manage-events/manage-events.component";
 import { DataTablesModule } from "angular-datatables";
 
 import { HttpClientModule } from "@angular/common/http";
@@ -28,19 +27,10 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { environment } from "../environments/environment";
 import { DocsComponent } from "./docs/docs.component";
 
-import { FormlyModule, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FormlyFieldTabs } from './BDMCreator/schema-types/tabs.type';
-import { MatMenuModule } from '@angular/material/menu';
-
-import { ArrayTypeComponent } from './BDMCreator/schema-types/array.type';
-import { ObjectTypeComponent } from './BDMCreator/schema-types/object.type';
-import { MultiSchemaTypeComponent } from './BDMCreator/schema-types/multischema.type';
-import { NullTypeComponent } from './BDMCreator/schema-types/null.type';
-import { BDMLoaderComponent } from './BDMCreator/schema-types/BDMLoader/BDMLoader.component.type';
-import { DataService } from './data-service/data.service';
-import { SandboxSelectorComponent } from './sandbox-selector/sandbox-selector.component';
+import { FormlyFieldTabs } from './manage-events/tabs.type';
 
 // env variable to a local variable
 const envurl = environment.SCIENTIFIC_SERVICE_URL;
@@ -110,14 +100,8 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
         FooterComponent,
         PageNotFoundComponent,
         DocsComponent,
-        BDMCreatorComponent,
-        FormlyFieldTabs,
-        ArrayTypeComponent,
-        ObjectTypeComponent,
-        MultiSchemaTypeComponent,
-        NullTypeComponent,
-        BDMLoaderComponent,
-        SandboxSelectorComponent
+        ManageEventsComponent,
+        FormlyFieldTabs
     ],
     imports: [
         BrowserModule,
@@ -129,55 +113,18 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
         ReactiveFormsModule,
         MaterialModule,
         KeycloakAngularModule,
-        MatMenuModule,
+        HttpClientModule,
+        ApolloModule,
         HttpLinkModule,
+
         FormlyModule.forRoot({
-            extras: { resetFieldOnHide: true },
             validationMessages: [
               { name: 'required', message: 'This field is required' },
-	            { name: 'pattern', message: patternNecessary },
-              { name: 'null', message: 'should be null' },
-              { name: 'minlength', message: minlengthValidationMessage },
-              { name: 'maxlength', message: maxlengthValidationMessage },
-              { name: 'min', message: minValidationMessage },
-              { name: 'max', message: maxValidationMessage },
-              { name: 'multipleOf', message: multipleOfValidationMessage },
-              { name: 'exclusiveMinimum', message: exclusiveMinimumValidationMessage },
-              { name: 'exclusiveMaximum', message: exclusiveMaximumValidationMessage },
-              { name: 'minItems', message: minItemsValidationMessage },
-              { name: 'maxItems', message: maxItemsValidationMessage },
-              { name: 'uniqueItems', message: 'should NOT have duplicate items' },
-              { name: 'const', message: constValidationMessage },
             ],
             types: [
-              { name: 'string', extends: 'input' },
-              {
-                name: 'number',
-                extends: 'input',
-                defaultOptions: {
-                  templateOptions: {
-                    type: 'number',
-                  },
-                },
-              },
-              {
-                name: 'integer',
-                extends: 'input',
-                defaultOptions: {
-                  templateOptions: {
-                    type: 'number',
-                  },
-                },
-              },
-              { name: 'boolean', extends: 'checkbox' },
-              { name: 'enum', extends: 'select' },
-              { name: 'null', component: NullTypeComponent, wrappers: ['form-field'] },
-              { name: 'array', component: ArrayTypeComponent },
-              { name: "BDMLoader", component: BDMLoaderComponent },
-              { name: 'object', component: ObjectTypeComponent },
-              { name: 'multischema', component: MultiSchemaTypeComponent },
+              { name: 'tabs', component: FormlyFieldTabs },
             ],
-          }),
+        }),
         FormlyBootstrapModule,
         MatTabsModule
     ],
@@ -200,3 +147,4 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
     bootstrap: [AppComponent]
 })
 export class AppModule {}
+

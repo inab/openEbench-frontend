@@ -22,18 +22,27 @@
             <li *ngIf="link.path != ''" class="nav-item">
                 <a
                     [routerLink]="link.path"
-                    [ngClass]="{'btn btn-primary' : link.isBtn,
-                                'nav-link' : !link.isBtn}"
+                    class="nav-link"
                     >{{ link.label }}
                 </a>
-            </li>
-            <li *ngIf="link.path == '' && link.label != 'Docs'" class="nav-item">
-                <a
+<!--                 <a
+                    *ngIf="link.path == ''"
                     href="{{ link.href }}"
                     target="_blank"
                     class="nav-link"
                     >{{ link.label }} &nbsp;</a
-                >
+                > -->
+            </li>
+            <li *ngIf="link.path == ''" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link.label }}</a>
+                <div class="dropdown-menu"  aria-labelledby="navbarDropdown" style="border:0 !important">
+                    <a
+                        href="{{ subdoc.href }}" target="_blank"
+                        *ngFor="let subdoc of navDocs"
+                        class="dropdown-item"
+                        >{{ subdoc.label }}
+                    </a>
+                </div>
             </li>
             <li *ngIf="link.path == '' && link.label == 'Docs'" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link.label }}</a>
