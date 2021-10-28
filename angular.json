@@ -60,6 +60,14 @@
                                     "with": "src/environments/environment.prod.ts"
                                 }
                             ]
+                        },
+                        "dev2": {
+                            "fileReplacements": [
+                              {
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.dev2.ts"
+                              }
+                            ]
                         }
                     }
                 },
