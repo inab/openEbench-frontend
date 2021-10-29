@@ -110,13 +110,11 @@ export class BenchmarkingDetailComponent implements OnInit {
                     this.datasetsGraphql = result.data;
                     this.loading = result.loading;
                     this.error = result.errors;
+                    setTimeout(() => {
+                        //waits one tick before plotting
+                        this.loadCharts(this.datasetsGraphql);
+                    }, 0);
                 });
-    }
-
-    ngAfterViewInit() {
-        setTimeout(() => {
-            this.loadCharts(this.datasetsGraphql);
-        }, 500);
     }
 
     private loadCharts(data) {
