@@ -3,14 +3,9 @@ import { ActivatedRoute } from "@angular/router";
 import { run_summary_table } from "../shared/benchmarkingTable.js";
 // import { load_table } from '/home/vsundesh/public_html/bench_event_table/build/build.js';
 // declare let load_table: any;
-import { MatPaginator } from "@angular/material/paginator";
-import { ViewChild } from "@angular/core";
 import { FormBuilder, FormControl, FormsModule } from "@angular/forms";
-import { FormGroup } from "@angular/forms";
 import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
-import { SourceListMap } from "source-list-map";
-import { timeout } from "q";
 import { Subject } from "rxjs";
 
 /**
@@ -121,9 +116,6 @@ export class BenchmarkingChallengeListComponent
         }, 1000);
     }
 
-    deselectAll() {
-        this.selectedChallenges = [];
-    }
     /**
      * helper method to get params
      */

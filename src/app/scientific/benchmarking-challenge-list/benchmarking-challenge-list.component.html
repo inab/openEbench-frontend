@@ -34,7 +34,7 @@
     <hr />
 
     <br />
-    <span *ngIf="challengeGraphql; else loading">
+    <span>
         <table
             datatable
             [dtOptions]="dtOptions"
@@ -43,11 +43,7 @@
         >
             <thead>
                 <tr>
-                    <th>
-                        <ng-container
-                            [ngTemplateOutlet]="deselectAll"
-                        ></ng-container>
-                    </th>
+                    <th></th>
                     <th>Acronym( Chart )</th>
                     <th>Name</th>
                 </tr>
