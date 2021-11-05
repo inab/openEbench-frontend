@@ -68,11 +68,11 @@ export class TopMenuComponent implements OnInit {
                 path: "",
                 href: "",
             },
-/*             {
+            {
                 label: "Feedback",
                 path: "",
                 href: "https://bsc3.typeform.com/to/wUKOEDiM",
-            }, */
+            },
         ];
         //this.getProfileName();
         this.navDocs = [
