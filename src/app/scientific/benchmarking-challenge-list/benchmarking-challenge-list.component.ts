@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, AfterViewInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { run_summary_table } from "../shared/benchmarkingTable.js";
+import { run_summary_table } from "@inb/oeb-classification-table";
 // import { load_table } from '/home/vsundesh/public_html/bench_event_table/build/build.js';
 // declare let load_table: any;
 import { FormBuilder, FormControl, FormsModule } from "@angular/forms";
