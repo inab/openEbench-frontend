@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { load_scatter_visualization } from "@inb/oeb-chart-scatter";
-import { load_bars_visualization } from "../shared/benchmarkingChart_bar.js";
+import { load_bars_visualization } from "@inb/oeb-chart-barplot";
 // declare let loadurl: any;
 import { ActivatedRoute } from "@angular/router";
 
