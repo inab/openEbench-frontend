@@ -8,7 +8,7 @@ import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
 import { Title } from "@angular/platform-browser";
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 /**
  * benchmarking details
