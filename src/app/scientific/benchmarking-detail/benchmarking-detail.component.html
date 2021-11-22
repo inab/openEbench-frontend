@@ -38,7 +38,7 @@
                         <div class="break">
                             <div
                                 attr.data-id="{{ d._id }}"
-                                data-mode="dev"
+                                [attr.data-mode]="isProduction ? null : 'dev'"
                                 toTable="true"
                                 class="benchmarkingChart_scatter"
                             ></div>
@@ -48,8 +48,8 @@
                         <div class="break">
                             <div
                                 attr.data-id="{{ d._id }}"
+                                [attr.data-mode]="isProduction ? null : 'dev'"
                                 class="benchmarkingChart_bars"
-                                data-mode="dev"
                             ></div>
                         </div>
                     </span>

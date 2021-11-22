@@ -8,6 +8,8 @@ import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
 import { Title } from "@angular/platform-browser";
 
+import { environment } from 'src/environments/environment';
+
 /**
  * benchmarking details
  */
@@ -17,6 +19,7 @@ import { Title } from "@angular/platform-browser";
     styleUrls: ["./benchmarking-detail.component.css"],
 })
 export class BenchmarkingDetailComponent implements OnInit {
+    public isProduction = environment.production;
     /**
      * htmlToAdd
      */
