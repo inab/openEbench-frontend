@@ -38,7 +38,8 @@
                         <div class="break">
                             <div
                                 attr.data-id="{{ d._id }}"
-                                data-mode="dev"
+                                [attr.data-mode]="isProduction ? null : 'dev-openebench'"
+                                attr.data-api-url="{{ SCIENTIFIC_SERVICE_URL }}"
                                 toTable="true"
                                 class="benchmarkingChart_scatter"
                             ></div>
@@ -49,7 +50,8 @@
                             <div
                                 attr.data-id="{{ d._id }}"
                                 class="benchmarkingChart_bars"
-                                data-mode="dev"
+                                [attr.data-mode]="isProduction ? null : 'dev-openebench'"
+                                attr.data-api-url="{{ SCIENTIFIC_SERVICE_URL }}"
                             ></div>
                         </div>
                     </span>
