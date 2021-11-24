@@ -1,12 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { load_scatter_visualization } from "@inb/oeb-chart-scatter";
 import { load_bars_visualization } from "@inb/oeb-chart-barplot";
+
 // declare let loadurl: any;
 import { ActivatedRoute } from "@angular/router";
 
 import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
 import { Title } from "@angular/platform-browser";
+
+import { environment } from 'src/environments/environment';
 
 /**
  * benchmarking details
@@ -17,6 +20,8 @@ import { Title } from "@angular/platform-browser";
     styleUrls: ["./benchmarking-detail.component.css"],
 })
 export class BenchmarkingDetailComponent implements OnInit {
+    public isProduction = environment.production;
+    public SCIENTIFIC_SERVICE_URL = environment.SCIENTIFIC_SERVICE_URL; 
     /**
      * htmlToAdd
      */
