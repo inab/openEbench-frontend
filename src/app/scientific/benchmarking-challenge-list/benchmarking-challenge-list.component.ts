@@ -1,12 +1,12 @@
 import { Component, Input, OnInit, AfterViewInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { run_summary_table } from "@inb/oeb-classification-table";
-// import { load_table } from '/home/vsundesh/public_html/bench_event_table/build/build.js';
-// declare let load_table: any;
 import { FormBuilder, FormControl, FormsModule } from "@angular/forms";
 import { Apollo } from "apollo-angular";
 import gql from "graphql-tag";
 import { Subject } from "rxjs";
+
+import { environment } from 'src/environments/environment';
 
 /**
  * benchmarking challenge list component
@@ -18,6 +18,10 @@ import { Subject } from "rxjs";
 })
 export class BenchmarkingChallengeListComponent
     implements OnInit, AfterViewInit {
+
+    public isProduction = environment.production;
+    public SCIENTIFIC_SERVICE_URL = environment.SCIENTIFIC_SERVICE_URL; 
+
     public challengeTrigger = new Subject();
 
     public dtOptions: DataTables.Settings = {};

@@ -10,7 +10,8 @@
             <div
                 class="oeb-table"
                 attr.data-benchmarkingevent="{{ beventsid }}"
-                data-mode="dev"
+                [attr.data-mode]="isProduction ? null : 'dev-openebench'"
+                attr.data-api-url="{{ SCIENTIFIC_SERVICE_URL }}"
             ></div>
             <br />
             <button

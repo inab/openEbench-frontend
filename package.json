@@ -28,7 +28,7 @@
         "@compodoc/compodoc": "^1.1.11",
         "@inb/oeb-chart-barplot": "^1.1.0",
         "@inb/oeb-chart-scatter": "^1.1.1",
-        "@inb/oeb-classification-table": "^1.0.0",
+        "@inb/oeb-classification-table": "^1.1.0",
         "@ng-bootstrap/ng-bootstrap": "^10.0.0",
         "@ngx-formly/bootstrap": "^5.10.22",
         "@ngx-formly/core": "^5.10.22",
