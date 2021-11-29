@@ -33,16 +33,13 @@
                         SSL
                     </span>
 
-                    <p ngClass="{{instance.metrics?.project?.license?  '' : 'hide-metric'}}">
-                        <b>License:</b>
-                        <span
-                            ngClass="{{instance.metrics?.project?.license?  '' : 'hide-metric'}} {{instance.metrics?.project?.license?.open_source? 'metrics-true' : 'metrics-false'}}">
-                            Open Source
-                        </span>
-                        <span
-                            ngClass="{{instance.metrics?.project?.license?  '' : 'hide-metric'}} {{instance.metrics?.project?.license?.osi? 'metrics-true' : 'metrics-false'}}">
-                            OSI
-                        </span>
+                <p
+                    ngClass="{{instance.metrics?.distribution? '' : 'hide-metric'}}">
+                    <b>Distribution : </b>
+                    <span
+                        ngClass="{{instance.metrics?.distribution? '' : 'hide-metric'}} {{instance.metrics?.distribution?.vre? '' : 'hide-metric'}} {{instance.metrics?.distribution?.vre? 'metrics-true' : 'metrics-false'}}">VRE</span>
+                    <span
+                        ngClass="{{instance.metrics?.distribution? '' : 'hide-metric'}} {{instance.metrics?.distribution?.sourcecode? '' : 'hide-metric'}} {{instance.metrics?.distribution?.sourcecode? 'metrics-true' : 'metrics-false'}}">Sourcecode</span>
             </p>
 
             <mat-tab-group (selectedTabChange)="onTabChange($event)">
@@ -87,7 +84,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div *ngIf="selectedValue.documentation || selectedValue.distribution" class="card border-light">
+                            <div *ngIf="selectedValue.documentation || selectedValue.license" class="card border-light">
                                 <p ngClass="{{selectedValue.documentation? '' : 'hide-metric'}} ">
                                     <b>Documentation : </b>
                                     <span
@@ -100,13 +97,9 @@
                                         ngClass="{{selectedValue.documentation? '' : 'hide-metric'}} {{selectedValue.documentation?.terms_of_use? 'metrics-true' : 'metrics-false'}}">Terms
                                         of use</span>
 
-                                <p
-                                    ngClass="{{selectedValue.distribution? '' : 'hide-metric'}}">
-                                    <b>Distribution : </b>
-                                    <span
-                                        ngClass="{{selectedValue.distribution? '' : 'hide-metric'}} {{selectedValue.distribution?.vre? '' : 'hide-metric'}} {{selectedValue.distribution?.vre? 'metrics-true' : 'metrics-false'}}">VRE</span>
-                                    <span
-                                        ngClass="{{selectedValue.distribution? '' : 'hide-metric'}} {{selectedValue.distribution?.sourcecode? '' : 'hide-metric'}} {{selectedValue.distribution?.sourcecode? 'metrics-true' : 'metrics-false'}}">Sourcecode</span>
+                                <p ngClass="{{selectedValue.license?  '' : 'hide-metric'}}">
+                                    <b>License:</b>
+                                    <span class="badge-no-color">{{selectedValue.license}}</span>                                                          
                             </div>
                             <hr>
                             <div class="card-group">
