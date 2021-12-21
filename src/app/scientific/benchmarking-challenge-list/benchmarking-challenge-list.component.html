@@ -1,11 +1,10 @@
 <span *ngIf="challengeGraphql; else loading">
     <span *ngIf="challengeGraphql.getChallenges.length > 1">
-        <h5>Challenges</h5>
+        <h3 class="h5">Summary table of all challenges of an Event</h3>
         <p>
-            Challenges are the different tests that the community uses to
+            Challenges are different tests that the community uses to
             benchmark their participants within a benchmarking event
         </p>
-        <p><b>Summary Table across all challenges in the Event</b></p>
         <div>
             <div
                 class="oeb-table"
@@ -15,13 +14,13 @@
             ></div>
             <br />
             <button
-                mat-raised-button
                 type="submit"
+                class="btn btn-primary"
                 (click)="filterChallenges(beventsid)"
                 matTooltip="Reload chart after selecting Challenges"
                 matTooltipPosition="right"
             >
-                Reload chart
+                Update chart
             </button>
         </div>
     </span>
@@ -29,12 +28,7 @@
 
 <br />
 <span *ngIf="challengeGraphql; else loading">
-    <br />
-    <br />
-    <p><b>Benchmarking Challenges List</b></p>
-    <hr />
-
-    <br />
+    <h4 class="h6 mt-4 mb-3">Here you can select challenges for filtering your results:</h4>
     <span>
         <table
             datatable
@@ -76,6 +70,16 @@
             </tbody>
         </table>
 
+        <button
+        *ngIf="challengeGraphql.getChallenges.length > 1"
+        type="submit"
+        class="btn btn-primary mb-3"
+        (click)="filterChallenges(beventsid)"
+        matTooltip="Reload chart after selecting Challenges"
+        matTooltipPosition="right"
+        >
+            Update chart
+        </button>
         <!-- <p> here : {{selectedChallenges}}</p> -->
     </span>
 
