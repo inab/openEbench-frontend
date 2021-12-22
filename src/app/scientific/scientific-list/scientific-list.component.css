@@ -6,27 +6,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    
 }
 
-.communities-card {
-    font-size: 14px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    width: 220px;
-    height : 220px;
-    margin: 5px;    
-    /* background-image: linear-gradient(rgba(255,255,255,0.89), rgba(255,255,255,0.89)), url('../../../assets/img/opeb_tooltip.gif'); */
-    background-size: cover;
-    text-align: justify;
+.community-card {
+    width: 250px;
 }
-
-.communities-card > p {    
-    
-    overflow: hidden;   
-}
-mat-card-subtitle {
-    font-size: 12px;
-}
-
-  
