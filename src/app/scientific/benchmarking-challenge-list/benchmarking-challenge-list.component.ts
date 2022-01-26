@@ -20,7 +20,8 @@ export class BenchmarkingChallengeListComponent
     implements OnInit, AfterViewInit {
 
     public isProduction = environment.production;
-    public SCIENTIFIC_SERVICE_URL = environment.SCIENTIFIC_SERVICE_URL; 
+    public SCIENTIFIC_SERVICE_URL = environment.SCIENTIFIC_SERVICE_URL;
+    public BENCH_EVENT_API_URL = environment.BENCH_EVENT_API_URL;
 
     public challengeTrigger = new Subject();
 

@@ -12,5 +12,6 @@ export const environment = {
   TOOL_SERVICE_URL : 'https://openebench.bsc.es/monitor/rest/aggregate',
   TOOL_STATISTICS_URL : 'https://openebench.bsc.es/monitor/rest/statistics',
   METRICS_STATISTICS_URL : 'https://openebench.bsc.es/monitor/rest/metrics/statistics',
-  SCIENTIFIC_SERVICE_URL : 'https://openebench.bsc.es/api/scientific/graphql'
+  SCIENTIFIC_SERVICE_URL : 'https://openebench.bsc.es/api/scientific/graphql',
+  BENCH_EVENT_API_URL : 'https://openebench.bsc.es/rest/bench_event_api'
 };
