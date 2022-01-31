@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
 .close-button{
     float: right;
     top:-24px;
@@ -26,8 +28,6 @@
   width: 110px;
   height: 40px;
 }
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
 *, *:before, *:after {
   margin: 0;
