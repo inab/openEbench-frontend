@@ -2,7 +2,7 @@ name: Docker Image CI Dev 2
 
 on:
   push:
-    branches: [ db/frontend-micro-app ]
+    branches: [ development-2 ]
 
 jobs:
   build:
