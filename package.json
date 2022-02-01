@@ -7,6 +7,8 @@
         "start": "ng serve",
         "build": "ng build --configuration production",
         "build-dev": "ng build --configuration dev_staging",
+        "build-prod-docker": "ng build --configuration prod_docker",
+        "build-dev-docker": "ng build --configuration dev_docker",
         "build-raw": "ng build",
         "test": "ng test",
         "lint": "ng lint",

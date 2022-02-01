@@ -83,12 +83,48 @@
                             "vendorChunk": false,
                             "buildOptimizer": true
                         },
-                        "dev2": {
+                        "dev_docker": {
+                            "optimization": {
+                                "scripts": true,
+                                "styles": {
+                                    "minify": true,
+                                    "inlineCritical": false
+                                },
+                                "fonts": true
+                            },
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
                             "fileReplacements": [
                               {
                                 "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.dev2.ts"
+                                "with": "src/environments/environment.dev.docker.ts"
                               }
+                            ]
+                        },
+                        "prod_docker": {
+                            "optimization": {
+                                "scripts": true,
+                                "styles": {
+                                    "minify": true,
+                                    "inlineCritical": false
+                                },
+                                "fonts": true
+                            },
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.docker.ts"
+                                }
                             ]
                         }
                     }

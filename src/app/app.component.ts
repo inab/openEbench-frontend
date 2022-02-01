@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
 import { filter } from "rxjs/operators";
 import { Title } from "@angular/platform-browser";
+import { environment } from 'src/environments/environment';
 
 declare var gtag;
 /**
@@ -17,6 +18,7 @@ declare var gtag;
  * expot app angular
  */
 export class AppComponent {
+    public ENV_HIDE_TOP_MENU = environment.ENV_HIDE_TOP_MENU;
     /**
      * title
      */

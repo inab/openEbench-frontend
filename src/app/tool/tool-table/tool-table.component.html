@@ -5,7 +5,7 @@
     <form [formGroup]="search" novalidate>
 
       <mat-form-field>
-        <input matInput placeholder="Filter" value="{{filterValue!=null? filterValue : ''}}" type="text"
+        <input matInput autofocus placeholder="Filter" value="{{filterValue!=null? filterValue : ''}}" type="text"
           formControlName='text'>
       </mat-form-field>
 
@@ -30,8 +30,8 @@
       </mat-form-field>
 
 
-      <button mat-raised-button type="submit" (click)='submitForm()' [disabled]="!search.valid" matTooltip="Go"
-        matTooltipPosition="right">submit</button>
+      <button mat-raised-button type="submit" color="primary" (click)='submitForm()' [disabled]="!search.valid" matTooltip="Go"
+        matTooltipPosition="right">Search Tool</button>
     </form>
   </div>
 
