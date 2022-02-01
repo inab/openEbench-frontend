@@ -1,5 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
+    <app-top-menu *ngIf="ENV_HIDE_TOP_MENU == false"></app-top-menu>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </div>
