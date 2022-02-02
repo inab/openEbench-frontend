@@ -5,7 +5,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: true,
+  production: false,
 
   ES_URL : 'https://dev-openebench.bsc.es/esapi/filter',
   AUTH_SERVER : 'https://inb.bsc.es/auth',
