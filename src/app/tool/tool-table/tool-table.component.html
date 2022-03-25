@@ -65,7 +65,7 @@
       </ng-container>
       <mat-row *matRowDef="let row; columns: ['tool-card'];"></mat-row>
     </mat-table>
-    <mat-paginator [length]="tools.length" [pageIndex]="1" [pageSize]="10" [pageSizeOptions]="[10,20]"
+    <mat-paginator [length]="length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[10,20,50]"
       (page)="changePage($event)">
     </mat-paginator>
   </div>
