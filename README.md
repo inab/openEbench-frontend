@@ -52,9 +52,8 @@ The respective docker compose files for the oeb landscape can be found in this r
 
 #### Stack
 
--   Angular 8.0+
-
--   3rd party Javascript libraries (c3 & D3)
+- Angular 8.0+
+- 3rd party Javascript libraries (c3 & D3)
 
 #### Useage
 
