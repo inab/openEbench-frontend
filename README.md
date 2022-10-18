@@ -48,7 +48,8 @@ The git workflow for building and pushing the Docker Image for <https://legacy.d
 
 ### Docker compose
 
-The respective docker compose files for the oeb landscape can be found in this repo: <https://github.com/inab/oeb-docker-compose>
+The respective docker compose files for the oeb landscape can be found in this repo: 
+<https://github.com/inab/oeb-docker-compose>
 
 #### Stack
 
