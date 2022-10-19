@@ -6,9 +6,9 @@ This is the web application for openebench
 
 The Deployment is set up with Docker and GIT workflows.
 
-`docker-image-dev.yml`, `docker-image-dev2.yml`, `docker-image-prod.yml` contain the
-GIT workflow specifications, using `DOCKER_HUB_USER_NAME` and `DOCKER_HUB_ACCESS_TOKEN`
-as Docker Hub credentials.
+`docker-image-dev.yml`, `docker-image-dev2.yml`, `docker-image-prod.yml`
+contain the GIT workflow specifications, using `DOCKER_HUB_USER_NAME`
+ and `DOCKER_HUB_ACCESS_TOKEN` as Docker Hub credentials.
 
 `Dockerfile.develop`, `Dockerfile.develop2` and `Dockerfile.production`
 contain the ENV variables and Build stage (nginx).
