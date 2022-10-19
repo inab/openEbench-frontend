@@ -6,9 +6,12 @@ This is the web application for openebench
 
 The Deployment is set up with Docker and GIT workflows.
 
-`docker-image-dev.yml`, `docker-image-dev2.yml`, `docker-image-prod.yml` contain the GIT workflow specifications, using `DOCKER_HUB_USER_NAME` and `DOCKER_HUB_ACCESS_TOKEN` as Docker Hub credentials.
+`docker-image-dev.yml`, `docker-image-dev2.yml`, `docker-image-prod.yml` contain the
+GIT workflow specifications, using `DOCKER_HUB_USER_NAME` and `DOCKER_HUB_ACCESS_TOKEN`
+as Docker Hub credentials.
 
-`Dockerfile.develop`, `Dockerfile.develop2` and `Dockerfile.production` contain the ENV variables and Build stage (nginx).
+`Dockerfile.develop`, `Dockerfile.develop2` and `Dockerfile.production`
+contain the ENV variables and Build stage (nginx).
 
 ### Production/Master
 
@@ -20,7 +23,10 @@ on:
     branches: [ master ]
 ```
 
-The git workflow for building and pushing the Docker Image for <https://legacy.dev-openebench.bsc.es/> and <https://legacy.openebench.bsc.es/> is triggered by a push to the `master` or `development` branch.
+The git workflow for building and pushing the Docker
+Image for <https://legacy.dev-openebench.bsc.es/>
+and <https://legacy.openebench.bsc.es/> is triggered
+by a push to the `master` or `development` branch.
 
 ### Development
 
@@ -32,7 +38,9 @@ on:
     branches: [ development ]
 ```
 
-The git workflow for building and pushing the Docker Image for <https://legacy.dev2-openebench.bsc.es/> is triggered by a push to the `development-2` branch.
+The git workflow for building and pushing the Docker Image
+for <https://legacy.dev2-openebench.bsc.es/>
+is triggered by a push to the `development-2` branch.
 
 ### Development-2
 
