@@ -44,12 +44,14 @@ on:
     branches: [ development-2 ]
 ```
 
-The git workflow for building and pushing the Docker Image for <https://legacy.dev2-openebench.bsc.es/> is triggered by a push to the `development-2` branch.
+The git workflow for building and pushing the Docker Image for
+<https://legacy.dev2-openebench.bsc.es/> is triggered by a push to the `development-2`
+branch.
 
 ### Docker compose
 
-The respective docker compose files for the oeb landscape can be found in this repo: 
-<https://github.com/inab/oeb-docker-compose>
+The respective docker compose files for the oeb landscape can be found in this repo:
+ <https://github.com/inab/oeb-docker-compose>
 
 #### Stack
 
